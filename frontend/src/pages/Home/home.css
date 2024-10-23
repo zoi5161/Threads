@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    margin: 0;
+    padding: 20px; /* Add some padding */
+}
+
+h1 {
+    color: #333; /* Dark gray color for the header */
+    text-align: center; /* Center the header */
+}
+
+a {
+    display: inline-block; /* Make the link block-level */
+    margin: 20px auto; /* Center the link with some margin */
+    padding: 10px 20px; /* Add padding for better clickability */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
