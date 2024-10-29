@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+    <div class="container my-5 p-4 bg-white rounded shadow-sm" style="max-width: 800px;">
+        <!-- Profile Header Section -->
+        <div class="d-flex flex-column flex-md-row align-items-center mb-4">
+            <div class="me-auto">
+                <h4 class="fw-bold mb-0">Thanh Tô</h4>
+                <p class="text-muted">@thanhthanh.quoc</p>
+                <p class="text-muted small">3 người theo dõi</p>
+            </div>
+            <button class="btn btn-outline-secondary">Chỉnh sửa trang cá nhân</button>
+            <img src="profile-pic.jpg" alt="Profile Picture" class="rounded-circle ms-3" style="width: 60px; height: 60px;">
+        </div>
+
+        <!-- Tabs Section -->
+        <ul class="nav nav-tabs mb-3" id="profileTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="thread-tab" data-bs-toggle="tab" data-bs-target="#thread" type="button" role="tab">Thread</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="replies-tab" data-bs-toggle="tab" data-bs-target="#replies" type="button" role="tab">Thread trả lời</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="reposts-tab" data-bs-toggle="tab" data-bs-target="#reposts" type="button" role="tab">Bài đăng lại</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content Section -->
+        <div class="tab-content mb-4" id="profileTabContent">
+            <div class="tab-pane fade show active" id="thread" role="tabpanel">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="profile-pic.jpg" alt="User Thumbnail" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                    <input type="text" class="form-control" placeholder="Có gì mới?">
+                    <button class="btn btn-primary ms-2">Đăng</button>
+                </div>
+                <!-- Threads List Container -->
+                <div id="threads-list"></div>
+            </div>
+            <div class="tab-pane fade" id="replies" role="tabpanel">
+                <p>Thread trả lời content...</p>
+            </div>
+            <div class="tab-pane fade" id="reposts" role="tabpanel">
+                <p>Bài đăng lại content...</p>
+            </div>
+        </div>
+
+        <!-- Action Cards Section -->
+        <div class="row text-center">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h6 class="card-title">Tạo thread</h6>
+                        <p class="card-text text-muted small">Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.</p>
+                        <button class="btn btn-dark">Tạo</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h6 class="card-title">Theo dõi 5 trang cá nhân</h6>
+                        <p class="card-text text-muted small">Tạo điều kiện để bảng feed của bạn hiển thị những thread bạn quan tâm.</p>
+                        <button class="btn btn-outline-dark">Xem trang cá nhân</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h6 class="card-title">Thêm tiểu sử</h6>
+                        <p class="card-text text-muted small">Hãy giới thiệu về bản thân để mọi người biết bạn là ai.</p>
+                        <button class="btn btn-dark">Thêm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Define a list of threads
+        const threads = [
+            { id: 1, content: "Đây là thread đầu tiên của tôi!", timestamp: "2 giờ trước" },
+            { id: 2, content: "Chia sẻ về chuyến đi cuối tuần vừa qua.", timestamp: "5 giờ trước" },
+            { id: 3, content: "Đã hoàn thành xong dự án mới!", timestamp: "1 ngày trước" },
+        ];
+
+        // Function to render threads
+        function renderThreads() {
+            const threadsList = document.getElementById("threads-list");
+            threads.forEach(thread => {
+                const threadElement = document.createElement("div");
+                threadElement.classList.add("card", "mb-3");
+                threadElement.innerHTML = `
+                    <div class="card-body">
+                        <p class="card-text">${thread.content}</p>
+                        <p class="text-muted small">${thread.timestamp}</p>
+                    </div>
+                `;
+                threadsList.appendChild(threadElement);
+            });
+        }
+
+        // Render the threads on page load
+        document.addEventListener("DOMContentLoaded", renderThreads);
+    </script>
+</body>
+</html>
