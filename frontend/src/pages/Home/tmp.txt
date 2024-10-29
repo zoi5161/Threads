@@ -1,178 +1,122 @@
-    <div class="container-fluid">
-        <!-- Dropdown Menu -->
-        <div class="dropdown-center">
-            <table>
-                <tr>
-                    <td style="color: white; font-size: 120%;">
-                        Dành cho bạn
-                    </td>
-                    <td>
-                        <button style="border-radius: 50%; background-color: black;"
-                            class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Dành cho bạn</a></li>
-                            <li><a class="dropdown-item" href="#">Đang theo dõi</a></li>
-                            <li><a class="dropdown-item" href="#">Đã thích</a></li>
-                            <li><a class="dropdown-item" href="#">Đã lưu</a></li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="search.css" />
+    <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="./search.js"></script>
+
+</head>
+
+<body>
+
+    <button id="plus_add_small">
+        <div class="add_small">
+            <i class="fa-solid fa-plus"></i>
         </div>
+    </button>
 
-        <div class="container_post">
-            <!-- Post 1 -->
-            <div class="post_new">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                </div>
-                <div class="content">Có gì mới?</div>
-                <button type="button" class="btn btn-dark"
-                    style="background-color: #1e1e1e; border-color: #888;">Đăng</button>
-            </div>
+    <!-- Menu phụ sẽ được hiển thị khi nhấn vào thumbtack -->
+    <div id="pin-menu">
+        <h4 style="text-align: center; font-size: 95%;">Ghim lên trang chủ</h4>
+        <input type="text" placeholder="Tìm kiếm từ khóa và trang cá nhân"
+            style="width: 100%; padding: 5px; margin-bottom: 10px; border-radius: 4px; color:white; background-color: black;">
+        <ul style="list-style-type: none; padding: 0; margin: 1rem 0;">
+            <li>Dành cho bạn</li>
+            <li>Đang theo dõi</li>
+            <li>Đã thích</li>
+            <li>Đã lưu</li>
+            <li>Tìm kiếm</li>
+            <li>Hoạt động</li>
+            <li>Trang cá nhân</li>
+        </ul>
+    </div>
 
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <div class="setting">...</div>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
 
-            <!-- Post 2 -->
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <div class="setting">...</div>
+    <div class="navibar">
+        <!-- Dropdown hiển thị sẵn -->
+        <div id="vertical_drop" class="dropdown">
+            <!-- Dropdown menu luôn hiển thị -->
+            <ul id="taskbar" class="dropdown-menu show" style="display: block; position: relative;">
+                <div class="logo">
+                    <li><a class="dropdown-item" href="#"><i class="fa-brands fa-threads"
+                                style="font-size: 175%;"></i></a></li>
                 </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
 
-            <!-- Post 3 -->
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <div class="setting">...</div>
+                <div class="mid">
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a class="dropdown-item" href="../Search/search.html"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-plus"></i></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-regular fa-heart"></i></a></li>
                 </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
 
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <div class="setting">...</div>
+                <div class="bot">
+                    <li><button class="dropdown-item" id="thumbtack-icon"><i
+                                class="fa-solid fa-thumbtack"></i></button></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bars-staggered"></i></a></li>
                 </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <div class="setting">...</div>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <div class="setting">...</div>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <div class="setting">...</div>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
+            </ul>
         </div>
     </div>
+
+
+    <div id="box_of_three_point">
+        Ghim lên trang chủ
+        <i class="fa-solid fa-thumbtack"></i>
+    </div>
+
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown-center">
+        <div class="container_nav">
+            <div class="nav_item"></div>
+
+            <div class="nav_item" style="color: white; font-size: 120%;">
+                Tìm kiếm
+            </div>
+            <button id="nav_item_3" class="nav_item" style="background-color: black; color: white;">
+                ...
+            </button>
+        </div>
+    </div>
+
+
+    <div class="suggestions-container">
+        <input type="text" placeholder="Tìm kiếm" class="search-box">
+        <h2>Gợi ý theo dõi</h2>
+        
+
+        <div class="suggestion">
+            <img src="profile1.jpg" alt="Diệu Nhi" class="profile-pic">
+            <div class="profile-info">
+                <span class="profile-name">Diệu Nhi</span>
+                <span class="followers-count">510K người theo dõi</span>
+            </div>
+            <button class="follow-btn">Theo dõi</button>
+        </div>
+
+        <div class="suggestion">
+            <img src="profile2.jpg" alt="Ninh Dương Lan Ngọc" class="profile-pic">
+            <div class="profile-info">
+                <span class="profile-name">Ninh Dương Lan Ngọc</span>
+                <span class="followers-count">479K người theo dõi</span>
+            </div>
+            <button class="follow-btn">Theo dõi</button>
+        </div>
+
+        
+    </div>
+</body>
+
+</html>

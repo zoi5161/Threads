@@ -2,6 +2,14 @@ body {
     background-color: #0a0a0a;
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+
+    box-sizing: border-box;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 
@@ -79,7 +87,6 @@ body {
 
 .nav_item {
     margin-top: 1rem;
-    border: 1px solid white;
 }
 #nav_item_3 {
     border-radius: 50%;
@@ -88,13 +95,29 @@ body {
     justify-content: center;
     align-items: center;
     font-weight: bolder;
+    border: 1px solid #3b3a3a;
 }
 
 
 
 /* Định dạng cho ô 3 chấm khi ấn vào hiện ra */
-
-
+#box_of_three_point {
+    display: none; /* Ban đầu ẩn menu */
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    right: 9rem; /* Điều chỉnh vị trí dọc theo nhu cầu của bạn */
+    top: 3.5rem; /* Điều chỉnh vị trí ngang theo nhu cầu của bạn */
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    width: 230px;
+    height: 50px;
+    z-index: 1000; /* Đặt z-index cao để nằm trên navibar */
+    border: 1px solid #3b3a3a;
+    justify-content: space-between;
+    align-items: center;
+}
 
 
 
@@ -121,7 +144,7 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     width: 400px;
     z-index: 1000; /* Đặt z-index cao để nằm trên navibar */
-    border: 1px solid #888;
+    border: 1px solid #3b3a3a;
 }
 
 
@@ -147,36 +170,27 @@ body {
 
 
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
 
-body {
-    background-color: #1c1c1c;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
 
+
+/* 
+Định dạng cho phần nội dung ở giữa */
 .suggestions-container {
-    width: 300px;
-    background-color: #2a2a2a;
-    padding: 20px;
-    border-radius: 10px;
+    width: 75%;
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #3b3a3a;
 }
-
 .search-box {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: none;
-    border-radius: 5px;
-    background-color: #3a3a3a;
+    border-radius: 15px;
+    background-color: #0a0a0a;
     color: #ffffff;
 }
 
@@ -189,18 +203,38 @@ h2 {
 .suggestion {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #888;
 }
 
-.profile-pic {
-    width: 40px;
-    height: 40px;
+.avatar {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
     border-radius: 50%;
+    background-color: #1e1e1e;
     margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 12px;
+    border: 1px solid #888;
 }
-
+.avatar img {
+    width: 60px;
+    height: 60px;
+}
 .profile-info {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.real-name {
+    color:#888888;
+    margin-bottom: 0.5rem;
 }
 
 .profile-name {
@@ -210,19 +244,19 @@ h2 {
 }
 
 .followers-count {
-    font-size: 12px;
-    color: #888888;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: white;
 }
 
 .follow-btn {
-    padding: 5px 10px;
-    background-color: #3a86ff;
+    padding: 5px 15px;
+    background-color: #1e1e1e;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 1px solid #888;
     cursor: pointer;
+    font-weight: bold;
 }
 
-.follow-btn:hover {
-    background-color: #0066cc;
-}

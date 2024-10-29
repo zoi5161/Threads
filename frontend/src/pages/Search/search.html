@@ -15,16 +15,14 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <script src="./home.js"></script>
+    <script src="./search.js"></script>
 
 </head>
 
 <body>
 
-    <button>
-        <div class="add_small">
-            <i id="plus_add_small" class="fa-solid fa-plus"></i>
-        </div>
+    <button class="add_small">
+        <i id="plus_add_small" class="fa-solid fa-plus"></i>
     </button>
 
     <!-- Menu phụ sẽ được hiển thị khi nhấn vào thumbtack -->
@@ -55,14 +53,14 @@
                 </div>
 
                 <div class="mid">
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a class="dropdown-item" href="../Home/home.html"><i class="fa-solid fa-house"></i></a></li>
                     <li><a class="dropdown-item" href="../Search/search.html"><i class="fa-solid fa-magnifying-glass"></i></a></li>
                     <li><a class="dropdown-item" href="#"><i class="fa-solid fa-plus"></i></a></li>
                     <li><a class="dropdown-item" href="#"><i class="fa-regular fa-heart"></i></a></li>
                 </div>
 
                 <div class="bot">
-                    <li><button onclick="click_ghim()" class="dropdown-item" id="thumbtack-icon"><i
+                    <li><button class="dropdown-item" id="thumbtack-icon"><i
                                 class="fa-solid fa-thumbtack"></i></button></li>
                     <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bars-staggered"></i></a></li>
                 </div>
@@ -71,48 +69,134 @@
     </div>
 
 
-    <div class="3_point">
-        <p>Ghim lên trang chủ</p>
+    <div id="box_of_three_point">
+        Ghim lên trang chủ
         <i class="fa-solid fa-thumbtack"></i>
     </div>
 
-    <div class="suggestions-container">
-        <!-- Dropdown Menu -->
-        <div class="dropdown-center">
-            <div class="container_nav">
-                <div class="nav_item"></div>
 
-                <div class="nav_item" style="color: white; font-size: 120%;">
-                    Tìm kiếm
-                </div>
-                <button onclick="click_3_point()" id="nav_item_3" class="nav_item" style="background-color: black; color: white;">
-                    ...
-                </button>
+    <!-- Dropdown Menu -->
+    <div class="dropdown-center">
+        <div class="container_nav">
+            <div class="nav_item"></div>
+
+            <div class="nav_item" style="color: white; font-size: 120%;">
+                Tìm kiếm
             </div>
+            <button id="nav_item_3" class="nav_item" style="background-color: black; color: white;">
+                ...
+            </button>
         </div>
+    </div>
+
+
+    <div class="suggestions-container">
+        <input type="text" placeholder="Tìm kiếm" class="search-box">
         <h2>Gợi ý theo dõi</h2>
         
         <!-- List of suggestions -->
         <div class="suggestion">
-            <img src="profile1.jpg" alt="Diệu Nhi" class="profile-pic">
+            <div class="avatar">
+                <img src="./image/dieu_nhi.jpg" alt="Diệu Nhi">
+            </div>
             <div class="profile-info">
-                <span class="profile-name">Diệu Nhi</span>
-                <span class="followers-count">510K người theo dõi</span>
+                <span class="profile-name">dieu_nhiii</span>
+                <span class="real-name">
+                    <!-- <i class="fa-solid fa-seedling" style="color: #2caa3b;"></i>
+                    Diệu Nhi
+                    <i class="fa-solid fa-seedling" style="color: #2caa3b;"></i> -->
+                    🍒 Diệu Nhi 🍒
+                </span>
+                <span class="followers-count" >511K người theo dõi</span>
             </div>
             <button class="follow-btn">Theo dõi</button>
         </div>
 
         <div class="suggestion">
-            <img src="profile2.jpg" alt="Ninh Dương Lan Ngọc" class="profile-pic">
+            <div class="avatar">
+                <img src="./image/ndln.jpg" alt="Ninh Dương Lan Ngọc">
+            </div>
             <div class="profile-info">
-                <span class="profile-name">Ninh Dương Lan Ngọc</span>
+                <span class="profile-name">ninh.duong.lan.ngoc</span>
+                <span class="real-name">
+                    Ninh Dương Lan Ngọc
+                </span>
                 <span class="followers-count">479K người theo dõi</span>
             </div>
             <button class="follow-btn">Theo dõi</button>
         </div>
 
         <!-- Add more suggestions as needed -->
+        <div class="suggestion">
+            <div class="avatar">
+                <img src="./image/nhagirlxinh.jpg" alt="nhagirlxinh">
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">nhagirlxinh</span>
+                <span class="real-name">
+                    𝐍𝐡𝐚̀ 𝐆𝐢𝐫𝐥 𝐗𝐢𝐧𝐡 💒
+                    <!-- <i class="fa-solid fa-house-fire" style="color: #fc1303;"></i> -->
+                </span>
+                <span class="followers-count">149K người theo dõi</span>
+            </div>
+            <button class="follow-btn">Theo dõi</button>
+        </div>
         
+        <div class="suggestion">
+            <div class="avatar">
+                <img src="./image/yan.jpg" alt="yannews">
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">yannewsc</span>
+                <span class="real-name">
+                    YAN News
+                </span>
+                <span class="followers-count">114K người theo dõi</span>
+            </div>
+            <button class="follow-btn">Theo dõi</button>
+        </div>
+
+        <div class="suggestion">
+            <div class="avatar">
+                <img src="./image/cungtamche.jpg" alt="cungtamche">
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">cungtamche</span>
+                <span class="real-name">
+                    Cung Tâm Chế
+                </span>
+                <span class="followers-count">26,9K người theo dõi</span>
+            </div>
+            <button class="follow-btn">Theo dõi</button>
+        </div>
+
+        <div class="suggestion">
+            <div class="avatar">
+                <img src="./image/yeah1.jpg" alt="yeah1_tv">
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">yeah1_tv</span>
+                <span class="real-name">
+                    YeaH1 TV
+                </span>
+                <span class="followers-count">20K người theo dõi</span>
+            </div>
+            <button class="follow-btn">Theo dõi</button>
+        </div>
+
+        <div class="suggestion">
+            <div class="avatar">
+                <img src="./image/amie.jpg" alt="aimee.iuu">
+            </div>
+            <div class="profile-info">
+                <span class="profile-name">ninh.duong.lan.ngoc</span>
+                <span class="real-name">
+                    𝐚𝐢𝐦𝐞́𝐞 𝜗𝜚˚⋆
+                </span>
+                <span class="followers-count">479K người theo dõi</span>
+            </div>
+            <button class="follow-btn">Theo dõi</button>
+        </div>
     </div>
 </body>
 
