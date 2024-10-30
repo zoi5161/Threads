@@ -4,51 +4,65 @@ body {
     width: 100%;
 }
 
-/* Nội dung chính giữa */
-.container-fluid {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    z-index: 10;
-}
-
-
-
-
-
-
-
 /* Định dạng cho thanh nav cố định bên trái */
 .navibar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 70px; /* Độ rộng của thanh nav */
+    width: 80px; /* Độ rộng của thanh nav */
     height: 100%; /* Chiều cao toàn màn hình */
     background-color: #0a0a0a; /* Màu nền tối cho thanh nav */
     display: flex;
     justify-content: center;
-    padding-top: 20px;
     z-index: 100;
 }
+
+.dropdown-menu {
+    --bs-dropdown-min-width: none;
+}
+
 /* Định dạng cho các icon và menu */
 #taskbar {
     background-color: #0a0a0a;
     position: relative;
 }
-.logo, .mid, .bot {
-    margin-bottom: 12rem;
+
+.dropdown-menu{
+    min-width: none;
+    background-color: #1e1e1e;
+}
+
+.dropdown-menu:nth-child(2){
+    border-color: #3b3a3a;
+}
+
+.dropdown-menu:nth-child(3){
+    padding-right: 5rem;
+    border-color: #3b3a3a;
+}
+
+li .dropdown-item{
+    background-color: #1e1e1e;
+    color: white;
+    margin: 10px 0;
+}
+
+.logo{
+    margin-bottom: 7rem;
+}
+
+.mid {
+    margin-bottom: 9rem;
 }
 
 #taskbar .dropdown-item {
     color: #e0e0e0;
     font-size: 24px; /* Kích thước của icon */
     text-align: center;
-    padding: 15px 0;
+    padding: 5px 10px;
+    margin-bottom: 1rem;
     background-color: #0a0a0a;
+    border-radius: 25%;
 }
 
 #taskbar .dropdown-item:hover {
@@ -68,17 +82,9 @@ body {
     background-color: #0a0a0a;
 }
 
-
-
-
-
-
-
-
-
 /* Thanh navi ngang trên cùng */
 .dropdown-center {
-    height: 5rem;
+    height: 3rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -89,44 +95,96 @@ body {
 
 }
 
+.container_nav {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
 
+.btn{
+    padding: 0;
+}
 
+.dropdown-toggle::after{
+    margin-left: 0;
+}
 
+/* Định dạng cho ô 3 chấm khi ấn vào hiện ra */
 
+/* Định dạng cho ô PIN khi ấn vào hiện ra */
+#pin-menu ul li {
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+#pin-menu ul li:hover {
+    background-color: #333;
+}
+
+#pin-menu {
+    display: none; /* Ban đầu ẩn menu */
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    bottom: 3rem; /* Điều chỉnh vị trí dọc theo nhu cầu của bạn */
+    left: 1rem; /* Điều chỉnh vị trí ngang theo nhu cầu của bạn */
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    z-index: 1000; /* Đặt z-index cao để nằm trên navibar */
+    border: 1px solid #888;
+}
+
+/* Định dạng cho ô vuông dấu + góc dưới bên phải */
+.add_small {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.5rem;
+    padding: 1.25rem 2rem; /* Default padding */
+    border: 1px solid #3b3a3a;
+    border-radius: 25%;
+    background-color: hsl(0, 0%, 12%);
+}
+
+#plus_add_small {
+    font-size: 25px;
+    color: #e0e0e0;
+}
+
+.add_small:hover {
+    transform: scale(1.1);
+}
+
+/* Nội dung chính giữa */
+.container-fluid {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding-right: 0px;
+    padding-left: 0px;
+}
 
 /* Định dạng cho các bài post */
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-}
-
-.container_post {
-    width: 80%;
-    padding: 20px;
 }
 
 /* Định dạng chung cho post */
 .post {
     background-color: #1e1e1e;
-    /* border-radius: 8px; */
     padding: 15px;
     color: #e0e0e0;
     border: 0.1px solid #3b3a3a;
+    width: 73%;
+    margin-left: 13%;
 }
 
-.post_new {
-    margin-top: 4rem;
-    display: flex;
-    align-items: center;
-    background-color: #1e1e1e;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    padding: 10px;
-    border: 0.1px solid #3b3a3a;
-
-}
 .content {
     background-color: #1e1e1e;
     color: #e0e0e0;
@@ -142,16 +200,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin: 10px 0px 0px 0px;
+}
+.post:nth-of-type(1) {
+    margin-top: 2rem;
+    border-radius: 20px 20px 0px 0px;
 }
 
 .avatar {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #333;
     overflow: hidden;
-    margin-right: 10px;
+    margin: 0px 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -189,15 +251,22 @@ body {
 .post-content {
     font-size: 15px;
     margin-bottom: 10px;
-    margin-left: 40px;
+    margin-left: 5rem;
     color: #e0e0e0;
+}
+
+.post-description {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-left: 5rem;
+    color: #e0e0e077;
 }
 
 /* Footer của bài viết */
 .post-footer {
     display: flex;
     gap: 15px;
-    margin-left: 40px;
+    margin-left: 5rem;
     font-size: 14px;
     color: #888;
 }
@@ -213,51 +282,6 @@ body {
     font-size: 16px;
 }
 
-
-
-
-
-/* Định dạng cho ô PIN khi ấn vào hiện ra */
-#pin-menu ul li {
-    padding: 8px 0;
-    cursor: pointer;
-}
-
-#pin-menu ul li:hover {
-    background-color: #333;
-}
-
-#pin-menu {
-    display: none; /* Ban đầu ẩn menu */
-    position: absolute; /* Đặt vị trí tuyệt đối */
-    bottom: 3rem; /* Điều chỉnh vị trí dọc theo nhu cầu của bạn */
-    left: 1rem; /* Điều chỉnh vị trí ngang theo nhu cầu của bạn */
-    background-color: #222;
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    width: 400px;
-    z-index: 1000; /* Đặt z-index cao để nằm trên navibar */
-    border: 1px solid #888;
-}
-
-
-/* Định dạng cho ô vuông dấu + góc dưới bên phải */
-.add_small {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    padding: 1.5rem 2rem; /* Default padding */
-    border: 1px solid #3b3a3a;
-    border-radius: 20px;
-    background-color: #1e1e1e;
-}
-#plus_add_small {
-    font-size: 35px;
-    color: #e0e0e0;
-}
-
-.add_small:hover {
-    padding: 1.75rem 2.25rem; /* Hover padding */
+.numAction{
+    margin-right: 0.75rem;
 }
