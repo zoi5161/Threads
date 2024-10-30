@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Định dạng cho thanh nav cố định bên trái */
+.navibar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px; /* Độ rộng của thanh nav */
+    height: 100%; /* Chiều cao toàn màn hình */
+    background-color: #0a0a0a; /* Màu nền tối cho thanh nav */
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+
+.dropdown-menu {
+    --bs-dropdown-min-width: none;
+}
+
+/* Định dạng cho các icon và menu */
+#taskbar {
+    background-color: #0a0a0a;
+    position: relative;
+}
+
+.dropdown-menu{
+    min-width: none;
+    background-color: #1e1e1e;
+}
+
+.dropdown-menu:nth-child(2){
+    border-color: #3b3a3a;
+}
+
+.dropdown-menu:nth-child(3){
+    padding-right: 5rem;
+    border-color: #3b3a3a;
+}
+
+li .dropdown-item{
+    background-color: #1e1e1e;
+    color: white;
+    margin: 1rem 0;
+}
+
+.logo{
+    margin-bottom: 7rem;
+}
+
+.mid {
+    margin-bottom: 9rem;
+}
+
+#taskbar .dropdown-item {
+    color: #e0e0e0;
+    font-size: 24px; /* Kích thước của icon */
+    text-align: center;
+    padding: 5px 1rem;
+    margin-bottom: 1rem;
+    background-color: #0a0a0a;
+    border-radius: 25%;
+}
+
+#taskbar .dropdown-item:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.dropdown:not(#vertical_drop) {
+    position: fixed;
+    display: flex;
+    color: white;
+    justify-content: center;
+    width: 100%;
+    height: 60px; /* Chiều cao cụ thể cho header */
+    top: 0;
+    left: 0;
+    background-color: #0a0a0a;
+}
+
+/* Thanh navi ngang trên cùng */
+.dropdown-center {
+    height: 3rem;
+    background-color: #0a0a0a;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.container_nav {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.btn{
+    padding: 0;
+}
+
+.dropdown-toggle::after{
+    margin-left: 0;
+}
+
+/* Định dạng cho ô 3 chấm khi ấn vào hiện ra */
+
+/* Định dạng cho ô PIN khi ấn vào hiện ra */
+#pin-menu ul li {
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+#pin-menu ul li:hover {
+    background-color: #333;
+}
+
+#pin-menu {
+    display: none; /* Ban đầu ẩn menu */
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    bottom: 3rem; /* Điều chỉnh vị trí dọc theo nhu cầu của bạn */
+    left: 1rem; /* Điều chỉnh vị trí ngang theo nhu cầu của bạn */
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    z-index: 1000; /* Đặt z-index cao để nằm trên navibar */
+    border: 1px solid #888;
+}
+
+/* Định dạng cho ô vuông dấu + góc dưới bên phải */
+.add_small {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.5rem;
+    padding: 1.25rem 2rem; /* Default padding */
+    border: 1px solid #3b3a3a;
+    border-radius: 25%;
+    background-color: hsl(0, 0%, 12%);
+}
+
+#plus_add_small {
+    font-size: 25px;
+    color: #e0e0e0;
+}
+
+.add_small:hover {
+    transform: scale(1.1);
+}
+
+/* Nội dung chính giữa */
+.container-fluid {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    z-index: 10;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+/* Css for page profile */
+main{
+    width: 40%;
+}
+
+.content_wrapper{
+    height: calc(100% - 3rem);
+    background-color: rgb(24 24 24);
+    border-radius: 2rem 2rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info_wrapper
+{
+    padding: 1.5rem 2rem 0.5rem;
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.name_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    line-height: 0.5rem;
+}
+
+.user_name{
+    font-weight: bold;
+}
+
+.user_handle{
+    font-family: sans-serif;
+}
+
+.user_avatar {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+}
+
+.bio{
+    color: white;
+    margin-top: 1rem;
+}
+
+.info_with_link_wrapper {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Full width for the container */
+}
+
+.follower_wrapper {
+    flex-basis: 20%;
+}
+
+.social_link_container {
+    flex-basis: 70%;
+}
+
+
+.insta_wrapper {
+    flex-basis: 10%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+/* Them a o follower wrapper */
+.social_link_wrapper a, .follower_wrapper{
+    text-decoration: none;
+    color: color(display-p3 0.43 0.43 0.43);
+}
+.insta_wrapper a{
+    color: white;
+}
+/* Chỉnh sửa trang cá nhân button */
+.edit{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+
+.edit_btn{
+    border: 1px solid color(display-p3 0.22 0.22 0.22);
+    background-color: #181818;
+    color: white;
+    width: 90%;
+    padding: 0.7rem 0;
+    border-radius: 0.5rem;
+    font-weight: bold;
+}
+
+/* Tab section */
+.tab_section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.tab_section a{
+    text-decoration: none;
+    color: color(display-p3 0.43 0.43 0.43);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid color(display-p3 0.22 0.22 0.22);
+    flex-basis: calc(100% / 3);
+    text-align: center;
+}
+
+/* Create Thread */
+
+.create_thread{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid color(display-p3 0.22 0.22 0.22);
+}
+
+.create_thread img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.create_thread_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin-left: 0.5rem;
+    flex-basis: 80%;
+    color: color(display-p3 0.43 0.43 0.43);
+}
+
+.create_thread button{
+    border: 1px solid color(display-p3 0.22 0.22 0.22);
+    background-color: #181818;
+    color: white;
+    padding: 0.2rem 0;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    flex-basis: 15%;
+}
+
+
+/* Định dạng chung cho post */
+.post {
+    background-color: #1e1e1e;
+    padding: 1rem 2rem;
+    color: #e0e0e0;
+    border-bottom: 1px solid #3b3a3a;
+}
+
+
+/* Phần đầu của post */
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #333;
+    overflow: hidden;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.username-time {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1rem;
+    gap: 1rem;
+}
+
+.username {
+    font-weight: bold;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+.time {
+    font-size: 1rem;
+    color: #888;
+}
+
+.setting {
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Nội dung bài viết */
+.post-content {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 5rem;
+    color: #e0e0e0;
+}
+
+.post-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 5rem;
+    color: #e0e0e077;
+}
+
+/* Footer của bài viết */
+.post-footer {
+    display: flex;
+    gap: 1rem;
+    margin-left: 5rem;
+    font-size: 1rem;
+    color: #888;
+}
+
+.post-footer div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.5rem;
+}
+
+.post-footer i {
+    font-size: 1rem;
+}
+
+.numAction{
+    margin-right: 0.75rem;
+}
