@@ -21,6 +21,40 @@ document.addEventListener("DOMContentLoaded", function () {
             pinMenu.style.display = "none";
         }
     });
+
+    // Get DOM elements
+    const plusIcon = document.querySelector('#plus_icon'); // Your plus icon button
+    const plusBox = document.getElementById('plus_box');
+    const plusSmall = document.querySelector('.add_small');
+    const overlay = document.getElementById('overlay');
+    const cancelBtn = document.querySelector('.cancel-btn');
+
+    // Show modal function
+    function showModal() {
+        overlay.classList.remove('hidden');
+        plusBox.classList.remove('hidden');
+        // Prevent scrolling when modal is open
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Hide modal function
+    function hideModal() {
+        overlay.classList.add('hidden');
+        plusBox.classList.add('hidden');
+        // Re-enable scrolling
+        document.body.style.overflow = 'auto';
+    }
+
+    // Event listeners
+    plusIcon.addEventListener('click', showModal);
+    plusSmall.addEventListener('click', showModal);
+    cancelBtn.addEventListener('click', hideModal);
+    overlay.addEventListener('click', hideModal);
+
+    // Prevent modal from closing when clicking inside it
+    plusBox.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
 });
 
 

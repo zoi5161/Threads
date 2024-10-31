@@ -22,33 +22,42 @@
 
 <body>
 
-    <div id="plus_box" class="thread-container overlay">
+    <div id="overlay" class="overlay hidden"></div>
+    <div id="plus_box" class="thread-container hidden">
         <div class="header">
-            <a href="#" style="text-decoration: none; color: white;">Hủy</a>
+            <button class="cancel-btn" style="font-size: 100%; font-weight: bold;">Hủy</button>
             <span>Thread mới</span>
-            <span></span>
+            <div></div>
         </div>
-        <hr>
-
-        <div class="plus_body">
-            <div class="avatar">avt</div>
+        <hr class="divider">
         
-            <div class="input-section">
-                <div class="username">_.vteif</div>
-                <textarea class="input-box" placeholder="Có gì mới?"></textarea>
-                <div class="icon-group">
-                    <i>📷</i>
-                    <i>GIF</i>
-                    <i>#</i>
-                    <i>📍</i>
-                </div>
+        <div class="plus_body">
+            <div class="avatar">
+                <img src="path_to_avatar.jpg" alt="User avatar">
             </div>
+            
+            <form action="#" method="get">
+                <div class="input-section">
+                    <div class="username">_vteif</div>
+                    <textarea class="input-box" placeholder="Có gì mới?"></textarea>
+                    <div class="icon-group">
+                        <label for="image-upload" class="upload-icon">
+                            <i class="fa-regular fa-image"></i>
+                            <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                        </label>
+                        <button type="button">GIF</button>
+                        <button type="button"><i class="fa-solid fa-hashtag"></i></button>
+                        <button type="button"><i class="fa-solid fa-location-dot"></i></button>
+                    </div>
+                </div>
+            </form>
         </div>
+
         <div class="plus_footer">
-            <button style="margin-top: 10px; color: #b0b0b0; font-size: 1em; background-color: #1e1e1e; border: none;">
+            <button class="reply-settings">
                 Bất kỳ ai cũng có thể trả lời và trích dẫn
             </button>
-            <button class="button">Đăng</button>
+            <button class="post-btn">Đăng</button>
         </div>
     </div>
       
@@ -89,7 +98,7 @@
                 <div class="mid">
                     <li><a class="dropdown-item" href="#"><i class="fa-solid fa-house"></i></a></li>
                     <li><a class="dropdown-item" href="../Search/search.html"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                    <li><a class="dropdown-item" href="#plus_box"><i class="fa-solid fa-plus"></i></a></li>
+                    <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></></li>
                     <li><a class="dropdown-item" href="#"><i class="fa-regular fa-heart"></i></a></li>
                 </div>
 
@@ -182,6 +191,66 @@
             </div>
 
             <!-- Post 3 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar">avt</div>
+                    <div class="username-time">
+                        <div class="username">_10.nov_</div>
+                        <div class="time">27 phút</div>
+                    </div>
+                    <div class="setting">...</div>
+                </div>
+                <div class="post-content">
+                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
+                    nữa cho vui
+                </div>
+                <div class="post-footer">
+                    <div><i class="far fa-heart"></i>4</div>
+                    <div><i class="far fa-comment"></i>2</div>
+                    <div><i class="fas fa-share"></i></div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar">avt</div>
+                    <div class="username-time">
+                        <div class="username">_10.nov_</div>
+                        <div class="time">27 phút</div>
+                    </div>
+                    <div class="setting">...</div>
+                </div>
+                <div class="post-content">
+                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
+                    nữa cho vui
+                </div>
+                <div class="post-footer">
+                    <div><i class="far fa-heart"></i>4</div>
+                    <div><i class="far fa-comment"></i>2</div>
+                    <div><i class="fas fa-share"></i></div>
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <div class="avatar">avt</div>
+                    <div class="username-time">
+                        <div class="username">_10.nov_</div>
+                        <div class="time">27 phút</div>
+                    </div>
+                    <div class="setting">...</div>
+                </div>
+                <div class="post-content">
+                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
+                    nữa cho vui
+                </div>
+                <div class="post-footer">
+                    <div><i class="far fa-heart"></i>4</div>
+                    <div><i class="far fa-comment"></i>2</div>
+                    <div><i class="fas fa-share"></i></div>
+                </div>
+            </div>
+
             <div class="post">
                 <div class="post-header">
                     <div class="avatar">avt</div>
