@@ -9,12 +9,11 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 80px; /* Độ rộng của thanh nav */
+    width: 5%; /* Độ rộng của thanh nav */
     height: 100%; /* Chiều cao toàn màn hình */
     background-color: #0a0a0a; /* Màu nền tối cho thanh nav */
     display: flex;
     justify-content: center;
-    z-index: 100;
 }
 
 .dropdown-menu {
@@ -24,7 +23,12 @@ body {
 /* Định dạng cho các icon và menu */
 #taskbar {
     background-color: #0a0a0a;
-    position: relative;
+    height: 100vh; /* Taskbar chiếm toàn bộ chiều cao màn hình */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Để các phần tử con có thể sử dụng absolute positioning */
+    padding-top: 1rem; /* Khoảng cách phía trên cho logo */
 }
 
 .dropdown-menu{
@@ -33,6 +37,7 @@ body {
 }
 
 .dropdown-menu:nth-child(2){
+    padding-right: 5rem;
     border-color: #3b3a3a;
 }
 
@@ -44,15 +49,35 @@ body {
 li .dropdown-item{
     background-color: #1e1e1e;
     color: white;
-    margin: 10px 0;
 }
 
-.logo{
-    margin-bottom: 7rem;
+.logo {
+    margin-top: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5%;
 }
 
 .mid {
-    margin-bottom: 9rem;
+    position: absolute;
+    top: 30%; /* Cách phần trên của taskbar 9vh */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Chiều rộng full để căn giữa */
+}
+
+.bot {
+    position: absolute;
+    bottom: 8%; 
+    transform: translateY(50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Chiều rộng full để căn giữa */
 }
 
 #taskbar .dropdown-item {
@@ -87,18 +112,12 @@ li .dropdown-item{
     height: 3rem;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 80px;
     background-color: #0a0a0a;
-    width: 100%;
+    width: calc(100% - 80px);
     display: flex;
     justify-content: center;
 
-}
-
-.container_nav {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
 }
 
 .btn{
@@ -159,13 +178,22 @@ li .dropdown-item{
 /* Nội dung chính giữa */
 .container-fluid {
     height: 100%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 10;
     padding-right: 0px;
     padding-left: 0px;
+}
+
+.container_post_header{
+    display: flex;
+    justify-content: center;
+}
+
+.container_post{
+    width: 45%;
 }
 
 /* Định dạng cho các bài post */
@@ -178,11 +206,15 @@ li .dropdown-item{
 /* Định dạng chung cho post */
 .post {
     background-color: #1e1e1e;
-    padding: 15px;
+    padding: 15px 0px;
     color: #e0e0e0;
     border: 0.1px solid #3b3a3a;
-    width: 73%;
-    margin-left: 13%;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.post:not(:first-child):not(:last-child) {
+
 }
 
 .content {
@@ -202,8 +234,8 @@ li .dropdown-item{
     justify-content: space-between;
     margin: 10px 0px 0px 0px;
 }
-.post:nth-of-type(1) {
-    margin-top: 2rem;
+
+#postTop {
     border-radius: 20px 20px 0px 0px;
 }
 
@@ -251,7 +283,7 @@ li .dropdown-item{
 .post-content {
     font-size: 15px;
     margin-bottom: 10px;
-    margin-left: 5rem;
+    margin: 0px 5rem;
     color: #e0e0e0;
 }
 
