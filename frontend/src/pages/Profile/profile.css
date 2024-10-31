@@ -15,9 +15,12 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 80px; /* Độ rộng của thanh nav */
-    height: 100%; /* Chiều cao toàn màn hình */
-    background-color: #0a0a0a; /* Màu nền tối cho thanh nav */
+    width: 80px;
+    /* Độ rộng của thanh nav */
+    height: 100%;
+    /* Chiều cao toàn màn hình */
+    background-color: #0a0a0a;
+    /* Màu nền tối cho thanh nav */
     display: flex;
     justify-content: center;
     z-index: 100;
@@ -33,27 +36,27 @@ body {
     position: relative;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     min-width: none;
     background-color: #1e1e1e;
 }
 
-.dropdown-menu:nth-child(2){
+.dropdown-menu:nth-child(2) {
     border-color: #3b3a3a;
 }
 
-.dropdown-menu:nth-child(3){
+.dropdown-menu:nth-child(3) {
     padding-right: 5rem;
     border-color: #3b3a3a;
 }
 
-li .dropdown-item{
+li .dropdown-item {
     background-color: #1e1e1e;
     color: white;
     margin: 1rem 0;
 }
 
-.logo{
+.logo {
     margin-bottom: 7rem;
 }
 
@@ -63,7 +66,8 @@ li .dropdown-item{
 
 #taskbar .dropdown-item {
     color: #e0e0e0;
-    font-size: 24px; /* Kích thước của icon */
+    font-size: 24px;
+    /* Kích thước của icon */
     text-align: center;
     padding: 5px 1rem;
     margin-bottom: 1rem;
@@ -82,7 +86,8 @@ li .dropdown-item{
     color: white;
     justify-content: center;
     width: 100%;
-    height: 60px; /* Chiều cao cụ thể cho header */
+    height: 60px;
+    /* Chiều cao cụ thể cho header */
     top: 0;
     left: 0;
     background-color: #0a0a0a;
@@ -104,11 +109,11 @@ li .dropdown-item{
     width: 70%;
 }
 
-.btn{
+.btn {
     padding: 0;
 }
 
-.dropdown-toggle::after{
+.dropdown-toggle::after {
     margin-left: 0;
 }
 
@@ -125,17 +130,22 @@ li .dropdown-item{
 }
 
 #pin-menu {
-    display: none; /* Ban đầu ẩn menu */
-    position: absolute; /* Đặt vị trí tuyệt đối */
-    bottom: 3rem; /* Điều chỉnh vị trí dọc theo nhu cầu của bạn */
-    left: 1rem; /* Điều chỉnh vị trí ngang theo nhu cầu của bạn */
+    display: none;
+    /* Ban đầu ẩn menu */
+    position: absolute;
+    /* Đặt vị trí tuyệt đối */
+    bottom: 3rem;
+    /* Điều chỉnh vị trí dọc theo nhu cầu của bạn */
+    left: 1rem;
+    /* Điều chỉnh vị trí ngang theo nhu cầu của bạn */
     background-color: #222;
     color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     width: 400px;
-    z-index: 1000; /* Đặt z-index cao để nằm trên navibar */
+    z-index: 1000;
+    /* Đặt z-index cao để nằm trên navibar */
     border: 1px solid #888;
 }
 
@@ -144,7 +154,8 @@ li .dropdown-item{
     position: fixed;
     bottom: 1.25rem;
     right: 1.5rem;
-    padding: 1.25rem 2rem; /* Default padding */
+    padding: 1.25rem 2rem;
+    /* Default padding */
     border: 1px solid #3b3a3a;
     border-radius: 25%;
     background-color: hsl(0, 0%, 12%);
@@ -172,11 +183,12 @@ li .dropdown-item{
 }
 
 /* Css for page profile */
-main{
+main {
     width: 40%;
+    min-width: 400px;
 }
 
-.content_wrapper{
+.content_wrapper {
     height: calc(100% - 3rem);
     background-color: rgb(24 24 24);
     border-radius: 2rem 2rem 0 0;
@@ -185,8 +197,7 @@ main{
     align-items: center;
 }
 
-.info_wrapper
-{
+.info_wrapper {
     padding: 1.5rem 2rem 0.5rem;
     width: 100%;
 }
@@ -205,11 +216,11 @@ main{
     line-height: 0.5rem;
 }
 
-.user_name{
+.user_name {
     font-weight: bold;
 }
 
-.user_handle{
+.user_handle {
     font-family: sans-serif;
 }
 
@@ -219,7 +230,7 @@ main{
     border-radius: 50%;
 }
 
-.bio{
+.bio {
     color: white;
     margin-top: 1rem;
 }
@@ -228,61 +239,110 @@ main{
     margin-top: 1rem;
     display: flex;
     align-items: center;
-    width: 100%; /* Full width for the container */
+    width: 100%;
+    /* Full width for the container */
 }
 
 .follower_wrapper {
-    flex-basis: 20%;
+    flex-basis: auto;
+    text-wrap: nowrap;
 }
 
 .social_link_container {
-    flex-basis: 70%;
+    flex-basis: auto;
+    margin-left: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+.profile_btn_wrapper{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+}
 
-.insta_wrapper {
-    flex-basis: 10%;
+.insta_wrapper, .option_wrapper {
+    flex-basis: auto;
+    margin: 0 0.5rem;
     display: flex;
     justify-content: end;
     align-items: center;
 }
 
+.option_wrapper {
+    display: none;
+}
+
+.option_btn {
+    border-radius: 50%;
+    border: 1px solid white;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #181818;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
 /* Them a o follower wrapper */
-.social_link_wrapper a, .follower_wrapper{
+.social_link_wrapper a, .follower_wrapper {
     text-decoration: none;
     color: color(display-p3 0.43 0.43 0.43);
 }
-.insta_wrapper a{
+
+.insta_wrapper a {
     color: white;
 }
+
 /* Chỉnh sửa trang cá nhân button */
-.edit{
+.edit, .other_profile_wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 1rem;
+    color: white;
 }
 
-
-.edit_btn{
+.edit_btn, .follow, .tag {
     border: 1px solid color(display-p3 0.22 0.22 0.22);
     background-color: #181818;
     color: white;
-    width: 90%;
-    padding: 0.7rem 0;
+    width: 100%;
+    padding: 0.5rem 0;
     border-radius: 0.5rem;
     font-weight: bold;
 }
 
+/* Nút follow và tag */
+.other_profile_wrapper {
+    justify-content: center;
+    gap: 2%;
+    display: none;
+}
+
+
+.follow, .tag {
+    flex-basis: 49%;
+    text-align: center;
+}
+
+.follow {
+    background-color: white;
+    color: black;
+    font-weight: 500;
+}
+
 /* Tab section */
-.tab_section{
+.tab_section {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 1rem;
 }
 
-.tab_section a{
+.tab_section a {
     text-decoration: none;
     color: color(display-p3 0.43 0.43 0.43);
     font-weight: bold;
@@ -292,9 +352,14 @@ main{
     text-align: center;
 }
 
+#thread {
+    border-bottom: 1px solid white;
+    color: white;
+}
+
 /* Create Thread */
 
-.create_thread{
+.create_thread {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -302,13 +367,13 @@ main{
     border-bottom: 1px solid color(display-p3 0.22 0.22 0.22);
 }
 
-.create_thread img{
+.create_thread img {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
 }
 
-.create_thread_content{
+.create_thread_content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -318,7 +383,7 @@ main{
     color: color(display-p3 0.43 0.43 0.43);
 }
 
-.create_thread button{
+.create_thread button {
     border: 1px solid color(display-p3 0.22 0.22 0.22);
     background-color: #181818;
     color: white;
@@ -421,6 +486,6 @@ main{
     font-size: 1rem;
 }
 
-.numAction{
+.numAction {
     margin-right: 0.75rem;
 }
