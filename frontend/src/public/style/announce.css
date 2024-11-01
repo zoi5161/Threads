@@ -1,0 +1,27 @@
+body {
+    background-color: #0a0a0a;
+    height: 100%;
+    width: 100%;
+}
+
+/* Định dạng cho ô 3 chấm khi ấn vào hiện ra */
+
+/* Định dạng cho ô vuông dấu + góc dưới bên phải */
+.add_small {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.5rem;
+    padding: 1.25rem 2rem; /* Default padding */
+    border: 1px solid #3b3a3a;
+    border-radius: 25%;
+    background-color: hsl(0, 0%, 12%);
+}
+
+#plus_add_small {
+    font-size: 25px;
+    color: #e0e0e0;
+}
+
+.add_small:hover {
+    transform: scale(1.1);
+}

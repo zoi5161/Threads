@@ -1,0 +1,139 @@
+
+
+/* Nội dung chính giữa */
+.container-fluid {
+    height: 100%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.container_post_header{
+    display: flex;
+    justify-content: center;
+}
+
+.container_post{
+    width: 45%;
+}
+
+/* Định dạng chung cho post */
+.post {
+    background-color: #1e1e1e;
+    padding: 15px 0px;
+    color: #e0e0e0;
+    border: 0.1px solid #3b3a3a;
+    width: 100%;
+    box-sizing: content-box;
+
+}
+
+.post:not(:first-child):not(:last-child) {
+
+}
+
+.content {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-right: 10px;
+    display: grid;
+    justify-content: flex-start;
+}
+
+/* Phần đầu của post */
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0px 0px 0px;
+    width: 95%;
+}
+
+#postTop {
+    border-radius: 20px 20px 0px 0px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    overflow: hidden;
+    margin: 0px 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 12px;
+}
+
+.username-time {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    gap: 10px;
+}
+
+.username {
+    font-weight: bold;
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.time {
+    font-size: 12px;
+    color: #888;
+}
+
+.setting {
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Nội dung bài viết */
+.post-content {
+    font-size: 15px;
+    margin: 0px 5rem;
+    margin-bottom: 1rem;
+    color: #e0e0e0;
+}
+
+.post-description {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-left: 5rem;
+    color: #e0e0e077;
+}
+
+/* Footer của bài viết */
+.post-footer {
+    display: flex;
+    gap: 15px;
+    margin-left: 5rem;
+    font-size: 14px;
+    color: #888;
+}
+
+.post-footer div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.post-footer i {
+    font-size: 16px;
+}
+
+.numAction{
+    margin-right: 0.75rem;
+}

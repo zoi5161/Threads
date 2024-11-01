@@ -1,0 +1,137 @@
+/* Định dạng cho thanh nav cố định bên trái */
+.navibar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5%; /* Độ rộng của thanh nav */
+    height: 100%; /* Chiều cao toàn màn hình */
+    background-color: #0a0a0a; /* Màu nền tối cho thanh nav */
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-menu {
+    --bs-dropdown-min-width: none;
+}
+
+/* Định dạng cho các icon và menu */
+#taskbar {
+    background-color: #0a0a0a;
+    height: 100vh; /* Taskbar chiếm toàn bộ chiều cao màn hình */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Để các phần tử con có thể sử dụng absolute positioning */
+    padding-top: 1rem; /* Khoảng cách phía trên cho logo */
+}
+
+.dropdown-menu{
+    min-width: none;
+    background-color: #1e1e1e;
+}
+
+.dropdown-menu:nth-child(2){
+    padding-right: 5rem;
+    border-color: #3b3a3a;
+}
+
+.dropdown-menu:nth-child(3){
+    padding-right: 5rem;
+    border-color: #3b3a3a;
+}
+
+li .dropdown-item{
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.logo {
+    margin-top: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5%;
+}
+
+.mid {
+    position: absolute;
+    top: 30%; /* Cách phần trên của taskbar 9vh */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Chiều rộng full để căn giữa */
+}
+
+.bot {
+    position: absolute;
+    bottom: 8%; 
+    transform: translateY(50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Chiều rộng full để căn giữa */
+}
+
+#taskbar .dropdown-item {
+    color: #e0e0e0;
+    font-size: 24px; /* Kích thước của icon */
+    text-align: center;
+    padding: 5px 10px;
+    margin-bottom: 1rem;
+    background-color: #0a0a0a;
+    border-radius: 25%;
+}
+
+#taskbar .dropdown-item:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.dropdown:not(#vertical_drop) {
+    position: fixed;
+    display: flex;
+    color: white;
+    justify-content: center;
+    width: 100%;
+    height: 60px; /* Chiều cao cụ thể cho header */
+    top: 0;
+    left: 0;
+    background-color: #0a0a0a;
+}
+
+/* Định dạng cho ô PIN khi ấn vào hiện ra */
+#pin-menu .bi.bi-search{
+    width: 15%;
+}
+
+#pin-menu header{
+    width: 85%;
+}
+
+#pin-menu ul li {
+    padding: 8px 10px;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+}
+
+#pin-menu ul li:hover {
+    background-color: #333;
+    border-radius: 10px;
+}
+
+#pin-menu {
+    display: none;
+    position: absolute;
+    bottom: 5rem;
+    left: 1rem;
+    background-color: #222;
+    color: white;
+    padding: 20px 20px 0px 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    z-index: 1;
+    border: 1px solid #3b3a3a;
+}

@@ -1,0 +1,114 @@
+body {
+    background-color: #0a0a0a;
+    height: 100%;
+    width: 100%;
+}
+
+/* Định dạng cho ô vuông dấu + góc dưới bên phải */
+.add_small {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1.5rem 2rem; /* Default padding */
+    border: 1px solid #3b3a3a;
+    border-radius: 20px;
+    background-color: #1e1e1e;
+}
+
+#plus_add_small {
+    font-size: 35px;
+    color: #e0e0e0;
+}
+
+.add_small:hover {
+    padding: 1.75rem 2.25rem; /* Hover padding */
+}
+
+/* 
+Định dạng cho phần nội dung ở giữa */
+.suggestions-container {
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    border: 0.1px solid #3b3a3a;
+}
+
+.search-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #c7c7c7;
+}
+
+.suggestion {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #888;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #1e1e1e;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 12px;
+    border: 1px solid #888;
+}
+.avatar img {
+    width: 60px;
+    height: 60px;
+}
+.profile-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.real-name {
+    color:#888888;
+    margin-bottom: 0.5rem;
+}
+
+.profile-name {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.followers-count {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.follow-btn {
+    padding: 5px 15px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid #888;
+    cursor: pointer;
+    font-weight: bold;
+}
+

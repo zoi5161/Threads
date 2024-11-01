@@ -1,0 +1,20 @@
+/* Thanh navi ngang trên cùng */
+.dropdown-center {
+    height: 3rem;
+    position: fixed;
+    top: 0;
+    left: 80px;
+    background-color: #0a0a0a;
+    width: calc(100% - 80px);
+    display: flex;
+    justify-content: center;
+
+}
+
+.btn{
+    padding: 0;
+}
+
+.dropdown-toggle::after{
+    margin-left: 0;
+}
