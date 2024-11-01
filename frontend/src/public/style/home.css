@@ -17,28 +17,3 @@ body {
 .content{
     margin-top: 10px;
 }
-
-/* Định dạng cho ô vuông dấu + góc dưới bên phải */
-.add-button {
-    position: fixed;
-    bottom: 20px; /* Khoảng cách từ đáy màn hình */
-    right: 20px; /* Khoảng cách từ phải màn hình */
-    background-color: #1e1e1e;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-#plus_add_small {
-    font-size: 35px;
-    color: #e0e0e0;
-}
-
-.add_small:hover {
-    padding: 1.75rem 2.25rem;
-}

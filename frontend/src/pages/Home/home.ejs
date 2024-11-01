@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/style/navibar/navileft.css" />
     <link rel="stylesheet" href="/style/navibar/navitop.css">
     <link rel="stylesheet" href="/style/containerPost.css">
+    <link rel="stylesheet" href="/style/plus.css">
 
     <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -29,12 +30,10 @@
         <div class="container_post">
             <%- include("../Partials/naviTop.ejs")  %>
             <!-- Post 1 -->
-            <div class="post">
+            <div class="post" id="postTop">
                 <div class="post-header">
                     <div class="avatar">
-                        <div class="avatar">
-                            <img src="/image/download.jpg" style="width: 40px; height: 40px; border-radius: 50%;" />
-                        </div>
+                        <img src="/image/download.jpg" style="width: 40px; height: 40px; border-radius: 50%;" />
                     </div>
                     <div class="username-time">
                         <div class="username">Có gì mới?</div>
@@ -186,11 +185,7 @@
                 </div>
             </div>
         </div>
-            <button class="add-button">
-                <div class="add_small">
-                    <i id="plus_add_small" class="fa-solid fa-plus"></i>
-                </div>
-            </button> 
+        <%- include("../Partials/plusIcon.ejs")  %>
     </div>
 </body>
 

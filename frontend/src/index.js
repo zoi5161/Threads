@@ -30,7 +30,7 @@ app.get('/Announce/announce.ejs', (req, res) => {
 
 app.get('/Profile/profile.ejs', (req, res) => {
     res.render(__dirname + "/pages/Profile/profile.ejs", {
-        head_new: "Hồ sơ"
+        head_new: "Trang cá nhân"
     });
 });
 
