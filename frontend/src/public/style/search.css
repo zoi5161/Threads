@@ -4,26 +4,6 @@ body {
     width: 100%;
 }
 
-/* Định dạng cho ô vuông dấu + góc dưới bên phải */
-.add_small {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    padding: 1.5rem 2rem; /* Default padding */
-    border: 1px solid #3b3a3a;
-    border-radius: 20px;
-    background-color: #1e1e1e;
-}
-
-#plus_add_small {
-    font-size: 35px;
-    color: #e0e0e0;
-}
-
-.add_small:hover {
-    padding: 1.75rem 2.25rem; /* Hover padding */
-}
-
 /* 
 Định dạng cho phần nội dung ở giữa */
 .suggestions-container {

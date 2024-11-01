@@ -30,16 +30,6 @@
     background-color: #1e1e1e;
 }
 
-.dropdown-menu:nth-child(2){
-    padding-right: 5rem;
-    border-color: #3b3a3a;
-}
-
-.dropdown-menu:nth-child(3){
-    padding-right: 5rem;
-    border-color: #3b3a3a;
-}
-
 li .dropdown-item{
     background-color: #1e1e1e;
     color: white;
