@@ -16,25 +16,29 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/Home/home.ejs', (req, res) => {
+app.get('/Login', (req, res) => {
+    res.render(__dirname + "/pages/Login/login.ejs");
+});
+
+app.get('/Home', (req, res) => {
     res.render(__dirname + "/pages/Home/home.ejs", {
         head_new: "Dành cho bạn"
     });
 });
 
-app.get('/Announce/announce.ejs', (req, res) => {
+app.get('/Announce', (req, res) => {
     res.render(__dirname + "/pages/Announce/announce.ejs", {
         head_new: "Hoạt động"
     });
 });
 
-app.get('/Profile/profile.ejs', (req, res) => {
+app.get('/Profile', (req, res) => {
     res.render(__dirname + "/pages/Profile/profile.ejs", {
         head_new: "Hồ sơ"
     });
 });
 
-app.get('/Search/search.ejs', (req, res) => {
+app.get('/Search', (req, res) => {
     res.render(__dirname + "/pages/Search/search.ejs", {
         head_new: "Tìm kiếm"
     });
