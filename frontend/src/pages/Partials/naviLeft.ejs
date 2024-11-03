@@ -1,16 +1,21 @@
 <!-- Menu phụ sẽ được hiển thị khi nhấn vào thumbtack -->
 <script src="/js/naviLeft.js"></script>
 
+<%- include("../Partials/plusModal.ejs") %>
+
 <div id="pin-menu">
     <div class="header">
         <h4 style="text-align: center; font-size: 95%; margin-bottom: 1rem">Ghim lên trang chủ</h4>
     </div>
-    <div style="height: 3rem; background-color: black; border: 0.1px solid #3b3a3a; border-radius: 20px; display: flex; align-items: center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+    <div
+        style="height: 3rem; background-color: black; border: 0.1px solid #3b3a3a; border-radius: 20px; display: flex; align-items: center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
         </svg>
         <input type="text" placeholder="Tìm kiếm từ khóa và trang cá nhân"
-        style="padding: 5px; color:white; background-color: black; border: none; width: 70%; font-size: 15px; outline: none">
+            style="padding: 5px; color:white; background-color: black; border: none; width: 70%; font-size: 15px; outline: none">
     </div>
     <div>
         <ul style="list-style-type: none; padding: 0; margin: 1rem 0;">
@@ -53,14 +58,14 @@
         <!-- Dropdown menu luôn hiển thị -->
         <ul id="taskbar" class="dropdown-menu show" style="display: block; position: relative;">
             <div class="logo">
-                <li><a class="dropdown-item" href="/"><i class="fa-brands fa-threads"
-                            style="font-size: 175%;"></i></a></li>
+                <li><a class="dropdown-item" href="/"><i class="fa-brands fa-threads" style="font-size: 175%;"></i></a>
+                </li>
             </div>
 
             <div class="mid">
                 <li><a class="dropdown-item" href="/Home"><i class="fa-solid fa-house"></i></a></li>
                 <li><a class="dropdown-item" href="/Search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-plus"></i></a></li>
+                <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></button></li>
                 <li><a class="dropdown-item" href="/Announce"><i class="fa-regular fa-heart"></i></a></li>
                 <li><a class="dropdown-item" href="/Profile"><i class="fa-regular fa-user"></i></a></li>
             </div>
