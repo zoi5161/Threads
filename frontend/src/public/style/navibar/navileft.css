@@ -95,6 +95,8 @@ li .dropdown-item{
     width: 15%;
 }
 
+#pin-menu .header-pin-menu{
+    width: 100%;
 }
 
 #pin-menu ul li {
@@ -129,11 +131,19 @@ li .dropdown-item{
     cursor: pointer;
 }
 
+.setting-UI{
+    padding: 8px 10px;
+    cursor: pointer;
 }
 
 .setting-UI:hover{
     background-color: #333;
     border-radius: 10px;
+}
+
+#setting-menu ul#first li:not(li:last-child) {
+    padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 #setting-menu ul#second li:last-child {

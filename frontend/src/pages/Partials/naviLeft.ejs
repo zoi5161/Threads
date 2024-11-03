@@ -4,6 +4,7 @@
 <%- include("../Partials/plusModal.ejs") %>
 
 <div id="pin-menu">
+    <div class="header-pin-menu">
         <h4 style="text-align: center; font-size: 95%; margin-bottom: 1rem">Ghim lên trang chủ</h4>
     </div>
     <div
@@ -15,7 +16,6 @@
         </svg>
         <input type="text" placeholder="Tìm kiếm từ khóa và trang cá nhân"
             style="padding: 5px; color:white; background-color: black; border: none; width: 70%; font-size: 15px; outline: none">
-        style="padding: 5px; color:white; background-color: black; border: none; width: 70%; font-size: 15px; outline: none">
     </div>
     <div>
         <ul style="list-style-type: none; padding: 0; margin: 1rem 0;">
@@ -33,13 +33,18 @@
 
 <div id="setting-menu">
     <div class="setting-first">
+        <ul id="first" style="list-style-type: none; padding: 0; margin: 1rem 0;">
+            <div class="setting-UI" style="display: flex; justify-content: space-between">
                 <span>Giao diện</span>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                    </svg></div>
             </div>
             <li>Thông tin chi tiết</li>
             <li>Cài đặt</li>
         </ul>
     </div>
+    <hr>
     <div class="setting-second">
         <ul id="second" style="list-style-type: none; padding: 0; margin: 1rem 0;">
             <li>Báo cáo sự cố</li>
