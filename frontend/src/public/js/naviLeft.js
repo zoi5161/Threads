@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get DOM elements
     const plusIcon = document.querySelector('#plus_icon'); // Your plus icon button
     const plusBox = document.getElementById('plus_box');
-    const plusSmall = document.querySelector('.add_small');
+    const plusSmall = document.querySelector('.add-button');
     const overlay = document.getElementById('overlay');
     const cancelBtn = document.querySelector('.cancel-btn');
 

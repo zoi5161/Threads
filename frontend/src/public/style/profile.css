@@ -95,7 +95,20 @@ main {
     text-overflow: ellipsis;
 }
 
-.profile_btn_wrapper{
+.social_link_container a {
+    display: flex;
+    align-items: center;
+}
+
+.social_link_text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+
+.profile_btn_wrapper {
     display: flex;
     justify-content: center;
     margin-left: auto;
