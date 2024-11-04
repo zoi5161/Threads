@@ -74,7 +74,12 @@ li .dropdown-item{
     border-radius: 25%;
 }
 
-#taskbar .dropdown-item:hover {
+#taskbar .mid .dropdown-item:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+#taskbar .bot .dropdown-item:hover {
     background-color: #333;
     color: #fff;
 }
@@ -142,8 +147,8 @@ li .dropdown-item{
 }
 
 #setting-menu ul#first li:not(li:last-child) {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 #setting-menu ul#second li:last-child {
