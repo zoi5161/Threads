@@ -29,6 +29,7 @@ main {
 }
 
 .content_wrapper {
+    margin-top: 4rem;
     height: calc(100% - 4rem);
     background-color: rgb(24 24 24);
     border-radius: 2rem 2rem 0 0;

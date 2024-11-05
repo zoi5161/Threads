@@ -1,12 +1,16 @@
 /* Thanh navi ngang trên cùng */
-.dropdown-center {
-    height: 3rem;
+.dropdown-center_naviTop {
     position: fixed;
     top: 0;
     background-color: #0a0a0a;
-    width: calc(100% - 80px);
-    display: flex;
-    justify-content: center;
+    width: calc(45% - 20px);
+    /* width: calc(100% - 80px); */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color: white; 
+    font-size: 100%; 
+    height: 4rem;
 }
 
 .dropdown-menu.top, .dropdown-menu.dropdown-menu-end{
@@ -33,3 +37,5 @@
     color: white;
     border-radius: 20px;
 }
+
+/* cmt thêm để thêm vào main */

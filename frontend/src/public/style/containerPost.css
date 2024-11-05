@@ -53,6 +53,7 @@
 
 #postTop {
     border-radius: 20px 20px 0px 0px;
+    margin-top: 4rem;
 }
 
 .avatar {
@@ -133,3 +134,5 @@
 .numAction{
     margin-right: 0.75rem;
 }
+
+/* cmt thêm để thêm vào main */
