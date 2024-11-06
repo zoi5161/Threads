@@ -1,0 +1,11 @@
+/* định dạng cho dấu 3 chấm three_dots ó */
+.dropdown-menu li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+    width: 100%;
+}
+.dropdown-item {
+    width: 100%;
+}
