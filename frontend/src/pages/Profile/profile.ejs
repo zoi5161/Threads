@@ -274,7 +274,6 @@
       right: 20px;
       "
     onclick="const option_wrapper = document.querySelector('.option_wrapper');
-            option_wrapper.style.display = option_wrapper.style.display === 'none' ? 'flex' : 'none';
             
             const other_profile_wrapper =  document.querySelector('.other_profile_wrapper');
             const edit = document.querySelector('.edit');
@@ -282,10 +281,12 @@
             if (edit.style.display === 'none') {
               edit.style.display = 'flex';
               other_profile_wrapper.style.display = 'none';
-            } else {
+              option_wrapper.style.display = 'none';
+              } else {
               edit.style.display = 'none';
               other_profile_wrapper.style.display = 'flex';
-            }"
+              option_wrapper.style.display = 'flex';
+              }"
             >
       Change to other profile type
     </button>

@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     background-color: #0a0a0a;
-    width: calc(45% - 20px);
+    width: calc(638px - 20px);
     /* width: calc(100% - 80px); */
     display: flex; 
     justify-content: center; 

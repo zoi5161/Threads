@@ -18,7 +18,7 @@
 }
 
 .container_post{
-    width: 45%;
+    width: 638px;
 }
 
 /* Định dạng chung cho post */
@@ -136,3 +136,21 @@
 }
 
 /* cmt thêm để thêm vào main */
+
+@media screen and (max-width: 700px){
+    .container_post{
+        width: 100%;
+    }
+
+    .post-content {
+        margin: 0px 1rem;
+    }
+
+    .post-description {
+        margin-left: 1rem;
+    }
+
+    .post-footer {
+        margin-left: 1rem;
+    }
+}

@@ -171,3 +171,41 @@
 .hidden {
     display: none;
 }
+
+@media screen and (max-width: 700px) {
+    .thread-container {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .plus_body {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .input-box {
+        min-height: 80px;
+    }
+
+    .icon-group {
+        justify-content: flex-end;
+    }
+
+    .icon-group button {
+        font-size: 24px;
+    }
+
+    .plus_footer {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .post-btn {
+        width: 100%;
+    }
+    
+    #plus_box{
+        width: 100%;
+        height: 100%;
+    }
+}
