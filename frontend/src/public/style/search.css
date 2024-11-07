@@ -94,3 +94,32 @@ h2 {
     font-weight: bold;
 }
 
+@media screen and (max-width: 700px) {
+    .suggestions-container {
+        padding: 20px;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .profile-name {
+        font-size: 14px;
+    }
+
+    .real-name {
+        font-size: 12px;
+    }
+
+    .followers-count {
+        font-size: 12px;
+    }
+
+    .follow-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+}

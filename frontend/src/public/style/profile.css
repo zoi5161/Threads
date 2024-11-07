@@ -200,7 +200,7 @@ main {
 .tab_section a {
     text-decoration: none;
     color: color(display-p3 0.43 0.43 0.43);
-    font-weight: bold;
+    font-weight: 620;
     padding: 0.5rem 1rem;
     border-bottom: 1px solid color(display-p3 0.22 0.22 0.22);
     flex-basis: calc(100% / 3);
@@ -343,4 +343,91 @@ main {
 
 .numAction {
     margin-right: 0.75rem;
+}
+
+@media screen and (max-width: 700px) {
+    main {
+        width: 100%;
+    }
+
+    .content_wrapper {
+        margin-top: 2rem;
+        height: calc(100% - 2rem);
+    }
+
+
+
+    .info_wrapper {
+        padding: 1rem;
+    }
+
+    .other_profile_wrapper {
+        display: flex;
+    }
+
+    .tab_section {
+        margin-top: 0.5rem;
+    }
+
+    .tab_section a {
+        flex-basis: calc(100% / 2);
+    }
+
+    .create_thread {
+        padding: 1rem;
+    }
+
+    .create_thread_content {
+        margin-left: 0;
+    }
+
+    .create_thread button {
+        flex-basis: 30%;
+    }
+
+    .post {
+        padding: 1rem;
+    }
+
+    .avatar {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.8rem;
+    }
+
+    .username-time {
+        margin-left: 0.5rem;
+    }
+
+    .username {
+        font-size: 0.8rem;
+    }
+
+    .time {
+        font-size: 0.8rem;
+    }
+
+    .setting {
+        font-size: 1.2rem;
+    }
+
+    .post-content {
+        margin-left: 2rem;
+    }
+
+    .post-description {
+        margin-left: 2rem;
+    }
+
+    .post-footer {
+        margin-left: 2rem;
+    }
+
+    .post-footer div {
+        font-size: 0.8rem;
+    }
+
+    .numAction {
+        margin-right: 0.5rem;
+    }
 }

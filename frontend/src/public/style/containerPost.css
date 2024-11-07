@@ -19,6 +19,7 @@
 
 .container_post{
     width: 638px;
+    width: 638px;
 }
 
 /* Định dạng chung cho post */
@@ -142,5 +143,17 @@
 
     .container_post{
         width: 100%;
+    }
+
+    .post-content {
+        margin: 0px 1rem;
+    }
+
+    .post-description {
+        margin-left: 1rem;
+    }
+
+    .post-footer {
+        margin-left: 1rem;
     }
 }
