@@ -26,6 +26,12 @@ app.get('/Home', (req, res) => {
     });
 });
 
+app.get('/Comment', (req, res) => {
+    res.render(__dirname + "/pages/Home/comment.ejs", {
+        head_new: "Thread"
+    });
+});
+
 app.get('/Announce', (req, res) => {
     res.render(__dirname + "/pages/Announce/announce.ejs", {
         head_new: "Hoạt động"
