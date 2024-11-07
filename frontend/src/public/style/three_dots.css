@@ -1,11 +1,13 @@
 /* định dạng cho dấu 3 chấm three_dots ó */
-.dropdown-menu li {
+.dot {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-right: 20px;
-    width: 100%;
+    width: 90%;
+    padding: 0.7rem 0.5rem;
 }
-.dropdown-item {
-    width: 100%;
+
+.dot:hover{
+    background-color: #333;
+    cursor: pointer;
+    border-radius: 15px;
 }
