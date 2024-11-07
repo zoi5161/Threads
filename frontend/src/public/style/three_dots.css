@@ -1,0 +1,13 @@
+/* định dạng cho dấu 3 chấm three_dots ó */
+.dot {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0.7rem 0.5rem;
+}
+
+.dot:hover{
+    background-color: #333;
+    cursor: pointer;
+    border-radius: 15px;
+}

@@ -1,12 +1,19 @@
 <!-- Dropdown Menu -->
-<div class="container_post_header" style="display: flex; justify-content: center; align-items: center; color: white; font-size: 100%; height: 4rem">
-    <div style="width: 10%;"></div>
+<div class="dropdown-center_naviTop">
+    <div style="width: 10%; display: flex; justify-content: center; align-items: center;">
+        <!-- Backtrack Button -->
+        <button onclick="window.history.back()" style="border: 1px solid #3b3a3a; border-radius: 50%; background: none; color: white; cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H3.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L3.707 7.5H14.5A.5.5 0 0 1 15 8z"/>
+            </svg>
+        </button>
+    </div>
     <div style="display: flex; justify-content: center; align-items: center; width: 80%; gap: 2rem">
         <div><%= head_new %></div>
         <div>
             <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
                 class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                </button>
+            </button>
             <ul class="dropdown-menu top">
                 <li><a class="dropdown-item" href="#">Tất cả</a></li>
                 <li><a class="dropdown-item" href="#">Lượt theo dõi</a></li>
@@ -19,14 +26,16 @@
         </div>
     </div>
     <div style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%">
-            <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
-                        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
-                            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
-                        </svg>
-            </button>
-            <ul class="dropdown-menu top dropdown-menu-end" style="border-radius: 15px 15px;">
-                <li><a class="dropdown-item" href="#">Ghim lên trang chủ</a></li>
-            </ul>
+        <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+            class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+            </svg>
+        </button>
+        <ul class="dropdown-menu top dropdown-menu-end" style="border-radius: 15px 15px;">
+            <li><a class="dropdown-item" href="#">Ghim lên trang chủ</a></li>
+        </ul>
     </div>
 </div>
+
+<!-- cmt thêm để thêm lại vào main -->

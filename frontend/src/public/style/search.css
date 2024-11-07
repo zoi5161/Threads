@@ -14,6 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     border: 0.1px solid #3b3a3a;
+    margin-top: 4rem;
 }
 
 .search-box {
