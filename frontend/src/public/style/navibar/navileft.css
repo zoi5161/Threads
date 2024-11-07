@@ -26,7 +26,6 @@
 }
 
 .dropdown-menu{
-    min-width: none;
     background-color: #1e1e1e;
 }
 
@@ -173,4 +172,81 @@ li .dropdown-item{
     width: 250px;
     z-index: 1;
     border: 1px solid #3b3a3a;
+}
+
+@media screen and (max-width: 768px) {
+    .logo{
+        display: none;
+    }
+
+    .bot{
+        display: none;
+    }
+
+    .navibar{
+        top: auto;
+        bottom: 0;
+        left: 0;
+        flex-direction: row;
+        height: 10%;
+        width: 100%;
+        background-color: #0e0d0d00;
+        backdrop-filter: blur(10px);
+    }
+
+    #taskbar {
+        background-color: #0e0d0d00;
+        backdrop-filter: blur(10px);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative; /* Để các phần tử con có thể sử dụng absolute positioning */
+        padding: 0;
+        border: none;
+    }
+
+    .mid{
+
+        position: none;
+        top: auto;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        justify-content: space-around;
+        
+    }
+
+    .dropdown-menu{
+        width: 100%;
+    }
+
+    #vertical_drop{
+        width: 100%;
+    }
+
+    #taskbar .dropdown-item {
+        background-color: #0e0d0d00;
+        backdrop-filter: blur(10px);
+        color: #e0e0e0;
+        font-size: 24px; /* Kích thước của icon */
+        height: 100%;
+        margin-bottom: 0;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #taskbar .mid .dropdown-item:hover {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .mid li{
+        height: 100%;
+        width: calc(20%);
+    }
 }

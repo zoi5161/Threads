@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     background-color: #0a0a0a;
-    width: calc(45% - 20px);
+    width: 639px;
     /* width: calc(100% - 80px); */
     display: flex; 
     justify-content: center; 
@@ -39,3 +39,8 @@
 }
 
 /* cmt thêm để thêm vào main */
+@media screen and (max-width: 768px) {
+    .dropdown-center_naviTop{
+        width: 100%;
+    }   
+}

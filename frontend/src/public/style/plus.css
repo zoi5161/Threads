@@ -21,3 +21,17 @@
 .add-button:hover {
     padding: 1.25rem 1.75rem;
 }
+
+@media screen and (max-width: 768px) {
+    .add-button {
+        display: none;
+    }
+    
+    #plus_add_small {
+        display: none;
+    }
+    
+    .add-button:hover {
+        display: none;
+    }
+}
