@@ -172,6 +172,7 @@
     display: none;
 }
 
+@media screen and (max-width: 768px) {
     .thread-container {
         width: 100%;
         border-radius: 0;

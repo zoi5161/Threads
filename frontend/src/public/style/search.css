@@ -94,6 +94,7 @@ h2 {
     font-weight: bold;
 }
 
+@media screen and (max-width: 768px) {
     .suggestions-container {
         padding: 20px;
     }
