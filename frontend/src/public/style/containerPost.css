@@ -18,8 +18,8 @@
 }
 
 .container_post{
-    width: 638px;
-    width: 638px;
+    width: 100%;
+    max-width: 638px;
 }
 
 /* Định dạng chung cho post */
