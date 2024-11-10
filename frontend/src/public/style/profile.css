@@ -6,37 +6,29 @@
 
 body {
     background-color: #0a0a0a;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 
-.container-fluid {
-    /* height: 100%;
-    width: 95%; */
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* padding-right: 0px; */
-    /* padding-left: 0px; */
-}
 
 /* Css for page profile */
 main {
     width: 638px;
     min-width: 400px;
-    height: 100vh;
+    position: relative;
+
 }
 
 .content_wrapper {
     margin-top: 4rem;
     height: calc(100% - 4rem);
-    background-color: rgb(24 24 24);
+    background-color: #1e1e1e;
     border-radius: 2rem 2rem 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 4rem;
+    border: 1px solid #3b3a3a;
 }
 
 .info_wrapper {
@@ -133,7 +125,7 @@ main {
     border: 1px solid white;
     width: 1.5rem;
     height: 1.5rem;
-    background-color: #181818;
+    background-color: #1e1e1e;
     color: white;
     display: flex;
     align-items: center;
@@ -162,7 +154,7 @@ main {
 
 .edit_btn, .follow, .tag {
     border: 1px solid color(display-p3 0.22 0.22 0.22);
-    background-color: #181818;
+    background-color: #1e1e1e;
     color: white;
     width: 100%;
     padding: 0.5rem 0;
@@ -240,7 +232,7 @@ main {
 
 .create_thread button {
     border: 1px solid color(display-p3 0.22 0.22 0.22);
-    background-color: #181818;
+    background-color: #1e1e1e;
     color: white;
     padding: 0.2rem 0;
     border-radius: 0.5rem;
@@ -248,121 +240,164 @@ main {
     flex-basis: 15%;
 }
 
+/* Hoàn thành trang cá nhân */
+.complete_profile_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    background-color: transparent;
 
-/* Định dạng chung cho post */
-.post {
-    background-color: #1e1e1e;
-    padding: 1rem 2rem;
-    color: #e0e0e0;
-    border-bottom: 1px solid #3b3a3a;
 }
 
-
-/* Phần đầu của post */
-.post-header {
+.status{
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.status *{
+    color: white;
+}
+
+.mission_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    flex: 1;
+    background-color: transparent;
+    gap: 1rem;
+}
+
+.mission, .mission_content{
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
 }
 
+.mission{
+    width: 33%;
+    min-width: 250px;
+    height: 350px;
+    transition:  min-height 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    padding: 1rem;
+    background-color: #282828;
+    border-radius: 2rem;
+    align-self: flex-start;
+}
 
-.avatar {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background-color: #333;
+.mission:hover{
+    /* min-height: fit-content; */
+    background-color: #303030;
+}
+
+.mission_content{
+    gap: 1rem;
     overflow: hidden;
-    margin: 0 1rem;
+}
+
+.mission_content i{
+    padding: 1rem;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid color(display-p3 0.22 0.22 0.22);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    color: #fff;
-    font-size: 1rem;
+    background-color: #161616;
 }
 
-.username-time {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    margin-left: 1rem;
-    gap: 1rem;
-}
-
-.username {
-    font-weight: bold;
-    color: #e0e0e0;
-    font-size: 1rem;
-}
-
-.time {
-    font-size: 1rem;
-    color: #888;
-}
-
-.setting {
+.mission_content h3{
     font-size: 1.5rem;
-    color: #888;
+    font-weight: bold;
+    height: 60px;
+}
+
+.mission_content p{
+    font-size: 1rem;
+    color: color(display-p3 0.43 0.43 0.43);
+    overflow: hidden;
+}
+
+.mission button {
+    border: 1px solid color(display-p3 0.22 0.22 0.22);
+    background-color: #1e1e1e;
+    color: white;
+    padding: 0.2rem 0;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.mission button.done_mission_btn {
+    background-color: white;
+    color: black;
+}
+
+.mission button.done_mission_btn:hover {
+    cursor: default;
+}
+.scroll-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
     cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    margin: 0 0.5rem;
 }
 
-/* Nội dung bài viết */
-.post-content {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 5rem;
-    color: #e0e0e0;
+.scroll-btn.left {
+    left: 0;
 }
 
-.post-description {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 5rem;
-    color: #e0e0e077;
+.scroll-btn.right {
+    right: 0;
 }
 
-/* Footer của bài viết */
-.post-footer {
-    display: flex;
-    gap: 1rem;
-    margin-left: 5rem;
-    font-size: 1rem;
-    color: #888;
+.scroll-btn.hidden {
+    display: none;
 }
 
-.post-footer div {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    gap: 0.5rem;
+.scroll-btn:hover {
+    background-color: #555;
 }
 
-.post-footer i {
-    font-size: 1rem;
+.container_post .post:first-child{
+    border-top: none;
 }
 
-.numAction {
-    margin-right: 0.75rem;
-}
+
 
 @media screen and (max-width: 768px) {
     main {
         width: 100%;
+        position: static;
     }
 
     .content_wrapper {
         margin-top: 2rem;
         height: calc(100% - 2rem);
+        background-color: black;
     }
-
-
 
     .info_wrapper {
-        padding: 1rem;
-    }
-
-    .other_profile_wrapper {
-        display: flex;
+        padding: 2rem 1rem;
     }
 
     .tab_section {
@@ -377,57 +412,7 @@ main {
         padding: 1rem;
     }
 
-    .create_thread_content {
-        margin-left: 0;
-    }
-
     .create_thread button {
         flex-basis: 30%;
-    }
-
-    .post {
-        padding: 1rem;
-    }
-
-    .avatar {
-        width: 2rem;
-        height: 2rem;
-        font-size: 0.8rem;
-    }
-
-    .username-time {
-        margin-left: 0.5rem;
-    }
-
-    .username {
-        font-size: 0.8rem;
-    }
-
-    .time {
-        font-size: 0.8rem;
-    }
-
-    .setting {
-        font-size: 1.2rem;
-    }
-
-    .post-content {
-        margin-left: 2rem;
-    }
-
-    .post-description {
-        margin-left: 2rem;
-    }
-
-    .post-footer {
-        margin-left: 2rem;
-    }
-
-    .post-footer div {
-        font-size: 0.8rem;
-    }
-
-    .numAction {
-        margin-right: 0.5rem;
     }
 }

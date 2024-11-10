@@ -28,7 +28,7 @@
     color: #e0e0e0;
     border: 0.1px solid #3b3a3a;
     width: 100%;
-    box-sizing: content-box;
+    box-sizing: border-box;
 
 }
 

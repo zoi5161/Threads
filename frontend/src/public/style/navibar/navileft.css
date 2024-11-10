@@ -3,7 +3,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 5%; /* Độ rộng của thanh nav */
+    width: 50px; /* Độ rộng của thanh nav */
+    min-width: 50px;
     height: 100%; /* Chiều cao toàn màn hình */
     background-color: #0a0a0a; /* Màu nền tối cho thanh nav */
     display: flex;
@@ -39,7 +40,8 @@ li .dropdown-item{
     position: fixed;
     top: 0;
     left: 0;
-    width: 5%;
+    width: 50px;
+    min-width: 50px;
 }
 
 .mid {
