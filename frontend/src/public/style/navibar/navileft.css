@@ -195,7 +195,7 @@ li .dropdown-item{
     }
 
     #taskbar {
-        background-color: #0e0d0d00;
+        background-color: #0e0d0d8a;
         backdrop-filter: blur(10px);
         height: 100%;
         width: 100%;
@@ -208,7 +208,6 @@ li .dropdown-item{
     }
 
     .mid{
-
         position: none;
         top: auto;
         display: flex;
@@ -241,7 +240,7 @@ li .dropdown-item{
     }
 
     #taskbar .mid .dropdown-item:hover {
-        background-color: #333;
+        background-color: #191919;
         color: #fff;
     }
 

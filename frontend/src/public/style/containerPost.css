@@ -145,6 +145,10 @@
         width: 100%;
     }
 
+    .post{
+        background-color: black;
+    }
+
     #postTop {
         border-radius: 0px;
     }
@@ -162,6 +166,7 @@
     }
 
     .post{
-        border: none;
+        border-right: none;
+        border-left: none;
     }
 }
