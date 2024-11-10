@@ -145,6 +145,10 @@
         width: 100%;
     }
 
+    #postTop {
+        border-radius: 0px;
+    }
+
     .post-content {
         margin: 0px 1rem;
     }
@@ -155,5 +159,9 @@
 
     .post-footer {
         margin-left: 1rem;
+    }
+
+    .post{
+        border: none;
     }
 }

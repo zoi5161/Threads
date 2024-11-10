@@ -97,6 +97,7 @@ h2 {
 @media screen and (max-width: 768px) {
     .suggestions-container {
         padding: 20px;
+        border-radius: 0px;
     }
 
     .avatar {
