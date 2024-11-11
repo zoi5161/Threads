@@ -112,7 +112,7 @@ main {
     flex-basis: auto;
     margin: 0 0.5rem;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
 }
 
