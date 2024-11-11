@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="/style/plusModal.css" />
     <link rel="stylesheet" href="/style/containerPost.css">
     <link rel="stylesheet" href="/style/three_dots.css" />
-    <link rel="stylesheet" href="/style/three_dots_profile.css" />
 
 
     <script
@@ -38,13 +37,15 @@
   </head>
 
   <body>
-    <%- include("../Partials/naviLeft.ejs")  %>
+    <!-- <%- include("../Partials/naviLeft.ejs")  %> -->
+    <!-- <iframe src="../Partials/naviLeft.ejs" style="border: none; width: 100%; height: 50px;"></iframe> -->
+
 
     <div class="container-fluid">
       <main>
         
         <div class="content_wrapper">
-          <%- include("../Partials/naviTop.ejs")  %>
+          <!-- <%- include("../Partials/naviTop.ejs")  %> -->
           <div class="info_wrapper">
             <div class="info">
               <div class="name_wrapper">
@@ -59,57 +60,26 @@
             </div>
             <div class="bio">Hello this is Bio</div>
             <div class="info_with_link_wrapper">
-              <div class="follower_wrapper">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-people"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"
-                  />
-                </svg>
+              <a class="follower_wrapper" href="#">
+                <i class="bi bi-people"></i>
                 <span class="follower_count">0</span>
                 <span class="follower_text">Người theo dõi</span>
-              </div>
+              </a>
               <div class="social_link_container">
                 <div class="social_link_wrapper">
                   <a href="https://www.facebook.com" target="_blank">
-                    <span class="social_link_text">Facebook.com-link-to-fb</span>
-                    <span class="social_link_text">Facebook.com</span>
+                    <span class="social_link_text">Facebook.com-link-to-fb-long-overflow</span>
                   </a>
                 </div>
               </div>
               <div class="profile_btn_wrapper">
                 <div class="insta_wrapper">
                   <a href="https://www.instagram.com" target="_blank">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                      class="bi bi-instagram"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 2.982c2.937 0 3.285.011 4.445.064a6.087 6.087 0 0 1 2.042.379 3.408 3.408 0 0 1 1.265.823 3.408 3.408 0 0 1 .823 1.265 6.087 6.087 0 0 1 .379 2.042c.053 1.16.064 1.508.064 4.445s-.011 3.285-.064 4.445a6.087 6.087 0 0 1-.379 2.042 3.643 3.643 0 0 1-2.088 2.088 6.087 6.087 0 0 1-2.042.379c-1.16.053-1.508.064-4.445.064s-3.285-.011-4.445-.064a6.087 6.087 0 0 1-2.043-.379 3.408 3.408 0 0 1-1.264-.823 3.408 3.408 0 0 1-.823-1.265 6.087 6.087 0 0 1-.379-2.042c-.053-1.16-.064-1.508-.064-4.445s.011-3.285.064-4.445a6.087 6.087 0 0 1 .379-2.042 3.408 3.408 0 0 1 .823-1.265 3.408 3.408 0 0 1 1.265-.823 6.087 6.087 0 0 1 2.042-.379c1.16-.053 1.508-.064 4.445-.064M12 1c-2.987 0-3.362.013-4.535.066a8.074 8.074 0 0 0-2.67.511 5.392 5.392 0 0 0-1.949 1.27 5.392 5.392 0 0 0-1.269 1.948 8.074 8.074 0 0 0-.51 2.67C1.012 8.638 1 9.013 1 12s.013 3.362.066 4.535a8.074 8.074 0 0 0 .511 2.67 5.392 5.392 0 0 0 1.27 1.949 5.392 5.392 0 0 0 1.948 1.269 8.074 8.074 0 0 0 2.67.51C8.638 22.988 9.013 23 12 23s3.362-.013 4.535-.066a8.074 8.074 0 0 0 2.67-.511 5.625 5.625 0 0 0 3.218-3.218 8.074 8.074 0 0 0 .51-2.67C22.988 15.362 23 14.987 23 12s-.013-3.362-.066-4.535a8.074 8.074 0 0 0-.511-2.67 5.392 5.392 0 0 0-1.27-1.949 5.392 5.392 0 0 0-1.948-1.269 8.074 8.074 0 0 0-2.67-.51C15.362 1.012 14.987 1 12 1Zm0 5.351A5.649 5.649 0 1 0 17.649 12 5.649 5.649 0 0 0 12 6.351Zm0 9.316A3.667 3.667 0 1 1 15.667 12 3.667 3.667 0 0 1 12 15.667Zm5.872-10.859a1.32 1.32 0 1 0 1.32 1.32 1.32 1.32 0 0 0-1.32-1.32Z"
-                      />
-                    </svg>
+                    <i class="bi bi-instagram" style="font-size: 1.5rem"></i>
                   </a>
                 </div>
                 <div class="option_wrapper">
-                  <!-- <button class="option_btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                      <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
-                    </svg>
-                  </button> -->
-                  
                     <%- include("../Partials/three_dots_profile.ejs")  %>
-
-
                 </div>
               </div>
             </div>
@@ -186,7 +156,10 @@
                 <div class="mission_content">
                   <i class="bi bi-check"></i>
                   <h3>Tạo thread</h3>  
-                  <p>Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.</p>                  
+                  <p>Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.
+                    Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.
+                    Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.
+                  </p>                  
                 </div>
                 <button class="done_mission_btn">Xong</button>
               </div>
