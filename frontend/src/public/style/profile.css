@@ -230,7 +230,7 @@ main {
     color: color(display-p3 0.43 0.43 0.43);
 }
 
-.create_thread button {
+.create_thread button{
     border: 1px solid color(display-p3 0.22 0.22 0.22);
     background-color: #1e1e1e;
     color: white;
@@ -238,6 +238,7 @@ main {
     border-radius: 0.5rem;
     font-weight: bold;
     flex-basis: 15%;
+    position: static;
 }
 
 /* Hoàn thành trang cá nhân */
