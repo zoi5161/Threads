@@ -29,3 +29,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function showUserInfo1(element) {
+    const userInfoBox = element.nextElementSibling; // Tìm phần tử .small_box_infor_user bên trong .username-time
+    if (userInfoBox) {
+        userInfoBox.style.display = 'block'; // Hiển thị hộp thông tin
+    }
+}
+function showUserInfo2(element) {
+    element.style.display = 'block'; // Hiển thị phần tử
+}
+
+
+function hideUserInfo1(element) {
+    const userInfoBox = element.nextElementSibling;
+    if (userInfoBox) {
+        userInfoBox.style.display = 'none'; // Ẩn hộp thông tin
+    }
+}
+function hideUserInfo2(element) {
+    element.style.display = 'none'; // Ẩn phần tử
+}
