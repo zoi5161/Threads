@@ -12,11 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Tìm icon ba chấm (three dots) bên trong mỗi post
         const threeDotsIcon = post.querySelector('.three_dots_button'); // Thêm class "three-dots-icon" vào nút three dots
+        const commentIcon = post.querySelector('.fa-comment');
 
         // Sự kiện chuyển tab khi click vào bất kỳ vùng nào của post, nhưng bỏ qua nếu click vào icon ba chấm
         post.addEventListener('click', function(event) {
             // Kiểm tra xem sự kiện click có phải từ icon ba chấm hay không
-            if (event.target === threeDotsIcon || threeDotsIcon.contains(event.target)) {
+            if (event.target === threeDotsIcon || threeDotsIcon.contains(event.target) || event.target === commentIcon || commentIcon.contains(event.target)) {
                 // Nếu là icon ba chấm, ngăn chặn sự kiện chuyển tab của post
                 event.stopPropagation();
                 console.log("Three dots clicked - show menu");

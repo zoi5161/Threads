@@ -44,3 +44,7 @@
     align-items: center;
     border: 2px solid black;
 }
+
+.form-control::placeholder {
+    color: #888; /* Đổi màu này thành màu bạn muốn */
+}
