@@ -34,3 +34,6 @@ Thumbs.db
 
 # Testing
 coverage/
+
+#ignore scratch text files
+scratch

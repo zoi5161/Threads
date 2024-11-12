@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const overlay = document.getElementById('overlay');
     const cancelBtn = document.querySelector('.cancel-btn');
     const plus_box_short_profile = document.getElementById('plus_box_short_profile');
+    const tag = document.querySelector('.tag');
 
     // Show modal function
     function showModal() {
@@ -81,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     plusIcon.addEventListener('click', showModal);
     plusSmall.addEventListener('click', showModal);
     plus_box_short_profile.addEventListener('click', showModal);
+    tag.addEventListener('click', showModal);
     cancelBtn.addEventListener('click', hideModal);
     overlay.addEventListener('click', hideModal);
 

@@ -162,6 +162,197 @@ main {
     font-weight: bold;
 }
 
+.modal-content{
+    /* background-color: rgb(16 16 16); */
+    background-color: #1e1e1e;
+    border: 1px solid color(display-p3 0.22 0.22 0.22);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.special_element_m{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.element_m{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding:0.5rem 0;
+}
+
+.element_m span{
+    cursor: pointer;
+}
+
+.element_m p{
+    color: rgb(105, 105, 105);
+}
+
+.title_m{
+    font-weight: bold;
+    color: white;
+}
+
+.line_m{
+    border: none;
+    border-radius: 1px;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+.avt_m img{
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+}
+
+#link_social_m{
+    color: rgb(102, 102, 251);
+}
+
+.switch_btn_m{
+    min-width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch_btn_m label{
+    display: none;
+}
+
+.form-check-input{
+    background-color: #1e1e1e;
+    border: 1px solid color(display-p3 0.22 0.22 0.22);
+    color: white;
+    padding: 0.5rem 0;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.form-check-input:checked{
+    background-color: blue;
+    outline: none;
+}
+
+.form-check-input:focus{
+    outline: none;
+}
+
+.done_btn_m{
+    width: 100%;
+}
+
+.done_btn_m button{
+    background-color: white;
+    color: black;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 1rem;
+    border: 1px solid color(display-p3 0.22 0.22 0.22);
+}
+
+.modal-dialog{
+    max-width: 100%;
+    width: 700px;
+    max-height: 100vh;
+}
+
+.modal-dialog-centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#editProfileModal{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal-2{
+    width: 600px;
+    padding-bottom: 0.5rem;
+}
+
+#modal-2 .modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    color: white;
+    font-size: 1rem;
+    border-bottom: 1px solid color(display-p3 0.22 0.22 0.22);
+}
+
+.modal-2-header-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-2 .modal-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: start;
+    align-items: start;
+}
+
+#modal-2 .modal-body textarea{
+    width: 100%;
+    height: 200px;
+    resize: none;
+    /* max-height: 300px;
+    min-height: 100px; */
+    padding: 0.5rem;
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+#modal-2 .modal-body textarea:focus{
+    outline: none;
+}
+
+#modal-2 .modal-body span{
+    color: rgb(105, 105, 105);
+    font-size: small;
+}
+
+#modal-2 .modal-footer{
+    width: 100%;
+    border-top: 1px solid color(display-p3 0.22 0.22 0.22);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0;
+}
+
+#modal-2 .modal-footer a{
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
 /* Nút follow và tag */
 .other_profile_wrapper {
     justify-content: center;
@@ -304,7 +495,7 @@ main {
 .mission_content {
     gap: 1rem;
     overflow: auto;
-
+    width: 100%;
 }
 
 .mission_content i {
@@ -324,6 +515,14 @@ main {
     font-size: 1.5rem;
     font-weight: bold;
     height: 60px;
+    width: 100%;
+    overflow: auto; 
+    -ms-overflow-style: none;  /* For Internet Explorer */
+    scrollbar-width: none; /* For Firefox */
+}
+
+.mission_content h3::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
 }
 
 .mission_content p {
@@ -406,6 +605,7 @@ main {
         margin-top: 2rem;
         height: calc(100% - 2rem);
         background-color: black;
+        border-radius: 0;
     }
 
 
@@ -454,5 +654,13 @@ main {
     .mission_container::-webkit-scrollbar-track {
         background: #6c6b6b;
         border-radius: 10px;
+    }
+
+    .modal-dialog{
+        max-width: 100%;
+        margin: 0;
+    }
+    #modal-2 .modal-header h5{
+        font-size: 1rem;
     }
 }
