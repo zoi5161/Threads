@@ -1,0 +1,50 @@
+.modal-header {
+    position: sticky; top: 0; background-color: #181818; z-index: 10; padding: 10px 20px; border-bottom: 1px solid #383939;
+    height: 3rem;
+}
+
+.statistics {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding: 0;
+}
+
+.statistics-items {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #383939;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.avatar_cmt {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    background: gray; 
+    margin: 0 10px 0 0;
+    position: relative;
+    overflow: visible;
+    border: 1px solid white;
+}
+
+.icon-overlay {
+    position: absolute; 
+    bottom: -5px; 
+    right: -5px; 
+    width: 20px; 
+    height: 20px; 
+    background-color: #f23c64; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+
+.form-control::placeholder {
+    color: #888; /* Đổi màu này thành màu bạn muốn */
+}

@@ -39,7 +39,7 @@ li .dropdown-item{
     position: fixed;
     top: 0;
     left: 0;
-    min-width: 4rem;
+    width: 5%;
 }
 
 .mid {

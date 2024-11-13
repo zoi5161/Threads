@@ -22,7 +22,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-    <!-- <script src="/home.js"></script> -->
+    <script src="/js/home.js"></script>
 </head>
 
 <body>
@@ -48,9 +48,29 @@
 
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar">avt</div>
+                    <div class="avatar">
+                        <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" />
+                    </div>
                     <div class="username-time">
-                        <div class="username">_10.nov_</div>
+                        <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">_10.nov_</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Huyền Thủy</div>
+                                        <div class="user-username">ngocne2744</div>
+                                    </div>
+                                    <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>Zui zẻ</p>
+                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="time">27 phút</div>
                     </div>
                     <%- include("../Partials/three_dots.ejs") %>
@@ -61,7 +81,9 @@
                 </div>
                 <div class="post-footer">
                     <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
+                    <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                        <i class="far fa-comment"></i>2
+                    </div>
                     <div><i class="fas fa-share"></i></div>
                 </div>
             </div>
@@ -69,9 +91,29 @@
             <!-- Post 2 -->
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar">avt</div>
+                    <div class="avatar">
+                        <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" />
+                    </div>
                     <div class="username-time">
-                        <div class="username">_10.nov_</div>
+                        <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">_10.nov_</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Huyền Thủy</div>
+                                        <div class="user-username">ngocne2744</div>
+                                    </div>
+                                    <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>Zui zẻ</p>
+                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="time">27 phút</div>
                     </div>
                     <%- include("../Partials/three_dots.ejs") %>
@@ -82,7 +124,9 @@
                 </div>
                 <div class="post-footer">
                     <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
+                    <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                        <i class="far fa-comment"></i>2
+                    </div>
                     <div><i class="fas fa-share"></i></div>
                 </div>
             </div>
@@ -90,9 +134,29 @@
             <!-- Post 3 -->
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar">avt</div>
+                    <div class="avatar">
+                        <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" />
+                    </div>
                     <div class="username-time">
-                        <div class="username">_10.nov_</div>
+                        <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">_10.nov_</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Huyền Thủy</div>
+                                        <div class="user-username">ngocne2744</div>
+                                    </div>
+                                    <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>Zui zẻ</p>
+                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="time">27 phút</div>
                     </div>
                     <%- include("../Partials/three_dots.ejs") %>
@@ -103,16 +167,38 @@
                 </div>
                 <div class="post-footer">
                     <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
+                    <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                        <i class="far fa-comment"></i>2
+                    </div>
                     <div><i class="fas fa-share"></i></div>
                 </div>
             </div>
 
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar">avt</div>
+                    <div class="avatar">
+                        <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" />
+                    </div>
                     <div class="username-time">
-                        <div class="username">_10.nov_</div>
+                        <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">_10.nov_</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Huyền Thủy</div>
+                                        <div class="user-username">ngocne2744</div>
+                                    </div>
+                                    <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>Zui zẻ</p>
+                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="time">27 phút</div>
                     </div>
                     <%- include("../Partials/three_dots.ejs") %>
@@ -123,16 +209,38 @@
                 </div>
                 <div class="post-footer">
                     <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
+                    <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                        <i class="far fa-comment"></i>2
+                    </div>
                     <div><i class="fas fa-share"></i></div>
                 </div>
             </div>
 
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar">avt</div>
+                    <div class="avatar">
+                        <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" />
+                    </div>
                     <div class="username-time">
-                        <div class="username">_10.nov_</div>
+                        <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">_10.nov_</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Huyền Thủy</div>
+                                        <div class="user-username">ngocne2744</div>
+                                    </div>
+                                    <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>Zui zẻ</p>
+                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="time">27 phút</div>
                     </div>
                     <%- include("../Partials/three_dots.ejs") %>
@@ -143,16 +251,38 @@
                 </div>
                 <div class="post-footer">
                     <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
+                    <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                        <i class="far fa-comment"></i>2
+                    </div>
                     <div><i class="fas fa-share"></i></div>
                 </div>
             </div>
 
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar">avt</div>
+                    <div class="avatar">
+                        <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" />
+                    </div>
                     <div class="username-time">
-                        <div class="username">_10.nov_</div>
+                        <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">_10.nov_</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Huyền Thủy</div>
+                                        <div class="user-username">ngocne2744</div>
+                                    </div>
+                                    <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>Zui zẻ</p>
+                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="time">27 phút</div>
                     </div>
                     <%- include("../Partials/three_dots.ejs") %>
@@ -163,16 +293,38 @@
                 </div>
                 <div class="post-footer">
                     <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
+                    <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                        <i class="far fa-comment"></i>2
+                    </div>
                     <div><i class="fas fa-share"></i></div>
                 </div>
             </div>
 
             <div class="post">
                 <div class="post-header">
-                    <div class="avatar">avt</div>
+                    <div class="avatar">
+                        <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" />
+                    </div>
                     <div class="username-time">
-                        <div class="username">_10.nov_</div>
+                        <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">_10.nov_</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Huyền Thủy</div>
+                                        <div class="user-username">ngocne2744</div>
+                                    </div>
+                                    <img src="https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>Zui zẻ</p>
+                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <div class="time">27 phút</div>
                     </div>
                     <%- include("../Partials/three_dots.ejs") %>
@@ -183,12 +335,16 @@
                 </div>
                 <div class="post-footer">
                     <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
+                    <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                        <i class="far fa-comment"></i>2
+                    </div>
                     <div><i class="fas fa-share"></i></div>
                 </div>
             </div>
         </div>
         <%- include("../Partials/plusIcon.ejs")  %>
+
+        <%- include("../Partials/commentModal.ejs") %>
     </div>
 </body>
 
