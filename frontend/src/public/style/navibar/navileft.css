@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 5%; /* Độ rộng của thanh nav */
+    min-width: 4rem; /* Độ rộng của thanh nav */
     height: 100%; /* Chiều cao toàn màn hình */
     background-color: #0a0a0a; /* Màu nền tối cho thanh nav */
     display: flex;
@@ -39,7 +39,7 @@ li .dropdown-item{
     position: fixed;
     top: 0;
     left: 0;
-    width: 5%;
+    min-width: 4rem;
 }
 
 .mid {
@@ -202,7 +202,7 @@ li .dropdown-item{
         display: flex;
         flex-direction: column;
         align-items: center;
-        position: relative; /* Để các phần tử con có thể sử dụng absolute positioning */
+        position: relative;
         padding: 0;
         border: none;
     }
@@ -242,10 +242,36 @@ li .dropdown-item{
     #taskbar .mid .dropdown-item:hover {
         background-color: #191919;
         color: #fff;
+        border-radius: 15px;
     }
 
     .mid li{
         height: 100%;
         width: calc(20%);
+    }
+
+
+    #setting-menu ul li {
+        display: none;
+    }
+    
+    .setting-UI{
+        display: none;
+    }
+    
+    #setting-menu {
+        display: none !important;
+    }
+
+    .setting-first{
+        display: none;
+    }
+
+    .setting-second{
+        display: none;
+    }
+
+    #setting-menu hr{
+        display: none;
     }
 }
