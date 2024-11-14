@@ -23,7 +23,7 @@
 
     <!-- <script src="/home.js"></script> -->
     <!-- <script src="/js/naviLeft.js"></script> -->
-    <script src="/home.js"></script>
+    <script src="/js/home.js"></script>
 
 </head>
 
@@ -35,7 +35,14 @@
             <%- include("../Partials/naviTop.ejs")  %>
             <div class="suggestions-container">
 
-                <input type="text" placeholder="Tìm kiếm" class="search-box">
+                <div class="search-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-search"
+                        viewBox="0 0 16 16" style="margin-left: 10px;">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                    <input type="text" placeholder="Tìm kiếm" style="background-color: #0a0a0a; border: none; width: 90%; color: #ffffff">
+                </div>
                 <h2>Gợi ý theo dõi</h2>
                 
                 <!-- List of suggestions -->
@@ -44,11 +51,27 @@
                         <img src="/image/dieu_nhi.jpg" alt="Diệu Nhi">
                     </div>
                     <div class="profile-info">
-                        <span class="profile-name">dieu_nhiii</span>
+                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">dieu_nhiii</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">🍒 Diệu Nhi  🍒</div>
+                                        <div class="user-username">dieu_nhiii</div>
+                                    </div>
+                                    <img src="/image/dieu_nhi.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>🎬 Actress in VietNam 🎬<br/>
+                                        💕Fanpage : https://facebook.com/xdieunhix/ 💕<br/></p>
+                                    <p style="font-size: 85%; color: #888">511k người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <span class="real-name">
-                            <!-- <i class="fa-solid fa-seedling" style="color: #2caa3b;"></i>
-                            Diệu Nhi
-                            <i class="fa-solid fa-seedling" style="color: #2caa3b;"></i> -->
                             🍒 Diệu Nhi 🍒
                         </span>
                         <span class="followers-count" >511K người theo dõi</span>
@@ -61,7 +84,27 @@
                         <img src="/image/ndln.jpg" alt="Ninh Dương Lan Ngọc">
                     </div>
                     <div class="profile-info">
-                        <span class="profile-name">ninh.duong.lan.ngoc</span>
+                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">ninh.duong.lan.ngoc</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Ninh Dương Lan Ngọc</div>
+                                        <div class="user-username">ninh.duong.lan.ngoc</div>
+                                    </div>
+                                    <img src="/image/ndln.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>❤️ Look on the bright side of life ❤️<br/>
+                                        📬 Liên hệ công việc: digital.redwall@gmail.com<br/>
+                                        📺 Welcome to my Youtube channel 👇🏻👇🏻👇🏻</p>
+                                    <p style="font-size: 85%; color: #888">479k người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <span class="real-name">
                             Ninh Dương Lan Ngọc
                         </span>
@@ -76,7 +119,27 @@
                         <img src="/image/nhagirlxinh.jpg" alt="nhagirlxinh">
                     </div>
                     <div class="profile-info">
-                        <span class="profile-name">nhagirlxinh</span>
+                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">nhagirlxinh</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">𝐍𝐡𝐚̀ 𝐆𝐢𝐫𝐥 𝐗𝐢𝐧𝐡 💒</div>
+                                        <div class="user-username">nhagirlxinh</div>
+                                    </div>
+                                    <img src="/image/nhagirlxinh.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>🇻🇳 𝑴𝒐̛̀𝒊 𝒄𝒂́𝒄 𝒄𝒂̣̂𝒖 𝒈𝒉𝒆́ 𝒏𝒉𝒂̀ 𝒕𝒐̛́ 𝒄𝒉𝒐̛𝒊 𝒏𝒉𝒆́ 💗<br/>
+                                        🌸 𝑵𝒉𝒊𝒆̂̀𝒖 𝒃𝒂̣𝒏 𝒏𝒖̛̃ 𝒙𝒊𝒏𝒉 𝒙𝒂̆́𝒏 𝒍𝒂̆́𝒎 𝒂̣ 🩵<br/>
+                                        ⬇️ Tủ đồ xinhxinh yêu yêu ạ ⬇️</p>
+                                    <p style="font-size: 85%; color: #888">149k người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <span class="real-name">
                             𝐍𝐡𝐚̀ 𝐆𝐢𝐫𝐥 𝐗𝐢𝐧𝐡 💒
                             <!-- <i class="fa-solid fa-house-fire" style="color: #fc1303;"></i> -->
@@ -91,7 +154,26 @@
                         <img src="/image/yan.jpg" alt="yannews">
                     </div>
                     <div class="profile-info">
-                        <span class="profile-name">yannewsc</span>
+                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">yannewsc</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">YAN News</div>
+                                        <div class="user-username">yannewsc</div>
+                                    </div>
+                                    <img src="/image/yan.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>Có gì hay hôm nay?<br />
+                                        Truy cập ngay 👉🏼 http://www.yan.vn 👈🏼</p>
+                                    <p style="font-size: 85%; color: #888">114k người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <span class="real-name">
                             YAN News
                         </span>
@@ -105,7 +187,25 @@
                         <img src="/image/cungtamche.jpg" alt="cungtamche">
                     </div>
                     <div class="profile-info">
-                        <span class="profile-name">cungtamche</span>
+                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">cungtamche</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Cung Tâm Chế</div>
+                                        <div class="user-username">cungtamche</div>
+                                    </div>
+                                    <img src="/image/cungtamche.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>Hội đam mê ảnh chế!</p>
+                                    <p style="font-size: 85%; color: #888">26,9k người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <span class="real-name">
                             Cung Tâm Chế
                         </span>
@@ -119,7 +219,25 @@
                         <img src="/image/yeah1.jpg" alt="yeah1_tv">
                     </div>
                     <div class="profile-info">
-                        <span class="profile-name">yeah1_tv</span>
+                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">yeah1_tv</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">YeaH1 TV</div>
+                                        <div class="user-username">yeah1_tv</div>
+                                    </div>
+                                    <img src="/image/yeah1.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p></p>
+                                    <p style="font-size: 85%; color: #888">20k người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <span class="real-name">
                             YeaH1 TV
                         </span>
@@ -133,11 +251,31 @@
                         <img src="/image/amie.jpg" alt="aimee.iuu">
                     </div>
                     <div class="profile-info">
-                        <span class="profile-name">ninh.duong.lan.ngoc</span>
+                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">@aimee.iuu</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">𝐚𝐢𝐦𝐞́𝐞 𝜗𝜚˚⋆</div>
+                                        <div class="user-username">@aimee.iuu</div>
+                                    </div>
+                                    <img src="/image/aimee.jpg" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>✿ 𝟷𝚖𝟻𝟺, 𝟺𝟻𝚔𝚐<br />
+                                        🧖🏼‍♀️ 𝚃𝚒𝚔𝚝𝚘𝚔 : 𝚊𝚒𝚖𝚎𝚎.𝚒𝚞𝚞˚｡⋆<br/>
+                                        🧺 𝚂𝚙 𝚖𝚒̀𝚗𝚑 𝚖𝚊̣̆𝚌 𝚘̛̉ 𝚕𝚒𝚗𝚔 𝚋𝚎̂𝚗 𝚍𝚞̛𝚘̛́𝚒 𝚗𝚑𝚊𝚊</p>
+                                    <p style="font-size: 85%; color: #888">0 người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn">Theo dõi</button>
+                                </div>
+                            </div>
+                        </div>
                         <span class="real-name">
                             𝐚𝐢𝐦𝐞́𝐞 𝜗𝜚˚⋆
                         </span>
-                        <span class="followers-count">479K người theo dõi</span>
+                        <span class="followers-count">0 người theo dõi</span>
                     </div>
                     <button class="follow-btn">Theo dõi</button>
                 </div>
