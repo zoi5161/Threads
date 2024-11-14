@@ -74,7 +74,6 @@
         </li>
         <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
 
-
         <li style="display: flex; justify-content: center">
             <div class="dot">
                 <div style="width: 10rem;">
@@ -90,3 +89,14 @@
         </li>
     </ul>
 </div>
+
+<script>
+    // Lấy phần tử dropdown
+    const dropdownElement = document.querySelector('.three_dots_button .dropdown-menu');
+    const dropdown = new bootstrap.Dropdown(dropdownElement.parentElement.querySelector('button'));
+
+    // Đóng dropdown khi người dùng cuộn
+    window.addEventListener('scroll', () => {
+        dropdown.hide();
+    });
+</script>
