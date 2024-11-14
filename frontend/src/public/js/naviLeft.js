@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const new_post = document.querySelector('#post_status');
     const plusBox = document.getElementById('plus_box');
     const plusSmall = document.querySelector('.add-button');
+    const post_btn = document.querySelector('.post_btn');
     const overlay = document.getElementById('overlay');
     const cancelBtn = document.querySelector('.cancel-btn');
     const plus_box_short_profile = document.getElementById('plus_box_short_profile');
@@ -81,50 +82,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listeners
     plusIcon.addEventListener('click', showModal);
+    plusSmall.addEventListener('click', showModal);
+    cancelBtn.addEventListener('click', hideModal);
+    overlay.addEventListener('click', hideModal);
     if(new_post)
         new_post.addEventListener('click', showModal);
-    plusSmall.addEventListener('click', showModal);
-    plus_box_short_profile.addEventListener('click', showModal);
-    tag.addEventListener('click', showModal);
-    cancelBtn.addEventListener('click', hideModal);
-    overlay.addEventListener('click', hideModal);
-
-    // Prevent modal from closing when clicking inside it
-    plusBox.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    // JS cho phần plusModal:
-    // Get DOM elements
-    const plusIcon = document.querySelector('#plus_icon'); // Your plus icon button
-    const plusBox = document.getElementById('plus_box');
-    const plusSmall = document.querySelector('.add-button');
-    const overlay = document.getElementById('overlay');
-    const cancelBtn = document.querySelector('.cancel-btn');
-
-    // Show modal function
-    function showModal() {
-        overlay.classList.remove('hidden');
-        plusBox.classList.remove('hidden');
-        // Prevent scrolling when modal is open
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Hide modal function
-    function hideModal() {
-        overlay.classList.add('hidden');
-        plusBox.classList.add('hidden');
-        // Re-enable scrolling
-        document.body.style.overflow = 'auto';
-    }
-
-    // Event listeners
-    plusIcon.addEventListener('click', showModal);
-    plusSmall.addEventListener('click', showModal);
-    cancelBtn.addEventListener('click', hideModal);
-    overlay.addEventListener('click', hideModal);
+    if(post_btn)
+        post_btn.addEventListener('click', showModal);
+    if(plus_box_short_profile)
+        plus_box_short_profile.addEventListener('click', showModal);
+    if(tag)
+        tag.addEventListener('click', showModal);
 
     // Prevent modal from closing when clicking inside it
     plusBox.addEventListener('click', (e) => {

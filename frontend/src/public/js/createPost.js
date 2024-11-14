@@ -143,7 +143,7 @@ function createPostHTML(post) {
                     ${post.img_url ? 
                         `
                         <div style="text-align: center">
-                            <img class="post_img" src="${post.img_url}" style="max-width: 100%; max-height: 500px; border-radius: 10px;">
+                            <img class="post_img" src="${post.img_url}" style="max-width: 100%; max-height: 500px; border-radius: 10px; margin-bottom: 1rem">
                         </div>
                         ` 
                         : ''
@@ -169,15 +169,18 @@ function createPostTopHTML(user) {
             <div class="username-time">
                 <div class="new_post" id="post_status" style="color: #888">Có gì mới?</div>
             </div>
-            <div style="display: flex; align-items: center; width: 15%"><button type="button" class="btn btn-dark"
-                style="background-color: #1e1e1e; border-color: #3b3a3a; width: 75%; padding: 0.25rem 0">Đăng</button></div>
+            <div style="display: flex; align-items: center; width: 15%">
+                <button type="button" class="btn btn-dark post_btn"
+                    style="background-color: #1e1e1e; border-color: #3b3a3a; width: 75%; padding: 0.25rem 0">Đăng
+                </button>
+            </div>
         </div>
     </div>`;
 }
 
-async function createPost(user, posts, needPostTop = true) {
+async function createPost(posts, user = null) {
   const postContainer = document.querySelector(".container_post");
-  if (needPostTop) {
+  if (user) {
     postContainer.innerHTML = createPostTopHTML(user);
   }
   posts.forEach((post) => {

@@ -270,6 +270,8 @@ main {
     max-width: 100%;
     width: 700px;
     max-height: 100vh;
+    height: 100vh;
+    margin: 0 auto;
 }
 
 .modal-dialog-centered-profile{

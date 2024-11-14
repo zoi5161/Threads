@@ -1,0 +1,1542 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ · Threads</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="/style/home.css" />
+    <link rel="stylesheet" href="/style/navibar/navileft.css" />
+    <link rel="stylesheet" href="/style/navibar/navitop.css">
+    <link rel="stylesheet" href="/style/containerPost.css">
+    <link rel="stylesheet" href="/style/plus.css">
+    <link rel="stylesheet" href="/style/plusModal.css" />
+    <link rel="stylesheet" href="/style/comment.css" />
+    <link rel="stylesheet" href="/style/three_dots.css" /> -->
+
+    <link rel="stylesheet" href="/frontend/src/public/style/home.css" />
+    <link rel="stylesheet" href="/frontend/src/public/style/navibar/navileft.css" />
+    <link rel="stylesheet" href="/frontend/src/public/style/navibar/navitop.css">
+    <link rel="stylesheet" href="/frontend/src/public/style/containerPost.css">
+    <link rel="stylesheet" href="/frontend/src/public/style/plus.css">
+    <link rel="stylesheet" href="/frontend/src/public/style/plusModal.css" />
+    <link rel="stylesheet" href="/frontend/src/public/style/comment.css" />
+    <link rel="stylesheet" href="/frontend/src/public/style/three_dots.css" />
+
+    
+    <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- Menu phụ sẽ được hiển thị khi nhấn vào thumbtack -->
+<!-- <script src="/js/naviLeft.js"></script> -->
+<script src="/frontend/src/public/js/naviLeft.js"></script>
+
+<div id="overlay" class="overlay hidden"></div>
+    <div id="plus_box" class="thread-container hidden">
+        <div class="header">
+            <button class="cancel-btn" style="font-size: 100%; font-weight: bold;">Hủy</button>
+            <span>Thread mới</span>
+            <div></div>
+        </div>
+        <hr class="divider">
+        
+        <div class="plus_body">
+            <div class="avatar">
+                <img src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="User avatar">
+            </div>
+            
+            <form action="#" method="get">
+                <div class="input-section">
+                    <div class="username">_vteif</div>
+                    <textarea class="input-box" placeholder="Có gì mới?"></textarea>
+                    <div class="icon-group">
+                        <label for="image-upload" class="upload-icon">
+                            <i class="fa-regular fa-image"></i>
+                            <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                        </label>
+                        <button type="button">GIF</button>
+                        <button type="button"><i class="fa-solid fa-hashtag"></i></button>
+                        <button type="button"><i class="fa-solid fa-location-dot"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="plus_footer">
+            <button class="reply-settings">
+                Bất kỳ ai cũng có thể trả lời và trích dẫn
+            </button>
+            <button class="post-btn">Đăng</button>
+        </div>
+    </div>
+
+<div id="pin-menu">
+    <div class="header-pin-menu">
+        <h4 style="text-align: center; font-size: 95%; margin-bottom: 1rem">Ghim lên trang chủ</h4>
+    </div>
+    <div
+        style="height: 3rem; background-color: black; border: 0.1px solid #3b3a3a; border-radius: 20px; display: flex; align-items: center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+        </svg>
+        <input type="text" placeholder="Tìm kiếm từ khóa và trang cá nhân"
+            style="padding: 5px; color:white; background-color: black; border: none; width: 70%; font-size: 15px; outline: none">
+    </div>
+    <div>
+        <ul style="list-style-type: none; padding: 0; margin: 1rem 0;">
+            <li>Dành cho bạn</li>
+            <li>Đang theo dõi</li>
+            <li>Đã thích</li>
+            <li>Đã lưu</li>
+            <li>Tìm kiếm</li>
+            <li>Hoạt động</li>
+            <li>Trang cá nhân</li>
+            <li>Thông tin khác</li>
+        </ul>
+    </div>
+</div>
+
+<div id="setting-menu">
+    <div class="setting-first">
+        <ul id="first" style="list-style-type: none; padding: 0; margin: 1rem 0;">
+            <div class="setting-UI" style="display: flex; justify-content: space-between">
+                <span>Giao diện</span>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                    </svg></div>
+            </div>
+            <li>Thông tin chi tiết</li>
+            <li>Cài đặt</li>
+        </ul>
+    </div>
+    <hr>
+    <div class="setting-second">
+        <ul id="second" style="list-style-type: none; padding: 0; margin: 1rem 0;">
+            <li>Báo cáo sự cố</li>
+            <li>Đăng xuất</li>
+        </ul>
+    </div>
+</div>
+
+<div class="navibar">
+    <!-- Dropdown hiển thị sẵn -->
+    <div id="vertical_drop" class="dropdown">
+        <!-- Dropdown menu luôn hiển thị -->
+        <ul id="taskbar" class="dropdown-menu show" style="position: relative;">
+            <div class="logo">
+                <li><a class="dropdown-item" href="/"><i class="fa-brands fa-threads" style="font-size: 100%;"></i></a>
+                </li>
+            </div>
+
+            <!-- <div class="mid">
+                <li><a class="dropdown-item" href="/Home"><i class="fa-solid fa-house"></i></a></li>
+                <li><a class="dropdown-item" href="/Search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></button></li>
+                <li><a class="dropdown-item" href="/Announce"><i class="fa-regular fa-heart"></i></a></li>
+                <li><a class="dropdown-item" href="/Profile"><i class="fa-regular fa-user"></i></a></li>
+            </div> -->
+
+            <div class="mid">
+                <li><a class="dropdown-item" href="./home"><i class="fa-solid fa-house"></i></a></li>
+                <li><a class="dropdown-item" href="./search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></button></li>
+                <li><a class="dropdown-item" href="./announce"><i class="fa-regular fa-heart"></i></a></li>
+                <li><a class="dropdown-item" href="./profile"><i class="fa-regular fa-user"></i></a></li>
+            </div>
+
+            <div class="bot">
+                <li><button class="dropdown-item" id="thumbtack-icon"><i class="fa-solid fa-thumbtack"></i></button></li>
+                <li><button class="dropdown-item" id="bars-staggered-icon"><i class="fa-solid fa-bars-staggered"></i></button></li>
+            </div>
+        </ul>
+    </div>
+</div>
+
+        <div class="container-fluid">
+            <div class="container_post">
+                <!-- Dropdown Menu -->
+
+<div class="dropdown-center_naviTop">
+        <div style="display: flex; justify-content: center; align-items: center; width: 80%; gap: 2rem">
+            <div style="margin-left: 3rem">
+                Thread
+            </div>
+            <div>
+                <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu top">
+                    <li><a class="dropdown-item" href="#">Tất cả</a></li>
+                    <li><a class="dropdown-item" href="#">Lượt theo dõi</a></li>
+                    <li><a class="dropdown-item" href="#">Threads trả lời</a></li>
+                    <li><a class="dropdown-item" href="#">Lượt nhắc</a></li>
+                    <li><a class="dropdown-item" href="#">Lượt trích dẫn</a></li>
+                    <li><a class="dropdown-item" href="#">Bài đăng lại</a></li>
+                    <li><a class="dropdown-item" href="#">Được xác minh</a></li>
+                </ul> 
+            </div>
+        </div>
+        <div style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%">
+            <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+                class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                </svg>
+            </button>
+            <ul class="dropdown-menu top dropdown-menu-end" style="border-radius: 15px 15px;">
+                <li>
+                    <div>
+                            <a class="dropdown-item" href="#" style="display: flex; justify-content: space-between; padding-right: 0.5rem;">
+                                Ghim lên trang chủ
+                                <div style="width: 20%; display: flex; justify-content: center; align-items: center">
+                                    <i class="fa-solid fa-thumbtack" style="color: white; font-size: 120%;"></i>
+                                </div>
+                            </a>  
+                    </div>
+                    
+                </li>
+            </ul>
+        </div>
+</div>
+
+<div class="navitop-768px">
+    <div class="logo-navitop">
+        <div style="width: 90%; display: flex; justify-content: center; margin-left: 2rem">
+            <a href="/"><i class="fa-brands fa-threads" style="font-size: 150%;"></i></a>
+        </div>
+        <div style="width: 10%;">
+            <div style="display: flex; justify-content:center">
+                <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+                class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu top">
+                    <div class="setting-UI-top" style="display: flex; justify-content: space-between">
+                        <span>Giao diện</span>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                            </svg></div>
+                    </div>
+                    <li>Thông tin chi tiết</li>
+                    <li>Cài đặt</li>
+                    <li>Đã lưu</li>
+                    <li>Đã thích</li>
+                    <div class="hr" style="margin-top: 8px"></div>
+                    <div class="setting-top-second">
+                        <ul id="second" style="list-style-type: none; padding: 0; margin-top: 8px;">
+                            <li>Báo cáo sự cố</li>
+                            <li>Đăng xuất</li>
+                        </ul>
+                    </div>
+                </ul> 
+            </div>
+            
+        </div>
+    </div>
+</div>       
+                    <!-- Post 1 - Main Post -->
+                    <div class="post" id="postTop">
+                        <div class="post-header">
+                            <div class="avatar">avt</div>
+                            <div class="username-time">
+                                <div class="username">hoang_uyn205</div>
+                                <div class="time">21 giờ</div>
+                            </div>
+
+                            <div class="three_dots_button" style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
+    <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+        </svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" style="margin-bottom: 10px; border-radius: 15px; background-color: #1e1e1e; color: white; width: 250px;">
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Lưu</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Không quan tâm</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash">
+                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Tắt thông báo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash">
+                        <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6q0-.396-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164zm5.581-9.91a4 4 0 0 0-1.948-1.01L8 2.917l-.797.161A4 4 0 0 0 4 7c0 .628-.134 2.197-.459 3.742q-.075.358-.166.718l-1.653 1.653q.03-.055.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+        
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Chặn</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-slash">
+                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 4rem;">
+                    <a href="#" style="text-decoration: none; color: red;">Báo cáo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center; color: red">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 10rem;">
+                    <a href="#" style="text-decoration: none; color: inherit">Sao chép liên kết</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+                        </div>
+                        <div class="post-content">
+                            Tìm = mất chuỗi NNN ⭐
+                        </div>
+                        <div class="post-footer">
+                            <div><i class="far fa-heart"></i>425</div>
+                            <div><i class="far fa-comment"></i>9</div>
+                            <div><i class="fas fa-share"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Trigger -->
+                    <div class="post" style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+    <p style="margin: 0; color: white; font-weight: bold;">Thread trả lời</p>
+    <div style="color: #888; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#activityModal">Xem hoạt động >
+    </div>
+</div>
+
+<div class="modal fade" id="activityModal" tabindex="-1" aria-labelledby="activityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="height: 90vh; margin-top: 2rem; border-radius: 30px;">
+        <div class="modal-content"
+            style="height: 100%; background-color: #181818; color: white; border-radius: 10px; padding: 0px;">
+
+            <!-- Fixed Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="activityModalLabel"
+                    style="text-align: center; width: 100%; font-weight: bold;">Hoạt động đối với
+                    bài viết</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    style="background-color: white;"></button>
+            </div>
+
+            <!-- Scrollable Body -->
+            <div class="modal-body" style="height: 60vh; overflow-y: auto; padding: 20px;">
+                <div class="status mx-0.5rem" style="border: 1px solid #383939; padding: 10px; border-radius: 20px;">
+                    <div class="post-header" style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <div class="avatar"
+                            style="margin-right: 10px; width: 40px; height: 40px; border-radius: 50%; background: gray;">
+                        </div>
+                        <div class="username-time">
+                            <div class="username" style="font-weight: bold;">tng_baro</div>
+                            <div class="time" style="color: #aaa;">14 giờ</div>
+                        </div>
+                    </div>
+                    <p style="margin: 10px 0;">tin chuẩn nhé anh em</p>
+                </div>
+
+                <div class="statistics" style="margin-top: 15px;">
+                    <div class="statistics-items">
+                        <div><i class="far fa-eye" style="font-size: 125%;"></i> Lượt xem:</div>
+                        <div>14.010</div>
+                    </div>
+                    <div class="statistics-items">
+                        <div><i class="far fa-heart" style="font-size: 125%;"></i> Lượt thích:</div>
+                        <div>80</div>
+                    </div>
+                    <div class="statistics-items">
+                        <div><i class="fas fa-retweet" style="font-size: 125%;"></i> Lượt đăng lại:
+                        </div>
+                        <div>2</div>
+                    </div>
+                    <div class="statistics-items">
+                        <span><i class="fas fa-comment"></i> Trích dẫn</span>
+                        <span>9</span>
+                    </div>
+                </div>
+
+                <hr style="border-color: #3b3a3a; margin-top: 10px;">
+
+                <!-- User List -->
+                <div class="user-list">
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay" style="background-color: #c329bf;">
+                                    <i class="fas fa-retweet" style="font-size: 80%;"></i>
+                                    <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">okokee9</div>
+                                <div class="username" style="color: #aaa;">Nguyễn Bảo</div>
+                            </div>
+                            <div class="time" style="color: #aaa;">15 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+
+                    <!-- Repeat user structure for other users -->
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex; align-items: flex-start;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                        fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg> <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
+                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                            </div>
+                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+
+                    <!-- Add more users as needed -->
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex; align-items: flex-start;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                        fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg> <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
+                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                            </div>
+                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex; align-items: flex-start;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                        fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg> <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
+                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                            </div>
+                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex; align-items: flex-start;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                        fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg> <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
+                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                            </div>
+                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex; align-items: flex-start;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                        fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg> <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
+                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                            </div>
+                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex; align-items: flex-start;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                        fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg> <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
+                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                            </div>
+                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex; align-items: flex-start;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                        fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg> <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
+                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                            </div>
+                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex; align-items: flex-start;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                        fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg> <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
+                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                            </div>
+                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+
+                    <div class="user"
+                        style="padding: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                        <div style="padding: 0; display: flex; align-items: flex-start;">
+                            <div class="avatar_cmt my-auto">
+
+                                <!-- Icon at the bottom-right of avatar -->
+                                <div class="icon-overlay">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px"
+                                        fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg> <!-- Đổi icon thành icon bạn muốn -->
+                                </div>
+                            </div>
+                            <div class="name" style="display: flex; flex-direction: column;">
+                                <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
+                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                            </div>
+                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                        </div>
+                        <button class="btn btn-secondary"
+                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            dõi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <!-- Modal Structure -->
+                    <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"
+        style="margin-top: 2rem; border-radius: 10px; max-width: 768px; width: 638px;">
+        <div class="modal-content" style="background-color: #181818; color: white; padding: 0;">
+            <div class="modal-header" style="border-bottom: none; padding: 10px 20px;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    style="background-color: #181818; border: none; color: white;">Hủy</button>
+                <span class="mx-auto" style="font-weight: bold; text-align: center; flex-grow: 1;">Thread trả
+                    lời</span>
+            </div>
+
+            <hr style="border-color: white; margin: 0;">
+
+            <div class="modal-body" style="padding: 20px;">
+                <div class="post-header" style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <div class="avatar"
+                        style="margin-right: 10px; width: 40px; height: 40px; border-radius: 50%; background: gray;">
+                    </div>
+                    <div class="username-time">
+                        <div class="username" style="font-weight: bold;">page.1999_th</div>
+                        <div class="time" style="color: #aaa;">21 giờ</div>
+                    </div>
+                </div>
+                <p style="margin-left: 60px; color: #ddd; margin-bottom: 20px;">| 11 tháng 11 | - Quốc Tế Độc
+                    Thân.<br />Ai còn đang độc thân thì tim đi 🫶🏻</p>
+
+                <form action="#" method="get">
+                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <div class="avatar" style="width: 40px; height: 40px; border-radius: 50%; background: gray;">
+                        </div>
+                        <div class="username" style="font-weight: bold;">_.vteif</div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; margin-left: 60px;">
+                        <textarea class="form-control" placeholder="Trả lời page.1999_th..." rows="1"
+                            style="background-color: #181818; border: none; border-radius: 20px; color: white; padding: 10px; resize: none;"></textarea>
+                        <div class="icon-group" style="display: flex; gap: 8px; color: #888;">
+                            <label for="image-upload" style="cursor: pointer;">
+                                <i class="fa-regular fa-image"></i>
+                                <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                            </label>
+                            <button type="button"
+                                style="background: none; border: none; color: #888;"><strong>GIF</strong></button>
+                            <button type="button" style="background: none; border: none; color: #888;"><i
+                                    class="fa-solid fa-hashtag"></i></button>
+                            <button type="button" style="background: none; border: none; color: #888;"><i
+                                    class="fa-solid fa-location-dot"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer"
+                style="background-color: #181818; border-top: none; display: flex; justify-content: space-between; padding: 10px 20px;">
+                <button class="reply-settings"
+                    style="background: none; border: none; color: #888; font-size: 0.85rem;">Bất kỳ
+                    ai cũng có thể trả lời và trích dẫn</button>
+                <input type="submit" value="Đăng" class="post-btn"
+                    style="background-color: #181818; color: #aaa; border: none; padding: 5px 15px; border-radius: 10px; font-weight: bold;"></input>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+                    <!-- Post 2 - Comment 1 -->
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="avatar">avt</div>
+                            <div class="username-time">
+                                <div class="username">embedam.69</div>
+                                <div class="time">19 giờ</div>
+                            </div>
+                            <div class="three_dots_button" style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
+    <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+        </svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" style="margin-bottom: 10px; border-radius: 15px; background-color: #1e1e1e; color: white; width: 250px;">
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Lưu</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Không quan tâm</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash">
+                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Tắt thông báo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash">
+                        <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6q0-.396-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164zm5.581-9.91a4 4 0 0 0-1.948-1.01L8 2.917l-.797.161A4 4 0 0 0 4 7c0 .628-.134 2.197-.459 3.742q-.075.358-.166.718l-1.653 1.653q.03-.055.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+        
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Chặn</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-slash">
+                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 4rem;">
+                    <a href="#" style="text-decoration: none; color: red;">Báo cáo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center; color: red">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 10rem;">
+                    <a href="#" style="text-decoration: none; color: inherit">Sao chép liên kết</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+                        </div>
+                        <div class="post-content">
+                            Fwb ib e
+                        </div>
+                        <div class="post-footer">
+                            <div><i class="far fa-heart"></i>1</div>
+                            <!-- <div><i class="far fa-comment"></i></div> -->
+
+                            <!-- Button Trigger Modal -->
+                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                                <i class="far fa-comment"></i>
+                            </div>
+
+                            <div><i class="fas fa-share"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Post 3 - Comment 2 -->
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="avatar">avt</div>
+                            <div class="username-time">
+                                <div class="username">nkn4994</div>
+                                <div class="time">20 giờ</div>
+                            </div>
+                            <div class="three_dots_button" style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
+    <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+        </svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" style="margin-bottom: 10px; border-radius: 15px; background-color: #1e1e1e; color: white; width: 250px;">
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Lưu</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Không quan tâm</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash">
+                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Tắt thông báo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash">
+                        <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6q0-.396-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164zm5.581-9.91a4 4 0 0 0-1.948-1.01L8 2.917l-.797.161A4 4 0 0 0 4 7c0 .628-.134 2.197-.459 3.742q-.075.358-.166.718l-1.653 1.653q.03-.055.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+        
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Chặn</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-slash">
+                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 4rem;">
+                    <a href="#" style="text-decoration: none; color: red;">Báo cáo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center; color: red">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 10rem;">
+                    <a href="#" style="text-decoration: none; color: inherit">Sao chép liên kết</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+                        </div>
+                        <div class="post-content">
+                            Đâu
+                        </div>
+                        <div class="post-footer">
+                            <div><i class="far fa-heart"></i></div>
+                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                                <i class="far fa-comment"></i>
+                            </div>
+                            <div><i class="fas fa-share"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Post 4 - Comment 3 -->
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="avatar">avt</div>
+                            <div class="username-time">
+                                <div class="username">truongthach264</div>
+                                <div class="time">21 giờ</div>
+                            </div>
+                            <div class="three_dots_button" style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
+    <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+        </svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" style="margin-bottom: 10px; border-radius: 15px; background-color: #1e1e1e; color: white; width: 250px;">
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Lưu</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Không quan tâm</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash">
+                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Tắt thông báo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash">
+                        <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6q0-.396-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164zm5.581-9.91a4 4 0 0 0-1.948-1.01L8 2.917l-.797.161A4 4 0 0 0 4 7c0 .628-.134 2.197-.459 3.742q-.075.358-.166.718l-1.653 1.653q.03-.055.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+        
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Chặn</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-slash">
+                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 4rem;">
+                    <a href="#" style="text-decoration: none; color: red;">Báo cáo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center; color: red">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 10rem;">
+                    <a href="#" style="text-decoration: none; color: inherit">Sao chép liên kết</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+                        </div>
+                        <div class="post-content">
+                            Ib a
+                        </div>
+                        <div class="post-footer">
+                            <div><i class="far fa-heart"></i></div>
+                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                                <i class="far fa-comment"></i>
+                            </div>
+                            <div><i class="fas fa-share"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Post 5 - Comment 4 -->
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="avatar">avt</div>
+                            <div class="username-time">
+                                <div class="username">minhtai.2807__</div>
+                                <div class="time">2 giờ</div>
+                            </div>
+                            <div class="three_dots_button" style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
+    <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+        </svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" style="margin-bottom: 10px; border-radius: 15px; background-color: #1e1e1e; color: white; width: 250px;">
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Lưu</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Không quan tâm</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash">
+                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Tắt thông báo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash">
+                        <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6q0-.396-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164zm5.581-9.91a4 4 0 0 0-1.948-1.01L8 2.917l-.797.161A4 4 0 0 0 4 7c0 .628-.134 2.197-.459 3.742q-.075.358-.166.718l-1.653 1.653q.03-.055.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+        
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Chặn</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-slash">
+                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 4rem;">
+                    <a href="#" style="text-decoration: none; color: red;">Báo cáo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center; color: red">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 10rem;">
+                    <a href="#" style="text-decoration: none; color: inherit">Sao chép liên kết</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+                        </div>
+                        <div class="post-content">
+                            🤨😶
+                        </div>
+                        <div class="post-footer">
+                            <div><i class="far fa-heart"></i></div>
+                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                                <i class="far fa-comment"></i>
+                            </div>
+                            <div><i class="fas fa-share"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="avatar">avt</div>
+                            <div class="username-time">
+                                <div class="username">_10.nov_</div>
+                                <div class="time">27 phút</div>
+                            </div>
+                            <div class="three_dots_button" style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
+    <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+        </svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" style="margin-bottom: 10px; border-radius: 15px; background-color: #1e1e1e; color: white; width: 250px;">
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Lưu</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Không quan tâm</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash">
+                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Tắt thông báo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash">
+                        <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6q0-.396-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164zm5.581-9.91a4 4 0 0 0-1.948-1.01L8 2.917l-.797.161A4 4 0 0 0 4 7c0 .628-.134 2.197-.459 3.742q-.075.358-.166.718l-1.653 1.653q.03-.055.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+        
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Chặn</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-slash">
+                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 4rem;">
+                    <a href="#" style="text-decoration: none; color: red;">Báo cáo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center; color: red">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 10rem;">
+                    <a href="#" style="text-decoration: none; color: inherit">Sao chép liên kết</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+                        </div>
+                        <div class="post-content">
+                            Đâu z
+                        </div>
+                        <div class="post-footer">
+                            <div><i class="far fa-heart"></i>4</div>
+                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                                <i class="far fa-comment"></i>2
+                            </div>
+                            <div><i class="fas fa-share"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="avatar">avt</div>
+                            <div class="username-time">
+                                <div class="username">_10.nov_</div>
+                                <div class="time">27 phút</div>
+                            </div>
+                            <div class="three_dots_button" style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
+    <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+        </svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" style="margin-bottom: 10px; border-radius: 15px; background-color: #1e1e1e; color: white; width: 250px;">
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Lưu</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Không quan tâm</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash">
+                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Tắt thông báo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash">
+                        <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6q0-.396-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164zm5.581-9.91a4 4 0 0 0-1.948-1.01L8 2.917l-.797.161A4 4 0 0 0 4 7c0 .628-.134 2.197-.459 3.742q-.075.358-.166.718l-1.653 1.653q.03-.055.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+        
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Chặn</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-slash">
+                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 4rem;">
+                    <a href="#" style="text-decoration: none; color: red;">Báo cáo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center; color: red">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 10rem;">
+                    <a href="#" style="text-decoration: none; color: inherit">Sao chép liên kết</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+                        </div>
+                        <div class="post-content">
+                            Tim r
+                        </div>
+                        <div class="post-footer">
+                            <div><i class="far fa-heart"></i>4</div>
+                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                                <i class="far fa-comment"></i>2
+                            </div>
+                            <div><i class="fas fa-share"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="avatar">avt</div>
+                            <div class="username-time">
+                                <div class="username">_10.nov_</div>
+                                <div class="time">27 phút</div>
+                            </div>
+                            <div class="three_dots_button" style="color: white; font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
+    <button style="border-color: #3b3a3a; border-radius: 50%; background-color: #1e1e1e; height: 1.5rem; width: 1.5rem;"
+        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+        </svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" style="margin-bottom: 10px; border-radius: 15px; background-color: #1e1e1e; color: white; width: 250px;">
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Lưu</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Không quan tâm</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash">
+                        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 8rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Tắt thông báo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-slash">
+                        <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6q0-.396-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164zm5.581-9.91a4 4 0 0 0-1.948-1.01L8 2.917l-.797.161A4 4 0 0 0 4 7c0 .628-.134 2.197-.459 3.742q-.075.358-.166.718l-1.653 1.653q.03-.055.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+        
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 2rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Chặn</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-slash">
+                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465m-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 4rem;">
+                    <a href="#" style="text-decoration: none; color: red;">Báo cáo</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center; color: red">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
+
+
+        <li style="display: flex; justify-content: center">
+            <div class="dot">
+                <div style="width: 10rem;">
+                    <a href="#" style="text-decoration: none; color: inherit">Sao chép liên kết</a>
+                </div>
+                <div style="width: 2rem; display: flex; justify-content: center; align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                        <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                        <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                      </svg>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+                        </div>
+                        <div class="post-content">
+                            Tht hưm
+                        </div>
+                        <div class="post-footer">
+                            <div><i class="far fa-heart"></i>4</div>
+                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
+                                <i class="far fa-comment"></i>2
+                            </div>
+                            <div><i class="fas fa-share"></i></div>
+                        </div>
+                    </div>
+
+                    <button class="add-button">
+    <div class="add_small">
+        <i id="plus_add_small" class="fa-solid fa-plus"></i>
+    </div>
+</button> 
+            </div>
+        </div>
+
+        <!-- cmt thêm để thêm lại vào main -->
+</body>
+
+</html>

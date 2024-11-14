@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const modalHTML = `
             <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal_img">
-                    <div class="modal-content modal_img_content" style="background-color: rgba(0, 0, 0, 0.85);">
+                    <div class="modal-content modal_img_content" style="background-color: rgb(0, 0, 0);">
                         <div class="modal-header border-0 modal_img_content_header">
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -65,11 +65,12 @@ document.addEventListener("DOMContentLoaded", function () {
           // Thực hiện các hành động của icon ba chấm ở đây (hiển thị menu/modal)
         } else {
           // Nếu không phải là icon ba chấm, thực hiện sự kiện chuyển tab
-          window.location.href = "/Comment";
+          // window.location.href = "/Comment";
+          window.location.href = "./comment";
         }
       });
     });
-  }, 1);
+  }, 100);
 });
 
 function showUserInfo1(element) {
