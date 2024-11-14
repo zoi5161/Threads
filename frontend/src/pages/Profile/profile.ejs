@@ -16,34 +16,33 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/style/profile.css" />
+    <link rel="stylesheet" href="/style/home.css" />
     <link rel="stylesheet" href="/style/navibar/navileft.css" />
     <link rel="stylesheet" href="/style/navibar/navitop.css">
+    <link rel="stylesheet" href="/style/containerPost.css">
     <link rel="stylesheet" href="/style/plus.css">
     <link rel="stylesheet" href="/style/plusModal.css" />
-    <link rel="stylesheet" href="/style/containerPost.css">
     <link rel="stylesheet" href="/style/three_dots.css" />
 
-
-    <script
-      src="https://kit.fontawesome.com/434b26bb0d.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 
-    <!-- <script src="/home.js"></script> -->
-    <!-- <script src="/js/naviLeft.js"></script> -->
-    <!-- <script src="/home.js"></script> -->
+    <script src="/js/home.js"></script>
+    <script src="/js/createPost.js"></script>
+
   </head>
 
   <body>
-    <!-- <%- include("../Partials/naviLeft.ejs")  %> -->
+    <%- include("../Partials/naviLeft.ejs")  %>
     <!-- <iframe src="../Partials/naviLeft.ejs" style="border: none; width: 100%; height: 50px;"></iframe> -->
 
 
     <div class="container-fluid">
       <main>
-        
+        <%- include("../Partials/naviTop.ejs")  %>
         <div class="content_wrapper">
           <!-- <%- include("../Partials/naviTop.ejs")  %> -->
           <div class="info_wrapper">
@@ -91,7 +90,7 @@
           <!--Edit Modal Structure -->
           <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content modal-custom" id="modal-1">
+                <div class="modal-content modal-custom-profile" id="modal-1">
                   <div class="special_element_m">
                     <div class="element_m">
                       <div class="title_m">Tên</div>
@@ -155,7 +154,7 @@
           <!--Edit Extreme Modal Structure -->
           <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel2" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content modal-custom" id="modal-2">
+              <div class="modal-content modal-custom-profile" id="modal-2">
                 <div class="modal-header">
                   <div class="modal-2-header-btn">
                   <button type="button" class="btn" style="color: white" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
@@ -272,164 +271,8 @@
           </div>
 
           <!-- Post -->
-          <div class="container_post">
-            <%- include("../Partials/naviTop.ejs")  %>
-            <!-- Post 1 -->
-            <div class="post" id="postTop">
-                <div class="post-header">
-                    <div class="avatar">
-                            <img src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" style="width: 40px; height: 40px;" />
-                    </div>
-                    <div class="username-time">
-                        <div class="username">Có gì mới?</div>
-                    </div>
-                    <div style="display: flex; align-items: center; width: 15%"><button type="button" class="btn btn-dark"
-                        style="background-color: #1e1e1e; border-color: #3b3a3a; width: 75%; padding: 0.25rem 0">Đăng</button></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <%- include("../Partials/three_dots.ejs") %>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <!-- Post 2 -->
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <%- include("../Partials/three_dots.ejs") %>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <!-- Post 3 -->
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <%- include("../Partials/three_dots.ejs") %>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <%- include("../Partials/three_dots.ejs") %>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <%- include("../Partials/three_dots.ejs") %>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <%- include("../Partials/three_dots.ejs") %>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                    <%- include("../Partials/three_dots.ejs") %>
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i>2</div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-        </div>
+          <div class="container_post" style="margin-top: 0;">
+          </div>
         </div>
         <%- include("../Partials/plusIcon.ejs")  %>
       </main>
@@ -508,7 +351,40 @@
   }
 
   // Gọi hàm handleScroll() để cập nhật trạng thái khi trang tải
-  window.onload = handleScroll;
+  //window.onload = handleScroll;
+
+  const post_arr = [];
+  for (let i = 0; i < 10; i++)
+      post_arr.push(
+          {
+              user: {
+                  avatar: "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+                  username: "_10.nov_",
+                  fullName: "Huyền Thủy",
+                  tag: "@ngocne2744",
+                  bio: "Zui zẻ",
+                  follower: "299",
+                  follow_status: "Theo dõi",
+              },
+              createAt: "1 giờ",
+              content: "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
+          },
+          
+      )
+  
+
+  const current_user = {
+      userid: '_',
+      username: '_',
+      avatar: 'https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      //Just need avatar for post top
+  }
+
+  window.onload = () => {
+    handleScroll();  
+    createPost(current_user, post_arr, false);  
+};
+
 
   </script>
 </html>

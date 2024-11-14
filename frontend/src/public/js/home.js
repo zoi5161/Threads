@@ -3,8 +3,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("home.js loaded");
 
+    //Vì chưa build API nên dùng setTimeout để giả lập việc lấy dữ liệu từ server thay vì await fetch()
+    setTimeout(() => {
     // Lấy tất cả các post trừ post có id #postTop
     const posts = document.querySelectorAll('.post:not(#postTop)');
+    console.log(posts);
 
     posts.forEach(post => {
         // Thiết lập con trỏ chuột cho vùng post
@@ -28,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    }, 1);
 });
 
 function showUserInfo1(element) {

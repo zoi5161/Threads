@@ -19,6 +19,7 @@
 
 .container_post{
     width: 638px;
+    margin-top: 4rem;
 }
 
 /* Định dạng chung cho post */
@@ -53,7 +54,6 @@
 
 #postTop {
     border-radius: 20px 20px 0px 0px;
-    margin-top: 4rem;
 }
 
 .avatar {

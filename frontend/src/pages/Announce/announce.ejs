@@ -21,180 +21,51 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <!-- <script src="/home.js"></script> -->
-    <!-- <script src="/js/naviLeft.js"></script> -->
+    <script src="/js/home.js"></script>
+    <script src="/js/createPost.js"></script>
 </head>
+<style>
+    .container_post .post:first-child {
+        border-radius: 20px 20px 0 0;
+    }
 
+</style>
 <body>
     <%- include("../Partials/naviLeft.ejs")  %>
     <div class="container-fluid">
+        <%- include("../Partials/naviTop.ejs")  %>
         <div class="container_post">
-            <%- include("../Partials/naviTop.ejs")  %>
-            <!-- Post 1 -->
-            <div class="post" id="postTop">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                </div>
-                <div class="post-description">
-                    Được chọn cho bạn
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                    <br>
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i><span class="numAction">4</span></div>
-                    <div><i class="far fa-comment"></i><span class="numAction">2</span></div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <!-- Post 2 -->
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                </div>
-                <div class="post-description">
-                    Được chọn cho bạn
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                    <br>
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i><span class="numAction">2</span></div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <!-- Post 3 -->
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                </div>
-                <div class="post-description">
-                    Được chọn cho bạn
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                    <br>
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i><span class="numAction">2</span></div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                </div>
-                <div class="post-description">
-                    Được chọn cho bạn
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                    <br>
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i><span class="numAction">2</span></div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                </div>
-                <div class="post-description">
-                    Được chọn cho bạn
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                    <br>
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i><span class="numAction">2</span></div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                </div>
-                <div class="post-description">
-                    Được chọn cho bạn
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                    <br>
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i><span class="numAction">2</span></div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <div class="avatar">avt</div>
-                    <div class="username-time">
-                        <div class="username">_10.nov_</div>
-                        <div class="time">27 phút</div>
-                    </div>
-                </div>
-                <div class="post-description">
-                    Được chọn cho bạn
-                </div>
-                <div class="post-content">
-                    có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người
-                    nữa cho vui
-                    <br>
-                </div>
-                <div class="post-footer">
-                    <div><i class="far fa-heart"></i>4</div>
-                    <div><i class="far fa-comment"></i><span class="numAction">2</span></div>
-                    <div><i class="fas fa-share"></i></div>
-                </div>
-            </div>
         </div>
     </div>
     <%- include("../Partials/plusIcon.ejs")  %>
 </body>
+<script>
+    const post_arr = [];
+    for (let i = 0; i < 10; i++)
+        post_arr.push(
+            {
+                user: {
+                    avatar: "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+                    username: "_10.nov_",
+                    fullName: "Huyền Thủy",
+                    tag: "@ngocne2744",
+                    bio: "Zui zẻ",
+                    follower: "299",
+                    follow_status: "Theo dõi",
+                },
+                createAt: "1 giờ",
+                content: "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
+            },
+            
+        )
+    
+
+    const current_user = {
+        userid: '_',
+        username: '_',
+        avatar: 'https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+        //Just need avatar for post top
+    }
+    window.onload = createPost(current_user, post_arr, false);
+</script>
 </html>
