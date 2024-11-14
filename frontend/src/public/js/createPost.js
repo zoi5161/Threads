@@ -12,6 +12,7 @@ const posts = [
         },
         createAt: "1 giờ",
         content: "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
+        img_url: 'https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     },
 ];
 
@@ -138,7 +139,15 @@ function createPostHTML(post) {
 </div>
                 </div>
                 <div class="post-content">
-                    ${post.content}
+                    <p>${post.content}</p>
+                    ${post.img_url ? 
+                        `
+                        <div style="text-align: center">
+                            <img class="post_img" src="${post.img_url}" style="max-width: 100%; max-height: 500px; border-radius: 10px;">
+                        </div>
+                        ` 
+                        : ''
+                    }
                 </div>
                 <div class="post-footer">
                     <div><i class="far fa-heart"></i>4</div>

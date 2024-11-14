@@ -81,7 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listeners
     plusIcon.addEventListener('click', showModal);
-    new_post.addEventListener('click', showModal);
+    if(new_post)
+        new_post.addEventListener('click', showModal);
     plusSmall.addEventListener('click', showModal);
     plus_box_short_profile.addEventListener('click', showModal);
     tag.addEventListener('click', showModal);

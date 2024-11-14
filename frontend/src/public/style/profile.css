@@ -266,13 +266,13 @@ main {
     border: 1px solid color(display-p3 0.22 0.22 0.22);
 }
 
-.modal-dialog{
+.modal-dialog-profile{
     max-width: 100%;
     width: 700px;
     max-height: 100vh;
 }
 
-.modal-dialog-centered{
+.modal-dialog-centered-profile{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -655,7 +655,7 @@ main {
         border-radius: 10px;
     }
 
-    .modal-dialog{
+    .modal-dialog-profile{
         max-width: 100%;
         margin: 0;
     }
