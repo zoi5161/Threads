@@ -156,11 +156,11 @@
               <div class="modal-content modal-custom" id="modal-2">
                 <div class="modal-header">
                   <div class="modal-2-header-btn">
-                  <button type="button" class="btn" style="color: white" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
+                  <button type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
                   </div>
                   <h5 class="modal-title" id="editProfileModalLabel2">Chỉnh sửa trang cá nhân</h5>
                   <div class="modal-2-header-btn">
-                  <button type="button" class="btn" style="color: white" data-bs-dismiss="modal" aria-label="Close">Xong</button>
+                  <button type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal" aria-label="Close">Xong</button>
                   </div>
                 </div>
                 <div class="modal-body">
@@ -182,13 +182,13 @@
             onclick="
               if (this.innerHTML.trim() === 'Theo dõi') {
                 this.innerHTML = 'Đang theo dõi';
-                this.style.backgroundColor = 'color(display-p3 0.09 0.09 0.09)';
-                this.style.color = 'white';
+                this.style.backgroundColor = 'var(--black)';
+                this.style.color = 'var(--white)';
                 this.style.fontWeight = 'bold';
               } else {
                 this.innerHTML = 'Theo dõi';
-                this.style.backgroundColor = 'white';
-                this.style.color = '#1e1e1e'; 
+                this.style.backgroundColor = 'var(--white)';
+                this.style.color = 'var(--post)'; 
                 this.style.fontWeight = '500';
               }
             ">
@@ -283,7 +283,7 @@
                         <div class="username">Có gì mới?</div>
                     </div>
                     <div style="display: flex; align-items: center; width: 15%"><button type="button" class="btn btn-dark"
-                        style="background-color: #1e1e1e; border-color: #3b3a3a; width: 75%; padding: 0.25rem 0">Đăng</button></div>
+                        style="background-color: var(--post); border-color: var(--border); width: 75%; padding: 0.25rem 0">Đăng</button></div>
                 </div>
             </div>
 
@@ -305,7 +305,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Zui zẻ</p>
-                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                    <p style="font-size: 85%; color: var(--iconInPost)">299 người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -348,7 +348,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Zui zẻ</p>
-                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                    <p style="font-size: 85%; color: var(--iconInPost)">299 người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -391,7 +391,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Zui zẻ</p>
-                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                    <p style="font-size: 85%; color: var(--iconInPost)">299 người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -433,7 +433,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Zui zẻ</p>
-                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                    <p style="font-size: 85%; color: var(--iconInPost)">299 người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -475,7 +475,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Zui zẻ</p>
-                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                    <p style="font-size: 85%; color: var(--iconInPost)">299 người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -517,7 +517,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Zui zẻ</p>
-                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                    <p style="font-size: 85%; color: var(--iconInPost)">299 người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -559,7 +559,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Zui zẻ</p>
-                                    <p style="font-size: 85%; color: #888">299 người theo dõi</p>
+                                    <p style="font-size: 85%; color: var(--iconInPost)">299 người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -663,4 +663,5 @@
     // Gọi hàm handleScroll() để cập nhật trạng thái khi trang tải
     window.onload = handleScroll;
   </script>
+  <script src="/js/three_dots.js"></script>
 </html>

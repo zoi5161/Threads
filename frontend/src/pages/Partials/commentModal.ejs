@@ -1,60 +1,60 @@
 <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered"
         style="margin-top: 2rem; border-radius: 10px; max-width: 768px; width: 638px;">
-        <div class="modal-content" style="background-color: #181818; color: white; padding: 0;">
+        <div class="modal-content" style="background-color: var(--post); color: var(--white); padding: 0;">
             <div class="modal-header" style="border-bottom: none; padding: 10px 20px;">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                    style="background-color: #181818; border: none; color: white;">Hủy</button>
+                    style="background-color: var(--post); border: none; color: var(--white);">Hủy</button>
                 <span class="mx-auto" style="font-weight: bold; text-align: center; flex-grow: 1;">Thread trả
                     lời</span>
             </div>
 
-            <hr style="border-color: white; margin: 0;">
+            <hr style="border-color: var(--white); margin: 0;">
 
             <div class="modal-body" style="padding: 20px;">
                 <div class="post-header" style="display: flex; align-items: center; margin-bottom: 10px;">
                     <div class="avatar"
-                        style="margin-right: 10px; width: 40px; height: 40px; border-radius: 50%; background: gray;">
+                        style="margin-right: 10px; width: 40px; height: 40px; border-radius: 50%; background: --gray;">
                     </div>
                     <div class="username-time">
                         <div class="username" style="font-weight: bold;">page.1999_th</div>
-                        <div class="time" style="color: #aaa;">21 giờ</div>
+                        <div class="time" style="color: var(--iconInPost);">21 giờ</div>
                     </div>
                 </div>
-                <p style="margin-left: 60px; color: #ddd; margin-bottom: 20px;">| 11 tháng 11 | - Quốc Tế Độc
+                <p style="margin-left: 60px; color: var(--white); margin-bottom: 20px;">| 11 tháng 11 | - Quốc Tế Độc
                     Thân.<br />Ai còn đang độc thân thì tim đi 🫶🏻</p>
 
                 <form action="#" method="get">
                     <div style="display: flex; align-items: flex-start; gap: 10px;">
-                        <div class="avatar" style="width: 40px; height: 40px; border-radius: 50%; background: gray;">
+                        <div class="avatar" style="width: 40px; height: 40px; border-radius: 50%; background: --gray;">
                         </div>
                         <div class="username" style="font-weight: bold;">_.vteif</div>
                     </div>
                     <div style="display: flex; flex-direction: column; margin-left: 60px;">
                         <textarea class="form-control" placeholder="Trả lời page.1999_th..." rows="1"
-                            style="background-color: #181818; border: none; border-radius: 20px; color: white; padding: 10px; resize: none;"></textarea>
-                        <div class="icon-group" style="display: flex; gap: 8px; color: #888;">
+                            style="background-color: var(--post); border: none; border-radius: 20px; color: var(--white); padding: 10px; resize: none;"></textarea>
+                        <div class="icon-group" style="display: flex; gap: 8px; color: var(--iconInPost);">
                             <label for="image-upload" style="cursor: pointer;">
                                 <i class="fa-regular fa-image"></i>
                                 <input type="file" id="image-upload" accept="image/*" style="display: none;">
                             </label>
                             <button type="button"
-                                style="background: none; border: none; color: #888;"><strong>GIF</strong></button>
-                            <button type="button" style="background: none; border: none; color: #888;"><i
+                                style="background: none; border: none; color: var(--iconInPost);"><strong>GIF</strong></button>
+                            <button type="button" style="background: none; border: none; color: var(--iconInPost);"><i
                                     class="fa-solid fa-hashtag"></i></button>
-                            <button type="button" style="background: none; border: none; color: #888;"><i
+                            <button type="button" style="background: none; border: none; color: var(--iconInPost);"><i
                                     class="fa-solid fa-location-dot"></i></button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer"
-                style="background-color: #181818; border-top: none; display: flex; justify-content: space-between; padding: 10px 20px;">
+                style="background-color: var(--post); border-top: none; display: flex; justify-content: space-between; padding: 10px 20px;">
                 <button class="reply-settings"
-                    style="background: none; border: none; color: #888; font-size: 0.85rem;">Bất kỳ
+                    style="background: none; border: none; color: var(--iconInPost); font-size: 0.85rem;">Bất kỳ
                     ai cũng có thể trả lời và trích dẫn</button>
                 <input type="submit" value="Đăng" class="post-btn"
-                    style="background-color: #181818; color: #aaa; border: none; padding: 5px 15px; border-radius: 10px; font-weight: bold;"></input>
+                    style="background-color: var(--post); color: var(--iconInPost); border: none; padding: 5px 15px; border-radius: 10px; font-weight: bold;"></input>
             </div>
         </div>
     </div>

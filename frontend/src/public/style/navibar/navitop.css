@@ -2,13 +2,13 @@
 .dropdown-center_naviTop {
     position: fixed;
     top: 0;
-    background-color: #0a0a0a;
+    background-color: var(--black);
     width: 639px;
     /* width: calc(100% - 80px); */
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    color: white; 
+    color: var(--white); 
     font-size: 100%;
     height: 4rem;
     z-index: 1;
@@ -16,7 +16,7 @@
 
 .dropdown-menu.top, .dropdown-menu.dropdown-menu-end{
     border-radius: 15px;
-    border-color: #3b3a3a;
+    border-color: var(--border);
 }
 
 .btn{
@@ -35,8 +35,8 @@
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #333;
-    color: white;
+    background-color: var(--hover);
+    color: var(--white);
     border-radius: 20px;
 }
 
@@ -68,12 +68,13 @@
         display: block;
         position: fixed;
         top: 0;
-        background-color: #0a0a0a;
+        background-color: var(--black);
         width: 100%;
     
-        color: white; 
+        color: var(--white); 
         font-size: 100%;
         height: 4rem;
+        z-index: 1;
     }
 
     .logo-navitop{
@@ -89,7 +90,7 @@
     .logo-navitop a{
         display: flex;
         text-decoration: none;
-        color: white;
+        color: var(--white);
     }
 
     .dropdown-menu.top{
@@ -97,7 +98,7 @@
     }
 
     .dropdown-menu.top *{
-        color: white;
+        color: var(--white);
     }
 
     .dropdown-menu.top li{
@@ -106,11 +107,11 @@
     }
 
     .dropdown-menu.top li:last-child{
-        color: red;
+        color: var(--red);
     }
 
     .dropdown-menu.top li:hover{
-        background-color: #3b3a3a;
+        background-color: var(--border);
         border-radius: 10px;
     }
 
@@ -121,12 +122,12 @@
 
     .setting-UI-top:hover{
         border-radius: 10px;
-        background-color: #3b3a3a;
+        background-color: var(--border);
     }
 
     .hr{
         width: 100%;
         height: 1px;
-        background-color: #333;
+        background-color: var(--hover);
     }
 }

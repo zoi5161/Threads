@@ -1,5 +1,5 @@
 body {
-    background-color: #0a0a0a;
+    background-color: var(--black);
     height: 100%;
     width: 100%;
 }
@@ -9,12 +9,12 @@ body {
 .suggestions-container {
     margin-top: 4rem;
     width: 100%;
-    background-color: #181818;
+    background-color: var(--post);
     padding: 30px;
     border-radius: 20px 20px 0px 0px;
     display: flex;
     flex-direction: column;
-    border: 0.1px solid #3b3a3a;
+    border: 0.1px solid var(--border);
     margin-top: 4rem;
 }
 
@@ -24,22 +24,22 @@ body {
     margin-bottom: 20px;
     border: none;
     border-radius: 15px;
-    background-color: #0a0a0a;
-    color: #ffffff;
+    background-color: var(--black);
+    color: var(--white);
 }
 
 h2 {
     margin-bottom: 15px;
     font-size: 18px;
-    color: #c7c7c7;
+    color: var(--iconInPost);
 }
 
 .suggestion {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
-    border-bottom: 1px solid #888;
-    color: #ffffff;
+    border-bottom: 1px solid var(--border);
+    color: var(--white);
 }
 
 .avatar {
@@ -47,15 +47,15 @@ h2 {
     height: 60px;
     overflow: hidden;
     border-radius: 50%;
-    background-color: #1e1e1e;
+    background-color: var(--post);
     margin-right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: #fff;
+    color: var(--white);
     font-size: 12px;
-    border: 1px solid #888;
+    border: 1px solid var(--iconInPost);
 }
 .avatar img {
     width: 60px;
@@ -69,13 +69,13 @@ h2 {
 }
 
 .real-name {
-    color:#888888;
+    color:var(--iconInPost)888;
     margin-bottom: 0.5rem;
 }
 
 .profile-name {
     font-size: 16px;
-    color: #ffffff;
+    color: var(--white);
     font-weight: bold;
 }
 .profile-name:hover {
@@ -85,16 +85,16 @@ h2 {
 .followers-count {
     font-size: 15px;
     margin-bottom: 10px;
-    color: white;
+    color: var(--white);
 }
 
 .follow-btn {
     padding: 5px 15px;
-    background-color: #1e1e1e;
-    color: #ffffff;
+    background-color: var(--post);
+    color: var(--white);
     border: none;
     border-radius: 10px;
-    border: 1px solid #888;
+    border: 1px solid var(--border);
     cursor: pointer;
     font-weight: bold;
 }
@@ -103,7 +103,7 @@ h2 {
     .suggestions-container {
         padding: 20px;
         border-radius: 0px;
-        background-color: black;
+        background-color: var(--black);
         border-left: none;
         border-right: none;
     }
@@ -132,6 +132,10 @@ h2 {
     }
 
     .search-box {
-        background-color: #1e1e1e;
+        background-color: var(--post);
+    }
+
+    .search-box input{
+        background-color: var(--post) !important;
     }
 }

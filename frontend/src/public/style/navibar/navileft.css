@@ -5,7 +5,7 @@
     left: 0;
     min-width: 4rem; /* Độ rộng của thanh nav */
     height: 100%; /* Chiều cao toàn màn hình */
-    background-color: #0a0a0a; /* Màu nền tối cho thanh nav */
+    background-color: var(--black); /* Màu nền tối cho thanh nav */
     display: flex;
     justify-content: center;
 }
@@ -16,7 +16,7 @@
 
 /* Định dạng cho các icon và menu */
 #taskbar {
-    background-color: #0a0a0a;
+    background-color: var(--black);
     height: 100vh; /* Taskbar chiếm toàn bộ chiều cao màn hình */
     display: flex;
     flex-direction: column;
@@ -26,12 +26,12 @@
 }
 
 .dropdown-menu{
-    background-color: #1e1e1e;
+    background-color: var(--post);
 }
 
 li .dropdown-item{
-    background-color: #1e1e1e;
-    color: white;
+    background-color: var(--post);
+    color: var(--white);
 }
 
 .logo {
@@ -64,35 +64,35 @@ li .dropdown-item{
 }
 
 #taskbar .dropdown-item {
-    color: #e0e0e0;
+    color: var(--white);
     font-size: 24px; /* Kích thước của icon */
     text-align: center;
     padding: 5px 10px;
     margin-bottom: 1rem;
-    background-color: #0a0a0a;
+    background-color: var(--black);
     border-radius: 25%;
 }
 
 #taskbar .mid .dropdown-item:hover {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--hover);
+    color: var(--white);
 }
 
 #taskbar .bot .dropdown-item:hover {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--hover);
+    color: var(--white);
 }
 
 .dropdown:not(#vertical_drop) {
     position: fixed;
     display: flex;
-    color: white;
+    color: var(--white);
     justify-content: center;
     width: 100%;
     height: 60px; /* Chiều cao cụ thể cho header */
     top: 0;
     left: 0;
-    background-color: #0a0a0a;
+    background-color: var(--black);
 }
 
 #pin-menu .bi.bi-search{
@@ -104,13 +104,12 @@ li .dropdown-item{
 }
 
 #pin-menu ul li {
-    padding: 8px 10px;
+    padding: 0.8rem 10px;
     cursor: pointer;
-    margin-bottom: 0.75rem;
 }
 
 #pin-menu ul li:hover {
-    background-color: #333;
+    background-color: var(--hover);
     border-radius: 10px;
 }
 
@@ -119,29 +118,29 @@ li .dropdown-item{
     position: absolute;
     bottom: 5rem;
     left: 1rem;
-    background-color: #222;
-    color: white;
+    background-color: var(--post);
+    color: var(--white);
     padding: 20px 20px 0px 20px;
     border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 8px var(--boxShadow);
     width: 400px;
     z-index: 1;
-    border: 1px solid #3b3a3a;
+    border: 1px solid var(--border);
 }
 
 /* Định dạng cho ô setting */
 #setting-menu ul li {
-    padding: 8px 10px;
+    padding: 0.8rem 10px;
     cursor: pointer;
 }
 
 .setting-UI{
-    padding: 8px 10px;
+    padding: 0.7rem 10px;
     cursor: pointer;
 }
 
 .setting-UI:hover{
-    background-color: #333;
+    background-color: var(--hover);
     border-radius: 10px;
 }
 
@@ -151,11 +150,11 @@ li .dropdown-item{
 }
 
 #setting-menu ul#second li:last-child {
-    color: red;
+    color: var(--red);
 }
 
 #setting-menu ul li:hover {
-    background-color: #333;
+    background-color: var(--hover);
     border-radius: 10px;
 }
 
@@ -164,14 +163,81 @@ li .dropdown-item{
     position: absolute;
     bottom: 1rem;
     left: 1rem;
-    background-color: #222;
-    color: white;
+    background-color: var(--post);
+    color: var(--white);
     padding: 0px 20px 0px 20px;
     border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 8px var(--boxShadow);
     width: 250px;
     z-index: 1;
-    border: 1px solid #3b3a3a;
+    border: 1px solid var(--border);
+}
+
+/* Setting trans */
+#setting-trans{
+    display: none;
+}
+
+.setting-trans-active{
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: var(--post);
+    color: var(--white);
+    padding: 0px 20px 0px 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px var(--boxShadow);
+    width: 250px;
+    z-index: 1;
+    border: 1px solid var(--border);
+}
+
+.setting-header{
+    display: flex;
+    gap: 3rem;
+    padding: 1.25rem 0px;
+}
+
+.btn-trans{
+    height: 2.5rem;
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+    background-color: var(--black);
+    border-radius: 10px;
+}
+
+.light{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.light:hover{
+    background-color: var(--hover);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.dark{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark:hover{
+    background-color: var(--hover);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.active{
+    color:var(--black);
+    background-color: var(--white);
 }
 
 @media screen and (max-width: 768px) {
@@ -190,12 +256,13 @@ li .dropdown-item{
         flex-direction: row;
         height: 10%;
         width: 100%;
-        background-color: #0e0d0d00;
+        background-color: var(--navibot);
         backdrop-filter: blur(10px);
+        z-index: 1;
     }
 
     #taskbar {
-        background-color: #0e0d0d8a;
+        background-color: var(--taskbar-bot);
         backdrop-filter: blur(10px);
         height: 100%;
         width: 100%;
@@ -227,9 +294,9 @@ li .dropdown-item{
     }
 
     #taskbar .dropdown-item {
-        background-color: #0e0d0d00;
+        background-color: var(--navibot);
         backdrop-filter: blur(10px);
-        color: #e0e0e0;
+        color: var(--white);
         font-size: 24px; /* Kích thước của icon */
         height: 100%;
         margin-bottom: 0;
@@ -240,8 +307,8 @@ li .dropdown-item{
     }
 
     #taskbar .mid .dropdown-item:hover {
-        background-color: #191919;
-        color: #fff;
+        background-color: var(--hover-navibot);
+        color: var(--white);
         border-radius: 15px;
     }
 
@@ -249,7 +316,6 @@ li .dropdown-item{
         height: 100%;
         width: calc(20%);
     }
-
 
     #setting-menu ul li {
         display: none;

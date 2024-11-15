@@ -1,13 +1,13 @@
 <div class="post" style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-    <p style="margin: 0; color: white; font-weight: bold;">Thread trả lời</p>
-    <div style="color: #888; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#activityModal">Xem hoạt động >
+    <p style="margin: 0; color: var(--white); font-weight: bold;">Thread trả lời</p>
+    <div style="color: var(--iconInPost); cursor: pointer;" data-bs-toggle="modal" data-bs-target="#activityModal">Xem hoạt động >
     </div>
 </div>
 
 <div class="modal fade" id="activityModal" tabindex="-1" aria-labelledby="activityModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" style="height: 90vh; margin-top: 2rem; border-radius: 30px;">
         <div class="modal-content"
-            style="height: 100%; background-color: #181818; color: white; border-radius: 10px; padding: 0px;">
+            style="height: 100%; background-color: var(--post); color: var(--white); border-radius: 10px; padding: 0px;">
 
             <!-- Fixed Header -->
             <div class="modal-header">
@@ -15,19 +15,19 @@
                     style="text-align: center; width: 100%; font-weight: bold;">Hoạt động đối với
                     bài viết</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    style="background-color: white;"></button>
+                    style="background-color: var(--white);"></button>
             </div>
 
             <!-- Scrollable Body -->
             <div class="modal-body" style="height: 60vh; overflow-y: auto; padding: 20px;">
-                <div class="status mx-0.5rem" style="border: 1px solid #383939; padding: 10px; border-radius: 20px;">
+                <div class="status mx-0.5rem" style="border: 1px solid var(--border); padding: 10px; border-radius: 20px;">
                     <div class="post-header" style="display: flex; align-items: center; margin-bottom: 10px;">
                         <div class="avatar"
-                            style="margin-right: 10px; width: 40px; height: 40px; border-radius: 50%; background: gray;">
+                            style="margin-right: 10px; width: 40px; height: 40px; border-radius: 50%; background: --gray;">
                         </div>
                         <div class="username-time">
                             <div class="username" style="font-weight: bold;">tng_baro</div>
-                            <div class="time" style="color: #aaa;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost);">14 giờ</div>
                         </div>
                     </div>
                     <p style="margin: 10px 0;">tin chuẩn nhé anh em</p>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
 
-                <hr style="border-color: #3b3a3a; margin-top: 10px;">
+                <hr style="border-color: var(--border); margin-top: 10px;">
 
                 <!-- User List -->
                 <div class="user-list">
@@ -63,19 +63,19 @@
                             <div class="avatar_cmt my-auto">
 
                                 <!-- Icon at the bottom-right of avatar -->
-                                <div class="icon-overlay" style="background-color: #c329bf;">
+                                <div class="icon-overlay" style="background-color: var(--overlay-repost);">
                                     <i class="fas fa-retweet" style="font-size: 80%;"></i>
                                     <!-- Đổi icon thành icon bạn muốn -->
                                 </div>
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">okokee9</div>
-                                <div class="username" style="color: #aaa;">Nguyễn Bảo</div>
+                                <div class="username" style="color: var(--iconInPost);">Nguyễn Bảo</div>
                             </div>
-                            <div class="time" style="color: #aaa;">15 giờ</div>
+                            <div class="time" style="color: var(--iconInPost);">15 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
 
@@ -96,12 +96,12 @@
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
-                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                                <div class="username" style="color: var(--iconInPost);">Đăng Khoa</div>
                             </div>
-                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost); margin-left: 10px;">14 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
 
@@ -122,12 +122,12 @@
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
-                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                                <div class="username" style="color: var(--iconInPost);">Đăng Khoa</div>
                             </div>
-                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost); margin-left: 10px;">14 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
 
@@ -147,12 +147,12 @@
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
-                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                                <div class="username" style="color: var(--iconInPost);">Đăng Khoa</div>
                             </div>
-                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost); margin-left: 10px;">14 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
 
@@ -172,12 +172,12 @@
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
-                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                                <div class="username" style="color: var(--iconInPost);">Đăng Khoa</div>
                             </div>
-                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost); margin-left: 10px;">14 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
 
@@ -197,12 +197,12 @@
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
-                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                                <div class="username" style="color: var(--iconInPost);">Đăng Khoa</div>
                             </div>
-                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost); margin-left: 10px;">14 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
 
@@ -222,12 +222,12 @@
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
-                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                                <div class="username" style="color: var(--iconInPost);">Đăng Khoa</div>
                             </div>
-                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost); margin-left: 10px;">14 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
 
@@ -247,12 +247,12 @@
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
-                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                                <div class="username" style="color: var(--iconInPost);">Đăng Khoa</div>
                             </div>
-                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost); margin-left: 10px;">14 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
 
@@ -272,12 +272,12 @@
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
-                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                                <div class="username" style="color: var(--iconInPost);">Đăng Khoa</div>
                             </div>
-                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost); margin-left: 10px;">14 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
 
@@ -297,12 +297,12 @@
                             </div>
                             <div class="name" style="display: flex; flex-direction: column;">
                                 <div class="nickName" style="font-weight: bold;">ddangw.khoaa</div>
-                                <div class="username" style="color: #aaa;">Đăng Khoa</div>
+                                <div class="username" style="color: var(--iconInPost);">Đăng Khoa</div>
                             </div>
-                            <div class="time" style="color: #aaa; margin-left: 10px;">14 giờ</div>
+                            <div class="time" style="color: var(--iconInPost); margin-left: 10px;">14 giờ</div>
                         </div>
                         <button class="btn btn-secondary"
-                            style="padding: 5px 10px; background-color: #181818; border: 1px solid #383939;">Theo
+                            style="padding: 5px 10px; background-color: var(--post); border: 1px solid var(--border);">Theo
                             dõi</button>
                     </div>
                 </div>

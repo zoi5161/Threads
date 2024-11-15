@@ -2,14 +2,14 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #333;
+    background-color: var(--hover);
     overflow: hidden;
     margin-right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: #fff;
+    color: var(--white);
     font-size: 12px;
 } */
 
@@ -21,14 +21,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 600px;
-    background-color: #1e1e1e;
+    background-color: var(--post);
     border-radius: 30px;
-    color: #ffffff;
+    color: var(--white);
     padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    border: 1px solid #333;
+    border: 1px solid var(--hover);
     z-index: 1001;
 }
 
@@ -44,7 +44,7 @@
 .cancel-btn {
     background: none;
     border: none;
-    color: #fff;
+    color: var(--white);
     font-size: 14px;
     cursor: pointer;
 }
@@ -89,14 +89,15 @@
     min-height: 100px;
     background: none;
     border: none;
-    color: #fff;
+    color: var(--white);
     font-size: 16px;
     resize: none;
     padding: 0;
+    outline: none;
 }
 
 .input-box::placeholder {
-    color: #666;
+    color: var(--iconInPost);
 }
 
 .icon-group {
@@ -107,20 +108,20 @@
 
 .upload-icon {
     cursor: pointer;
-    color: #666;
+    color: var(--iconInPost);
     font-size: 20px;
     padding: 4px;
 }
 
 .upload-icon:hover {
-    color: #888;
+    color: var(--iconInPost);
 }
 
 /* Remove button styles from other icons */
 .icon-group button {
     background: none;
     border: none;
-    color: #666;
+    color: var(--iconInPost);
     font-size: 20px;
     cursor: pointer;
     padding: 4px;
@@ -136,16 +137,16 @@
 .reply-settings {
     background: none;
     border: none;
-    color: #666;
+    color: var(--iconInPost);
     text-align: left;
     padding: 8px 0;
     font-size: 14px;
 }
 
 .post-btn {
-    background-color: #333;
+    background-color: var(--hover);
     border: none;
-    color: #666;
+    color: var(--iconInPost);
     padding: 8px 16px;
     border-radius: 8px;
     font-weight: 600;
@@ -154,7 +155,7 @@
 
 .post-btn.active {
     background-color: #0095f6;
-    color: #fff;
+    color: var(--white);
     cursor: pointer;
 }
 
@@ -185,6 +186,7 @@
 
     .input-box {
         min-height: 80px;
+        outline: none;
     }
 
     .icon-group {

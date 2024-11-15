@@ -1,0 +1,20 @@
+:root {
+    --post: #171717;
+    --border: #3b3a3a; 
+    --hover: #222222;
+    --boxShadow: rgba(0, 0, 0, 0.3);
+    --iconInPost: #888;
+    --overlay-repost: #c329bf;
+    --overlay-like: #f23c64;
+    --hr: #ccc;
+    --navibot: #0e0d0d00;
+    --hover-navibot: #191919;
+    --taskbar-bot: #0e0d0d8a;
+    --scroll-btn: #222222;
+    --scroll-btn-hover: #555;
+
+    --white: #FAFAFA;
+    --black: black;
+    --gray: gray;
+    --red: red;
+}

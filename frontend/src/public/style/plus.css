@@ -2,24 +2,24 @@
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background-color: #1e1e1e;
-    padding: 1rem 1.5rem;
-    border: 1px solid #3b3a3a;
+    background-color: var(--post);
+    padding: 1.15rem 1.85rem;
+    border: 1px solid var(--border);
     border-radius: 20px;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: var(--white);
 }
 
 #plus_add_small {
-    font-size: 35px;
-    color: #e0e0e0;
+    font-size: 25px;
+    color: var(--white);
 }
 
 .add-button:hover {
-    padding: 1.25rem 1.75rem;
+    padding: 1.5rem 2rem;
 }
 
 @media screen and (max-width: 768px) {
