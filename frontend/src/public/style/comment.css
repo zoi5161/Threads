@@ -24,11 +24,11 @@
     width: 40px; 
     height: 40px; 
     border-radius: 50%; 
-    background: --gray; 
+    background: var(--gray); 
     margin: 0 10px 0 0;
     position: relative;
     overflow: visible;
-    border: 1px solid white;
+    border: 1px solid var(--white);
 }
 
 .icon-overlay {

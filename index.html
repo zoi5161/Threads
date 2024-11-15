@@ -1,13 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="/style/login.css">
-    <!-- <link rel="stylesheet" href="/frontend/src/public/style/login.css"> -->
-    <script src="/js/login.js"></script>
-    <!-- <script src="/frontend/src/public/js/login.js"></script> -->
+    <!-- <link rel="stylesheet" href="/style/login.css"> -->
+    <link rel="stylesheet" href="/frontend/src/public/style/login.css">
+    <!-- <script src="/js/login.js"></script> -->
+    <script src="/frontend/src/public/js/login.js"></script>
 
 </head>
 <body>
@@ -20,7 +21,7 @@
                 <input type="password" placeholder="Mật khẩu" required>
                 <button type="submit">Đăng nhập</button>
             </form>
-            <a href="" class="forgot_password">
+            <a href="#" class="forgot_password">
                 Bạn quên mật khẩu ư?
             </a>
             <div class="or">
@@ -34,4 +35,10 @@
         </div>
     </div>
 </body>
+<script>
+    function handleLogin(event) {
+        event.preventDefault();
+        window.location.href = 'frontend/src/htmlpages/home.html';
+    }    
+</script>
 </html>

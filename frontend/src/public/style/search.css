@@ -7,7 +7,6 @@ body {
 /* 
 Định dạng cho phần nội dung ở giữa */
 .suggestions-container {
-    margin-top: 4rem;
     width: 100%;
     background-color: var(--post);
     padding: 30px;
@@ -15,7 +14,6 @@ body {
     display: flex;
     flex-direction: column;
     border: 0.1px solid var(--border);
-    margin-top: 4rem;
 }
 
 .search-box {

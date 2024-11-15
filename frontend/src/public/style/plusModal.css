@@ -50,7 +50,7 @@
 }
 
 .divider {
-    border-top: 1px solid white;
+    border-top: 1px solid var(--white);
     margin: 0;
     width: 100%;
     /* Remove any padding that might be affecting the width */

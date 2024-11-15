@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,19 +9,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/style/search.css" />
+    <!-- <link rel="stylesheet" href="/style/search.css" />
     <link rel="stylesheet" href="/style/navibar/navileft.css" />
     <link rel="stylesheet" href="/style/navibar/navitop.css">
     <link rel="stylesheet" href="/style/containerPost.css">
     <link rel="stylesheet" href="/style/plus.css">
-    <link rel="stylesheet" href="/style/plusModal.css" />
+    <link rel="stylesheet" href="/style/plusModal.css" /> -->
 
-    <!-- <link rel="stylesheet" href="/frontend/src/public/style/search.css" />
+    <link rel="stylesheet" href="/frontend/src/public/style/search.css" />
     <link rel="stylesheet" href="/frontend/src/public/style/navibar/navileft.css" />
     <link rel="stylesheet" href="/frontend/src/public/style/navibar/navitop.css">
     <link rel="stylesheet" href="/frontend/src/public/style/containerPost.css">
     <link rel="stylesheet" href="/frontend/src/public/style/plus.css">
-    <link rel="stylesheet" href="/frontend/src/public/style/plusModal.css" /> -->
+    <link rel="stylesheet" href="/frontend/src/public/style/plusModal.css" />
 
     <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -29,17 +30,220 @@
         crossorigin="anonymous"></script>
 
 
-    <script src="/js/home.js"></script>
-    <!-- <script src="/frontend/src/public/js/home.js"></script> -->
+    <!-- <script src="/js/home.js"></script> -->
+    <script src="/frontend/src/public/js/home.js"></script>
 
 </head>
 
 <body>
-    <%- include("../Partials/naviLeft.ejs")  %>
+    <!-- Menu phụ sẽ được hiển thị khi nhấn vào thumbtack -->
+<!-- <script src="/js/naviLeft.js"></script> -->
+<script src="/frontend/src/public/js/naviLeft.js"></script>
+
+<div id="overlay" class="overlay hidden"></div>
+    <div id="plus_box" class="thread-container hidden">
+        <div class="header">
+            <button class="cancel-btn" style="font-size: 100%; font-weight: bold;">Hủy</button>
+            <span>Thread mới</span>
+            <div></div>
+        </div>
+        <hr class="divider">
+        
+        <div class="plus_body">
+            <div class="avatar">
+                <img src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="User avatar">
+            </div>
+            
+            <form action="#" method="get">
+                <div class="input-section">
+                    <div class="username">_vteif</div>
+                    <textarea class="input-box" placeholder="Có gì mới?"></textarea>
+                    <div class="icon-group">
+                        <label for="image-upload" class="upload-icon">
+                            <i class="fa-regular fa-image"></i>
+                            <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                        </label>
+                        <button type="button">GIF</button>
+                        <button type="button"><i class="fa-solid fa-hashtag"></i></button>
+                        <button type="button"><i class="fa-solid fa-location-dot"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="plus_footer">
+            <button class="reply-settings">
+                Bất kỳ ai cũng có thể trả lời và trích dẫn
+            </button>
+            <button class="post-btn">Đăng</button>
+        </div>
+    </div>
+
+<div id="pin-menu">
+    <div class="header-pin-menu">
+        <h4 style="text-align: center; font-size: 95%; margin-bottom: 1rem">Ghim lên trang chủ</h4>
+    </div>
+    <div
+        style="height: 3rem; background-color: black; border: 0.1px solid #3b3a3a; border-radius: 20px; display: flex; align-items: center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+        </svg>
+        <input type="text" placeholder="Tìm kiếm từ khóa và trang cá nhân"
+            style="padding: 5px; color:var(--white); background-color: black; border: none; width: 70%; font-size: 15px; outline: none">
+    </div>
+    <div>
+        <ul style="list-style-type: none; padding: 0; margin: 1rem 0;">
+            <li>Dành cho bạn</li>
+            <li>Đang theo dõi</li>
+            <li>Đã thích</li>
+            <li>Đã lưu</li>
+            <li>Tìm kiếm</li>
+            <li>Hoạt động</li>
+            <li>Trang cá nhân</li>
+            <li>Thông tin khác</li>
+        </ul>
+    </div>
+</div>
+
+<div id="setting-menu">
+    <div class="setting-first">
+        <ul id="first" style="list-style-type: none; padding: 0; margin: 1rem 0;">
+            <div class="setting-UI" style="display: flex; justify-content: space-between">
+                <span>Giao diện</span>
+                <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                    </svg></div>
+            </div>
+            <li>Thông tin chi tiết</li>
+            <li>Cài đặt</li>
+        </ul>
+    </div>
+    <hr>
+    <div class="setting-second">
+        <ul id="second" style="list-style-type: none; padding: 0; margin: 1rem 0;">
+            <li>Báo cáo sự cố</li>
+            <li>Đăng xuất</li>
+        </ul>
+    </div>
+</div>
+
+<div class="navibar">
+    <!-- Dropdown hiển thị sẵn -->
+    <div id="vertical_drop" class="dropdown">
+        <!-- Dropdown menu luôn hiển thị -->
+        <ul id="taskbar" class="dropdown-menu show" style="position: relative;">
+            <div class="logo">
+                <li><a class="dropdown-item" href="/"><i class="fa-brands fa-threads" style="font-size: 100%;"></i></a>
+                </li>
+            </div>
+
+            <!-- <div class="mid">
+                <li><a class="dropdown-item" href="/Home"><i class="fa-solid fa-house"></i></a></li>
+                <li><a class="dropdown-item" href="/Search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></button></li>
+                <li><a class="dropdown-item" href="/Announce"><i class="fa-regular fa-heart"></i></a></li>
+                <li><a class="dropdown-item" href="/Profile"><i class="fa-regular fa-user"></i></a></li>
+            </div> -->
+
+            <div class="mid">
+                <li><a class="dropdown-item" href="./home"><i class="fa-solid fa-house"></i></a></li>
+                <li><a class="dropdown-item" href="./search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></button></li>
+                <li><a class="dropdown-item" href="./announce"><i class="fa-regular fa-heart"></i></a></li>
+                <li><a class="dropdown-item" href="./profile"><i class="fa-regular fa-user"></i></a></li>
+            </div>
+
+            <div class="bot">
+                <li><button class="dropdown-item" id="thumbtack-icon"><i class="fa-solid fa-thumbtack"></i></button></li>
+                <li><button class="dropdown-item" id="bars-staggered-icon"><i class="fa-solid fa-bars-staggered"></i></button></li>
+            </div>
+        </ul>
+    </div>
+</div>
 
     <div class="container-fluid">
         <div class="container_post">
-            <%- include("../Partials/naviTop.ejs")  %>
+            <!-- Dropdown Menu -->
+
+<div class="dropdown-center_naviTop">
+        <div style="display: flex; justify-content: center; align-items: center; width: 80%; gap: 2rem">
+            <div style="margin-left: 3rem">
+                Tìm kiếm
+            </div>
+            <div>
+                <button style="border-color: var(--border); border-radius: 50%; background-color: var(--black); height: 1.5rem; width: 1.5rem;"
+                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu top">
+                    <li><a class="dropdown-item" href="#">Tất cả</a></li>
+                    <li><a class="dropdown-item" href="#">Lượt theo dõi</a></li>
+                    <li><a class="dropdown-item" href="#">Threads trả lời</a></li>
+                    <li><a class="dropdown-item" href="#">Lượt nhắc</a></li>
+                    <li><a class="dropdown-item" href="#">Lượt trích dẫn</a></li>
+                    <li><a class="dropdown-item" href="#">Bài đăng lại</a></li>
+                    <li><a class="dropdown-item" href="#">Được xác minh</a></li>
+                </ul> 
+            </div>
+        </div>
+        <div style="color: var(--white); font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%">
+            <button style="border-color: var(--border); border-radius: 50%; background-color: var(--black); height: 1.5rem; width: 1.5rem;"
+                class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
+                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+                </svg>
+            </button>
+            <ul class="dropdown-menu top dropdown-menu-end" style="border-radius: 15px 15px;">
+                <li>
+                    <div>
+                            <a class="dropdown-item" href="#" style="display: flex; justify-content: space-between; padding-right: 0.5rem;">
+                                Ghim lên trang chủ
+                                <div style="width: 20%; display: flex; justify-content: center; align-items: center">
+                                    <i class="fa-solid fa-thumbtack" style="color: var(--white); font-size: 120%;"></i>
+                                </div>
+                            </a>  
+                    </div>
+                    
+                </li>
+            </ul>
+        </div>
+</div>
+
+<div class="navitop-768px">
+    <div class="logo-navitop">
+        <div style="width: 90%; display: flex; justify-content: center; margin-left: 2rem">
+            <a href="/"><i class="fa-brands fa-threads" style="font-size: 150%;"></i></a>
+        </div>
+        <div style="width: 10%;">
+            <div style="display: flex; justify-content:center">
+                <button style="border-color: var(--border); border-radius: 50%; background-color: var(--black); height: 1.5rem; width: 1.5rem;"
+                class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu top">
+                    <div class="setting-UI-top" style="display: flex; justify-content: space-between">
+                        <span>Giao diện</span>
+                        <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                            </svg></div>
+                    </div>
+                    <li>Thông tin chi tiết</li>
+                    <li>Cài đặt</li>
+                    <li>Đã lưu</li>
+                    <li>Đã thích</li>
+                    <div class="hr" style="margin-top: 8px"></div>
+                    <div class="setting-top-second">
+                        <ul id="second" style="list-style-type: none; padding: 0; margin-top: 8px;">
+                            <li>Báo cáo sự cố</li>
+                            <li>Đăng xuất</li>
+                        </ul>
+                    </div>
+                </ul> 
+            </div>
+            
+        </div>
+    </div>
+</div>       
             <div class="suggestions-container">
 
                 <div class="search-box">
@@ -48,7 +252,7 @@
                         <path
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                     </svg>
-                    <input type="text" placeholder="Tìm kiếm" style="background-color: var(--black); border: none; width: 90%; color: var(--white)">
+                    <input type="text" placeholder="Tìm kiếm" style="background-color: #0a0a0a; border: none; width: 90%; color: #ffffff">
                 </div>
                 <h2>Gợi ý theo dõi</h2>
                 
@@ -71,7 +275,7 @@
                                 <div class="modal-body">
                                     <p>🎬 Actress in VietNam 🎬<br/>
                                         💕Fanpage : https://facebook.com/xdieunhix/ 💕<br/></p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">511k người theo dõi</p>
+                                    <p style="font-size: 85%; color: #888">511k người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -105,7 +309,7 @@
                                     <p>❤️ Look on the bright side of life ❤️<br/>
                                         📬 Liên hệ công việc: digital.redwall@gmail.com<br/>
                                         📺 Welcome to my Youtube channel 👇🏻👇🏻👇🏻</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">479k người theo dõi</p>
+                                    <p style="font-size: 85%; color: #888">479k người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -140,7 +344,7 @@
                                     <p>🇻🇳 𝑴𝒐̛̀𝒊 𝒄𝒂́𝒄 𝒄𝒂̣̂𝒖 𝒈𝒉𝒆́ 𝒏𝒉𝒂̀ 𝒕𝒐̛́ 𝒄𝒉𝒐̛𝒊 𝒏𝒉𝒆́ 💗<br/>
                                         🌸 𝑵𝒉𝒊𝒆̂̀𝒖 𝒃𝒂̣𝒏 𝒏𝒖̛̃ 𝒙𝒊𝒏𝒉 𝒙𝒂̆́𝒏 𝒍𝒂̆́𝒎 𝒂̣ 🩵<br/>
                                         ⬇️ Tủ đồ xinhxinh yêu yêu ạ ⬇️</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">149k người theo dõi</p>
+                                    <p style="font-size: 85%; color: #888">149k người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -174,7 +378,7 @@
                                 <div class="modal-body">
                                     <p>Có gì hay hôm nay?<br />
                                         Truy cập ngay 👉🏼 http://www.yan.vn 👈🏼</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">114k người theo dõi</p>
+                                    <p style="font-size: 85%; color: #888">114k người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -206,7 +410,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>Hội đam mê ảnh chế!</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">26,9k người theo dõi</p>
+                                    <p style="font-size: 85%; color: #888">26,9k người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -238,7 +442,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p></p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">20k người theo dõi</p>
+                                    <p style="font-size: 85%; color: #888">20k người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -272,7 +476,7 @@
                                     <p>✿ 𝟷𝚖𝟻𝟺, 𝟺𝟻𝚔𝚐<br />
                                         🧖🏼‍♀️ 𝚃𝚒𝚔𝚝𝚘𝚔 : 𝚊𝚒𝚖𝚎𝚎.𝚒𝚞𝚞˚｡⋆<br/>
                                         🧺 𝚂𝚙 𝚖𝚒̀𝚗𝚑 𝚖𝚊̣̆𝚌 𝚘̛̉ 𝚕𝚒𝚗𝚔 𝚋𝚎̂𝚗 𝚍𝚞̛𝚘̛́𝚒 𝚗𝚑𝚊𝚊</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">0 người theo dõi</p>
+                                    <p style="font-size: 85%; color: #888">0 người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn">Theo dõi</button>
@@ -288,7 +492,11 @@
                 </div>
             </div>
         </div>
-        <%- include("../Partials/plusIcon.ejs")  %>
+        <button class="add-button">
+    <div class="add_small">
+        <i id="plus_add_small" class="fa-solid fa-plus"></i>
+    </div>
+</button> 
     </div>
 </body>
 
