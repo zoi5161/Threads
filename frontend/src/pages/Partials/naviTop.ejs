@@ -8,7 +8,7 @@
             </div>
             <div>
                 <button style="color: var(--white); border-color: var(--border); border-radius: 50%; background-color: var(--post); height: 1.5rem; width: 1.5rem;"
-                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu">
                 </button>
                 <ul class="dropdown-menu top">
                     <li><a class="dropdown-item" href="#">Tất cả</a></li>
@@ -23,7 +23,7 @@
         </div>
         <div style="font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%">
             <button style="color: var(--white); border-color: var(--border); border-radius: 50%; background-color: var(--post); height: 1.5rem; width: 1.5rem;"
-                class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="...">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
                 </svg>
@@ -64,31 +64,31 @@
 <div class="navitop-768px">
     <div class="logo-navitop">
         <div style="width: 90%; display: flex; justify-content: center; margin-left: 3rem">
-            <a href="/"><i class="fa-brands fa-threads" style="font-size: 150%;"></i></a>
+            <a href="/" aria-label="Trang chủ"><i class="fa-brands fa-threads" style="font-size: 150%;"></i></a>
         </div>
         <div style="width: 10%;">
             <div style="display: flex; justify-content:center">
                 <button style="color: var(--white); border-color: var(--border); border-radius: 50%; background-color: var(--post); height: 1.5rem; width: 1.5rem;"
-                class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu">
                 </button>
                 <ul class="dropdown-menu top" id="setting-menu-top">
-                    <div class="setting-UI-top" style="display: flex; justify-content: space-between">
+                    <li class="setting-UI-top" style="display: flex; justify-content: space-between">
                         <span>Giao diện</span>
                         <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
                             </svg></div>
-                    </div>
+                        </li>
                     <li>Thông tin chi tiết</li>
                     <li>Cài đặt</li>
                     <li>Đã lưu</li>
                     <li>Đã thích</li>
-                    <div class="hr" style="margin-top: 8px"></div>
-                    <div class="setting-top-second">
+                    <li class="hr" style="margin-top: 8px"></li>
+                    <li class="setting-top-second">
                         <ul id="second" style="list-style-type: none; padding: 0; margin-top: 8px;">
                             <li>Báo cáo sự cố</li>
                             <li>Đăng xuất</li>
                         </ul>
-                    </div>
+                    </li>
                 </ul> 
             </div>
             

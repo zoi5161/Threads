@@ -84,7 +84,7 @@
               </div>
               <div class="profile_btn_wrapper">
                 <div class="insta_wrapper">
-                  <a href="https://www.instagram.com" target="_blank">
+                  <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
                     <i class="bi bi-instagram" style="font-size: 1.5rem"></i>
                   </a>
                 </div>
@@ -233,7 +233,7 @@
             </div>
 
             <div class="mission_container" onscroll="handleScroll()">
-              <button class="scroll-btn left" id="scrollLeftBtn" onclick="scrollToLeft()">
+              <button class="scroll-btn left" id="scrollLeftBtn" aria-label="scroll left" onclick="scrollToLeft()">
                 <i class="bi bi-arrow-left-circle-fill"></i>
               </button>
               <div class="mission">
@@ -275,7 +275,7 @@
                 <button class="done_mission_btn">Xong</button>
               </div>
 
-              <button class="scroll-btn right" id="scrollRightBtn" onclick="scrollToRight()">
+              <button class="scroll-btn right" id="scrollRightBtn" aria-label="scroll right" onclick="scrollToRight()">
                 <i class="bi bi-arrow-right-circle-fill"></i>
               </button>
             </div>
@@ -302,6 +302,7 @@
       border-radius: 5px;
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
       "
     onclick="const option_wrapper = document.querySelector('.option_wrapper');
             

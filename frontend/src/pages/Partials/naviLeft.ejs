@@ -15,7 +15,7 @@
             <path
                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
         </svg>
-        <input type="text" placeholder="Tìm kiếm từ khóa và trang cá nhân"
+        <input type="text" placeholder="Tìm kiếm từ khóa và trang cá nhân" name="search"
             style="padding: 5px; color: var(--white); background-color: var(--black); border: none; width: 70%; font-size: 15px; outline: none">
     </div>
     <div>
@@ -35,12 +35,12 @@
 <div id="setting-menu">
     <div class="setting-first">
         <ul id="first" style="list-style-type: none; padding: 0; margin: 1rem 0;">
-            <div class="setting-UI" style="display: flex; justify-content: space-between">
+            <li class="setting-UI" style="display: flex; justify-content: space-between">
                 <span>Giao diện</span>
                 <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
                     </svg></div>
-            </div>
+                </li>
             <li>Thông tin chi tiết</li>
             <li>Cài đặt</li>
         </ul>
@@ -76,31 +76,31 @@
     <div id="vertical_drop" class="dropdown">
         <!-- Dropdown menu luôn hiển thị -->
         <ul id="taskbar" class="dropdown-menu show" style="position: relative; border-color: var(--black)">
-            <div class="logo">
-                <li><a class="dropdown-item" href="/"><i class="fa-brands fa-threads" style="font-size: 150%;"></i></a>
-                </li>
-            </div>
+            <li class="logo">
+                <a class="dropdown-item" href="/" aria-label="Trang chủ"><i class="fa-brands fa-threads" style="font-size: 150%;"></i></a>
+                
+            </li>
 
-            <div class="mid">
-                <li><a class="dropdown-item" href="/Home"><i class="fa-solid fa-house"></i></a></li>
-                <li><a class="dropdown-item" href="/Search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></button></li>
-                <li><a class="dropdown-item" href="/Announce"><i class="fa-regular fa-heart"></i></a></li>
-                <li><a class="dropdown-item" href="/Profile"><i class="fa-regular fa-user"></i></a></li>
-            </div>
+            <li class="mid">
+                <a class="dropdown-item" href="/Home" aria-label="Home"><i class="fa-solid fa-house"></i></a>
+                <a class="dropdown-item" href="/Search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <button class="dropdown-item" id="plus_icon" aria-label="Add"><i class="fa-solid fa-plus"></i></button>
+                <a class="dropdown-item" href="/Announce" aria-label="Announce"><i class="fa-regular fa-heart"></i></a>
+                <a class="dropdown-item" href="/Profile" aria-label="Profile"><i class="fa-regular fa-user"></i></a>
+            </li>
 
-            <!-- <div class="mid">
-                <li><a class="dropdown-item" href="./home"><i class="fa-solid fa-house"></i></a></li>
-                <li><a class="dropdown-item" href="./search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></button></li>
-                <li><a class="dropdown-item" href="./announce"><i class="fa-regular fa-heart"></i></a></li>
-                <li><a class="dropdown-item" href="./profile"><i class="fa-regular fa-user"></i></a></li>
-            </div> -->
+            <!-- <li class="mid">
+                <a class="dropdown-item" href="./home" aria-label="Home"><i class="fa-solid fa-house"></i></a>
+                <a class="dropdown-item" href="./search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <button class="dropdown-item" id="plus_icon" aria-label="Add"><i class="fa-solid fa-plus"></i></button>
+                <a class="dropdown-item" href="./announce" aria-label="Announce"><i class="fa-regular fa-heart"></i></a>
+                <a class="dropdown-item" href="./profile" aria-label="Profile"><i class="fa-regular fa-user"></i></a>
+            </li> -->
 
-            <div class="bot">
-                <li><button class="dropdown-item" id="thumbtack-icon"><i class="fa-solid fa-thumbtack"></i></button></li>
-                <li><button class="dropdown-item" id="bars-staggered-icon"><i class="fa-solid fa-bars-staggered"></i></button></li>
-            </div>
+            <li class="bot">
+                <button class="dropdown-item" id="thumbtack-icon" aria-label="thumbtack"><i class="fa-solid fa-thumbtack"></i></button>
+                <button class="dropdown-item" id="bars-staggered-icon" aria-label="bar"><i class="fa-solid fa-bars-staggered"></i></button>
+            </li>
         </ul>
     </div>
 </div>

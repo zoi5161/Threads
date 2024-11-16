@@ -1,19 +1,22 @@
 // Dữ liệu mẫu
 const posts = [
-    {
-        user: {
-            avatar: "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-            username: "_10.nov_",
-            fullName: "Huyền Thủy",
-            tag: "@ngocne2744",
-            bio: "Zui zẻ",
-            follower: "299",
-            follow_status: "Theo dõi",
-        },
-        createAt: "1 giờ",
-        content: "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
-        img_url: 'https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+  {
+    user: {
+      avatar:
+        "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+      username: "_10.nov_",
+      fullName: "Huyền Thủy",
+      tag: "@ngocne2744",
+      bio: "Zui zẻ",
+      follower: "299",
+      follow_status: "Theo dõi",
     },
+    createAt: "1 giờ",
+    content:
+      "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
+    img_url:
+      "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+  },
 ];
 
 function createPostHTML(post) {
@@ -36,10 +39,10 @@ function createPostHTML(post) {
                                 </div>
                                 <div class="modal-body">
                                     <p>${post.user.bio}</p>
-                                    <p style="font-size: 85%; color: #888">${post.user.follower + ' người theo dõi'}</p>
+                                    <p style="font-size: 85%; color: #888">${post.user.follower + " người theo dõi"}</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button class="follow-btn">${post.user.follow_status}</button>
+                                    <button class="follow-btn" type="button">${post.user.follow_status}</button>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +50,7 @@ function createPostHTML(post) {
                     </div>
                     <div class="three_dots_button" style="color: var(--white); font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
     <button style="color: var(--white); border-color: var(--border); border-radius: 50%; background-color: var(--black); height: 1.5rem; width: 1.5rem;"
-        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="...">
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
             <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
         </svg>
@@ -90,8 +93,8 @@ function createPostHTML(post) {
                       </svg>
                 </div>
             </div>
+            <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
         </li>
-        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
 
         
         <li style="display: flex; justify-content: center">
@@ -118,8 +121,8 @@ function createPostHTML(post) {
                       </svg>
                 </div>
             </div>
+            <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
         </li>
-        <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
 
 
         <li style="display: flex; justify-content: center">
@@ -140,13 +143,14 @@ function createPostHTML(post) {
                 </div>
                 <div class="post-content">
                     <p>${post.content}</p>
-                    ${post.img_url ? 
-                        `
+                    ${
+                      post.img_url
+                        ? `
                         <div style="text-align: center">
                             <img class="post_img" src="${post.img_url}" style="max-width: 100%; max-height: 500px; border-radius: 10px; margin-bottom: 1rem">
                         </div>
-                        ` 
-                        : ''
+                        `
+                        : ""
                     }
                 </div>
                 <div class="post-footer">
@@ -171,7 +175,8 @@ function createPostTopHTML(user) {
             </div>
             <div style="display: flex; align-items: center; width: 15%">
                 <button type="button" class="btn btn-dark post_btn"
-                    style="color: var(--white); background-color: var(--black); border-color: var(--border); width: 75%; padding: 0.25rem 0">Đăng
+                    style="color: var(--white); background-color: var(--black); border-color: var(--border); width: 75%; padding: 0.25rem 0">
+                    Đăng
                 </button>
             </div>
         </div>
@@ -187,5 +192,3 @@ async function createPost(posts, user = null) {
     postContainer.innerHTML += createPostHTML(post);
   });
 }
-
-

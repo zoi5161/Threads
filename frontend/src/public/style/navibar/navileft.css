@@ -35,11 +35,7 @@ li .dropdown-item{
 }
 
 .logo {
-    margin-top: 1rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 5%;
+    width: 100%; /* Chiều rộng full để căn giữa */
 }
 
 .mid {
@@ -71,6 +67,7 @@ li .dropdown-item{
     margin-bottom: 1rem;
     background-color: var(--black);
     border-radius: 25%;
+    width: fit-content;
 }
 
 #taskbar .mid .dropdown-item:hover {
@@ -304,6 +301,7 @@ li .dropdown-item{
         display: flex;
         align-items: center;
         justify-content: space-around;
+        width: fit-content;
     }
 
     #taskbar .mid .dropdown-item:hover {
@@ -312,7 +310,7 @@ li .dropdown-item{
         border-radius: 15px;
     }
 
-    .mid li{
+    .mid a{
         height: 100%;
         width: calc(20%);
     }
