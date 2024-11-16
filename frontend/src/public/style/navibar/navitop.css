@@ -40,6 +40,10 @@
     border-radius: 20px;
 }
 
+#setting-trans-top{
+    display: none;
+}
+
 /* navitop 768px*/
 @media screen and (min-width: 769px) {
     .navitop-768px{
@@ -51,6 +55,14 @@
     }
 
     .logo-navitop a{
+        display: none;
+    }
+
+    #setting-trans-top{
+        display: none;
+    }
+
+    #setting-trans-top *{
         display: none;
     }
 }
@@ -129,5 +141,68 @@
         width: 100%;
         height: 1px;
         background-color: var(--hover);
+    }
+
+    .setting-trans-top-active{
+        position: fixed;
+        top: 2.8rem;
+        right: 1.65rem;
+
+        background-color: var(--post);
+        color: var(--white);
+        padding: 0px 20px 0px 20px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 8px var(--boxShadow);
+        width: 250px;
+        z-index: 2;
+        border: 1px solid var(--border);
+    }
+
+    .setting-header{
+        display: flex;
+        gap: 3rem;
+        padding: 1.25rem 0px;
+    }
+    
+    .btn-trans{
+        height: 2.5rem;
+        width: 100%;
+        display: flex;
+        margin-bottom: 10px;
+        background-color: var(--black);
+        border-radius: 10px;
+    }
+    
+    .light{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .light:hover{
+        background-color: var(--hover);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    
+    .dark{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .dark:hover{
+        background-color: var(--hover);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    
+    .active{
+        color:var(--black);
+        background-color: var(--white);
     }
 }
