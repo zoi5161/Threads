@@ -78,6 +78,7 @@ h2 {
 }
 .profile-name:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .followers-count {

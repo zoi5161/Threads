@@ -10,19 +10,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- <link rel="stylesheet" href="/style/announce.css" />
-    <link rel="stylesheet" href="/style/navibar/navileft.css">
-    <link rel="stylesheet" href="/style/navibar/navitop.css">
-    <link rel="stylesheet" href="/style/containerPost.css">
-    <link rel="stylesheet" href="/style/plus.css">
-    <link rel="stylesheet" href="/style/plusModal.css" /> -->
 
     <link rel="stylesheet" href="/frontend/src/public/style/announce.css" />
     <link rel="stylesheet" href="/frontend/src/public/style/navibar/navileft.css">
     <link rel="stylesheet" href="/frontend/src/public/style/navibar/navitop.css">
     <link rel="stylesheet" href="/frontend/src/public/style/containerPost.css">
     <link rel="stylesheet" href="/frontend/src/public/style/plus.css">
-    <link rel="stylesheet" href="/frontend/src/public/style/plusModal.css" />
+    <link rel="stylesheet" href="/frontend/src/public/style/plusModal.css">
+    <link rel="stylesheet" href="/frontend/src/public/style/three_dots.css" />
     
     <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -45,61 +40,81 @@
 </style>
 <body>
     <!-- Menu phụ sẽ được hiển thị khi nhấn vào thumbtack -->
-<!-- <script src="/js/naviLeft.js"></script> -->
+
 <script src="/frontend/src/public/js/naviLeft.js"></script>
-
+<!-- <script src="js/naviLeft.js"></script> -->
 <div id="overlay" class="overlay hidden"></div>
-    <div id="plus_box" class="thread-container hidden">
-        <div class="header">
-            <button class="cancel-btn" style="font-size: 100%; font-weight: bold;">Hủy</button>
-            <span>Thread mới</span>
-            <div></div>
-        </div>
-        <hr class="divider">
-        
-        <div class="plus_body">
-            <div class="avatar">
-                <img src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="User avatar">
-            </div>
-            
-            <form action="#" method="get">
-                <div class="input-section">
-                    <div class="username">_vteif</div>
-                    <textarea class="input-box" placeholder="Có gì mới?"></textarea>
-                    <div class="icon-group">
-                        <label for="image-upload" class="upload-icon">
-                            <i class="fa-regular fa-image"></i>
-                            <input type="file" id="image-upload" accept="image/*" style="display: none;">
-                        </label>
-                        <button type="button">GIF</button>
-                        <button type="button"><i class="fa-solid fa-hashtag"></i></button>
-                        <button type="button"><i class="fa-solid fa-location-dot"></i></button>
-                    </div>
-                </div>
-            </form>
-        </div>
+<div id="plus_box" class="thread-container hidden">
+  <div class="header">
+    <button
+      type="button"
+      class="cancel-btn"
+      style="font-size: 100%; font-weight: bold"
+    >
+      Hủy
+    </button>
+    <span>Thread mới</span>
+    <div></div>
+  </div>
+  <hr class="divider" />
 
-        <div class="plus_footer">
-            <button class="reply-settings">
-                Bất kỳ ai cũng có thể trả lời và trích dẫn
-            </button>
-            <button class="post-btn">Đăng</button>
-        </div>
+  <div class="plus_body">
+    <div class="avatar">
+      <img
+        src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+        alt="User avatar"
+      />
     </div>
+
+    <form action="#" method="get">
+      <div class="input-section">
+        <div class="username">_vteif</div>
+        <textarea class="input-box" placeholder="Có gì mới?" name="input-box"></textarea>
+        <div class="icon-group">
+          <label for="image-upload" class="upload-icon">
+            <i class="fa-regular fa-image"></i>
+            <input
+              type="file"
+              id="image-upload"
+              accept="image/*"
+              style="display: none"
+              aria-label="Upload an image file"
+            />
+          </label>
+          <button type="button">GIF</button>
+          <button type="button" aria-label="Hashtag">
+            <i class="fa-solid fa-hashtag"></i>
+          </button>
+          <button type="button" aria-label="Location">
+            <i class="fa-solid fa-location-dot"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="plus_footer">
+    <button class="reply-settings" type="button">
+      Bất kỳ ai cũng có thể trả lời và trích dẫn
+    </button>
+    <button class="post-btn" type="button">Đăng</button>
+  </div>
+</div>
+
 
 <div id="pin-menu">
     <div class="header-pin-menu">
         <h4 style="text-align: center; font-size: 95%; margin-bottom: 1rem">Ghim lên trang chủ</h4>
     </div>
     <div
-        style="height: 3rem; background-color: black; border: 0.1px solid #3b3a3a; border-radius: 20px; display: flex; align-items: center">
+        style="height: 3rem; background-color: var(--black); border: 0.1px solid var(--border); border-radius: 20px; display: flex; align-items: center">
         <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-search"
             viewBox="0 0 16 16">
             <path
                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
         </svg>
-        <input type="text" placeholder="Tìm kiếm từ khóa và trang cá nhân"
-            style="padding: 5px; color:var(--white); background-color: black; border: none; width: 70%; font-size: 15px; outline: none">
+        <input type="text" placeholder="Tìm kiếm từ khóa và trang cá nhân" name="search"
+            style="padding: 5px; color: var(--white); background-color: var(--black); border: none; width: 70%; font-size: 15px; outline: none">
     </div>
     <div>
         <ul style="list-style-type: none; padding: 0; margin: 1rem 0;">
@@ -118,12 +133,12 @@
 <div id="setting-menu">
     <div class="setting-first">
         <ul id="first" style="list-style-type: none; padding: 0; margin: 1rem 0;">
-            <div class="setting-UI" style="display: flex; justify-content: space-between">
+            <li class="setting-UI" style="display: flex; justify-content: space-between">
                 <span>Giao diện</span>
                 <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
                     </svg></div>
-            </div>
+                </li>
             <li>Thông tin chi tiết</li>
             <li>Cài đặt</li>
         </ul>
@@ -132,8 +147,25 @@
     <div class="setting-second">
         <ul id="second" style="list-style-type: none; padding: 0; margin: 1rem 0;">
             <li>Báo cáo sự cố</li>
-            <li>Đăng xuất</li>
+            <li onclick="window.location.href='./login'">Đăng xuất</li>
         </ul>
+    </div>
+</div>
+
+<div id="setting-trans">
+    <div class="setting-header">
+        <div id="return-setting-menu" style="width: 16px; cursor: pointer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+          </svg></div>
+        <span>Giao diện</span>
+    </div>
+    <div class="btn-trans">
+        <div class="light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
+          </svg></div>
+        <div class="dark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+            <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
+          </svg></div>
     </div>
 </div>
 
@@ -141,46 +173,40 @@
     <!-- Dropdown hiển thị sẵn -->
     <div id="vertical_drop" class="dropdown">
         <!-- Dropdown menu luôn hiển thị -->
-        <ul id="taskbar" class="dropdown-menu show" style="position: relative;">
-            <div class="logo">
-                <li><a class="dropdown-item" href="/"><i class="fa-brands fa-threads" style="font-size: 100%;"></i></a>
-                </li>
-            </div>
+        <ul id="taskbar" class="dropdown-menu show" style="position: relative; border-color: var(--black)">
+            <li class="logo">
+                <a class="dropdown-item" href="./Home" aria-label="Trang chủ"><i class="fa-brands fa-threads" style="font-size: 150%;"></i></a>
+                
+            </li>
 
-            <!-- <div class="mid">
-                <li><a class="dropdown-item" href="/Home"><i class="fa-solid fa-house"></i></a></li>
-                <li><a class="dropdown-item" href="/Search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></button></li>
-                <li><a class="dropdown-item" href="/Announce"><i class="fa-regular fa-heart"></i></a></li>
-                <li><a class="dropdown-item" href="/Profile"><i class="fa-regular fa-user"></i></a></li>
-            </div> -->
+            <li class="mid">
+                <a class="dropdown-item" href="./Home" aria-label="Home"><i class="fa-solid fa-house"></i></a>
+                <a class="dropdown-item" href="./Search" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <button class="dropdown-item" id="plus_icon" aria-label="Add"><i class="fa-solid fa-plus"></i></button>
+                <a class="dropdown-item" href="./Announce" aria-label="Announce"><i class="fa-regular fa-heart"></i></a>
+                <a class="dropdown-item" href="./Profile" aria-label="Profile"><i class="fa-regular fa-user"></i></a>
+            </li>
 
-            <div class="mid">
-                <li><a class="dropdown-item" href="./home"><i class="fa-solid fa-house"></i></a></li>
-                <li><a class="dropdown-item" href="./search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li><button class="dropdown-item" id="plus_icon"><i class="fa-solid fa-plus"></i></button></li>
-                <li><a class="dropdown-item" href="./announce"><i class="fa-regular fa-heart"></i></a></li>
-                <li><a class="dropdown-item" href="./profile"><i class="fa-regular fa-user"></i></a></li>
-            </div>
 
-            <div class="bot">
-                <li><button class="dropdown-item" id="thumbtack-icon"><i class="fa-solid fa-thumbtack"></i></button></li>
-                <li><button class="dropdown-item" id="bars-staggered-icon"><i class="fa-solid fa-bars-staggered"></i></button></li>
-            </div>
+            <li class="bot">
+                <button class="dropdown-item" id="thumbtack-icon" aria-label="thumbtack"><i class="fa-solid fa-thumbtack"></i></button>
+                <button class="dropdown-item" id="bars-staggered-icon" aria-label="bar"><i class="fa-solid fa-bars-staggered"></i></button>
+            </li>
         </ul>
     </div>
 </div>
     <div class="container-fluid">
-        <!-- Dropdown Menu -->
+        <!-- <script src="js/naviTop.js"></script> -->
 
+<!-- Dropdown Menu -->
 <div class="dropdown-center_naviTop">
         <div style="display: flex; justify-content: center; align-items: center; width: 80%; gap: 2rem">
-            <div style="margin-left: 3rem">
+            <div style="margin-left: 4rem">
                 Hoạt động
             </div>
             <div>
-                <button style="border-color: var(--border); border-radius: 50%; background-color: var(--black); height: 1.5rem; width: 1.5rem;"
-                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button style="color: var(--white); border-color: var(--border); border-radius: 50%; background-color: var(--post); height: 1.5rem; width: 1.5rem;"
+                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu">
                 </button>
                 <ul class="dropdown-menu top">
                     <li><a class="dropdown-item" href="#">Tất cả</a></li>
@@ -193,9 +219,9 @@
                 </ul> 
             </div>
         </div>
-        <div style="color: var(--white); font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%">
-            <button style="border-color: var(--border); border-radius: 50%; background-color: var(--black); height: 1.5rem; width: 1.5rem;"
-                class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div style="font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%">
+            <button style="color: var(--white); border-color: var(--border); border-radius: 50%; background-color: var(--post); height: 1.5rem; width: 1.5rem;"
+                class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="...">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16" style="margin-bottom: 3px;">
                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
                 </svg>
@@ -216,44 +242,78 @@
         </div>
 </div>
 
+<div id="setting-trans-top">
+    <div class="setting-header">
+        <div id="return-setting-menu" style="width: 16px; cursor: pointer"><svg id="return-setting-menu-top" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+          </svg></div>
+        <span>Giao diện</span>
+    </div>
+    <div class="btn-trans">
+        <div class="light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
+          </svg></div>
+        <div class="dark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+            <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
+          </svg></div>
+    </div>
+</div>
+
 <div class="navitop-768px">
     <div class="logo-navitop">
-        <div style="width: 90%; display: flex; justify-content: center; margin-left: 2rem">
-            <a href="/"><i class="fa-brands fa-threads" style="font-size: 150%;"></i></a>
+        <div style="width: 90%; display: flex; justify-content: center; margin-left: 3rem">
+            <a href="./Home" aria-label="Trang chủ"><i class="fa-brands fa-threads" style="font-size: 150%;"></i></a>
         </div>
         <div style="width: 10%;">
             <div style="display: flex; justify-content:center">
-                <button style="border-color: var(--border); border-radius: 50%; background-color: var(--black); height: 1.5rem; width: 1.5rem;"
-                class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button style="color: var(--white); border-color: var(--border); border-radius: 50%; background-color: var(--post); height: 1.5rem; width: 1.5rem;"
+                class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu">
                 </button>
-                <ul class="dropdown-menu top">
-                    <div class="setting-UI-top" style="display: flex; justify-content: space-between">
+                <ul class="dropdown-menu top" id="setting-menu-top">
+                    <li class="setting-UI-top" style="display: flex; justify-content: space-between">
                         <span>Giao diện</span>
                         <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
                             </svg></div>
-                    </div>
+                        </li>
                     <li>Thông tin chi tiết</li>
                     <li>Cài đặt</li>
                     <li>Đã lưu</li>
                     <li>Đã thích</li>
-                    <div class="hr" style="margin-top: 8px"></div>
-                    <div class="setting-top-second">
+                    <li class="setting-top-second">
+                        <hr style="margin: 0 1rem; padding: 0;">
                         <ul id="second" style="list-style-type: none; padding: 0; margin-top: 8px;">
                             <li>Báo cáo sự cố</li>
-                            <li>Đăng xuất</li>
+                            <li onclick="window.location.href='./login'">Đăng xuất</li>
                         </ul>
-                    </div>
+                    </li>
                 </ul> 
             </div>
             
         </div>
     </div>
 </div>       
+
+<!-- <script>
+    document.querySelector('.setting-UI-top').addEventListener('click', function () {
+        document.getElementById('setting-trans-top').style.display = 'block';
+        document.getElementById('setting-trans-top').classList.add('setting-trans-top-active');
+        document.getElementById('setting-menu-top').style.display = 'none';
+    });   
+
+    document.getElementById('return-setting-menu-top').addEventListener('click', function () {
+        const settingTransTop = document.getElementById('setting-trans-top');
+        const settingMenuTop = document.getElementById('setting-menu-top');
+        
+        settingTransTop.style.display = 'none';
+        settingTransTop.classList.remove('setting-trans-top-active');
+        settingMenuTop.style.display = 'block';
+    });
+</script> -->
         <div class="container_post">
         </div>
     </div>
-    <button class="add-button">
+    <button class="add-button" aria-label="Add post">
     <div class="add_small">
         <i id="plus_add_small" class="fa-solid fa-plus"></i>
     </div>
@@ -282,4 +342,5 @@
 
     window.onload = createPost(post_arr);
 </script>
+<script src="/frontend/src/public/js/three_dots.js"></script>
 </html>

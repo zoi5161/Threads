@@ -14,6 +14,7 @@ export default function lastTime() {
             return 'Login';
         } else {
             localStorage.setItem('lastVisit', currentTime);
+            return 'Home';
         }
     } else {
         localStorage.setItem('lastVisit', Date.now());

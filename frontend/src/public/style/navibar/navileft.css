@@ -255,7 +255,7 @@ li .dropdown-item{
         width: 100%;
         background-color: var(--navibot);
         backdrop-filter: blur(10px);
-        z-index: 1;
+        z-index: 2;
     }
 
     #taskbar {
@@ -292,7 +292,7 @@ li .dropdown-item{
 
     #taskbar .dropdown-item {
         background-color: var(--navibot);
-        backdrop-filter: blur(10px);
+        /* backdrop-filter: blur(10px); */
         color: var(--white);
         font-size: 24px; /* Kích thước của icon */
         height: 100%;
@@ -301,7 +301,7 @@ li .dropdown-item{
         display: flex;
         align-items: center;
         justify-content: space-around;
-        width: fit-content;
+        width: 20%;
     }
 
     #taskbar .mid .dropdown-item:hover {
