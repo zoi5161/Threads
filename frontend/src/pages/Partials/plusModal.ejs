@@ -1,3 +1,5 @@
+<script src="js/Thread/createThreadButton.js"></script>
+
 <div id="overlay" class="overlay hidden"></div>
 <div id="plus_box" class="thread-container hidden">
   <div class="header">
@@ -21,10 +23,10 @@
       />
     </div>
 
-    <form action="#" method="get">
+    <form id="create_thread_form">
       <div class="input-section">
         <div class="username">_vteif</div>
-        <textarea class="input-box" placeholder="Có gì mới?" name="input-box"></textarea>
+        <textarea class="input-box" placeholder="Có gì mới?" name="content"></textarea>
         <div class="icon-group">
           <label for="image-upload" class="upload-icon">
             <i class="fa-regular fa-image"></i>
@@ -34,6 +36,7 @@
               accept="image/*"
               style="display: none"
               aria-label="Upload an image file"
+              name="image"
             />
           </label>
           <button type="button">GIF</button>
@@ -52,6 +55,6 @@
     <button class="reply-settings" type="button">
       Bất kỳ ai cũng có thể trả lời và trích dẫn
     </button>
-    <button class="post-btn" type="button">Đăng</button>
+    <button class="post-btn" onclick="createThreadButton()" type="button">Đăng</button>
   </div>
 </div>

@@ -159,6 +159,11 @@
     cursor: pointer;
 }
 
+.post-btn:hover {
+    background-color: var(--iconInPost);
+    color: var(--hover);
+}
+
 .overlay {
     position: fixed;
     top: 0;

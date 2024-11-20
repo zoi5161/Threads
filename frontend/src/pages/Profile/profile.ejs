@@ -39,10 +39,10 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-    <script src="/js/home.js"></script>
+    <script src="/js/postWrap.js"></script>
     <script src="/js/createPost.js"></script>
 
-    <!-- <script src="/frontend/src/public/js/home.js"></script>
+    <!-- <script src="/frontend/src/public/js/postWrap.js"></script>
     <script src="/frontend/src/public/js/createPost.js"></script> -->
 
   </head>
@@ -220,7 +220,7 @@
               src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
               alt="User Avatar"
             />
-            <div class="create_thread_content">
+            <div id="post_status" class="create_thread_content">
               <span>Có gì mới?</span>
             </div>
             <button id="plus_box_short_profile">Đăng</button>
@@ -371,35 +371,7 @@
     }
 
   // Gọi hàm handleScroll() để cập nhật trạng thái khi trang tải
-  //window.onload = handleScroll;
-
-  const post_arr = [];
-  for (let i = 0; i < 10; i++)
-      post_arr.push(
-          {
-              user: {
-                  avatar: 'https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-                  username: "_10.nov_",
-                  fullName: "Huyền Thủy",
-                  tag: "@ngocne2744",
-                  bio: "Zui zẻ",
-                  follower: "299",
-                  follow_status: "Theo dõi",
-              },
-              createAt: "1 giờ",
-              content: "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
-              img_url: 'https://xulynuocnhiemphen.vn/uploads/tin-tuc/bao-ve-moi-truong.jpg',
-
-          },
-          
-      )
-
-  window.onload = () => {
-    handleScroll();  
-    createPost(post_arr);  
-};
-
-
+  window.onload = handleScroll;
   </script>
   <script src="/js/three_dots.js"></script>
 </html>

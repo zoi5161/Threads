@@ -128,14 +128,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // JS cho phần plusModal:
     // Get DOM elements
     const plusIcon = document.querySelector('#plus_icon'); // Your plus icon button
-    const new_post = document.querySelector('#post_status');
-    const plusBox = document.getElementById('plus_box');
     const plusSmall = document.querySelector('.add-button');
-    const post_btn = document.querySelector('.post_btn');
+
+    const plusBox = document.getElementById('plus_box');
     const overlay = document.getElementById('overlay');
     const cancelBtn = document.querySelector('.cancel-btn');
-    const plus_box_short_profile = document.getElementById('plus_box_short_profile');
-    const tag = document.querySelector('.tag');
+
+
 
     // Show modal function
     function showModal() {
@@ -158,14 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
     plusSmall.addEventListener('click', showModal);
     cancelBtn.addEventListener('click', hideModal);
     overlay.addEventListener('click', hideModal);
-    if(new_post)
-        new_post.addEventListener('click', showModal);
-    if(post_btn)
-        post_btn.addEventListener('click', showModal);
-    if(plus_box_short_profile)
-        plus_box_short_profile.addEventListener('click', showModal);
-    if(tag)
-        tag.addEventListener('click', showModal);
+
 
     // Prevent modal from closing when clicking inside it
     plusBox.addEventListener('click', (e) => {

@@ -4,20 +4,10 @@ body {
     width: 100%;
 }
 
-/* Định dạng chung cho post */
-.post_new {
-    display: flex;
-    align-items: center;
-    background-color: var(--post);
-    padding: 20px 0px 20px 0px;
-    border: 0.1px solid var(--border);
-    border-radius: 20px 20px 0px 0px;
+.post_btn:hover{
+    background-color: var(--white) !important;
+    color: var(--black) !important;
 }
-
-.content{
-    margin-top: 10px;
-}
-
 
 @media screen and (max-width: 768px) {
     .container_post{

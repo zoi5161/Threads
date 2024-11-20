@@ -1,11 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const testRoutes = require('./test');
+const threadRoutes = require('./thread');
 
-router.use('/test', testRoutes);
-// router.use('/test2', testRoutes);
-
-
+// Correctly use threadRoutes as middleware
+router.use('/thread', threadRoutes);
 
 module.exports = router;
