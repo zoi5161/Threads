@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 const threadRoutes = require('./thread');
+const imageRoutes = require('./image');
 
-// Correctly use threadRoutes as middleware
+
 router.use('/thread', threadRoutes);
+router.use('/image', imageRoutes);
 
 module.exports = router;

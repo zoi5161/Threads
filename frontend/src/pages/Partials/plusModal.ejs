@@ -26,7 +26,20 @@
     <form id="create_thread_form">
       <div class="input-section">
         <div class="username">_vteif</div>
-        <textarea class="input-box" placeholder="Có gì mới?" name="content"></textarea>
+        <textarea
+          class="input-box"
+          placeholder="Có gì mới?"
+          name="content"
+        ></textarea>
+
+        <!-- Image preview -->
+        <div id="image-preview-container" style="display: none; position: relative;">
+          <img id="image-preview"/>
+          <button type="button" id="delete-image" class="btn btn-danger" style="position: absolute; top: 10px; right: 10px; padding: 3px">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+        
         <div class="icon-group">
           <label for="image-upload" class="upload-icon">
             <i class="fa-regular fa-image"></i>
@@ -55,6 +68,37 @@
     <button class="reply-settings" type="button">
       Bất kỳ ai cũng có thể trả lời và trích dẫn
     </button>
-    <button class="post-btn" onclick="createThreadButton()" type="button">Đăng</button>
+    <button class="post-btn" onclick="createThreadButton()" type="button">
+      Đăng
+    </button>
   </div>
 </div>
+
+<script>
+  // Handle file selection and image preview
+  const imageInput = document.getElementById("image-upload");
+  const imagePreviewContainer = document.getElementById(
+    "image-preview-container"
+  );
+  const imagePreview = document.getElementById("image-preview");
+
+  imageInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        // Set the image preview source to the selected file
+        imagePreview.src = e.target.result;
+        // Display the preview container
+        imagePreviewContainer.style.display = "block";
+      };
+      reader.readAsDataURL(file); // Read the image file as a data URL
+    }
+  });
+
+  const imageDel = document.getElementById("delete-image");
+  imageDel.addEventListener("click", function () {
+    imagePreview.src = "";
+    imagePreviewContainer.style.display = "none";
+  });
+</script>
