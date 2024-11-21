@@ -6,7 +6,6 @@ async function getAllThreads() {
 
     if (response.ok) {
       const result = await response.json();
-      console.log("Response:", result);
       return result;
     } else {
       console.error("Error response:", response);
@@ -62,39 +61,54 @@ document.addEventListener("DOMContentLoaded", async function () {
   window.onload = createPost(posts_fetched);
 
   const post_img = document.querySelectorAll(".post_img");
+
   post_img.forEach((img) => {
     img.style.cursor = "pointer";
     img.addEventListener("click", function (event) {
-      event.stopPropagation(); // Ngăn chặn sự kiện click lan ra ngoài
+      event.stopPropagation(); // Prevent click event from propagating outside the image
 
-      // Tạo modal Bootstrap để hiển thị hình ảnh với overlay opacity
       const modalHTML = `
-            <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal_img">
-                    <div class="modal-content modal_img_content" style="background-color: rgb(0, 0, 0);">
-                        <div class="modal-header border-0 modal_img_content_header">
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body modal_img_content_body">
-                            <img src=${img.src}
-                        </div>
-                    </div>
-                </div>
-            </div>`;
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal_img">
+            <div class="modal-content modal_img_content" style="background-color: rgb(0, 0, 0);">
+              <div class="modal-header border-0 modal_img_content_header">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body modal_img_content_body">
+                <img src="${img.src}" class="img-fluid" alt="Image Preview" />
+              </div>
+            </div>
+          </div>
+        </div>`;
 
-      // Thêm modal vào body nếu chưa tồn tại
-      if (!document.getElementById("imageModal")) {
-        document.body.insertAdjacentHTML("beforeend", modalHTML);
-        const imageModal = new bootstrap.Modal(
-          document.getElementById("imageModal")
-        );
-        imageModal.show();
-      } else {
-        const existingModal = bootstrap.Modal.getOrCreateInstance(
-          document.getElementById("imageModal")
-        );
-        existingModal.show();
+      let existingModal = document.getElementById("imageModal");
+      if (existingModal) {
+        existingModal.remove();
       }
+
+      // Insert the new modal into the DOM
+      document.body.insertAdjacentHTML("beforeend", modalHTML);
+
+      const newModal = new bootstrap.Modal(
+        document.getElementById("imageModal")
+      );
+      const modalElement = document.getElementById("imageModal");
+
+      modalElement.addEventListener("shown.bs.modal", () => {
+        modalElement.removeAttribute("aria-hidden");
+
+        const closeButton = modalElement.querySelector(".btn-close");
+        if (closeButton) {
+          closeButton.focus();
+        }
+      });
+
+      newModal.show();
+
+      // Ensure that when modal is closed, it gets hidden properly with aria-hidden
+      modalElement.addEventListener("hidden.bs.modal", () => {
+        modalElement.setAttribute("aria-hidden", "true");
+      });
     });
   });
 
