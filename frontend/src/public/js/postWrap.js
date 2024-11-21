@@ -56,8 +56,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       follower: "299",
       follow_status: "Theo dõi",
     };
-    post.image_url =
-      "https://i.pinimg.com/736x/92/96/7e/92967ebe51c1965f2c5c779baae2fdc0.jpg";
     post.createdAt = formatPostTime(post.createdAt);
   });
 
