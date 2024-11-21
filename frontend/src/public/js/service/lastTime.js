@@ -18,8 +18,7 @@ export default function lastTime() {
         }
     } else {
         localStorage.setItem('lastVisit', Date.now());
-        return 'Login';
+        return 'Home';
     }
-    return 'Home';
 }
 

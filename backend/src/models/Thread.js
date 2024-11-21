@@ -8,7 +8,6 @@ const threadSchema = new Schema(
         image_url: String,
         like: { type: Number, default: -1},
         comment: { type: Number, default: -1},
-        repost: { type: Number, default: -1},
     },
     { timestamps: true }
 );

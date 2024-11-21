@@ -60,89 +60,230 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   window.onload = createPost(posts_fetched);
 
-  const post_img = document.querySelectorAll(".post_img");
-
-  post_img.forEach((img) => {
-    img.style.cursor = "pointer";
-    img.addEventListener("click", function (event) {
-      event.stopPropagation(); // Prevent click event from propagating outside the image
-
-      const modalHTML = `
-        <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal_img">
-            <div class="modal-content modal_img_content" style="background-color: rgb(0, 0, 0);">
-              <div class="modal-header border-0 modal_img_content_header">
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body modal_img_content_body">
-                <img src="${img.src}" class="img-fluid" alt="Image Preview" />
+  const posts = document.querySelectorAll(".post:not(#postTop)");
+  posts.forEach(async (post) => {
+    const img = post.querySelector(".post_img");
+    const postId = post.id;
+    if(img){
+      img.style.cursor = "pointer";
+      img.addEventListener("click", function (event) {
+  
+        const modalHTML = `
+          <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true" >
+            <div class="modal-dialog modal-dialog-centered modal_img">
+              <div class="modal-content modal_img_content" style="background-color: rgb(0, 0, 0);">
+                <div class="modal-header border-0 modal_img_content_header">
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal_img_content_body">
+                  <img src="${img.src}" class="img-fluid" alt="Image Preview" />
+                </div>
               </div>
             </div>
-          </div>
-        </div>`;
-
-      let existingModal = document.getElementById("imageModal");
-      if (existingModal) {
-        existingModal.remove();
-      }
-
-      // Insert the new modal into the DOM
-      document.body.insertAdjacentHTML("beforeend", modalHTML);
-
-      const newModal = new bootstrap.Modal(
-        document.getElementById("imageModal")
-      );
-      const modalElement = document.getElementById("imageModal");
-
-      modalElement.addEventListener("shown.bs.modal", () => {
-        modalElement.removeAttribute("aria-hidden");
-
-        const closeButton = modalElement.querySelector(".btn-close");
-        if (closeButton) {
-          closeButton.focus();
+          </div>`;
+  
+        let existingModal = document.getElementById("imageModal");
+        if (existingModal) {
+          existingModal.remove();
         }
+  
+        // Insert the new modal into the DOM
+        document.body.insertAdjacentHTML("beforeend", modalHTML);
+  
+        const newModal = new bootstrap.Modal(
+          document.getElementById("imageModal")
+        );
+        const modalElement = document.getElementById("imageModal");
+  
+        modalElement.addEventListener("shown.bs.modal", () => {
+          modalElement.removeAttribute("aria-hidden");
+  
+          const closeButton = modalElement.querySelector(".btn-close");
+          if (closeButton) {
+            closeButton.focus();
+          }
+        });
+  
+        newModal.show();
+  
+        // Ensure that when modal is closed, it gets hidden properly with aria-hidden
+        modalElement.addEventListener("hidden.bs.modal", () => {
+          modalElement.setAttribute("aria-hidden", "true");
+        });
       });
+    }
+    
 
-      newModal.show();
-
-      // Ensure that when modal is closed, it gets hidden properly with aria-hidden
-      modalElement.addEventListener("hidden.bs.modal", () => {
-        modalElement.setAttribute("aria-hidden", "true");
-      });
-    });
-  });
-
-  // Lấy tất cả các post trừ post có id #postTop
-  const posts = document.querySelectorAll(".post:not(#postTop)");
-
-  posts.forEach((post) => {
-    // Thiết lập con trỏ chuột cho vùng post
-    post.style.cursor = "pointer";
-
-    // Tìm icon ba chấm (three dots) bên trong mỗi post
-    const threeDotsIcon = post.querySelector(".three_dots_button"); // Thêm class "three-dots-icon" vào nút three dots
-    const commentIcon = post.querySelector(".fa-comment");
-
-    // Sự kiện chuyển tab khi click vào bất kỳ vùng nào của post, nhưng bỏ qua nếu click vào icon ba chấm
-    post.addEventListener("click", function (event) {
-      // Kiểm tra xem sự kiện click có phải từ icon ba chấm hay không
-      if (
-        event.target === threeDotsIcon ||
-        threeDotsIcon.contains(event.target) ||
-        event.target === commentIcon ||
-        commentIcon.contains(event.target)
-      ) {
-        // Nếu là icon ba chấm, ngăn chặn sự kiện chuyển tab của post
-        event.stopPropagation();
-        console.log("Three dots clicked - show menu");
-        // Thực hiện các hành động của icon ba chấm ở đây (hiển thị menu/modal)
-      } else {
-        // Nếu không phải là icon ba chấm, thực hiện sự kiện chuyển tab
-        // window.location.href = "/Comment";
-        window.location.href = "./comment";
+    const post_content = post.querySelector(".post-content p");
+    post.addEventListener('mouseover', function(event) {
+      if(event.target === post || post_content.contains(event.target)) {
+        post.style.cursor = 'pointer';
+      }
+      else {
+        post.style.cursor = 'default';
       }
     });
+    post.addEventListener("click", function (event) {
+      if (event.target === post || post_content.contains(event.target)) {
+        window.location.href = "./comment";
+      } else {
+        event.stopPropagation();
+      }
+    });
+
+    const likeButton = post.querySelector(".like_btn");
+    const likeIcon = likeButton.querySelector("#likeBtn");
+    const likeCount = likeButton.querySelector("#likeCnt");
+    
+    // Check if the user has already liked the post
+    let liked = false;
+    
+    try {
+      const checkLikeResponse = await fetch("http://localhost:10000/thread_action/check_like", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_id: "1111", thread_id: post.id }),
+      });
+    
+      if (checkLikeResponse.ok) {
+        const checkLikeResult = await checkLikeResponse.json();
+        liked = checkLikeResult.liked;
+        // Set initial state based on the 'liked' status
+        if (liked) {
+          likeIcon.classList.add("fas");
+          likeIcon.classList.remove("far");
+        } else {
+          likeIcon.classList.add("far");
+          likeIcon.classList.remove("fas");
+        }
+      } else {
+        console.error("Failed to fetch like status:", checkLikeResponse);
+      }
+    } catch (error) {
+      console.error("Error fetching like status:", error);
+    }
+    
+    // Add click event listener for the like button
+    likeButton.addEventListener("click", async function (event) {
+      event.stopPropagation(); // Prevent other click handlers from firing
+      event.preventDefault(); // Prevent the default form submission behavior
+    
+      const apiEndpoint = liked
+        ? "http://localhost:10000/thread_action/unlike"
+        : "http://localhost:10000/thread_action/like";
+    
+      try {
+        const response = await fetch(apiEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user_id: "1111", thread_id: post.id }),
+        });
+    
+        if (response.ok) {
+          // Toggle the like state
+          liked = !liked;
+    
+          // Update the UI based on the new state
+          if (liked) {
+            console.log("Liked post:", post.id);
+            likeIcon.classList.add("fas");
+            likeIcon.classList.remove("far");
+            likeCount.textContent = parseInt(likeCount.textContent) + 1;
+          } else {
+            console.log("Unliked post:", post.id);
+            likeIcon.classList.add("far");
+            likeIcon.classList.remove("fas");
+            likeCount.textContent = parseInt(likeCount.textContent) - 1;
+          }
+        } else {
+          console.error("Error updating like status:", response);
+        }
+      } catch (error) {
+        console.error("Error sending like/unlike request:", error);
+      }
+    });
+    
   });
+
+
+  // const post_img = document.querySelectorAll(".post_img");
+
+  // post_img.forEach((img) => {
+  //   img.style.cursor = "pointer";
+  //   img.addEventListener("click", function (event) {
+
+  //     const modalHTML = `
+  //       <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true" >
+  //         <div class="modal-dialog modal-dialog-centered modal_img">
+  //           <div class="modal-content modal_img_content" style="background-color: rgb(0, 0, 0);">
+  //             <div class="modal-header border-0 modal_img_content_header">
+  //               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+  //             </div>
+  //             <div class="modal-body modal_img_content_body">
+  //               <img src="${img.src}" class="img-fluid" alt="Image Preview" />
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>`;
+
+  //     let existingModal = document.getElementById("imageModal");
+  //     if (existingModal) {
+  //       existingModal.remove();
+  //     }
+
+  //     // Insert the new modal into the DOM
+  //     document.body.insertAdjacentHTML("beforeend", modalHTML);
+
+  //     const newModal = new bootstrap.Modal(
+  //       document.getElementById("imageModal")
+  //     );
+  //     const modalElement = document.getElementById("imageModal");
+
+  //     modalElement.addEventListener("shown.bs.modal", () => {
+  //       modalElement.removeAttribute("aria-hidden");
+
+  //       const closeButton = modalElement.querySelector(".btn-close");
+  //       if (closeButton) {
+  //         closeButton.focus();
+  //       }
+  //     });
+
+  //     newModal.show();
+
+  //     // Ensure that when modal is closed, it gets hidden properly with aria-hidden
+  //     modalElement.addEventListener("hidden.bs.modal", () => {
+  //       modalElement.setAttribute("aria-hidden", "true");
+  //     });
+  //   });
+  // });
+
+  // // Lấy tất cả các post trừ post có id #postTop
+  // const posts = document.querySelectorAll(".post:not(#postTop)");
+
+  // posts.forEach((post) => {
+  //   // Set cursor to pointer for the clickable post area
+  //   const post_content = post.querySelector(".post-content p");
+  //   post.addEventListener('mouseover', function(event) {
+  //     if(event.target === post || post_content.contains(event.target)) {
+  //       post.style.cursor = 'pointer';
+  //     }
+  //     else {
+  //       post.style.cursor = 'default';
+  //     }
+  //   });
+  //   post.addEventListener("click", function (event) {
+  //     if (event.target === post || post_content.contains(event.target)) {
+  //       window.location.href = "./comment";
+  //     } else {
+  //       event.stopPropagation();
+  //     }
+  //   });
+  // });
+
 
   const new_post = document.querySelector("#post_status");
   const post_btn = document.querySelector(".post_btn");
@@ -179,6 +320,17 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (plus_box_short_profile)
     plus_box_short_profile.addEventListener("click", showModal);
   if (tag) tag.addEventListener("click", showModal);
+
+  // Like post
+  const likeButtons = document.querySelectorAll(".like_btn");
+  likeButtons.forEach((likeButton) => {
+    likeButton.addEventListener("click", function (event) {
+      const likeIcon = likeButton.querySelector("#likeBtn");
+      const likeCount = likeButton.querySelector("#likeCnt");
+    });
+  });
+
+  // Comments
 });
 
 function showUserInfo1(element) {

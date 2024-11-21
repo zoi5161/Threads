@@ -17,7 +17,6 @@ const getAllThreads = async () => {
     return await Thread.find().sort({ createdAt: -1 }).limit(20);
 };
 
-
 module.exports = {
     createThread,
     getThread,

@@ -21,7 +21,7 @@
 
 function createPostHTML(post) {
   return `
-    <div class="post">
+    <div class="post" id="${post._id}">
         <div class="post-header">
             <div class="avatar">
                 <img src="${post.user.avatar}" />
@@ -142,7 +142,7 @@ function createPostHTML(post) {
             </div>
         </div>
         <div class="post-content">
-            <p>${post.content}</p>
+            <p style="word-wrap: break-word; word-break: break-word; white-space: pre-wrap;">${post.content}</p>
             ${
             post.image_url
                 ? `
@@ -154,9 +154,13 @@ function createPostHTML(post) {
             }
         </div>
         <div class="post-footer">
-            <div><i class="far fa-heart"></i>4</div>
+            <div class="like_btn">
+                <i class="far fa-heart" id="likeBtn"></i>
+                <span id="likeCnt">${post.like}</span>
+            </div>
+
             <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                <i class="far fa-comment"></i>2
+                <i class="far fa-comment"></i>${post.comment}
             </div>
             <div><i class="fas fa-share"></i></div>
         </div>

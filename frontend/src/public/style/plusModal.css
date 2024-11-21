@@ -101,6 +101,8 @@
     resize: none;
     padding: 0;
     outline: none;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .input-box::placeholder {
@@ -203,9 +205,15 @@
         gap: 16px;
     }
 
+    #create_thread_form
+    {
+        width: 100%;
+    }
+
     .input-box {
         min-height: 80px;
         outline: none;
+        max-height: 300px;
     }
 
     .icon-group {
