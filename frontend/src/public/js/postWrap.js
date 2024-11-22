@@ -1,22 +1,3 @@
-async function getAllThreads() {
-  try {
-    const response = await fetch("http://localhost:10000/thread", {
-      method: "GET",
-    });
-
-    if (response.ok) {
-      const result = await response.json();
-      return result;
-    } else {
-      console.error("Error response:", response);
-      return [];
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    return [];
-  }
-}
-
 function formatPostTime(createdAt) {
   const now = new Date();
   const postTime = new Date(createdAt);
@@ -41,29 +22,13 @@ function formatPostTime(createdAt) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", async function () {
-  //Vì chưa build API nên dùng setTimeout để giả lập việc lấy dữ liệu từ server thay vì await fetch()
-  const posts_fetched = await getAllThreads();
-  posts_fetched.forEach(function (post) {
-    post.user = {
-      avatar:
-        "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-      username: "_10.nov_",
-      fullName: "Huyền Thủy",
-      tag: "@ngocne2744",
-      bio: "Zui zẻ",
-      follower: "299",
-      follow_status: "Theo dõi",
-    };
-    post.createdAt = formatPostTime(post.createdAt);
-  });
-
-  window.onload = createPost(posts_fetched);
-
+async function postInteract() {
   const posts = document.querySelectorAll(".post:not(#postTop)");
+
+  console.log(posts);
+
   posts.forEach(async (post) => {
     const img = post.querySelector(".post_img");
-    const postId = post.id;
     if(img){
       img.style.cursor = "pointer";
       img.addEventListener("click", function (event) {
@@ -125,7 +90,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
     post.addEventListener("click", function (event) {
       if (event.target === post || post_content.contains(event.target)) {
-        window.location.href = "./comment";
+        window.location.href = `./comment?thread_id=${post.id}`;
       } else {
         event.stopPropagation();
       }
@@ -209,82 +174,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     
   });
 
-
-  // const post_img = document.querySelectorAll(".post_img");
-
-  // post_img.forEach((img) => {
-  //   img.style.cursor = "pointer";
-  //   img.addEventListener("click", function (event) {
-
-  //     const modalHTML = `
-  //       <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true" >
-  //         <div class="modal-dialog modal-dialog-centered modal_img">
-  //           <div class="modal-content modal_img_content" style="background-color: rgb(0, 0, 0);">
-  //             <div class="modal-header border-0 modal_img_content_header">
-  //               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-  //             </div>
-  //             <div class="modal-body modal_img_content_body">
-  //               <img src="${img.src}" class="img-fluid" alt="Image Preview" />
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>`;
-
-  //     let existingModal = document.getElementById("imageModal");
-  //     if (existingModal) {
-  //       existingModal.remove();
-  //     }
-
-  //     // Insert the new modal into the DOM
-  //     document.body.insertAdjacentHTML("beforeend", modalHTML);
-
-  //     const newModal = new bootstrap.Modal(
-  //       document.getElementById("imageModal")
-  //     );
-  //     const modalElement = document.getElementById("imageModal");
-
-  //     modalElement.addEventListener("shown.bs.modal", () => {
-  //       modalElement.removeAttribute("aria-hidden");
-
-  //       const closeButton = modalElement.querySelector(".btn-close");
-  //       if (closeButton) {
-  //         closeButton.focus();
-  //       }
-  //     });
-
-  //     newModal.show();
-
-  //     // Ensure that when modal is closed, it gets hidden properly with aria-hidden
-  //     modalElement.addEventListener("hidden.bs.modal", () => {
-  //       modalElement.setAttribute("aria-hidden", "true");
-  //     });
-  //   });
-  // });
-
-  // // Lấy tất cả các post trừ post có id #postTop
-  // const posts = document.querySelectorAll(".post:not(#postTop)");
-
-  // posts.forEach((post) => {
-  //   // Set cursor to pointer for the clickable post area
-  //   const post_content = post.querySelector(".post-content p");
-  //   post.addEventListener('mouseover', function(event) {
-  //     if(event.target === post || post_content.contains(event.target)) {
-  //       post.style.cursor = 'pointer';
-  //     }
-  //     else {
-  //       post.style.cursor = 'default';
-  //     }
-  //   });
-  //   post.addEventListener("click", function (event) {
-  //     if (event.target === post || post_content.contains(event.target)) {
-  //       window.location.href = "./comment";
-  //     } else {
-  //       event.stopPropagation();
-  //     }
-  //   });
-  // });
-
-
   const new_post = document.querySelector("#post_status");
   const post_btn = document.querySelector(".post_btn");
   const plus_box_short_profile = document.getElementById(
@@ -294,6 +183,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const plusBox = document.getElementById("plus_box");
   const overlay = document.getElementById("overlay");
+  const plusSmall = document.querySelector('.add-button');
   const cancelBtn = document.querySelector(".cancel-btn");
 
   // Show modal function
@@ -320,7 +210,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (plus_box_short_profile)
     plus_box_short_profile.addEventListener("click", showModal);
   if (tag) tag.addEventListener("click", showModal);
-
+  if (plusSmall) plusSmall.addEventListener("click", showModal);
+  
   // Like post
   const likeButtons = document.querySelectorAll(".like_btn");
   likeButtons.forEach((likeButton) => {
@@ -331,7 +222,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 
   // Comments
-});
+}
 
 function showUserInfo1(element) {
   const userInfoBox = element.nextElementSibling; // Tìm phần tử .small_box_infor_user bên trong .username-time

@@ -23,7 +23,7 @@
 }
 
 /* Định dạng chung cho post */
-.post {
+.post, .post_activity {
     background-color: var(--post);
     padding: 15px 0px;
     color: var(--white);

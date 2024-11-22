@@ -39,28 +39,8 @@
     <%- include("../Partials/naviLeft.ejs") %>
 
         <div class="container-fluid">
+            <%- include("../Partials/naviTop.ejs") %>
             <div class="container_post">
-                <%- include("../Partials/naviTop.ejs") %>
-                    <!-- Post 1 - Main Post -->
-                    <div class="post" id="postTop">
-                        <div class="post-header">
-                            <div class="avatar">avt</div>
-                            <div class="username-time">
-                                <div class="username">hoang_uyn205</div>
-                                <div class="time">21 giờ</div>
-                            </div>
-
-                            <%- include("../Partials/three_dots.ejs") %>
-                        </div>
-                        <div class="post-content">
-                            Tìm = mất chuỗi Win ⭐
-                        </div>
-                        <div class="post-footer">
-                            <div><i class="far fa-heart"></i>425</div>
-                            <div><i class="far fa-comment"></i>9</div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
 
                     <!-- Modal Trigger -->
                     <%- include("../Partials/activityModal.ejs") %>
@@ -68,168 +48,126 @@
                     <!-- Modal Structure -->
                     <%- include("../Partials/commentModal.ejs") %>
 
-
-
-                    <!-- Post 2 - Comment 1 -->
-                    <div class="post">
-                        <div class="post-header">
-                            <div class="avatar">avt</div>
-                            <div class="username-time">
-                                <div class="username">embedaden.69</div>
-                                <div class="time">19 giờ</div>
-                            </div>
-                            <%- include("../Partials/three_dots.ejs") %>
-                        </div>
-                        <div class="post-content">
-                            Đom đóm ib e
-                        </div>
-                        <div class="post-footer">
-                            <div><i class="far fa-heart"></i>1</div>
-                            <!-- <div><i class="far fa-comment"></i></div> -->
-
-                            <!-- Button Trigger Modal -->
-                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                                <i class="far fa-comment"></i>
-                            </div>
-
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-
-                    <!-- Post 3 - Comment 2 -->
-                    <div class="post">
-                        <div class="post-header">
-                            <div class="avatar">avt</div>
-                            <div class="username-time">
-                                <div class="username">nkn4994</div>
-                                <div class="time">20 giờ</div>
-                            </div>
-                            <%- include("../Partials/three_dots.ejs") %>
-                        </div>
-                        <div class="post-content">
-                            Đâu
-                        </div>
-                        <div class="post-footer">
-                            <div><i class="far fa-heart"></i></div>
-                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                                <i class="far fa-comment"></i>
-                            </div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-
-                    <!-- Post 4 - Comment 3 -->
-                    <div class="post">
-                        <div class="post-header">
-                            <div class="avatar">avt</div>
-                            <div class="username-time">
-                                <div class="username">truongthach264</div>
-                                <div class="time">21 giờ</div>
-                            </div>
-                            <%- include("../Partials/three_dots.ejs") %>
-                        </div>
-                        <div class="post-content">
-                            Ib a
-                        </div>
-                        <div class="post-footer">
-                            <div><i class="far fa-heart"></i></div>
-                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                                <i class="far fa-comment"></i>
-                            </div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-
-                    <!-- Post 5 - Comment 4 -->
-                    <div class="post">
-                        <div class="post-header">
-                            <div class="avatar">avt</div>
-                            <div class="username-time">
-                                <div class="username">minhtai.2807__</div>
-                                <div class="time">2 giờ</div>
-                            </div>
-                            <%- include("../Partials/three_dots.ejs") %>
-                        </div>
-                        <div class="post-content">
-                            🤨😶
-                        </div>
-                        <div class="post-footer">
-                            <div><i class="far fa-heart"></i></div>
-                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                                <i class="far fa-comment"></i>
-                            </div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-
-                    <div class="post">
-                        <div class="post-header">
-                            <div class="avatar">avt</div>
-                            <div class="username-time">
-                                <div class="username">_10.nov_</div>
-                                <div class="time">27 phút</div>
-                            </div>
-                            <%- include("../Partials/three_dots.ejs") %>
-                        </div>
-                        <div class="post-content">
-                            Đâu z
-                        </div>
-                        <div class="post-footer">
-                            <div><i class="far fa-heart"></i>4</div>
-                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                                <i class="far fa-comment"></i>2
-                            </div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-
-                    <div class="post">
-                        <div class="post-header">
-                            <div class="avatar">avt</div>
-                            <div class="username-time">
-                                <div class="username">_10.nov_</div>
-                                <div class="time">27 phút</div>
-                            </div>
-                            <%- include("../Partials/three_dots.ejs") %>
-                        </div>
-                        <div class="post-content">
-                            Tim r
-                        </div>
-                        <div class="post-footer">
-                            <div><i class="far fa-heart"></i>4</div>
-                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                                <i class="far fa-comment"></i>2
-                            </div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-
-                    <div class="post">
-                        <div class="post-header">
-                            <div class="avatar">avt</div>
-                            <div class="username-time">
-                                <div class="username">_10.nov_</div>
-                                <div class="time">27 phút</div>
-                            </div>
-                            <%- include("../Partials/three_dots.ejs") %>
-                        </div>
-                        <div class="post-content">
-                            Tht hưm
-                        </div>
-                        <div class="post-footer">
-                            <div><i class="far fa-heart"></i>4</div>
-                            <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                                <i class="far fa-comment"></i>2
-                            </div>
-                            <div><i class="fas fa-share"></i></div>
-                        </div>
-                    </div>
-
                     <%- include("../Partials/plusIcon.ejs") %>
             </div>
         </div>
 
         <!-- cmt thêm để thêm lại vào main -->
 </body>
-    <script src="/js/three_dots.js"></script>
+<script src="/js/three_dots.js"></script>
+<script src="/js/createPost.js"></script>
+<script src="/js/postWrap.js"></script>
+<script src="/js/comment.js"></script>
+<script>
+    window.onload = async () => {
+        const container_post = document.querySelector(".container_post");
+        const main_post = 
+        {
+            user: {
+            avatar:
+                "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+            username: "_10.nov_",
+            fullName: "Huyền Thủy",
+            tag: "@ngocne2744",
+            bio: "Zui zẻ",
+            follower: "299",
+            follow_status: "Theo dõi",
+            },
+            createdAt: "1 giờ",
+            content:
+            "Main content of this post",
+            like: 1,
+            comment: 2,
+            image_url:
+            "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        };
+        
+        container_post.innerHTML = await createPostHTML(main_post) + container_post.innerHTML;
+
+        const comment_post = [
+            {
+                user: {
+                avatar:
+                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+                username: "_10.nov_",
+                fullName: "Huyền Thủy",
+                tag: "@ngocne2744",
+                bio: "Zui zẻ",
+                follower: "299",
+                follow_status: "Theo dõi",
+                },
+                createdAt: "1 giờ",
+                content:
+                "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
+                like: 1,
+                comment: 2,
+                image_url:
+                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            },
+            {
+                user: {
+                avatar:
+                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+                username: "_10.nov_",
+                fullName: "Huyền Thủy",
+                tag: "@ngocne2744",
+                bio: "Zui zẻ",
+                follower: "299",
+                follow_status: "Theo dõi",
+                },
+                createdAt: "1 giờ",
+                content:
+                "ai rep tui di ma",
+                like: 1,
+                comment: 2,
+                image_url:
+                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            },
+            {
+                user: {
+                avatar:
+                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+                username: "_10.nov_",
+                fullName: "Huyền Thủy",
+                tag: "@ngocne2744",
+                bio: "Zui zẻ",
+                follower: "299",
+                follow_status: "Theo dõi",
+                },
+                createdAt: "1 giờ",
+                content:
+                "ai rep tui di ma",
+                like: 1,
+                comment: 2,
+                image_url:
+                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            },
+            {
+                user: {
+                avatar:
+                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+                username: "_10.nov_",
+                fullName: "Huyền Thủy",
+                tag: "@ngocne2744",
+                bio: "Zui zẻ",
+                follower: "299",
+                follow_status: "Theo dõi",
+                },
+                createdAt: "1 giờ",
+                content:
+                "ai rep tui di ma",
+                like: 1,
+                comment: 2,
+                image_url:
+                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+            },
+        ];
+        
+        await createPost(comment_post);
+        await postInteract();
+
+        const first_post = document.querySelector(".post");
+        first_post.setAttribute("id", "postTop")
+    }
+</script>
 </html>

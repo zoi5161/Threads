@@ -59,3 +59,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("focusin", (event) => {
+        const modal = document.getElementById("commentModal");
+        if (modal.getAttribute("aria-hidden") === "true" && modal.contains(event.target)) {
+          // Prevent focus inside hidden modal
+          event.target.blur();
+        }
+      });
+      
+</script>

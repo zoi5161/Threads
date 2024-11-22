@@ -1,6 +1,6 @@
-.modal-header {
-    position: sticky; top: 0; background-color: var(--post); z-index: 10; padding: 10px 20px; border-bottom: 1px solid var(--border);
-    height: 3rem;
+.modal-header-activity {
+    position: sticky; top: 0; background-color: var(--post); z-index: 10; padding: 10px 20px; border-bottom: 1px solid var(--border) !important;
+    height: 3rem !important;
 }
 
 .statistics {

@@ -31,9 +31,6 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-    <script src="/js/postWrap.js"></script>
-    <script src="/js/createPost.js"></script>
-
     <!-- <script src="/frontend/src/public/js/postWrap.js"></script>
     <script src="/frontend/src/public/js/createPost.js"></script> -->
 </head>
@@ -69,4 +66,28 @@
 </body>
 
 <script src="/js/three_dots.js"></script>
+<script src="/js/createPost.js"></script>
+<script src="/js/Thread/getAllThread.js"></script>
+<script src="/js/postWrap.js"></script>
+<script>
+    window.onload = async() => {
+        const posts_fetched = await getAllThreads();
+        posts_fetched.forEach(function (post) {
+          post.user = {
+            avatar:
+              "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+            username: "_10.nov_",
+            fullName: "Huyền Thủy",
+            tag: "@ngocne2744",
+            bio: "Zui zẻ",
+            follower: "299",
+            follow_status: "Theo dõi",
+          };
+          post.createdAt = formatPostTime(post.createdAt);
+        });
+        await createPost(posts_fetched);
+        postInteract();
+    }
+</script>
+
 </html>
