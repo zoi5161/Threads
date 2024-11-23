@@ -46,7 +46,6 @@
             <input
               type="file"
               id="image-upload"
-              accept="image/*"
               style="display: none"
               aria-label="Upload an image file"
               name="image"
@@ -75,40 +74,69 @@
 </div>
 
 <script>
-  // Handle file selection and image preview
-  const imageInput = document.getElementById("image-upload");
-  const imagePreviewContainer = document.getElementById("image-preview-container");
-  const imagePreview = document.getElementById("image-preview");
+  // Handle file selection and media preview
+  const mediaInput = document.getElementById("image-upload");
+  const previewContainer = document.getElementById("image-preview-container");
+  const mediaPreview = document.getElementById("image-preview");
+  const deleteButton = document.getElementById("delete-image");
 
-  imageInput.addEventListener("change", function (event) {
+  mediaInput.addEventListener("change", function (event) {
     const file = event.target.files[0];
+
     if (file) {
+      // Check the file size (10 MB = 10 * 1024 * 1024 bytes)
+      if (file.size > 10 * 1024 * 1024) {
+        alert("File size must be less than 10 MB.");
+        mediaInput.value = ""; // Clear the file input
+        return;
+      }
+
       const reader = new FileReader();
       reader.onload = function (e) {
-        // Set the image preview source to the selected file
-        imagePreview.src = e.target.result;
+        // Detect file type for rendering preview
+        const fileType = file.type.split("/")[0];
+        if (fileType === "image") {
+          // Set the preview source for an image
+          mediaPreview.src = e.target.result;
+          mediaPreview.style.display = "block";
+          mediaPreview.style.width = "100%";
+          mediaPreview.style.height = "auto";
+        } else if (fileType === "video") {
+          // Replace img with a video tag for video preview
+          const videoTag = document.createElement("video");
+          videoTag.src = e.target.result;
+          videoTag.controls = true;
+          videoTag.style.width = "100%";
+          videoTag.style.height = "auto";
+          previewContainer.innerHTML = ""; // Clear existing content
+          previewContainer.appendChild(videoTag);
+          previewContainer.appendChild(deleteButton); // Re-add the delete button
+        } else {
+          alert("Unsupported file type. Please upload an image or a video.");
+          mediaInput.value = ""; // Clear the file input
+          return;
+        }
         // Display the preview container
-        imagePreviewContainer.style.display = "block";
+        previewContainer.style.display = "block";
       };
-      reader.readAsDataURL(file); // Read the image file as a data URL
+
+      reader.readAsDataURL(file); // Read the media file as a data URL
     }
   });
 
-  const imageDel = document.getElementById("delete-image");
-  imageDel.addEventListener("click", function () {
-    // Clear the image preview
-    imagePreview.src = "";
-    // Hide the image preview container
-    imagePreviewContainer.style.display = "none";
-    // Clear the file input value to allow re-uploading the same file
-    imageInput.value = "";
+  deleteButton.addEventListener("click", function () {
+    // Clear the preview and reset the container
+    previewContainer.innerHTML = `<img id="image-preview" style="display:none;"/>`;
+    previewContainer.style.display = "none";
+    mediaInput.value = ""; // Clear the file input
   });
 
-  const textarea = document.querySelector('.input-box');
+  const textarea = document.querySelector(".input-box");
 
-  textarea.addEventListener('input', () => {
-    textarea.style.height = 'auto'; // Reset the height to recalculate
+  textarea.addEventListener("input", () => {
+    textarea.style.height = "auto"; // Reset the height to recalculate
     textarea.style.height = `${textarea.scrollHeight}px`; // Set height to match content
   });
 </script>
+
 

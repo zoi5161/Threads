@@ -28,10 +28,12 @@ async function postInteract() {
   console.log(posts);
 
   posts.forEach(async (post) => {
-    const img = post.querySelector(".post_img");
-    if(img){
-      img.style.cursor = "pointer";
-      img.addEventListener("click", function (event) {
+    const img = post.querySelector(".post-content img");
+    const video = post.querySelector(".post-content video");
+    if(img || video) {
+      media_element = img ? img : video;
+      media_element.style.cursor = "pointer";
+      media_element.addEventListener("click", function (event) {
   
         const modalHTML = `
           <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true" >
@@ -41,7 +43,9 @@ async function postInteract() {
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body modal_img_content_body">
-                  <img src="${img.src}" class="img-fluid" alt="Image Preview" />
+                ${
+                  img ? `<img src="${img.src}" class="img-fluid" alt="Post image">` : `<video src="${video.src}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
+                }
                 </div>
               </div>
             </div>
@@ -211,7 +215,7 @@ async function postInteract() {
     plus_box_short_profile.addEventListener("click", showModal);
   if (tag) tag.addEventListener("click", showModal);
   if (plusSmall) plusSmall.addEventListener("click", showModal);
-  
+
   // Like post
   const likeButtons = document.querySelectorAll(".like_btn");
   likeButtons.forEach((likeButton) => {

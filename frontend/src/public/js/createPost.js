@@ -142,17 +142,26 @@ function createPostHTML(post) {
             </div>
         </div>
         <div class="post-content">
-            <p style="word-wrap: break-word; word-break: break-word; white-space: pre-wrap;">${post.content}</p>
+            <p style="word-wrap: break-word; word-break: break-word">
+                ${post.content}
+            </p>
             ${
-            post.image_url
-                ? `
-                <div style="text-align: center">
-                    <img class="post_img" src="${post.image_url}" alt="post image" style="max-width: 100%; max-height: 500px; border-radius: 10px; margin-bottom: 1rem">
-                </div>
-                `
-                : ""
+                post.image_url
+                    ? `
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        ${
+                            post.media_type?.startsWith("video")  
+                                ? `<video src="${post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
+                                : post.media_type?.startsWith("image") 
+                                ? `<img src="${post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
+                                : `<p>Unsupported media type</p>`  
+                        }
+                    </div>
+                    `
+                    : ""
             }
         </div>
+
         <div class="post-footer">
             <div class="like_btn">
                 <i class="far fa-heart" id="likeBtn"></i>

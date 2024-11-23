@@ -1,13 +1,16 @@
 const threadService = require("../services/thread");
 
 const createThread = async (req, res) => {
-  const { user_id, content, image_url } = req.body;
+  const { user_id, content, image_url, root_thread, media_type } = req.body;
   try {
     const newThread = await threadService.createThread(
       user_id,
       content,
-      image_url
+      image_url,
+      root_thread,
+      media_type
     );
+    console.log('Created thread:', newThread);
     res.status(201).json(newThread);
   } catch (err) {
     res.status(409).json({ message: err.message });

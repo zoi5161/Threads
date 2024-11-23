@@ -1,10 +1,12 @@
 const Thread = require("../models/Thread");
 
-const createThread = async (user_id, content, image_url = None) => {
+const createThread = async (user_id, content, image_url = None, root_thread = None, media_type = None) => {
   const thread = new Thread({
     user_id,
     content,
     image_url,
+    root_thread,
+    media_type,
   });
   return await thread.save();
 };
