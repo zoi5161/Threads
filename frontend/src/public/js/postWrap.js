@@ -113,7 +113,7 @@ async function postInteract() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user_id: "1111", thread_id: post.id }),
+        body: JSON.stringify({ user_id: "1113", thread_id: post.id }),
       });
     
       if (checkLikeResponse.ok) {
@@ -149,7 +149,7 @@ async function postInteract() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ user_id: "1111", thread_id: post.id }),
+          body: JSON.stringify({ user_id: "1113", thread_id: post.id }),
         });
     
         if (response.ok) {

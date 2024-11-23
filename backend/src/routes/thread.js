@@ -8,4 +8,8 @@ router.get('/:thread_id', threadController.getThread);
 
 router.get('/', threadController.getAllThreads);
 
+router.post('/comment', threadController.createComment);
+
+router.get('/comment/:thread_id', threadController.getComment);
+
 module.exports = router;

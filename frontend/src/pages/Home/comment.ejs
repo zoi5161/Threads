@@ -58,12 +58,15 @@
 <script src="/js/createPost.js"></script>
 <script src="/js/postWrap.js"></script>
 <script src="/js/comment.js"></script>
+<script src="js/Thread/getThread.js"></script>
 <script>
     window.onload = async () => {
         const container_post = document.querySelector(".container_post");
-        const main_post = 
-        {
-            user: {
+        const thread_id = new URLSearchParams(window.location.search).get('thread_id');
+        const main_post = await getThread(thread_id);
+        console.log("Thread id: " + thread_id);
+        console.log(main_post);
+        const tmp_user = {
             avatar:
                 "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
             username: "_10.nov_",
@@ -72,15 +75,8 @@
             bio: "Zui zẻ",
             follower: "299",
             follow_status: "Theo dõi",
-            },
-            createdAt: "1 giờ",
-            content:
-            "Main content of this post",
-            like: 1,
-            comment: 2,
-            image_url:
-            "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
         };
+        main_post.user = tmp_user;
         
         container_post.innerHTML = await createPostHTML(main_post) + container_post.innerHTML;
 
@@ -103,6 +99,8 @@
                 comment: 2,
                 image_url:
                 "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                media_type: "image/jpeg",
+
             },
             {
                 user: {
@@ -122,6 +120,8 @@
                 comment: 2,
                 image_url:
                 "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                media_type: "image/jpeg",
+
             },
             {
                 user: {
@@ -141,6 +141,8 @@
                 comment: 2,
                 image_url:
                 "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                media_type: "image/jpeg",
+
             },
             {
                 user: {
@@ -160,14 +162,16 @@
                 comment: 2,
                 image_url:
                 "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+                media_type: "image/jpeg",
+
             },
         ];
         
         await createPost(comment_post);
-        await postInteract();
+        postInteract();
 
         const first_post = document.querySelector(".post");
-        first_post.setAttribute("id", "postTop")
+        first_post.classList.add("post-top");
     }
 </script>
 </html>

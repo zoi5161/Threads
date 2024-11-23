@@ -19,8 +19,19 @@ const getAllThreads = async () => {
     return await Thread.find().sort({ createdAt: -1 }).limit(20);
 };
 
+const createComment = async (user_id, content, image_url = None, root_thread, media_type = None) => {
+  const thread = await createThread(user_id, content, image_url, root_thread, media_type);
+  return thread;
+};
+
+const getComment = async (thread_id) => {
+    return await Thread.find({ root_thread: thread_id }).sort({ createdAt: -1 });
+};
+
 module.exports = {
     createThread,
     getThread,
     getAllThreads,
+    createComment,
+    getComment,
 };
