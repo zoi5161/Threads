@@ -17,7 +17,7 @@ async function fetchUserData(userId) {
       // Parse dữ liệu JSON từ response
       const userData = await response.json();
 
-      // Cập nhật giao diện với dữ liệu user
+      // Cập nhật giao diện với dữ liệu user:
       document.querySelector('.user_name').innerText = userData.full_name || 'Unknown';
       document.querySelector('.user_handle').innerText = `@${userData.tag || 'unknown'}`;
       document.querySelector('.user_avatar').src = userData.avt_url || 'default-avatar-url.png';
@@ -26,6 +26,12 @@ async function fetchUserData(userId) {
       document.querySelector('.social_link_wrapper a').setAttribute('href', userData.link_fb);
 
       document.querySelector('.create_thread img').src = userData.avt_url || 'default-avatar-url.png';
+
+      //cập nhật giao diện update infor:
+      document.querySelector('#editName').innerText = userData.full_name || "Username";
+      document.querySelector('.avt_m img').src = userData.avt_url || 'default-avatar-url.png';
+      document.querySelector('#editBio').innerText = userData.bio || 'No bio available';
+      document.querySelector('#link_social_m').innerText = userData.link_fb;
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
