@@ -84,6 +84,7 @@
             follow_status: "Theo dõi",
           };
           post.createdAt = formatPostTime(post.createdAt);
+          console.log(post);
         });
         await createPost(posts_fetched);
         postInteract();
