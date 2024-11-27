@@ -52,19 +52,19 @@ function createPostHTML(post) {
             <div class="username-time">
                 <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">${post.user.username}</div>
                 <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
-                    <div class="modal-content">
-                        <div class="modal-header">
+                    <div class="modal-content" style="background-color: inherit;">
+                        <div class="modal-header" style="border: none;">
                             <div>
                                 <div class="user-name" style="font-size: 125%; font-weight: bold;">${post.user.fullName}</div>
                                 <div class="user-username">${post.user.tag}</div>
                             </div>
                             <img src="${post.user.avatar}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" style="border: none;">
                             <p>${post.user.bio}</p>
                             <p style="font-size: 85%; color: #888">${post.user.follower + " người theo dõi"}</p>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer" style="border: none;">
                             <button class="follow-btn" type="button">${post.user.follow_status}</button>
                         </div>
                     </div>

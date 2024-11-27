@@ -16,7 +16,7 @@
   >
     <div
       class="modal-content"
-      style="background-color: var(--post); color: var(--white); padding: 0"
+      style="background-color: var(--post); color: var(--white); padding: 0; max-width: 95vw"
     >
       <div class="modal-header" style="border-bottom: none; padding: 10px 20px">
         <button
@@ -43,50 +43,52 @@
       <div class="modal-body" style="padding: 20px">
         <div class="container_post_comment"></div>
 
-        <form id="create_thread_form_comment">
-          <div class="input-section">
-            <div class="username">_vteif</div>
-            <textarea
-              class="input-box"
-              placeholder="Trả lời"
-              name="content_comment"
-            ></textarea>
+        <div class="current_user_container"></div>
+        
+        <form id="create_thread_form_comment" style="margin: 0 5rem;">
+            <div class="input-section">
+                <textarea
+                class="input-box"
+                placeholder="Trả lời"
+                name="content_comment"
+                style="min-height: 100px;"
+                ></textarea>
 
-            <div
-              id="image-preview-container-comment"
-              style="display: none; position: relative; text-align: center"
-            >
-              <img id="image-preview-comment" />
-              <button
-                type="button"
-                id="delete-image-comment"
-                class="btn btn-danger"
-                style="position: absolute; top: 10px; right: 10px; padding: 3px"
-              >
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </div>
+                <div
+                id="image-preview-container-comment"
+                style="display: none; position: relative; text-align: center"
+                >
+                <img id="image-preview-comment" />
+                <button
+                    type="button"
+                    id="delete-image-comment"
+                    class="btn btn-danger"
+                    style="position: absolute; top: 10px; right: 10px; padding: 3px"
+                >
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+                </div>
 
-            <div class="icon-group">
-              <label for="image-upload-comment" class="upload-icon">
-                <i class="fa-regular fa-image"></i>
-                <input
-                  type="file"
-                  id="image-upload-comment"
-                  style="display: none"
-                  aria-label="Upload an image file"
-                  name="image_comment"
-                />
-              </label>
-              <button type="button">GIF</button>
-              <button type="button" aria-label="Hashtag">
-                <i class="fa-solid fa-hashtag"></i>
-              </button>
-              <button type="button" aria-label="Location">
-                <i class="fa-solid fa-location-dot"></i>
-              </button>
+                <div class="icon-group icon-group-comment">
+                <label for="image-upload-comment" class="upload-icon">
+                    <i class="fa-regular fa-image"></i>
+                    <input
+                    type="file"
+                    id="image-upload-comment"
+                    style="display: none"
+                    aria-label="Upload an image file"
+                    name="image_comment"
+                    />
+                </label>
+                <button type="button">GIF</button>
+                <button type="button" aria-label="Hashtag">
+                    <i class="fa-solid fa-hashtag"></i>
+                </button>
+                <button type="button" aria-label="Location">
+                    <i class="fa-solid fa-location-dot"></i>
+                </button>
             </div>
-          </div>
+            </div>
         </form>
       </div>
       <div
@@ -125,6 +127,19 @@
 <script>
   document.addEventListener("focusin", (event) => {
     const modal = document.getElementById("commentModal");
+    const content_of_comment_modal = modal.querySelector(".post-content")
+
+    const image_in_comment_modal = content_of_comment_modal.querySelector("img");
+    console.log(image_in_comment_modal);
+    if(image_in_comment_modal) {
+        image_in_comment_modal.style.maxHeight = "10rem";
+    }
+
+    const video_in_comment_modal = content_of_comment_modal.querySelector("video");
+    if(video_in_comment_modal) {
+        video_in_comment_modal.style.maxHeight = "10rem";
+    }
+    
     if (
       modal.getAttribute("aria-hidden") === "true" &&
       modal.contains(event.target)
@@ -207,4 +222,43 @@
     });
   });
   
+  const current_user_container = document.querySelector('.current_user_container');
+
+  const current_user = {
+    avatar: "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+    username: "_10.nov_",
+    fullName: "Huyền Thủy",
+    tag: "@ngocne2744",
+    bio: "Zui zẻ",
+    follower: "299",
+    follow_status: "Theo dõi",
+  }
+
+  current_user_container.innerHTML = `
+          <div class="post-header">
+            <div class="avatar">
+                <img src="${current_user.avatar}" />
+            </div>
+            <div class="username-time">
+                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">${current_user.username}</div>
+                <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                    <div class="modal-content" style="background-color: inherit;">
+                        <div class="modal-header" style="border: none;">
+                            <div>
+                                <div class="user-name" style="font-size: 125%; font-weight: bold;">${current_user.fullName}</div>
+                                <div class="user-username">${current_user.tag}</div>
+                            </div>
+                            <img src="${current_user.avatar}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                        </div>
+                        <div class="modal-body" style="border: none;">
+                            <p>${current_user.bio}</p>
+                            <p style="font-size: 85%; color: #888">${current_user.follower + " người theo dõi"}</p>
+                        </div>
+                        <div class="modal-footer" style="border: none;">
+                            <button class="follow-btn" type="button">${current_user.follow_status}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
 </script>

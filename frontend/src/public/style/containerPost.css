@@ -211,7 +211,12 @@
     border-radius: 10px;
 }
 
+img, video {
+    transition: max-height 0.5s ease-in-out;
+}
 
+
+  
 @media screen and (max-width: 768px) {
     .container-fluid {
         width: 100%;
@@ -229,20 +234,15 @@
         border-radius: 0px;
     }
 
-    .post-content {
-        margin: 0px 1rem;
-    }
-
-    .post-description {
-        margin-left: 1rem;
-    }
-
-    .post-footer {
-        margin-left: 1rem;
+    .post-content, .create_thread_form_comment, .post-description, .post-footer{
+        margin: 0;
+        margin-left: 5rem;
+        margin-right: 1rem;
     }
 
     .post{
         border-right: none;
         border-left: none;
     }
+
 }
