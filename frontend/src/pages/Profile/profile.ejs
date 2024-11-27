@@ -1,30 +1,24 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hồ sơ · Threads</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/style/profile.css" />
-    <link rel="stylesheet" href="/style/home.css" />
-    <link rel="stylesheet" href="/style/navibar/navileft.css" />
-    <link rel="stylesheet" href="/style/navibar/navitop.css">
-    <link rel="stylesheet" href="/style/containerPost.css">
-    <link rel="stylesheet" href="/style/plus.css">
-    <link rel="stylesheet" href="/style/plusModal.css" />
-    <link rel="stylesheet" href="/style/three_dots.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hồ sơ · Threads</title>
 
-    <!-- <link rel="stylesheet" href="/frontend/src/public/style/profile.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/style/profile.css" />
+  <link rel="stylesheet" href="/style/home.css" />
+  <link rel="stylesheet" href="/style/navibar/navileft.css" />
+  <link rel="stylesheet" href="/style/navibar/navitop.css">
+  <link rel="stylesheet" href="/style/containerPost.css">
+  <link rel="stylesheet" href="/style/plus.css">
+  <link rel="stylesheet" href="/style/plusModal.css" />
+  <link rel="stylesheet" href="/style/three_dots.css" />
+
+  <!-- <link rel="stylesheet" href="/frontend/src/public/style/profile.css" />
     <link rel="stylesheet" href="/frontend/src/public/style/home.css" />
     <link rel="stylesheet" href="/frontend/src/public/style/navibar/navileft.css" />
     <link rel="stylesheet" href="/frontend/src/public/style/navibar/navitop.css">
@@ -33,93 +27,92 @@
     <link rel="stylesheet" href="/frontend/src/public/style/plusModal.css" />
     <link rel="stylesheet" href="/frontend/src/public/style/three_dots.css" /> -->
 
-    <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-    <script src="/js/postWrap.js"></script>
-    <script src="/js/createPost.js"></script>
+  <script src="/js/postWrap.js"></script>
+  <script src="/js/createPost.js"></script>
 
-    <!-- <script src="/frontend/src/public/js/postWrap.js"></script>
+  <!-- <script src="/frontend/src/public/js/postWrap.js"></script>
     <script src="/frontend/src/public/js/createPost.js"></script> -->
 
-  </head>
+</head>
 
-  <body>
-    <%- include("../Partials/naviLeft.ejs")  %>
+<body>
+  <%- include("../Partials/naviLeft.ejs") %>
     <!-- <iframe src="../Partials/naviLeft.ejs" style="border: none; width: 100%; height: 50px;"></iframe> -->
 
 
     <div class="container-fluid">
       <main>
-        <%- include("../Partials/naviTop.ejs")  %>
-        <div class="content_wrapper">
-          <div class="info_wrapper">
-            <div class="info">
-              <div class="name_wrapper">
-                <h1 class="user_name">User Name</h1>
-                <span class="user_handle">@user_name</span>
+        <%- include("../Partials/naviTop.ejs") %>
+          <div class="content_wrapper">
+            <div class="info_wrapper">
+              <div class="info">
+                <div class="name_wrapper">
+                  <h1 class="user_name">User Name</h1>
+                  <span class="user_handle">@user_name</span>
+                </div>
+                <img class="user_avatar"
+                  src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                  alt="User Avatar" />
               </div>
-              <img
-                class="user_avatar"
-                src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                alt="User Avatar"
-              />
+              <div class="bio">Xin chào Thread</div>
+              <div class="info_with_link_wrapper">
+                <a class="follower_wrapper" href="#">
+                  <i class="bi bi-people"></i>
+                  <span class="follower_count">0</span>
+                  <span class="follower_text">Người theo dõi</span>
+                </a>
+                <div class="social_link_container">
+                  <div class="social_link_wrapper">
+                    <a href="https://www.facebook.com" target="_blank">
+                      <span class="social_link_text">Facebook.com-link-to-fb-long-overflow</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="profile_btn_wrapper">
+                  <div class="insta_wrapper">
+                    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                      <i class="bi bi-instagram" style="font-size: 1.5rem"></i>
+                    </a>
+                  </div>
+                  <div class="option_wrapper">
+                    <%- include("../Partials/three_dots_profile.ejs") %>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="bio">Xin chào Thread</div>
-            <div class="info_with_link_wrapper">
-              <a class="follower_wrapper" href="#">
-                <i class="bi bi-people"></i>
-                <span class="follower_count">0</span>
-                <span class="follower_text">Người theo dõi</span>
-              </a>
-              <div class="social_link_container">
-                <div class="social_link_wrapper">
-                  <a href="https://www.facebook.com" target="_blank">
-                    <span class="social_link_text">Facebook.com-link-to-fb-long-overflow</span>
-                  </a>
-                </div>
-              </div>
-              <div class="profile_btn_wrapper">
-                <div class="insta_wrapper">
-                  <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                    <i class="bi bi-instagram" style="font-size: 1.5rem"></i>
-                  </a>
-                </div>
-                <div class="option_wrapper">
-                    <%- include("../Partials/three_dots_profile.ejs")  %>
-                </div>
-              </div>
+            <div class="edit">
+              <button class="edit_btn" data-bs-toggle="modal" data-bs-target="#profileModal">Chỉnh sửa trang cá
+                nhân</button>
             </div>
-          </div>
-          <div class="edit">
-            <button class="edit_btn" data-bs-toggle="modal" data-bs-target="#profileModal">Chỉnh sửa trang cá nhân</button>
-          </div>
 
-          <!--Edit Modal Structure -->
-          <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-profile modal-dialog-centered-profile">
+            <!--Edit Modal Structure -->
+            <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-profile modal-dialog-centered-profile">
                 <div class="modal-content modal-custom-profile" id="modal-1">
                   <div class="special_element_m">
                     <div class="element_m">
                       <div class="title_m">Tên</div>
-                      <span class="edit_profile_m">Username</span>
+                      <span id="editName" class="edit_profile_m">Username</span>
                       <hr class="line_m" />
                     </div>
                     <div class="avt_m">
                       <img
                         src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                        alt="User Avatar"
-                      />
+                        alt="User Avatar" />
                     </div>
                   </div>
 
 
                   <div class="element_m">
                     <div class="title_m">Tiểu sử</div>
-                    <span class="edit_profile_m">Xin chào Thread</span>
+                    <span id="editBio" class="edit_profile_m">Xin chào Thread</span>
                   </div>
 
                   <hr class="line_m" />
@@ -140,7 +133,7 @@
                       <input class="form-check-input" type="checkbox" id="insta_btn_m">
                       <label class="switch_label" for="insta_btn_m"></label>
                     </div>
-                    
+
                   </div>
 
                   <hr class="line_m" />
@@ -148,7 +141,8 @@
                   <div class="special_element_m">
                     <div class="element_m">
                       <div class="title_m">Trang cá nhân riêng tư</div>
-                      <p>Nếu chuyển sang chế độ riêng tư, bạn sẽ không thể trả lời người khác trừ khi họ theo dõi bạn.</p>
+                      <p>Nếu chuyển sang chế độ riêng tư, bạn sẽ không thể trả lời người khác trừ khi họ theo dõi bạn.
+                      </p>
                     </div>
                     <div class="switch_btn_m form-switch">
                       <input class="form-check-input" type="checkbox" id="private_btn_m">
@@ -159,39 +153,41 @@
                     <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">Xong</button>
                   </div>
                 </div>
+              </div>
             </div>
-          </div>
 
-          <!--Edit Extreme Modal Structure -->
-          <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-profile modal-dialog-centered-profile">
-              <div class="modal-content modal-custom-profile" id="modal-2">
-                <div class="modal-header">
-                  <div class="modal-2-header-btn">
-                  <button type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
+            <!--Edit Extreme Modal Structure -->
+            <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel2"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-profile modal-dialog-centered-profile">
+                <div class="modal-content modal-custom-profile" id="modal-2">
+                  <div class="modal-header">
+                    <div class="modal-2-header-btn">
+                      <button type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal"
+                        aria-label="Close">Hủy</button>
+                    </div>
+                    <h5 class="modal-title" id="editProfileModalLabel2">Chỉnh sửa trang cá nhân</h5>
+                    <div class="modal-2-header-btn">
+                      <button type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal"
+                        aria-label="Close">Xong</button>
+                    </div>
                   </div>
-                  <h5 class="modal-title" id="editProfileModalLabel2">Chỉnh sửa trang cá nhân</h5>
-                  <div class="modal-2-header-btn">
-                  <button type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal" aria-label="Close">Xong</button>
+                  <div class="modal-body">
+                    <textarea name="profile_edit" id="profile_edit_m">Nhập thông tin bạn muốn thay đổi</textarea>
+                    <span>Thông tin của bạn hiển thị công khai.</span>
                   </div>
-                </div>
-                <div class="modal-body">
-                  <textarea name="profile_edit" id="profile_edit_m">Nhập thông tin bạn muốn thay đổi</textarea>
-                  <span>Thông tin của bạn hiển thị công khai.</span>
-                </div>
-                <div class="modal-footer">
-                  <a href="#">Nhập từ instagram</a>
+                  <div class="modal-footer">
+                    <a href="#">Nhập từ instagram</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
 
 
 
-          <div class="other_profile_wrapper">
-            <button class="follow"
-            onclick="
+            <div class="other_profile_wrapper">
+              <button class="follow" onclick="
               if (this.innerHTML.trim() === 'Theo dõi') {
                 this.innerHTML = 'Đang theo dõi';
                 this.style.backgroundColor = 'var(--black)';
@@ -204,95 +200,92 @@
                 this.style.fontWeight = '500';
               }
             ">
-            Theo dõi
-            </button>
-            <button class="tag">
-              Nhắc đến
-            </button>
-          </div>
-          <div class="tab_section">
-            <a href="" id="thread">Thread</a>
-            <a href="" id="reply">Thread trả lời</a>
-            <a href="" id="repost">Bài đăng lại</a>
-          </div>
-          <div class="create_thread">
-            <img
-              src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-              alt="User Avatar"
-            />
-            <div id="post_status" class="create_thread_content">
-              <span>Có gì mới?</span>
-            </div>
-            <button id="plus_box_short_profile">Đăng</button>
-          </div>
-
-          <div class="complete_profile_container">
-            <div class="status">
-              <h5>Hoàn tất trang cá nhân</h5>
-              <span>Còn 1 mục</span>
-            </div>
-
-            <div class="mission_container" onscroll="handleScroll()">
-              <button class="scroll-btn left" id="scrollLeftBtn" aria-label="scroll left" onclick="scrollToLeft()">
-                <i class="bi bi-arrow-left-circle-fill"></i>
+                Theo dõi
               </button>
-              <div class="mission">
-                    <div class="mission_content">
-                      <i class="bi bi-person-fill-add"></i>  
-                      <h3>Theo dõi 5 trang cá nhân</h3>  
-                      <p>Tạo điều kiện để bảng feed của bạn hiển thị những thread bạn quan tâm.</p>                  
-                    </div>
-                    <button class="add_mission_btn">Thêm</button>
+              <button class="tag">
+                Nhắc đến
+              </button>
+            </div>
+            <div class="tab_section">
+              <a href="" id="thread">Thread</a>
+              <a href="" id="reply">Thread trả lời</a>
+              <a href="" id="repost">Bài đăng lại</a>
+            </div>
+            <div class="create_thread">
+              <img
+                src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                alt="User Avatar" />
+              <div id="post_status" class="create_thread_content">
+                <span>Có gì mới?</span>
+              </div>
+              <button id="plus_box_short_profile">Đăng</button>
+            </div>
+
+            <div class="complete_profile_container">
+              <div class="status">
+                <h5>Hoàn tất trang cá nhân</h5>
+                <span>Còn 1 mục</span>
+              </div>
+
+              <div class="mission_container" onscroll="handleScroll()">
+                <button class="scroll-btn left" id="scrollLeftBtn" aria-label="scroll left" onclick="scrollToLeft()">
+                  <i class="bi bi-arrow-left-circle-fill"></i>
+                </button>
+                <div class="mission">
+                  <div class="mission_content">
+                    <i class="bi bi-person-fill-add"></i>
+                    <h3>Theo dõi 5 trang cá nhân</h3>
+                    <p>Tạo điều kiện để bảng feed của bạn hiển thị những thread bạn quan tâm.</p>
+                  </div>
+                  <button class="add_mission_btn">Thêm</button>
                 </div>
 
                 <div class="mission">
                   <div class="mission_content">
                     <i class="bi bi-check"></i>
-                    <h3>Thêm ảnh đại diện</h3>  
-                    <p>Giúp mọi người dễ dàng nhận ra bạn hơn.</p>                  
+                    <h3>Thêm ảnh đại diện</h3>
+                    <p>Giúp mọi người dễ dàng nhận ra bạn hơn.</p>
                   </div>
                   <button class="done_mission_btn">Xong</button>
-              </div>
-
-              <div class="mission">
-                <div class="mission_content">
-                  <i class="bi bi-check"></i>
-                  <h3>Tạo thread</h3>  
-                  <p>Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.
-                    Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.
-                    Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.
-                  </p>                  
                 </div>
-                <button class="done_mission_btn">Xong</button>
-              </div>
 
-              <div class="mission">
-                <div class="mission_content">
-                  <i class="bi bi-check"></i>
-                  <h3>Thêm tiểu sử</h3>  
-                  <p>Hãy giới thiệu về bản thân và cho mọi người biết bạn thích gì.</p>                  
+                <div class="mission">
+                  <div class="mission_content">
+                    <i class="bi bi-check"></i>
+                    <h3>Tạo thread</h3>
+                    <p>Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.
+                      Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.
+                      Cho mọi người biết bạn đang nghĩ gì hoặc chia sẻ về một hoạt động nổi bật mới đây.
+                    </p>
+                  </div>
+                  <button class="done_mission_btn">Xong</button>
                 </div>
-                <button class="done_mission_btn">Xong</button>
-              </div>
 
-              <button class="scroll-btn right" id="scrollRightBtn" aria-label="scroll right" onclick="scrollToRight()">
-                <i class="bi bi-arrow-right-circle-fill"></i>
-              </button>
+                <div class="mission">
+                  <div class="mission_content">
+                    <i class="bi bi-check"></i>
+                    <h3>Thêm tiểu sử</h3>
+                    <p>Hãy giới thiệu về bản thân và cho mọi người biết bạn thích gì.</p>
+                  </div>
+                  <button class="done_mission_btn">Xong</button>
+                </div>
+
+                <button class="scroll-btn right" id="scrollRightBtn" aria-label="scroll right"
+                  onclick="scrollToRight()">
+                  <i class="bi bi-arrow-right-circle-fill"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Post -->
+            <div class="container_post" style="margin-top: 0;">
             </div>
           </div>
-
-          <!-- Post -->
-          <div class="container_post" style="margin-top: 0;">
-          </div>
-        </div>
-        <%- include("../Partials/plusIcon.ejs")  %>
+          <%- include("../Partials/plusIcon.ejs") %>
       </main>
-      
+
     </div>
-    <button 
-    class="active" 
-    type="button"
-    style="
+    <button class="active" type="button" style="
       position: absolute;
       top: 0px;
       right: 0px;
@@ -304,8 +297,7 @@
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       z-index: 1000;
-      "
-    onclick="const option_wrapper = document.querySelector('.option_wrapper');
+      " onclick="const option_wrapper = document.querySelector('.option_wrapper');
             
             const other_profile_wrapper =  document.querySelector('.other_profile_wrapper');
             const edit = document.querySelector('.edit');
@@ -318,60 +310,62 @@
               edit.style.display = 'none';
               other_profile_wrapper.style.display = 'flex';
               option_wrapper.style.display = 'flex';
-              }"
-            >
+              }">
       Change site
     </button>
-    
-  </body>
-  <script>
-    function scrollToLeft() {
-      const container = document.querySelector('.mission_container');
-      container.scrollBy({ left: -500, behavior: 'smooth' });
-  }
-  
-  function scrollToRight() {
-      const container = document.querySelector('.mission_container');
-      container.scrollBy({ left: 500, behavior: 'smooth' });
-  }
-  
-  function handleScroll() {
-      const container = document.querySelector('.mission_container');
-      const scrollLeftBtn = document.getElementById('scrollLeftBtn');
-      const scrollRightBtn = document.getElementById('scrollRightBtn');
-      
-      // Kiểm tra xem container có cuộn về đầu không
-      if (container.scrollLeft <= 0) {
-          scrollLeftBtn.classList.add('hidden');
-      } else {
-          scrollLeftBtn.classList.remove('hidden');
-      }
-      
-      // Kiểm tra xem container có cuộn đến cuối không
-      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
-          scrollRightBtn.classList.add('hidden');
-      } else {
-          scrollRightBtn.classList.remove('hidden');
-      }
-    }
-    
-    document.addEventListener('DOMContentLoaded', () => {
-      const edit_profile_m = document.querySelectorAll('.edit_profile_m');
 
-      edit_profile_m.forEach((element) => {
-        element.addEventListener('click', () => {
-          showEditModal();
-        });
+</body>
+<script>
+  function scrollToLeft() {
+    const container = document.querySelector('.mission_container');
+    container.scrollBy({ left: -500, behavior: 'smooth' });
+  }
+
+  function scrollToRight() {
+    const container = document.querySelector('.mission_container');
+    container.scrollBy({ left: 500, behavior: 'smooth' });
+  }
+
+  function handleScroll() {
+    const container = document.querySelector('.mission_container');
+    const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+    const scrollRightBtn = document.getElementById('scrollRightBtn');
+
+    // Kiểm tra xem container có cuộn về đầu không
+    if (container.scrollLeft <= 0) {
+      scrollLeftBtn.classList.add('hidden');
+    } else {
+      scrollLeftBtn.classList.remove('hidden');
+    }
+
+    // Kiểm tra xem container có cuộn đến cuối không
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+      scrollRightBtn.classList.add('hidden');
+    } else {
+      scrollRightBtn.classList.remove('hidden');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const edit_profile_m = document.querySelectorAll('.edit_profile_m');
+
+    edit_profile_m.forEach((element) => {
+      element.addEventListener('click', () => {
+        showEditModal();
       });
     });
+  });
 
-    function showEditModal() {
-      var modal = new bootstrap.Modal(document.getElementById('editProfileModal'));
-      modal.show();
-    }
+  function showEditModal() {
+    var modal = new bootstrap.Modal(document.getElementById('editProfileModal'));
+    modal.show();
+  }
 
   // Gọi hàm handleScroll() để cập nhật trạng thái khi trang tải
   window.onload = handleScroll;
-  </script>
-  <script src="/js/three_dots.js"></script>
+
+</script>
+<script src="/js/three_dots.js"></script>
+<script src="/js/Profile/getUser.js"></script>
+
 </html>
