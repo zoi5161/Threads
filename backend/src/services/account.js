@@ -63,6 +63,7 @@ const authenticateAccount = async (email, password) => {
     }
 
     const isMatch = await bcrypt.compare(password, account.password);
+
     if (!isMatch) {
         throw new Error("Invalid email or password");
     }
