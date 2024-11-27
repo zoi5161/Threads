@@ -5,11 +5,11 @@ const threadSchema = new Schema(
     {
         user_id: { type: String, required: true},
         content: String,
-        image_url: String,
+        image_url: { type: String, default: null},
         like: { type: Number, default: 0},
         comment: { type: Number, default: 0},
-        root_thread: { type: String, default: null},
-        media_type: { type: String, default: null},
+        root_thread: { type: mongoose.Schema.Types.ObjectId, ref: 'Thread', default: null },
+        media_type: { type: String, default: null },
     },
     { timestamps: true }
 );

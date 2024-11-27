@@ -1,6 +1,6 @@
-async function createThreadButton() {
-  const form = document.getElementById("create_thread_form");
-
+async function createThreadButton(thread_type = '') {
+  const form = document.getElementById("create_thread_form" + thread_type);
+  console.log("Form:", form);
   if (!form) {
     alert("Form not found. Please check your HTML.");
     return;
@@ -9,7 +9,7 @@ async function createThreadButton() {
   const formData = new FormData(form);
 
   // Validate content
-  const content = formData.get("content");
+  const content = formData.get("content" + thread_type);
   if (!content || content.trim() === "") {
     alert("Nội dung không được để trống.");
     return;
@@ -25,7 +25,9 @@ async function createThreadButton() {
   };
 
   // Handle image upload
-  const imageFile = formData.get("image");
+  const imageFile = formData.get("image" + thread_type);
+  console.log("Image File:", imageFile);
+
   if (imageFile && imageFile.size > 0) {
     if (imageFile.size > 10 * 1024 * 1024) { // Limit to 10 MB
       alert("Kích thước ảnh không được vượt quá 10 MB.");

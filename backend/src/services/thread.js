@@ -1,6 +1,6 @@
 const Thread = require("../models/Thread");
 
-const createThread = async (user_id, content, image_url = None, root_thread = None, media_type = None) => {
+const createThread = async (user_id, content, image_url = null, root_thread = null, media_type = null) => {
   const thread = new Thread({
     user_id,
     content,
@@ -19,9 +19,15 @@ const getAllThreads = async () => {
     return await Thread.find().sort({ createdAt: -1 }).limit(20);
 };
 
-const createComment = async (user_id, content, image_url = None, root_thread, media_type = None) => {
-  const thread = await createThread(user_id, content, image_url, root_thread, media_type);
-  return thread;
+const createComment = async (user_id, content, image_url = null, root_thread = null, media_type = null) => {
+    const thread = new Thread({
+        user_id,
+        content,
+        image_url,
+        root_thread,
+        media_type,
+    });
+    return await thread.save();
 };
 
 const getComment = async (thread_id) => {

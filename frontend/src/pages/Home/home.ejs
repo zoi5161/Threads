@@ -83,7 +83,6 @@
             follower: "299",
             follow_status: "Theo dõi",
           };
-          post.createdAt = formatPostTime(post.createdAt);
         });
         console.log(posts_fetched);
         await createPost(posts_fetched);

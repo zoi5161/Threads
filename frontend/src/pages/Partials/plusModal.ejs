@@ -82,54 +82,60 @@
 
   mediaInput.addEventListener("change", function (event) {
     const file = event.target.files[0];
-
+  
     if (file) {
-      // Check the file size (10 MB = 10 * 1024 * 1024 bytes)
+      // Kiểm tra dung lượng file (10 MB = 10 * 1024 * 1024 bytes)
       if (file.size > 10 * 1024 * 1024) {
-        alert("File size must be less than 10 MB.");
-        mediaInput.value = ""; // Clear the file input
+        alert("Dung lượng file phải nhỏ hơn 10 MB.");
+        mediaInput.value = ""; // Xóa file trong input
         return;
       }
-
+  
       const reader = new FileReader();
       reader.onload = function (e) {
-        // Detect file type for rendering preview
+        // Xác định loại file
         const fileType = file.type.split("/")[0];
+        previewContainer.innerHTML = ""; // Xóa nội dung cũ trong previewContainer
+  
         if (fileType === "image") {
-          // Set the preview source for an image
-          mediaPreview.src = e.target.result;
-          mediaPreview.style.display = "block";
-          mediaPreview.style.width = "100%";
-          mediaPreview.style.height = "auto";
+          // Tạo thẻ <img> để hiển thị ảnh
+          const image = document.createElement("img");
+          image.src = e.target.result;
+          image.style.width = "100%";
+          image.style.height = "auto";
+          previewContainer.appendChild(image);
         } else if (fileType === "video") {
-          // Replace img with a video tag for video preview
-          const videoTag = document.createElement("video");
-          videoTag.src = e.target.result;
-          videoTag.controls = true;
-          videoTag.style.width = "100%";
-          videoTag.style.height = "auto";
-          previewContainer.innerHTML = ""; // Clear existing content
-          previewContainer.appendChild(videoTag);
-          previewContainer.appendChild(deleteButton); // Re-add the delete button
+          // Tạo thẻ <video> để hiển thị video
+          const video = document.createElement("video");
+          video.src = e.target.result;
+          video.controls = true; // Hiển thị điều khiển video (play/pause, etc.)
+          video.style.width = "100%";
+          video.style.height = "auto";
+          previewContainer.appendChild(video);
         } else {
-          alert("Unsupported file type. Please upload an image or a video.");
-          mediaInput.value = ""; // Clear the file input
+          alert("Loại file không được hỗ trợ. Vui lòng tải ảnh hoặc video.");
+          mediaInput.value = ""; // Xóa file trong input
           return;
         }
-        // Display the preview container
+  
+        // Thêm nút xóa
+        previewContainer.appendChild(deleteButton);
+  
+        // Hiển thị preview container
         previewContainer.style.display = "block";
       };
-
-      reader.readAsDataURL(file); // Read the media file as a data URL
+  
+      reader.readAsDataURL(file); // Đọc file dưới dạng data URL
     }
   });
-
+  
+  // Nút xóa để xóa preview và reset input
   deleteButton.addEventListener("click", function () {
-    // Clear the preview and reset the container
-    previewContainer.innerHTML = `<img id="image-preview" style="display:none;"/>`;
-    previewContainer.style.display = "none";
-    mediaInput.value = ""; // Clear the file input
+    previewContainer.innerHTML = ""; // Xóa nội dung trong container
+    previewContainer.style.display = "none"; // Ẩn container
+    mediaInput.value = ""; // Reset input file
   });
+  
 
   const textarea = document.querySelector(".input-box");
 

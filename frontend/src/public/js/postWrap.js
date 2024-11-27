@@ -1,27 +1,3 @@
-function formatPostTime(createdAt) {
-  const now = new Date();
-  const postTime = new Date(createdAt);
-  const diffInMs = now - postTime;
-  const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
-
-  switch (true) {
-    case diffInMinutes < 1:
-      return "Vừa xong";
-    case diffInMinutes < 60:
-      return `${diffInMinutes} phút trước`;
-    case diffInMinutes < 60 * 24:
-      return `${Math.floor(diffInMinutes / 60)} giờ trước`;
-    case diffInMinutes < 60 * 24 * 7:
-      return `${Math.floor(diffInMinutes / (60 * 24))} ngày trước`;
-    default:
-      return postTime.toLocaleDateString("vi-VN", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      });
-  }
-}
-
 async function postInteract() {
   const posts = document.querySelectorAll(".post:not(#postTop)");
 
@@ -175,6 +151,26 @@ async function postInteract() {
         console.error("Error sending like/unlike request:", error);
       }
     });
+
+    const commentButton = post.querySelector(".comment_btn");
+    const commentIcon = commentButton.querySelector("#commentBtn");
+    const commentCount = commentButton.querySelector("#commentCnt");
+
+    commentButton.addEventListener("click", function (event) {
+      console.log("Comment button clicked");
+      console.log("Post :", post)
+      const container_post_comment = document.querySelector(
+        ".container_post_comment"
+      );
+      container_post_comment.innerHTML = post.innerHTML;
+      
+      const post_commnet_footer = container_post_comment.querySelector(".post-footer");
+      post_commnet_footer.style.display = "none";
+
+      const three_dots_button = container_post_comment.querySelector(".three_dots_button");
+      three_dots_button.style.display = "none";
+    });
+
     
   });
 

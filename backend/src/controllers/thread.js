@@ -66,4 +66,6 @@ module.exports = {
   createThread,
   getThread,
   getAllThreads,
+  createComment,
+  getComment,
 };

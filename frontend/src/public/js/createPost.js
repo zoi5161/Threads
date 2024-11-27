@@ -18,6 +18,29 @@
 //       "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
 //   },
 // ];
+function formatPostTime(createdAt) {
+  const now = new Date();
+  const postTime = new Date(createdAt);
+  const diffInMs = now - postTime;
+  const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
+
+  switch (true) {
+    case diffInMinutes < 1:
+      return "Vừa xong";
+    case diffInMinutes < 60:
+      return `${diffInMinutes} phút trước`;
+    case diffInMinutes < 60 * 24:
+      return `${Math.floor(diffInMinutes / 60)} giờ trước`;
+    case diffInMinutes < 60 * 24 * 7:
+      return `${Math.floor(diffInMinutes / (60 * 24))} ngày trước`;
+    default:
+      return postTime.toLocaleDateString("vi-VN", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
+  }
+}
 
 function createPostHTML(post) {
   return `
@@ -46,7 +69,7 @@ function createPostHTML(post) {
                         </div>
                     </div>
                 </div>
-                <div class="time">${post.createdAt}</div>
+                <div class="time">${formatPostTime(post.createdAt)}</div>
             </div>
             <div class="three_dots_button" style="color: var(--white); font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
                 <button style="color: var(--white); border-color: var(--border); border-radius: 50%; background-color: var(--black); height: 1.5rem; width: 1.5rem;"
@@ -146,19 +169,19 @@ function createPostHTML(post) {
                 ${post.content}
             </p>
             ${
-                post.image_url
-                    ? `
+              post.image_url
+                ? `
                     <div style="text-align: center; margin-bottom: 1rem;">
                         ${
-                            post.media_type?.startsWith("video")  
-                                ? `<video src="${post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
-                                : post.media_type?.startsWith("image") 
-                                ? `<img src="${post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
-                                : `<p>Unsupported media type</p>`  
+                          post.media_type?.startsWith("video")
+                            ? `<video src="${post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
+                            : post.media_type?.startsWith("image")
+                              ? `<img src="${post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
+                              : `<p>Unsupported media type</p>`
                         }
                     </div>
                     `
-                    : ""
+                : ""
             }
         </div>
 
@@ -168,8 +191,10 @@ function createPostHTML(post) {
                 <span id="likeCnt">${post.like}</span>
             </div>
 
-            <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                <i class="far fa-comment"></i>${post.comment}
+            <div class="comment_btn" data-bs-toggle="modal" data-bs-target="#commentModal">
+                <i class="far fa-comment" id="commentBtn"></i>
+                <span id="commentCnt">${post.comment}</span>
+
             </div>
             <div><i class="fas fa-share"></i></div>
         </div>
