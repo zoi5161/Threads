@@ -37,7 +37,7 @@ async function fetchUserData(userId) {
     }
   }
 
-  window.onload = fetchUserData("1111");
+  // window.onload = fetchUserData("1111");
   // Gọi hàm fetchUserData() khi trang tải
   // document.addEventListener('DOMContentLoaded', () => {
   //   const userId = '1111'; // Thay bằng user_id mà bạn muốn lấy từ backend

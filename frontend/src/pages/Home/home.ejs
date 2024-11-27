@@ -28,41 +28,42 @@
     <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
     <!-- <script src="/frontend/src/public/js/postWrap.js"></script>
     <script src="/frontend/src/public/js/createPost.js"></script> -->
 </head>
 
 <body>
-    <%- include("../Partials/naviLeft.ejs")  %>
+    <%- include("../Partials/naviLeft.ejs") %>
 
-    <div class="container-fluid">
-        <%- include("../Partials/naviTop.ejs")  %>
-        <div class="container_post">
-            <div class="post" id="postTop">
-                <div class="post-header">
-                    <div class="avatar">
-                            <img src="https://i.pinimg.com/736x/a1/d2/d2/a1d2d2db44cb9f45acbc8567fe2f7828.jpg" style="width: 40px; height: 40px;" />
+        <div class="container-fluid">
+            <%- include("../Partials/naviTop.ejs") %>
+                <div class="container_post">
+                    <div class="post" id="postTop">
+                        <div class="post-header">
+                            <div class="avatar">
+                                <img src="https://i.pinimg.com/736x/a1/d2/d2/a1d2d2db44cb9f45acbc8567fe2f7828.jpg"
+                                    style="width: 40px; height: 40px;" />
+                            </div>
+                            <div class="username-time">
+                                <div class="new_post" id="post_status" style="color: #888">Có gì mới?</div>
+                            </div>
+                            <div style="display: flex; align-items: center; width: 15%">
+                                <button type="button" class="btn btn-dark post_btn"
+                                    style="color: var(--white); background-color: var(--black); border-color: var(--border); width: 75%; padding: 0.25rem 0">
+                                    Đăng
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="username-time">
-                        <div class="new_post" id="post_status" style="color: #888">Có gì mới?</div>
-                    </div>
-                    <div style="display: flex; align-items: center; width: 15%">
-                        <button type="button" class="btn btn-dark post_btn"
-                            style="color: var(--white); background-color: var(--black); border-color: var(--border); width: 75%; padding: 0.25rem 0">
-                            Đăng
-                        </button>
-                    </div>
+
                 </div>
-            </div>
+                <%- include("../Partials/plusIcon.ejs") %>
 
+                    <%- include("../Partials/commentModal.ejs") %>
         </div>
-        <%- include("../Partials/plusIcon.ejs")  %>
-
-        <%- include("../Partials/commentModal.ejs") %>
-    </div>
 </body>
 
 <script src="/js/three_dots.js"></script>
@@ -70,22 +71,44 @@
 <script src="/js/Thread/getAllThread.js"></script>
 <script src="/js/postWrap.js"></script>
 <script>
-    window.onload = async() => {
+    async function getUserData(user_Id) {
+        try {
+            // Gọi API tới backend
+            const response = await fetch('http://localhost:10000/profile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ user_id: user_Id }), // Gửi user_id trong body
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            // Parse dữ liệu JSON từ response
+            const userData = await response.json();
+            return userData;
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    }
+
+    window.onload = async () => {
         const posts_fetched = await getAllThreads();
-        posts_fetched.forEach(function (post) {
-          post.user = {
-            avatar:
-              "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-            username: "_10.nov_",
-            fullName: "Huyền Thủy",
-            tag: "@ngocne2744",
-            bio: "Zui zẻ",
-            follower: "299",
-            follow_status: "Theo dõi",
-          };
-          post.createdAt = formatPostTime(post.createdAt);
-          console.log(post);
-        });
+        // Duyệt qua tất cả các post sử dụng for...of
+        for (const post of posts_fetched) {
+            // Lấy dữ liệu người dùng cho mỗi post
+            const userData = await getUserData(post.user_id); // Dùng await để đợi dữ liệu người dùng trả về
+            console.log(userData); // In ra thông tin người dùng
+
+            // Gán dữ liệu người dùng vào post
+            post.user = userData;
+
+            // Định dạng thời gian đăng
+            post.createdAt = formatPostTime(post.createdAt);
+            console.log(post);
+        }
         await createPost(posts_fetched);
         postInteract();
     }

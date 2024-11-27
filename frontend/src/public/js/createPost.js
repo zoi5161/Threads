@@ -24,22 +24,22 @@ function createPostHTML(post) {
     <div class="post" id="${post._id}">
         <div class="post-header">
             <div class="avatar">
-                <img src="${post.user.avatar}" />
+                <img src="${post.user.avt_url}" />
             </div>
             <div class="username-time">
-                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">${post.user.username}</div>
+                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)" onclick="transferUser(${post.user.user_id})">${post.user.user_name}</div>
                 <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
                     <div class="modal-content">
                         <div class="modal-header">
                             <div>
-                                <div class="user-name" style="font-size: 125%; font-weight: bold;">${post.user.fullName}</div>
+                                <div class="user-name" style="font-size: 125%; font-weight: bold;">${post.user.full_name}</div>
                                 <div class="user-username">${post.user.tag}</div>
                             </div>
-                            <img src="${post.user.avatar}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                            <img src="${post.user.avt_url}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
                         </div>
                         <div class="modal-body">
                             <p>${post.user.bio}</p>
-                            <p style="font-size: 85%; color: #888">${post.user.follower + " người theo dõi"}</p>
+                            <p style="font-size: 85%; color: #888">${post.user.num_follow + " người theo dõi"}</p>
                         </div>
                         <div class="modal-footer">
                             <button class="follow-btn" type="button">${post.user.follow_status}</button>
@@ -172,4 +172,10 @@ async function createPost(posts) {
   posts.forEach((post) => {
     postContainer.innerHTML += createPostHTML(post);
   });
+}
+
+
+function transferUser(user_id) {
+    // Chuyển hướng đến trang profile_user và truyền user_id qua query string
+    window.location.href = `/profile_user?user_id=${user_id}`;
 }
