@@ -77,6 +77,18 @@ h2 {
 #login_form button{
     cursor: pointer;
 }
+
+#error{
+    color: red;
+    font-size: 15px;
+    margin-top: 1.25rem;
+    min-height: 20px;
+}
+
+#error_message{
+    display: none;
+}
+
 .sign_up, .forgot_password {
     text-decoration: none;
     margin-top: 1rem;
