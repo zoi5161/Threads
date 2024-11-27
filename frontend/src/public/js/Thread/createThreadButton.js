@@ -1,4 +1,4 @@
-async function createThreadButton(thread_type = '') {
+async function createThreadButton(thread_type = '', root_thread_id = null) {
   const form = document.getElementById("create_thread_form" + thread_type);
   console.log("Form:", form);
   if (!form) {
@@ -20,7 +20,7 @@ async function createThreadButton(thread_type = '') {
     user_id: "1111",
     content: content.trim(),
     image_url: '',
-    root_thread: null,
+    root_thread: root_thread_id,
     media_type: null,
   };
 
@@ -61,10 +61,13 @@ async function createThreadButton(thread_type = '') {
   }
 
   console.log("Thread Data:", threadData);
+  const create_thread_route = thread_type === '' ? "http://localhost:10000/thread" : "http://localhost:10000/thread/comment";
+
+  console.log("Create Thread Route:", create_thread_route);
 
   // Handle thread submission
   try {
-    const response = await fetch("http://localhost:10000/thread", {
+    const response = await fetch(create_thread_route, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

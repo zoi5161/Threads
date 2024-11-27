@@ -77,8 +77,8 @@ async function postInteract() {
     });
 
     const likeButton = post.querySelector(".like_btn");
-    const likeIcon = likeButton.querySelector("#likeBtn");
-    const likeCount = likeButton.querySelector("#likeCnt");
+    const likeIcon = likeButton.querySelector(".likeBtn");
+    const likeCount = likeButton.querySelector(".likeCnt");
     
     // Check if the user has already liked the post
     let liked = false;
@@ -89,7 +89,7 @@ async function postInteract() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user_id: "1113", thread_id: post.id }),
+        body: JSON.stringify({ user_id: "1111", thread_id: post.id }),
       });
     
       if (checkLikeResponse.ok) {
@@ -103,6 +103,7 @@ async function postInteract() {
           likeIcon.classList.add("far");
           likeIcon.classList.remove("fas");
         }
+        likeCount.textContent = checkLikeResult.likeCnt || 0;
       } else {
         console.error("Failed to fetch like status:", checkLikeResponse);
       }
@@ -115,20 +116,22 @@ async function postInteract() {
       event.stopPropagation(); // Prevent other click handlers from firing
       event.preventDefault(); // Prevent the default form submission behavior
     
-      const apiEndpoint = liked
+      const like_api = liked
         ? "http://localhost:10000/thread_action/unlike"
         : "http://localhost:10000/thread_action/like";
     
       try {
-        const response = await fetch(apiEndpoint, {
+        const response = await fetch(like_api, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ user_id: "1113", thread_id: post.id }),
+          body: JSON.stringify({ user_id: "1111", thread_id: post.id }),
         });
     
         if (response.ok) {
+          const result = await response.json();
+
           // Toggle the like state
           liked = !liked;
     
@@ -137,12 +140,12 @@ async function postInteract() {
             console.log("Liked post:", post.id);
             likeIcon.classList.add("fas");
             likeIcon.classList.remove("far");
-            likeCount.textContent = parseInt(likeCount.textContent) + 1;
+            likeCount.textContent = result.likeCnt;
           } else {
             console.log("Unliked post:", post.id);
             likeIcon.classList.add("far");
             likeIcon.classList.remove("fas");
-            likeCount.textContent = parseInt(likeCount.textContent) - 1;
+            likeCount.textContent = result.likeCnt;
           }
         } else {
           console.error("Error updating like status:", response);
@@ -153,8 +156,8 @@ async function postInteract() {
     });
 
     const commentButton = post.querySelector(".comment_btn");
-    const commentIcon = commentButton.querySelector("#commentBtn");
-    const commentCount = commentButton.querySelector("#commentCnt");
+    const commentIcon = commentButton.querySelector(".commentBtn");
+    const commentCount = commentButton.querySelector(".commentCnt");
 
     commentButton.addEventListener("click", function (event) {
       console.log("Comment button clicked");
@@ -163,15 +166,21 @@ async function postInteract() {
         ".container_post_comment"
       );
       container_post_comment.innerHTML = post.innerHTML;
-      
+
       const post_commnet_footer = container_post_comment.querySelector(".post-footer");
       post_commnet_footer.style.display = "none";
 
       const three_dots_button = container_post_comment.querySelector(".three_dots_button");
       three_dots_button.style.display = "none";
+
+      const post_btn_comment = document.querySelector("#post-btn-comment");
+      post_btn_comment.addEventListener("click", async(event) => {
+        event.preventDefault();
+        console.log(post.id);
+        await createThreadButton('_comment', post.id)
+      });
     });
 
-    
   });
 
   const new_post = document.querySelector("#post_status");
@@ -212,16 +221,6 @@ async function postInteract() {
   if (tag) tag.addEventListener("click", showModal);
   if (plusSmall) plusSmall.addEventListener("click", showModal);
 
-  // Like post
-  const likeButtons = document.querySelectorAll(".like_btn");
-  likeButtons.forEach((likeButton) => {
-    likeButton.addEventListener("click", function (event) {
-      const likeIcon = likeButton.querySelector("#likeBtn");
-      const likeCount = likeButton.querySelector("#likeCnt");
-    });
-  });
-
-  // Comments
 }
 
 function showUserInfo1(element) {

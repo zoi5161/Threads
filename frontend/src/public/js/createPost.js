@@ -187,14 +187,13 @@ function createPostHTML(post) {
 
         <div class="post-footer">
             <div class="like_btn">
-                <i class="far fa-heart" id="likeBtn"></i>
-                <span id="likeCnt">${post.like}</span>
+                <i class="far fa-heart likeBtn"></i>
+                <span class="likeCnt">Loading...</span>
             </div>
 
             <div class="comment_btn" data-bs-toggle="modal" data-bs-target="#commentModal">
-                <i class="far fa-comment" id="commentBtn"></i>
-                <span id="commentCnt">${post.comment}</span>
-
+                <i class="far fa-comment commentBtn"></i>
+                <span class="commentCnt">${post.comment}</span>
             </div>
             <div><i class="fas fa-share"></i></div>
         </div>

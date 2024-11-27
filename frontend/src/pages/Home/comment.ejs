@@ -59,6 +59,7 @@
 <script src="/js/postWrap.js"></script>
 <script src="/js/comment.js"></script>
 <script src="js/Thread/getThread.js"></script>
+<script src="js/Thread/getComment.js"></script>
 <script>
     window.onload = async () => {
         const container_post = document.querySelector(".container_post");
@@ -80,93 +81,11 @@
         
         container_post.innerHTML = await createPostHTML(main_post) + container_post.innerHTML;
 
-        const comment_post = [
-            {
-                user: {
-                avatar:
-                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-                username: "_10.nov_",
-                fullName: "Huyền Thủy",
-                tag: "@ngocne2744",
-                bio: "Zui zẻ",
-                follower: "299",
-                follow_status: "Theo dõi",
-                },
-                createdAt: "1 giờ",
-                content:
-                "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
-                like: 1,
-                comment: 2,
-                image_url:
-                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-                media_type: "image/jpeg",
+        const comment_post = await getComment(thread_id);
+        comment_post.forEach((post) => {
+            post.user = tmp_user;
+        });
 
-            },
-            {
-                user: {
-                avatar:
-                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-                username: "_10.nov_",
-                fullName: "Huyền Thủy",
-                tag: "@ngocne2744",
-                bio: "Zui zẻ",
-                follower: "299",
-                follow_status: "Theo dõi",
-                },
-                createdAt: "1 giờ",
-                content:
-                "ai rep tui di ma",
-                like: 1,
-                comment: 2,
-                image_url:
-                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-                media_type: "image/jpeg",
-
-            },
-            {
-                user: {
-                avatar:
-                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-                username: "_10.nov_",
-                fullName: "Huyền Thủy",
-                tag: "@ngocne2744",
-                bio: "Zui zẻ",
-                follower: "299",
-                follow_status: "Theo dõi",
-                },
-                createdAt: "1 giờ",
-                content:
-                "ai rep tui di ma",
-                like: 1,
-                comment: 2,
-                image_url:
-                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-                media_type: "image/jpeg",
-
-            },
-            {
-                user: {
-                avatar:
-                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-                username: "_10.nov_",
-                fullName: "Huyền Thủy",
-                tag: "@ngocne2744",
-                bio: "Zui zẻ",
-                follower: "299",
-                follow_status: "Theo dõi",
-                },
-                createdAt: "1 giờ",
-                content:
-                "ai rep tui di ma",
-                like: 1,
-                comment: 2,
-                image_url:
-                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-                media_type: "image/jpeg",
-
-            },
-        ];
-        
         await createPost(comment_post);
         postInteract();
 

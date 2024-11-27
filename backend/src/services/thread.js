@@ -27,7 +27,14 @@ const createComment = async (user_id, content, image_url = null, root_thread = n
         root_thread,
         media_type,
     });
-    return await thread.save();
+    await thread.save();
+
+    original_thread = await Thread.findById(root_thread);
+    original_thread.comment += 1;
+    await original_thread.save();
+
+    console.log("Comment created successfully for thread:", original_thread);
+    return thread;
 };
 
 const getComment = async (thread_id) => {
