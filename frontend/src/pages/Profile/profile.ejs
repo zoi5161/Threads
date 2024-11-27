@@ -150,7 +150,7 @@
                     </div>
                   </div>
                   <div class="done_btn_m">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">Xong</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal" onclick="update_User('1111')">Xong</button>
                   </div>
                 </div>
               </div>
@@ -168,7 +168,7 @@
                     </div>
                     <h5 class="modal-title" id="editProfileModalLabel2">Chỉnh sửa trang cá nhân</h5>
                     <div class="modal-2-header-btn">
-                      <button type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal"
+                      <button id="finish_button" type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal"
                         aria-label="Close">Xong</button>
                     </div>
                   </div>
@@ -316,6 +316,8 @@
 
 </body>
 <script>
+  let currentElement; // Biến để lưu trữ phần tử hiện tại đang được chỉnh sửa
+
   function scrollToLeft() {
     const container = document.querySelector('.mission_container');
     container.scrollBy({ left: -500, behavior: 'smooth' });
@@ -348,11 +350,26 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const edit_profile_m = document.querySelectorAll('.edit_profile_m');
-
+    var currentElement;
     edit_profile_m.forEach((element) => {
       element.addEventListener('click', () => {
-        showEditModal();
+        currentElement = element; // Lưu trữ phần tử hiện tại
+        showEditModal(); // Hiện modal mà không thay đổi nội dung
       });
+    });
+
+    // Thêm sự kiện cho nút "Xong" trong Edit Extreme Modal
+    document.querySelector('#editProfileModal #finish_button').addEventListener('click', () => {
+      const newContent = document.getElementById('profile_edit_m').value; // Lấy giá trị từ textarea
+      // Cập nhật nội dung của phần tử hiện tại
+      if (newContent != "Nhập thông tin bạn muốn thay đổi") {
+        if (currentElement) {
+          currentElement.innerText = newContent; // Cập nhật nội dung
+        }
+      }
+      // Đóng modal sau khi cập nhật
+      const modal = bootstrap.Modal.getInstance(document.getElementById('editProfileModal'));
+      modal.hide();
     });
   });
 
@@ -363,9 +380,9 @@
 
   // Gọi hàm handleScroll() để cập nhật trạng thái khi trang tải
   window.onload = handleScroll;
-
 </script>
 <script src="/js/three_dots.js"></script>
 <script src="/js/Profile/getUser.js"></script>
+<script src="/js/Profile/updateUser.js"></script>
 
 </html>
