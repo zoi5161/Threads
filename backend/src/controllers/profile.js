@@ -1,4 +1,5 @@
-const User = require('../models/User.js'); // Import model User
+
+const ProfileService = require('../services/profile.js')
 
 // Lấy thông tin người dùng dựa trên user_id
 const getAccountInfor = async (req, res) => {
@@ -6,13 +7,7 @@ const getAccountInfor = async (req, res) => {
     // Lấy user_id từ body request
     const { user_id } = req.body;
 
-    // Kiểm tra xem user_id có được cung cấp không
-    if (!user_id) {
-      return res.status(400).json({ message: 'user_id is required' });
-    }
-
-    // Tìm thông tin user từ MongoDB dựa vào user_id
-    const user = await User.findOne({ user_id }); // Truy vấn bằng user_id
+    const user = await ProfileService.getUser(user_id);
 
     // Nếu không tìm thấy user
     if (!user) {
@@ -34,21 +29,7 @@ const updateProfile = async (req, res) => {
     // Lấy dữ liệu từ body request
     const { user_id, new_name, new_bio, new_social_link, new_show_instagram } = req.body;
 
-    // Kiểm tra xem user_id có được cung cấp không
-    if (!user_id) {
-      return res.status(400).json({ message: 'user_id is required' });
-    }
-
-    // Tìm user và cập nhật thông tin
-    const updatedUser = await User.findOneAndUpdate(
-      { user_id }, // Điều kiện tìm user theo user_id
-      {
-        full_name: new_name,
-        bio: new_bio,
-        link_fb: new_social_link,
-      }, // Dữ liệu cần cập nhật
-      { new: true } // Trả về user đã cập nhật
-    );
+    const updatedUser = await ProfileService.updateUser(user_id, new_name, new_bio, new_social_link, new_show_instagram);
 
     // Nếu user không tồn tại
     if (!updatedUser) {
