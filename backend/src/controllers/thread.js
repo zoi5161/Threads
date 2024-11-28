@@ -36,6 +36,76 @@ const getAllThreads = async (req, res) => {
   }
 };
 
+const getNewestThreads = async (req, res) => {
+  try {
+    const threads = await threadService.getNewestThreads();
+    res.status(200).json(threads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const getReplyThreads = async (req, res) => {
+  try {
+    const threads = await threadService.getReplyThreads();
+    res.status(200).json(threads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const getLikeThreads = async (req, res) => {
+  try {
+    const threads = await threadService.getLikeThreads();
+    res.status(200).json(threads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const getCommentThreads = async (req, res) => {
+  try {
+    const threads = await threadService.getCommentThreads();
+    res.status(200).json(threads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const getThreadByUser = async (req, res) => {
+  // const { user_id } = req.params;
+  const user_id = "1111";
+  try {
+    const threads = await threadService.getThreadByUser(user_id);
+    res.status(200).json(threads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const getLikedThreads = async (req, res) => {
+  // const { user_id } = req.params;
+  const user_id = "1111";
+  try {
+    const threads = await threadService.getLikedThreads(user_id);
+    res.status(200).json(threads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const getCommentedThreads = async (req, res) => {
+  // const { user_id } = req.params;
+  const user_id = "1111";
+  try {
+    const threads = await threadService.getCommentedThreads(user_id);
+    res.status(200).json(threads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
 const createComment = async (req, res) => {
   const { user_id, content, image_url, root_thread, media_type } = req.body;
   try {
@@ -66,6 +136,15 @@ module.exports = {
   createThread,
   getThread,
   getAllThreads,
+
+  getNewestThreads,
+  getReplyThreads,
+  getLikeThreads,
+  getCommentThreads,
+  getThreadByUser,
+  getLikedThreads,
+  getCommentedThreads,
+  
   createComment,
   getComment,
 };

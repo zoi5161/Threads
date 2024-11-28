@@ -127,26 +127,34 @@
 <script>
   document.addEventListener("focusin", (event) => {
     const modal = document.getElementById("commentModal");
-    const content_of_comment_modal = modal.querySelector(".post-content")
+    if(modal)
+    {
+        const content_of_comment_modal = modal.querySelector(".post-content")
 
-    const image_in_comment_modal = content_of_comment_modal.querySelector("img");
-    console.log(image_in_comment_modal);
-    if(image_in_comment_modal) {
-        image_in_comment_modal.style.maxHeight = "10rem";
-    }
+        if(content_of_comment_modal){
+            const image_in_comment_modal = content_of_comment_modal.querySelector("img");
+            console.log(image_in_comment_modal);
+            if(image_in_comment_modal) {
+                image_in_comment_modal.style.maxHeight = "10rem";
+            }
+        
+            const video_in_comment_modal = content_of_comment_modal.querySelector("video");
+            if(video_in_comment_modal) {
+                video_in_comment_modal.style.maxHeight = "10rem";
+            }
+        }
 
-    const video_in_comment_modal = content_of_comment_modal.querySelector("video");
-    if(video_in_comment_modal) {
-        video_in_comment_modal.style.maxHeight = "10rem";
+
+        if (
+            modal.getAttribute("aria-hidden") === "true" &&
+            modal.contains(event.target)
+          ) {
+            // Prevent focus inside hidden modal
+            event.target.blur();
+          }
     }
     
-    if (
-      modal.getAttribute("aria-hidden") === "true" &&
-      modal.contains(event.target)
-    ) {
-      // Prevent focus inside hidden modal
-      event.target.blur();
-    }
+
   });
   
   document.addEventListener("DOMContentLoaded", () => {
