@@ -50,7 +50,7 @@ function createPostHTML(post) {
                 <img src="${post.user.avt_url}" />
             </div>
             <div class="username-time">
-                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)" onclick="transferUser(${post.user.user_id})">${post.user.user_name}</div>
+                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)" onclick="transferUser(${post.user.user_id})">${post.user.full_name}</div>
                 <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
                     <div class="modal-content" style="background-color: inherit;">
                         <div class="modal-header" style="border: none;">
@@ -210,5 +210,5 @@ async function createPost(posts) {
 
 function transferUser(user_id) {
     // Chuyển hướng đến trang profile_user và truyền user_id qua query string
-    window.location.href = `/profile_user?user_id=${user_id}`;
+    window.location.href = `/Profile?user_id=${user_id}`;
 }

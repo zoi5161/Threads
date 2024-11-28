@@ -377,23 +377,70 @@
     modal.show();
   }
 
-  // Gọi hàm handleScroll() để cập nhật trạng thái khi trang tải
-
-  window.onload = async() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  let user_id = urlParams.get('user_id');
+  user_id = user_id ? user_id : '1111';
+  console.log(user_id);
+  window.onload = async () => {
     handleScroll();
-    const posts_fetched = await getAllThreads();
-    posts_fetched.forEach(function (post) {
-      const userData = await fetchUserData(pozt.user_id);
-      post.user = userData;
+
+    //Dung file profileButton va tao class edit or other button de tu dong tao button tuong ung, con bug chua 
+    //sua duoc khi mo modal 2
+    //const edit_or_other_button = document.querySelector('.edit_or_other_button');
+    //const edit_or_other_button_respone  = createButtonHTML(user_id);
+    //edit_or_other_button.innerHTML = edit_or_other_button_respone.html;
+    //const edit_or_other_status = edit_or_other_button_respone.status;
+    //const userData = await fetchUserData(user_id, edit_or_other_status);
+
+    const userData = await fetchUserData(user_id, 'edit');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const edit_profile_m = document.querySelectorAll('.edit_profile_m');
+      var currentElement;
+      edit_profile_m.forEach((element) => {
+        element.addEventListener('click', () => {
+          currentElement = element; // Lưu trữ phần tử hiện tại
+          showEditModal(); // Hiện modal mà không thay đổi nội dung
+        });
+      });
+  
+      // Thêm sự kiện cho nút "Xong" trong Edit Extreme Modal
+      const finishButton = document.querySelector('#editProfileModal #finish_button');
+      if (finishButton){
+        finishButton.addEventListener('click', () => {
+          const newContent = document.getElementById('profile_edit_m').value; // Lấy giá trị từ textarea
+          // Cập nhật nội dung của phần tử hiện tại
+          if (newContent != "Nhập thông tin bạn muốn thay đổi") {
+            if (currentElement) {
+              currentElement.innerText = newContent; // Cập nhật nội dung
+            }
+          }
+          // Đóng modal sau khi cập nhật
+          const modal = bootstrap.Modal.getInstance(document.getElementById('editProfileModal'));
+          modal.hide();
+        });
+      }
     });
-    console.log(posts_fetched);
-    await createPost(posts_fetched);
+  
+    const posts_fetched = await getAllThreads(`user/${user_id}`);
+
+    for (const post of posts_fetched) {
+        post.user = userData; 
+    }
+
+    await createPost(posts_fetched); 
     postInteract();
-}
+    
+  };
+
   </script>
   <script src="/js/three_dots.js"></script>
   <script src="/js/createPost.js"></script>
   <script src="/js/Thread/getAllThread.js"></script>
   <script src="/js/postWrap.js"></script>
-  
+  <script src="/js/getUserData.js"></script>
+  <script src="/js/Profile/getUser.js"></script>
+  <script src="/js/Profile/updateUser.js"></script>
+  <script src="/js/profileButton.js"></script>
+
 </html>

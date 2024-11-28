@@ -53,25 +53,20 @@
 <script src="/js/createPost.js"></script>
 <script src="/js/Thread/getAllThread.js"></script>
 <script src="/js/postWrap.js"></script>
+<script src="/js/getUserData.js"></script>
 <script>
-    window.onload = async() => {
+    window.onload = async () => {
         const posts_fetched = await getAllThreads();
-        posts_fetched.forEach(function (post) {
-          post.user = {
-            avatar:
-              "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-            username: "_10.nov_",
-            fullName: "Huyền Thủy",
-            tag: "@ngocne2744",
-            bio: "Zui zẻ",
-            follower: "299",
-            follow_status: "Theo dõi",
-          };
-        });
-        console.log(posts_fetched);
-        await createPost(posts_fetched);
+    
+        for (const post of posts_fetched) {
+            const userData = await getUserData(post.user_id);
+            post.user = userData; 
+        }
+    
+        await createPost(posts_fetched); 
         postInteract();
-    }
+    };
+    
 
 </script>
 

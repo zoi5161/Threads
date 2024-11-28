@@ -2,7 +2,7 @@ const cors = require("cors"); //Prevent CORS errors
 const express = require("express"); //Use express
 const mongoose = require("mongoose"); //Use mongoose
 const routes = require("./routes/index"); //Connect to index.js in routes folder
-require("dotenv").config({ path: "./config/.env" });
+require("dotenv").config({ path: "src/config/.env" });
 
 const app = express();
 

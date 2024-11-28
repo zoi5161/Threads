@@ -16,7 +16,7 @@ router.get('/like', threadController.getLikeThreads);
 
 router.get('/comment', threadController.getCommentThreads);
 
-router.get('/user', threadController.getThreadByUser);
+router.get('/user/:user_id', threadController.getThreadByUser);
 
 router.get('/liked', threadController.getLikedThreads);
 

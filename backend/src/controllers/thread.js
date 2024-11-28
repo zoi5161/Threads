@@ -73,8 +73,7 @@ const getCommentThreads = async (req, res) => {
 };
 
 const getThreadByUser = async (req, res) => {
-  // const { user_id } = req.params;
-  const user_id = "1111";
+  const { user_id } = req.params;
   try {
     const threads = await threadService.getThreadByUser(user_id);
     res.status(200).json(threads);

@@ -67,42 +67,20 @@
 <script src="/js/createPost.js"></script>
 <script src="/js/Thread/getAllThread.js"></script>
 <script src="/js/postWrap.js"></script>
+<script src="/js/getUserData.js"></script>
 <script>
-    async function getUserData(user_Id) {
-        try {
-            // Gọi API tới backend
-            const response = await fetch('http://localhost:10000/profile', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ user_id: user_Id }), // Gửi user_id trong body
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            // Parse dữ liệu JSON từ response
-            const userData = await response.json();
-            return userData;
-        } catch (error) {
-            console.error('Error fetching user data:', error);
-        }
-    }
-
     window.onload = async () => {
         const posts_fetched = await getAllThreads();
-
-        posts_fetched.forEach(function (post) {
-          const userData = await getUserData(post.user_id); // Dùng await để đợi dữ liệu người dùng trả về
-          post.user = userData;
-        });
-        console.log(posts_fetched);
-        
-        await createPost(posts_fetched);
+    
+        for (const post of posts_fetched) {
+            const userData = await getUserData(post.user_id);
+            post.user = userData; 
+        }
+    
+        await createPost(posts_fetched); 
         postInteract();
-    }
+    };
+    
     
 </script>
 

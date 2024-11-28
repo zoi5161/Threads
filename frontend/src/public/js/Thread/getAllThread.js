@@ -1,7 +1,10 @@
-async function getAllThreads() {
+async function getAllThreads(priority_filter) {
   try {
     const params = new URLSearchParams(window.location.search);
-    const filter = params.get("filter");
+    let filter = params.get("filter");
+    if (priority_filter) {
+      filter = priority_filter;
+    }
 
     // Construct the API URL
     const apiUrl = filter

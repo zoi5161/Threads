@@ -60,31 +60,23 @@
 <script src="/js/comment.js"></script>
 <script src="js/Thread/getThread.js"></script>
 <script src="js/Thread/getComment.js"></script>
+<script src="/js/getUserData.js"></script>
 <script>
     window.onload = async () => {
         const container_post = document.querySelector(".container_post");
         const thread_id = new URLSearchParams(window.location.search).get('thread_id');
         const main_post = await getThread(thread_id);
-        console.log("Thread id: " + thread_id);
-        console.log(main_post);
-        const tmp_user = {
-            avatar:
-                "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-            username: "_10.nov_",
-            fullName: "Huyền Thủy",
-            tag: "@ngocne2744",
-            bio: "Zui zẻ",
-            follower: "299",
-            follow_status: "Theo dõi",
-        };
-        main_post.user = tmp_user;
+        const main_user = await getUserData(main_post.user_id);
+
+        main_post.user = main_user;
         
         container_post.innerHTML = await createPostHTML(main_post) + container_post.innerHTML;
 
         const comment_post = await getComment(thread_id);
-        comment_post.forEach((post) => {
-            post.user = tmp_user;
-        });
+        for (const post of comment_post) {
+            const userData = await getUserData(post.user_id);
+            post.user = userData;
+        }
 
         await createPost(comment_post);
         postInteract();
