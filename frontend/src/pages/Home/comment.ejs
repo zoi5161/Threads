@@ -58,12 +58,16 @@
 <script src="/js/createPost.js"></script>
 <script src="/js/postWrap.js"></script>
 <script src="/js/comment.js"></script>
+<script src="js/Thread/getThread.js"></script>
+<script src="js/Thread/getComment.js"></script>
 <script>
     window.onload = async () => {
         const container_post = document.querySelector(".container_post");
-        const main_post = 
-        {
-            user: {
+        const thread_id = new URLSearchParams(window.location.search).get('thread_id');
+        const main_post = await getThread(thread_id);
+        console.log("Thread id: " + thread_id);
+        console.log(main_post);
+        const tmp_user = {
             avatar:
                 "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
             username: "_10.nov_",
@@ -72,102 +76,21 @@
             bio: "Zui zẻ",
             follower: "299",
             follow_status: "Theo dõi",
-            },
-            createdAt: "1 giờ",
-            content:
-            "Main content of this post",
-            like: 1,
-            comment: 2,
-            image_url:
-            "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
         };
+        main_post.user = tmp_user;
         
         container_post.innerHTML = await createPostHTML(main_post) + container_post.innerHTML;
 
-        const comment_post = [
-            {
-                user: {
-                avatar:
-                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-                username: "_10.nov_",
-                fullName: "Huyền Thủy",
-                tag: "@ngocne2744",
-                bio: "Zui zẻ",
-                follower: "299",
-                follow_status: "Theo dõi",
-                },
-                createdAt: "1 giờ",
-                content:
-                "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
-                like: 1,
-                comment: 2,
-                image_url:
-                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-            },
-            {
-                user: {
-                avatar:
-                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-                username: "_10.nov_",
-                fullName: "Huyền Thủy",
-                tag: "@ngocne2744",
-                bio: "Zui zẻ",
-                follower: "299",
-                follow_status: "Theo dõi",
-                },
-                createdAt: "1 giờ",
-                content:
-                "ai rep tui di ma",
-                like: 1,
-                comment: 2,
-                image_url:
-                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-            },
-            {
-                user: {
-                avatar:
-                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-                username: "_10.nov_",
-                fullName: "Huyền Thủy",
-                tag: "@ngocne2744",
-                bio: "Zui zẻ",
-                follower: "299",
-                follow_status: "Theo dõi",
-                },
-                createdAt: "1 giờ",
-                content:
-                "ai rep tui di ma",
-                like: 1,
-                comment: 2,
-                image_url:
-                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-            },
-            {
-                user: {
-                avatar:
-                    "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-                username: "_10.nov_",
-                fullName: "Huyền Thủy",
-                tag: "@ngocne2744",
-                bio: "Zui zẻ",
-                follower: "299",
-                follow_status: "Theo dõi",
-                },
-                createdAt: "1 giờ",
-                content:
-                "ai rep tui di ma",
-                like: 1,
-                comment: 2,
-                image_url:
-                "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-            },
-        ];
-        
+        const comment_post = await getComment(thread_id);
+        comment_post.forEach((post) => {
+            post.user = tmp_user;
+        });
+
         await createPost(comment_post);
-        await postInteract();
+        postInteract();
 
         const first_post = document.querySelector(".post");
-        first_post.setAttribute("id", "postTop")
+        first_post.classList.add("post-top");
     }
 </script>
 </html>

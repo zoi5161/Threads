@@ -4,6 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Moi lan back ve home = new reload -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    
     <title>Trang chủ · Threads</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -17,22 +24,12 @@
     <link rel="stylesheet" href="/style/three_dots.css" />
     <link rel="stylesheet" href="/style/colors.css">
 
-    <!-- <link rel="stylesheet" href="/frontend/src/public/style/home.css" />
-    <link rel="stylesheet" href="/frontend/src/public/style/navibar/navileft.css" />
-    <link rel="stylesheet" href="/frontend/src/public/style/navibar/navitop.css">
-    <link rel="stylesheet" href="/frontend/src/public/style/containerPost.css">
-    <link rel="stylesheet" href="/frontend/src/public/style/plus.css">
-    <link rel="stylesheet" href="/frontend/src/public/style/plusModal.css" />
-    <link rel="stylesheet" href="/frontend/src/public/style/three_dots.css" /> -->
-
     <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <!-- <script src="/frontend/src/public/js/postWrap.js"></script>
-    <script src="/frontend/src/public/js/createPost.js"></script> -->
 </head>
 
 <body>
@@ -96,22 +93,17 @@
 
     window.onload = async () => {
         const posts_fetched = await getAllThreads();
-        // Duyệt qua tất cả các post sử dụng for...of
-        for (const post of posts_fetched) {
-            // Lấy dữ liệu người dùng cho mỗi post
-            const userData = await getUserData(post.user_id); // Dùng await để đợi dữ liệu người dùng trả về
-            console.log(userData); // In ra thông tin người dùng
 
-            // Gán dữ liệu người dùng vào post
-            post.user = userData;
-
-            // Định dạng thời gian đăng
-            post.createdAt = formatPostTime(post.createdAt);
-            console.log(post);
-        }
+        posts_fetched.forEach(function (post) {
+          const userData = await getUserData(post.user_id); // Dùng await để đợi dữ liệu người dùng trả về
+          post.user = userData;
+        });
+        console.log(posts_fetched);
+        
         await createPost(posts_fetched);
         postInteract();
     }
+    
 </script>
 
 </html>

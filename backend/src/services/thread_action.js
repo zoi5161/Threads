@@ -26,7 +26,7 @@ const likeThread = async (thread_id, user_id) => {
     originalThread.like += 1;
     await originalThread.save();
 
-    return { message: "Thread liked successfully!", success: true };
+    return { message: "Thread liked successfully!", success: true, likeCnt: originalThread.like };
   } catch (error) {
     console.error("Error liking thread:", error);
     return { message: "Error liking thread.", success: false, error };
@@ -43,7 +43,7 @@ const unlikeThread = async (thread_id, user_id) => {
     const thread = await likeThreadSchema.findOne({ thread_id });
 
     if (!thread || !thread.user_id.includes(user_id)) {
-      return { message: "User has not liked this thread.", success: false };
+      return { message: "User has not liked this thread.", success: false};
     }
 
     // Remove user_id from the like schema
@@ -57,7 +57,7 @@ const unlikeThread = async (thread_id, user_id) => {
     originalThread.like = Math.max(originalThread.like - 1, 0);
     await originalThread.save();
 
-    return { message: "Thread unliked successfully!", success: true };
+    return { message: "Thread unliked successfully!", success: true, likeCnt: originalThread.like };
   } catch (error) {
     console.error("Error unliking thread:", error);
     return { message: "Error unliking thread.", success: false, error };
@@ -73,10 +73,11 @@ const checkLikeStatus = async (thread_id, user_id) => {
     }
 
     const liked = thread.user_id.includes(user_id);
-    return { liked, success: true };
+    const originalThread = await Thread.findById(thread_id);
+    return { liked, success: true , likeCnt: originalThread.like };
   } catch (error) {
     console.error("Error checking like status:", error);
-    return { message: "Error checking like status.", liked: false, success: false, error };
+    return { message: "Error checking like status.", liked: false, success: false, error};
   }
 };
 

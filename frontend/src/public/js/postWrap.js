@@ -1,37 +1,15 @@
-function formatPostTime(createdAt) {
-  const now = new Date();
-  const postTime = new Date(createdAt);
-  const diffInMs = now - postTime;
-  const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
-
-  switch (true) {
-    case diffInMinutes < 1:
-      return "Vừa xong";
-    case diffInMinutes < 60:
-      return `${diffInMinutes} phút trước`;
-    case diffInMinutes < 60 * 24:
-      return `${Math.floor(diffInMinutes / 60)} giờ trước`;
-    case diffInMinutes < 60 * 24 * 7:
-      return `${Math.floor(diffInMinutes / (60 * 24))} ngày trước`;
-    default:
-      return postTime.toLocaleDateString("vi-VN", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      });
-  }
-}
-
 async function postInteract() {
   const posts = document.querySelectorAll(".post:not(#postTop)");
 
   console.log(posts);
 
   posts.forEach(async (post) => {
-    const img = post.querySelector(".post_img");
-    if(img){
-      img.style.cursor = "pointer";
-      img.addEventListener("click", function (event) {
+    const img = post.querySelector(".post-content img");
+    const video = post.querySelector(".post-content video");
+    if(img || video) {
+      media_element = img ? img : video;
+      media_element.style.cursor = "pointer";
+      media_element.addEventListener("click", function (event) {
   
         const modalHTML = `
           <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true" >
@@ -41,7 +19,9 @@ async function postInteract() {
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body modal_img_content_body">
-                  <img src="${img.src}" class="img-fluid" alt="Image Preview" />
+                ${
+                  img ? `<img src="${img.src}" class="img-fluid" alt="Post image">` : `<video src="${video.src}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
+                }
                 </div>
               </div>
             </div>
@@ -97,8 +77,8 @@ async function postInteract() {
     });
 
     const likeButton = post.querySelector(".like_btn");
-    const likeIcon = likeButton.querySelector("#likeBtn");
-    const likeCount = likeButton.querySelector("#likeCnt");
+    const likeIcon = likeButton.querySelector(".likeBtn");
+    const likeCount = likeButton.querySelector(".likeCnt");
     
     // Check if the user has already liked the post
     let liked = false;
@@ -123,6 +103,7 @@ async function postInteract() {
           likeIcon.classList.add("far");
           likeIcon.classList.remove("fas");
         }
+        likeCount.textContent = checkLikeResult.likeCnt || 0;
       } else {
         console.error("Failed to fetch like status:", checkLikeResponse);
       }
@@ -135,12 +116,12 @@ async function postInteract() {
       event.stopPropagation(); // Prevent other click handlers from firing
       event.preventDefault(); // Prevent the default form submission behavior
     
-      const apiEndpoint = liked
+      const like_api = liked
         ? "http://localhost:10000/thread_action/unlike"
         : "http://localhost:10000/thread_action/like";
     
       try {
-        const response = await fetch(apiEndpoint, {
+        const response = await fetch(like_api, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -149,6 +130,8 @@ async function postInteract() {
         });
     
         if (response.ok) {
+          const result = await response.json();
+
           // Toggle the like state
           liked = !liked;
     
@@ -157,12 +140,12 @@ async function postInteract() {
             console.log("Liked post:", post.id);
             likeIcon.classList.add("fas");
             likeIcon.classList.remove("far");
-            likeCount.textContent = parseInt(likeCount.textContent) + 1;
+            likeCount.textContent = result.likeCnt;
           } else {
             console.log("Unliked post:", post.id);
             likeIcon.classList.add("far");
             likeIcon.classList.remove("fas");
-            likeCount.textContent = parseInt(likeCount.textContent) - 1;
+            likeCount.textContent = result.likeCnt;
           }
         } else {
           console.error("Error updating like status:", response);
@@ -171,7 +154,33 @@ async function postInteract() {
         console.error("Error sending like/unlike request:", error);
       }
     });
-    
+
+    const commentButton = post.querySelector(".comment_btn");
+    const commentIcon = commentButton.querySelector(".commentBtn");
+    const commentCount = commentButton.querySelector(".commentCnt");
+
+    commentButton.addEventListener("click", function (event) {
+      console.log("Comment button clicked");
+      console.log("Post :", post)
+      const container_post_comment = document.querySelector(
+        ".container_post_comment"
+      );
+      container_post_comment.innerHTML = post.innerHTML;
+
+      const post_commnet_footer = container_post_comment.querySelector(".post-footer");
+      post_commnet_footer.style.display = "none";
+
+      const three_dots_button = container_post_comment.querySelector(".three_dots_button");
+      three_dots_button.style.display = "none";
+
+      const post_btn_comment = document.querySelector("#post-btn-comment");
+      post_btn_comment.addEventListener("click", async(event) => {
+        event.preventDefault();
+        console.log(post.id);
+        await createThreadButton('_comment', post.id)
+      });
+    });
+
   });
 
   const new_post = document.querySelector("#post_status");
@@ -211,17 +220,7 @@ async function postInteract() {
     plus_box_short_profile.addEventListener("click", showModal);
   if (tag) tag.addEventListener("click", showModal);
   if (plusSmall) plusSmall.addEventListener("click", showModal);
-  
-  // Like post
-  const likeButtons = document.querySelectorAll(".like_btn");
-  likeButtons.forEach((likeButton) => {
-    likeButton.addEventListener("click", function (event) {
-      const likeIcon = likeButton.querySelector("#likeBtn");
-      const likeCount = likeButton.querySelector("#likeCnt");
-    });
-  });
 
-  // Comments
 }
 
 function showUserInfo1(element) {
