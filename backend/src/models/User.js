@@ -12,6 +12,9 @@ const userSchema = new Schema(
     num_follow: Number,
     link_fb: String,
     follow_status: String,
+    //2 mục này cho phần follow system:
+    followers: [{type: String}], // mảng chứa id các user đang follow user đó
+    following: [{type: String}] // mảng chứa id các user mà được người này follow
   },
   { timestamps: true }
 );

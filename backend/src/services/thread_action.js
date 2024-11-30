@@ -1,5 +1,6 @@
 const likeThreadSchema = require("../models/Like_Thread");
 const Thread = require("../models/Thread");
+const User = require("../models/User");
 
 const likeThread = async (thread_id, user_id) => {
   try {
@@ -43,7 +44,7 @@ const unlikeThread = async (thread_id, user_id) => {
     const thread = await likeThreadSchema.findOne({ thread_id });
 
     if (!thread || !thread.user_id.includes(user_id)) {
-      return { message: "User has not liked this thread.", success: false};
+      return { message: "User has not liked this thread.", success: false };
     }
 
     // Remove user_id from the like schema
@@ -74,10 +75,82 @@ const checkLikeStatus = async (thread_id, user_id) => {
 
     const liked = thread.user_id.includes(user_id);
     const originalThread = await Thread.findById(thread_id);
-    return { liked, success: true , likeCnt: originalThread.like };
+    return { liked, success: true, likeCnt: originalThread.like };
   } catch (error) {
     console.error("Error checking like status:", error);
-    return { message: "Error checking like status.", liked: false, success: false, error};
+    return { message: "Error checking like status.", liked: false, success: false, error };
+  }
+};
+
+// const followUser = async (account_id, follower_id) => {
+//   try {
+//     //tìm người chủ động (follow người còn lại):
+//     const userFollow = await User.findOne({
+//       user_id: account_id
+//     });
+//     if (!userFollow) {
+//       return { message: "User want follow not found" };
+//     }
+
+//     //tìm người bị động (bị follow):
+//     const userIsFollowed = await User.findOne({
+//       user_id: follower_id
+//     });
+//     if (!userIsFollowed) {
+//       return { message: "User is followed not found" };
+//     }
+
+//     //kiểm tra xem trong người bị động đã được theo dõi bởi người chủ động chưa:
+//     if (userIsFollowed.followers.includes(follower_id)) {
+//       return { message: "You are already following this user" };
+//     }
+
+//     //Nếu chưa có, cập nhật mảng các người theo dõi following của người chủ động và followers của người bị động:
+//     userFollow.following.push(follower_id);
+//     await userFollow.save();
+
+//     userIsFollowed.followers.push(account_id);
+//     await userIsFollowed.save();
+
+//     return "Followed successfully";
+//   } catch (error){
+//     console.error("Error Follow User:", error);
+//     return { message: "Error when follow user." };
+//   }
+
+// };
+
+const followUser = async (account_id, follower_id) => {
+  try {
+    // Tìm người dùng chủ động (người muốn theo dõi)
+    const userFollow = await User.findOne({ user_id: account_id });
+    if (!userFollow) {
+      return "User to follow not found";  // Nếu không tìm thấy người dùng chủ động
+    }
+
+    // Tìm người dùng bị theo dõi
+    const userIsFollowed = await User.findOne({ user_id: follower_id });
+    if (!userIsFollowed) {
+      return "User to be followed not found";  // Nếu không tìm thấy người dùng bị theo dõi
+    }
+
+    // Kiểm tra xem người chủ động đã follow người bị động chưa
+    if (userFollow.following.includes(follower_id)) {
+      return "You are already following this user";  // Nếu đã theo dõi rồi thì không làm gì thêm
+    }
+
+    // Cập nhật mảng following của người chủ động (thêm vào người bị follow)
+    userFollow.following.push(follower_id);
+    await userFollow.save();
+
+    // Cập nhật mảng followers của người bị follow (thêm vào người chủ động)
+    userIsFollowed.followers.push(account_id);
+    await userIsFollowed.save();
+
+    return "Followed successfully";  // Trả về thông báo thành công
+  } catch (error) {
+    console.error(error);
+    throw new Error("An error occurred while trying to follow the user");
   }
 };
 
@@ -85,4 +158,5 @@ module.exports = {
   likeThread,
   unlikeThread,
   checkLikeStatus,
+  followUser,
 };

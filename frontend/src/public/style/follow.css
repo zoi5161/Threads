@@ -1,0 +1,44 @@
+#followersModal .modal-content, #followersList li, #followingList li {
+    background-color: #181818;
+    color: #f3f5f7;
+}
+
+.modal-body {
+    overflow-y: auto;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+.user-info-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 90%;
+    font-weight: bold;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.custom-modal {
+    max-width: 500px; /* Adjust width as needed */
+}
+
+.follower_wrapper:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

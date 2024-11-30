@@ -19,31 +19,31 @@
 //   },
 // ];
 function formatPostTime(createdAt) {
-  const now = new Date();
-  const postTime = new Date(createdAt);
-  const diffInMs = now - postTime;
-  const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
+    const now = new Date();
+    const postTime = new Date(createdAt);
+    const diffInMs = now - postTime;
+    const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
 
-  switch (true) {
-    case diffInMinutes < 1:
-      return "Vừa xong";
-    case diffInMinutes < 60:
-      return `${diffInMinutes} phút trước`;
-    case diffInMinutes < 60 * 24:
-      return `${Math.floor(diffInMinutes / 60)} giờ trước`;
-    case diffInMinutes < 60 * 24 * 7:
-      return `${Math.floor(diffInMinutes / (60 * 24))} ngày trước`;
-    default:
-      return postTime.toLocaleDateString("vi-VN", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      });
-  }
+    switch (true) {
+        case diffInMinutes < 1:
+            return "Vừa xong";
+        case diffInMinutes < 60:
+            return `${diffInMinutes} phút trước`;
+        case diffInMinutes < 60 * 24:
+            return `${Math.floor(diffInMinutes / 60)} giờ trước`;
+        case diffInMinutes < 60 * 24 * 7:
+            return `${Math.floor(diffInMinutes / (60 * 24))} ngày trước`;
+        default:
+            return postTime.toLocaleDateString("vi-VN", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+            });
+    }
 }
 
 function createPostHTML(post) {
-  return `
+    return `
     <div class="post" id="${post._id}">
         <div class="post-header">
             <div class="avatar">
@@ -65,7 +65,7 @@ function createPostHTML(post) {
                             <p style="font-size: 85%; color: #888">${post.user.num_follow + " người theo dõi"}</p>
                         </div>
                         <div class="modal-footer" style="border: none;">
-                            <button class="follow-btn" type="button">${post.user.follow_status}</button>
+                            <button class="follow-btn" type="button" onclick="followUser(${post.user.user_id})">${post.user.follow_status}</button>
                         </div>
                     </div>
                 </div>
@@ -168,21 +168,19 @@ function createPostHTML(post) {
             <p style="word-wrap: break-word; word-break: break-word">
                 ${post.content}
             </p>
-            ${
-              post.image_url
-                ? `
+            ${post.image_url
+            ? `
                     <div style="text-align: center; margin-bottom: 1rem;">
-                        ${
-                          post.media_type?.startsWith("video")
-                            ? `<video src="${post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
-                            : post.media_type?.startsWith("image")
-                              ? `<img src="${post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
-                              : `<p>Unsupported media type</p>`
-                        }
+                        ${post.media_type?.startsWith("video")
+                ? `<video src="${post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
+                : post.media_type?.startsWith("image")
+                    ? `<img src="${post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
+                    : `<p>Unsupported media type</p>`
+            }
                     </div>
                     `
-                : ""
-            }
+            : ""
+        }
         </div>
 
         <div class="post-footer">
@@ -201,14 +199,49 @@ function createPostHTML(post) {
 }
 
 async function createPost(posts) {
-  const postContainer = document.querySelector(".container_post");
-  posts.forEach((post) => {
-    postContainer.innerHTML += createPostHTML(post);
-  });
+    const postContainer = document.querySelector(".container_post");
+    posts.forEach((post) => {
+        postContainer.innerHTML += createPostHTML(post);
+    });
 }
 
 
 function transferUser(user_id) {
     // Chuyển hướng đến trang profile_user và truyền user_id qua query string
     window.location.href = `/Profile?user_id=${user_id}`;
+}
+
+async function followUser(user_id) {
+    const account_id = localStorage.getItem('account_id'); // Lấy account_id từ localStorage
+
+    // Đảm bảo rằng account_id và follower_id có giá trị
+    if (!account_id || !user_id) {
+        console.error("Missing account_id or follower_id");
+        return;
+    }
+
+    const data = {
+        account_id: account_id,
+        follower_id: user_id
+    };
+
+    try {
+        const response = await fetch('http://localhost:10000/thread_action/follow', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            console.log(result.message);  // Đang theo dõi thành công
+        } else {
+            console.error(result.message); // Lỗi từ backend
+        }
+    } catch (error) {
+        console.error('Error during follow action:', error);
+    }
 }

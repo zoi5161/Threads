@@ -1,28 +1,23 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hồ sơ · Threads</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/style/profile.css" />
-    <link rel="stylesheet" href="/style/home.css" />
-    <link rel="stylesheet" href="/style/navibar/navileft.css" />
-    <link rel="stylesheet" href="/style/navibar/navitop.css">
-    <link rel="stylesheet" href="/style/containerPost.css">
-    <link rel="stylesheet" href="/style/plus.css">
-    <link rel="stylesheet" href="/style/plusModal.css" />
-    <link rel="stylesheet" href="/style/three_dots.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hồ sơ · Threads</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/style/follow.css" />
+  <link rel="stylesheet" href="/style/profile.css" />
+  <link rel="stylesheet" href="/style/home.css" />
+  <link rel="stylesheet" href="/style/navibar/navileft.css" />
+  <link rel="stylesheet" href="/style/navibar/navitop.css">
+  <link rel="stylesheet" href="/style/containerPost.css">
+  <link rel="stylesheet" href="/style/plus.css">
+  <link rel="stylesheet" href="/style/plusModal.css" />
+  <link rel="stylesheet" href="/style/three_dots.css" />
 
 
   <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
@@ -31,7 +26,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  </head>
+</head>
 
 
 <body>
@@ -55,11 +50,12 @@
               </div>
               <div class="bio">Xin chào Thread</div>
               <div class="info_with_link_wrapper">
-                <a class="follower_wrapper" href="#">
+                <a class="follower_wrapper" data-bs-toggle="modal" data-bs-target="#followersModal">
                   <i class="bi bi-people"></i>
                   <span class="follower_count">0</span>
                   <span class="follower_text">Người theo dõi</span>
                 </a>
+                <%- include("../Partials/followModal.ejs") %>
                 <div class="social_link_container">
                   <div class="social_link_wrapper">
                     <a href="https://www.facebook.com" target="_blank">
@@ -277,11 +273,11 @@
           </div>
           <%- include("../Partials/plusIcon.ejs") %>
       </main>
-      
+
       <%- include("../Partials/commentModal.ejs") %>
     </div>
 
-    <button 
+    <!-- <button 
     class="active" 
     type="button"
     style="
@@ -311,11 +307,10 @@
               option_wrapper.style.display = 'flex';
               }">
       Change site
-    </button>
+    </button> -->
 
 </body>
 <script>
-  let currentElement; // Biến để lưu trữ phần tử hiện tại đang được chỉnh sửa
 
   function scrollToLeft() {
     const container = document.querySelector('.mission_container');
@@ -379,7 +374,37 @@
 
   const urlParams = new URLSearchParams(window.location.search);
   let user_id = urlParams.get('user_id');
-  user_id = user_id ? user_id : '1111';
+  const account_id = localStorage.getItem('account_id'); // Lấy account_id từ localStorage
+
+  // user_id = user_id ? user_id : account_id;
+
+  var profile_type = "";
+  if (user_id) {
+    profile_type = "other";
+    user_id = user_id;
+  } else {
+    profile_type = "edit";
+    user_id = account_id;
+  }
+
+  //lấy ý tưởng của nút button active để làm phần profile động, mỗi lần đăng nhập login thì lưu user_id của người đăng nhập vào localStorage.
+  //Rồi lấy ra sài như biến global toàn frontend. chỉnh nút bấm thành code luôn nếu user_id trên URL là của người khác còn không có thì là profile
+  //của chính bản thân. Mong Thanh chấp nhận cách code này.
+
+  const option_wrapper = document.querySelector('.option_wrapper');
+  const other_profile_wrapper = document.querySelector('.other_profile_wrapper');
+  const edit = document.querySelector('.edit');
+
+  if (profile_type === "edit") {
+    edit.style.display = 'flex';
+    other_profile_wrapper.style.display = 'none';
+    option_wrapper.style.display = 'none';
+  }else {
+    edit.style.display = 'none';
+    other_profile_wrapper.style.display = 'flex';
+    option_wrapper.style.display = 'flex';
+  }
+
   console.log(user_id);
   window.onload = async () => {
     handleScroll();
@@ -392,7 +417,7 @@
     //const edit_or_other_status = edit_or_other_button_respone.status;
     //const userData = await fetchUserData(user_id, edit_or_other_status);
 
-    const userData = await fetchUserData(user_id, 'edit');
+    const userData = await fetchUserData(user_id, profile_type);
 
     document.addEventListener('DOMContentLoaded', () => {
       const edit_profile_m = document.querySelectorAll('.edit_profile_m');
@@ -403,10 +428,10 @@
           showEditModal(); // Hiện modal mà không thay đổi nội dung
         });
       });
-  
+
       // Thêm sự kiện cho nút "Xong" trong Edit Extreme Modal
       const finishButton = document.querySelector('#editProfileModal #finish_button');
-      if (finishButton){
+      if (finishButton) {
         finishButton.addEventListener('click', () => {
           const newContent = document.getElementById('profile_edit_m').value; // Lấy giá trị từ textarea
           // Cập nhật nội dung của phần tử hiện tại
@@ -421,26 +446,29 @@
         });
       }
     });
-  
+
     const posts_fetched = await getAllThreads(`user/${user_id}`);
 
     for (const post of posts_fetched) {
-        post.user = userData; 
+      post.user = userData;
     }
 
-    await createPost(posts_fetched); 
+    await createPost(posts_fetched);
     postInteract();
-    
+
+    window.onload = followProcess(user_id);
+
   };
 
-  </script>
-  <script src="/js/three_dots.js"></script>
-  <script src="/js/createPost.js"></script>
-  <script src="/js/Thread/getAllThread.js"></script>
-  <script src="/js/postWrap.js"></script>
-  <script src="/js/getUserData.js"></script>
-  <script src="/js/Profile/getUser.js"></script>
-  <script src="/js/Profile/updateUser.js"></script>
-  <script src="/js/profileButton.js"></script>
+</script>
+<script src="/js/three_dots.js"></script>
+<script src="/js/createPost.js"></script>
+<script src="/js/Thread/getAllThread.js"></script>
+<script src="/js/postWrap.js"></script>
+<script src="/js/getUserData.js"></script>
+<script src="/js/Profile/getUser.js"></script>
+<script src="/js/Profile/updateUser.js"></script>
+<script src="/js/profileButton.js"></script>
+<script src="/js/Profile/follow.js"></script>
 
 </html>
