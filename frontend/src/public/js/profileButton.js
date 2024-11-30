@@ -1,7 +1,7 @@
-function createButtonHTML(user_id) {
+function createButtonHTML(user_id, account_id) {
   let html = "";
   let status = "";
-  if (user_id === "1111") {
+  if (user_id === account_id) {
     html = `
         <div class="edit">
 <button class="edit_btn" data-bs-toggle="modal" data-bs-target="#profileModal">Chỉnh sửa trang cá
