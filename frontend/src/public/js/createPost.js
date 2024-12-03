@@ -18,35 +18,58 @@
 //       "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
 //   },
 // ];
+function formatPostTime(createdAt) {
+    const now = new Date();
+    const postTime = new Date(createdAt);
+    const diffInMs = now - postTime;
+    const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
+
+    switch (true) {
+        case diffInMinutes < 1:
+            return "Vừa xong";
+        case diffInMinutes < 60:
+            return `${diffInMinutes} phút trước`;
+        case diffInMinutes < 60 * 24:
+            return `${Math.floor(diffInMinutes / 60)} giờ trước`;
+        case diffInMinutes < 60 * 24 * 7:
+            return `${Math.floor(diffInMinutes / (60 * 24))} ngày trước`;
+        default:
+            return postTime.toLocaleDateString("vi-VN", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+            });
+    }
+}
 
 function createPostHTML(post) {
-  return `
+    return `
     <div class="post" id="${post._id}">
         <div class="post-header">
             <div class="avatar">
-                <img src="${post.user.avatar}" />
+                <img src="${post.user.avt_url}" />
             </div>
             <div class="username-time">
-                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">${post.user.username}</div>
+                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)" onclick="transferUser(${post.user.user_id})">${post.user.full_name}</div>
                 <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
-                    <div class="modal-content">
-                        <div class="modal-header">
+                    <div class="modal-content" style="background-color: inherit;">
+                        <div class="modal-header" style="border: none;">
                             <div>
-                                <div class="user-name" style="font-size: 125%; font-weight: bold;">${post.user.fullName}</div>
+                                <div class="user-name" style="font-size: 125%; font-weight: bold;">${post.user.full_name}</div>
                                 <div class="user-username">${post.user.tag}</div>
                             </div>
-                            <img src="${post.user.avatar}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                            <img src="${post.user.avt_url}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" style="border: none;">
                             <p>${post.user.bio}</p>
-                            <p style="font-size: 85%; color: #888">${post.user.follower + " người theo dõi"}</p>
+                            <p style="font-size: 85%; color: #888">${post.user.num_follow + " người theo dõi"}</p>
                         </div>
-                        <div class="modal-footer">
-                            <button class="follow-btn" type="button">${post.user.follow_status}</button>
+                        <div class="modal-footer" style="border: none;">
+                            <button class="follow-btn" type="button" onclick="followUser(${post.user.user_id})">${post.user.follow_status}</button>
                         </div>
                     </div>
                 </div>
-                <div class="time">${post.createdAt}</div>
+                <div class="time">${formatPostTime(post.createdAt)}</div>
             </div>
             <div class="three_dots_button" style="color: var(--white); font-size: 100%; display: flex; justify-content: center; align-items: center; width: 10%; margin-left: 2rem">
                 <button style="color: var(--white); border-color: var(--border); border-radius: 50%; background-color: var(--black); height: 1.5rem; width: 1.5rem;"
@@ -142,25 +165,33 @@ function createPostHTML(post) {
             </div>
         </div>
         <div class="post-content">
-            <p style="word-wrap: break-word; word-break: break-word; white-space: pre-wrap;">${post.content}</p>
-            ${
-            post.image_url
-                ? `
-                <div style="text-align: center">
-                    <img class="post_img" src="${post.image_url}" alt="post image" style="max-width: 100%; max-height: 500px; border-radius: 10px; margin-bottom: 1rem">
-                </div>
-                `
-                : ""
+            <p style="word-wrap: break-word; word-break: break-word">
+                ${post.content}
+            </p>
+            ${post.image_url
+            ? `
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        ${post.media_type?.startsWith("video")
+                ? `<video src="${post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
+                : post.media_type?.startsWith("image")
+                    ? `<img src="${post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
+                    : `<p>Unsupported media type</p>`
             }
+                    </div>
+                    `
+            : ""
+        }
         </div>
+
         <div class="post-footer">
             <div class="like_btn">
-                <i class="far fa-heart" id="likeBtn"></i>
-                <span id="likeCnt">${post.like}</span>
+                <i class="far fa-heart likeBtn"></i>
+                <span class="likeCnt">Loading...</span>
             </div>
 
-            <div data-bs-toggle="modal" data-bs-target="#commentModal">
-                <i class="far fa-comment"></i>${post.comment}
+            <div class="comment_btn" data-bs-toggle="modal" data-bs-target="#commentModal">
+                <i class="far fa-comment commentBtn"></i>
+                <span class="commentCnt">${post.comment}</span>
             </div>
             <div><i class="fas fa-share"></i></div>
         </div>
@@ -168,8 +199,49 @@ function createPostHTML(post) {
 }
 
 async function createPost(posts) {
-  const postContainer = document.querySelector(".container_post");
-  posts.forEach((post) => {
-    postContainer.innerHTML += createPostHTML(post);
-  });
+    const postContainer = document.querySelector(".container_post");
+    posts.forEach((post) => {
+        postContainer.innerHTML += createPostHTML(post);
+    });
+}
+
+
+function transferUser(user_id) {
+    // Chuyển hướng đến trang profile_user và truyền user_id qua query string
+    window.location.href = `/Profile?user_id=${user_id}`;
+}
+
+async function followUser(user_id) {
+    const account_id = localStorage.getItem('account_id'); // Lấy account_id từ localStorage
+
+    // Đảm bảo rằng account_id và follower_id có giá trị
+    if (!account_id || !user_id) {
+        console.error("Missing account_id or follower_id");
+        return;
+    }
+
+    const data = {
+        account_id: account_id,
+        follower_id: user_id
+    };
+
+    try {
+        const response = await fetch('http://localhost:10000/thread_action/follow', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            console.log(result.message);  // Đang theo dõi thành công
+        } else {
+            console.error(result.message); // Lỗi từ backend
+        }
+    } catch (error) {
+        console.error('Error during follow action:', error);
+    }
 }

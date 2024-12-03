@@ -22,6 +22,9 @@ async function handleLogin(event) {
         const result = await response.json();
 
         if (response.ok) {
+            //lưu account_user đang truy cập đó vào localStorage để dễ truy cập trong toàn bộ frontend:
+            localStorage.setItem('account_id', result.account.user_id);
+            
             window.location.href = '/';
         } else {
             const errorElement = document.getElementById('error_message');

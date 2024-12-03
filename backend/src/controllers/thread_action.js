@@ -39,8 +39,24 @@ const checkLikeStatus = async (req, res) => {
   }
 };
 
+const followUser = async (req, res) => {
+  // const urlParams = new URLSearchParams(window.location.search);
+  // const account_id = urlParams.get('account_id');
+  // const follower_id = urlParams.get('user_id');
+
+  const { account_id, follower_id } = req.body;
+
+  try {
+    const followUserResponce = await threadActionService.followUser(account_id, follower_id);
+    res.status(200).json( { message: followUserResponce});
+  } catch(error) {
+    res.status(500).json({ message: error.message});
+  }
+}
+
 module.exports = {
   likeThread,
   unlikeThread,
   checkLikeStatus,
+  followUser
 };

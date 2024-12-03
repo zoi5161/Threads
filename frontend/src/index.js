@@ -58,6 +58,11 @@ app.get('/Search', (req, res) => {
     });
 });
 
+app.get('/profile_user', (req, res) => {
+    res.render(__dirname + "/pages/Profile/Profile_post.ejs", {
+        head_new: "Trôn Việt Lam"
+    });
+})
 app.listen(port, () => {
     console.log(`Listening on ${port}`);
 });

@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/style/follow.css" />
   <link rel="stylesheet" href="/style/profile.css" />
   <link rel="stylesheet" href="/style/home.css" />
   <link rel="stylesheet" href="/style/navibar/navileft.css" />
@@ -18,14 +19,6 @@
   <link rel="stylesheet" href="/style/plusModal.css" />
   <link rel="stylesheet" href="/style/three_dots.css" />
 
-  <!-- <link rel="stylesheet" href="/frontend/src/public/style/profile.css" />
-    <link rel="stylesheet" href="/frontend/src/public/style/home.css" />
-    <link rel="stylesheet" href="/frontend/src/public/style/navibar/navileft.css" />
-    <link rel="stylesheet" href="/frontend/src/public/style/navibar/navitop.css">
-    <link rel="stylesheet" href="/frontend/src/public/style/containerPost.css">
-    <link rel="stylesheet" href="/frontend/src/public/style/plus.css">
-    <link rel="stylesheet" href="/frontend/src/public/style/plusModal.css" />
-    <link rel="stylesheet" href="/frontend/src/public/style/three_dots.css" /> -->
 
   <script src="https://kit.fontawesome.com/434b26bb0d.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -33,13 +26,8 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <script src="/js/postWrap.js"></script>
-  <script src="/js/createPost.js"></script>
-
-  <!-- <script src="/frontend/src/public/js/postWrap.js"></script>
-    <script src="/frontend/src/public/js/createPost.js"></script> -->
-
 </head>
+
 
 <body>
   <%- include("../Partials/naviLeft.ejs") %>
@@ -62,34 +50,36 @@
               </div>
               <div class="bio">Xin chào Thread</div>
               <div class="info_with_link_wrapper">
-                <a class="follower_wrapper" href="#">
+                <a class="follower_wrapper" data-bs-toggle="modal" data-bs-target="#followersModal">
                   <i class="bi bi-people"></i>
                   <span class="follower_count">0</span>
                   <span class="follower_text">Người theo dõi</span>
                 </a>
-                <div class="social_link_container">
-                  <div class="social_link_wrapper">
-                    <a href="https://www.facebook.com" target="_blank">
-                      <span class="social_link_text">Facebook.com-link-to-fb-long-overflow</span>
-                    </a>
+                <%- include("../Partials/followModal.ejs") %>
+                  <div class="social_link_container">
+                    <div class="social_link_wrapper">
+                      <a href="https://www.facebook.com" target="_blank">
+                        <span class="social_link_text">Facebook.com-link-to-fb-long-overflow</span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="profile_btn_wrapper">
-                  <div class="insta_wrapper">
-                    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-                      <i class="bi bi-instagram" style="font-size: 1.5rem"></i>
-                    </a>
+                  <div class="profile_btn_wrapper">
+                    <div class="insta_wrapper">
+                      <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                        <i class="bi bi-instagram" style="font-size: 1.5rem"></i>
+                      </a>
+                    </div>
+                    <div class="option_wrapper">
+                      <%- include("../Partials/three_dots_profile.ejs") %>
+                    </div>
                   </div>
-                  <div class="option_wrapper">
-                    <%- include("../Partials/three_dots_profile.ejs") %>
-                  </div>
-                </div>
               </div>
             </div>
-            <div class="edit">
+            <div class="edit_or_other_button" style="width: 100%"></div>
+            <!-- <div class="edit">
               <button class="edit_btn" data-bs-toggle="modal" data-bs-target="#profileModal">Chỉnh sửa trang cá
                 nhân</button>
-            </div>
+            </div> -->
 
             <!--Edit Modal Structure -->
             <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel"
@@ -150,7 +140,8 @@
                     </div>
                   </div>
                   <div class="done_btn_m">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">Xong</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal"
+                      onclick="update_User('1111')">Xong</button>
                   </div>
                 </div>
               </div>
@@ -168,8 +159,8 @@
                     </div>
                     <h5 class="modal-title" id="editProfileModalLabel2">Chỉnh sửa trang cá nhân</h5>
                     <div class="modal-2-header-btn">
-                      <button type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal"
-                        aria-label="Close">Xong</button>
+                      <button id="finish_button" type="button" class="btn" style="color: var(--white)"
+                        data-bs-dismiss="modal" aria-label="Close">Xong</button>
                     </div>
                   </div>
                   <div class="modal-body">
@@ -186,26 +177,7 @@
 
 
 
-            <div class="other_profile_wrapper">
-              <button class="follow" onclick="
-              if (this.innerHTML.trim() === 'Theo dõi') {
-                this.innerHTML = 'Đang theo dõi';
-                this.style.backgroundColor = 'var(--black)';
-                this.style.color = 'var(--white)';
-                this.style.fontWeight = 'bold';
-              } else {
-                this.innerHTML = 'Theo dõi';
-                this.style.backgroundColor = 'var(--white)';
-                this.style.color = 'var(--post)'; 
-                this.style.fontWeight = '500';
-              }
-            ">
-                Theo dõi
-              </button>
-              <button class="tag">
-                Nhắc đến
-              </button>
-            </div>
+
             <div class="tab_section">
               <a href="" id="thread">Thread</a>
               <a href="" id="reply">Thread trả lời</a>
@@ -284,88 +256,126 @@
           <%- include("../Partials/plusIcon.ejs") %>
       </main>
 
+      <%- include("../Partials/commentModal.ejs") %>
     </div>
-    <button class="active" type="button" style="
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      background-color: #3498db; 
-      color: var(--white); 
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      " onclick="const option_wrapper = document.querySelector('.option_wrapper');
-            
-            const other_profile_wrapper =  document.querySelector('.other_profile_wrapper');
-            const edit = document.querySelector('.edit');
-
-            if (edit.style.display === 'none') {
-              edit.style.display = 'flex';
-              other_profile_wrapper.style.display = 'none';
-              option_wrapper.style.display = 'none';
-              } else {
-              edit.style.display = 'none';
-              other_profile_wrapper.style.display = 'flex';
-              option_wrapper.style.display = 'flex';
-              }">
-      Change site
-    </button>
 
 </body>
 <script>
-  function scrollToLeft() {
-    const container = document.querySelector('.mission_container');
-    container.scrollBy({ left: -500, behavior: 'smooth' });
-  }
 
-  function scrollToRight() {
-    const container = document.querySelector('.mission_container');
-    container.scrollBy({ left: 500, behavior: 'smooth' });
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    // Xử lý cuộn container
+    handleScroll();
 
+    // Gán sự kiện cho nút chỉnh sửa
+    handleEditButtons();
+
+    // Gán sự kiện nút "Xong" trong modal
+    const finishButton = document.querySelector('#editProfileModal #finish_button');
+    if (finishButton) {
+      finishButton.addEventListener('click', handleFinishEdit);
+    }
+  });
+
+  window.onload = async () => {
+    //lấy ý tưởng của nút button active để làm phần profile động, mỗi lần đăng nhập login thì lưu user_id của người đăng nhập vào localStorage.
+    //Rồi lấy ra sài như biến global toàn frontend. chỉnh nút bấm thành code luôn nếu user_id trên URL là của người khác còn không có thì là profile
+    //của chính bản thân. Mong Thanh chấp nhận cách code này.
+    const urlParams = new URLSearchParams(window.location.search);
+    let user_id = urlParams.get('user_id');
+    const account_id = localStorage.getItem('account_id'); // Lấy account_id từ localStorage
+    console.log(user_id);
+    user_id = user_id ? user_id : account_id;
+
+    // Xử lý nút edit/other
+    const edit_or_other_button = document.querySelector('.edit_or_other_button');
+    const edit_or_other_button_respone = createButtonHTML(user_id, account_id);
+    edit_or_other_button.innerHTML = edit_or_other_button_respone.html;
+    const edit_or_other_status = edit_or_other_button_respone.status;
+
+    // Lấy dữ liệu người dùng
+    const userData = await fetchUserData(user_id, edit_or_other_status);
+
+    // Lấy danh sách bài viết và khởi tạo
+    const posts_fetched = await getAllThreads(`user/${user_id}`);
+    posts_fetched.forEach((post) => (post.user = userData));
+    await createPost(posts_fetched);
+    postInteract();
+
+    followProcess(user_id)
+  };
+
+  // Xử lý cuộn container
   function handleScroll() {
     const container = document.querySelector('.mission_container');
     const scrollLeftBtn = document.getElementById('scrollLeftBtn');
     const scrollRightBtn = document.getElementById('scrollRightBtn');
 
-    // Kiểm tra xem container có cuộn về đầu không
-    if (container.scrollLeft <= 0) {
-      scrollLeftBtn.classList.add('hidden');
-    } else {
-      scrollLeftBtn.classList.remove('hidden');
-    }
+    if (!container || !scrollLeftBtn || !scrollRightBtn) return;
 
-    // Kiểm tra xem container có cuộn đến cuối không
-    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
-      scrollRightBtn.classList.add('hidden');
-    } else {
-      scrollRightBtn.classList.remove('hidden');
-    }
+    // Gán sự kiện cuộn container
+    container.addEventListener('scroll', () => {
+      if (container.scrollLeft <= 0) {
+        scrollLeftBtn.classList.add('hidden');
+      } else {
+        scrollLeftBtn.classList.remove('hidden');
+      }
+
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+        scrollRightBtn.classList.add('hidden');
+      } else {
+        scrollRightBtn.classList.remove('hidden');
+      }
+    });
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  // Gán sự kiện cho các nút chỉnh sửa
+  function handleEditButtons() {
     const edit_profile_m = document.querySelectorAll('.edit_profile_m');
+    if (!edit_profile_m) return;
 
     edit_profile_m.forEach((element) => {
       element.addEventListener('click', () => {
+        currentElement = element; // Lưu trữ phần tử hiện tại
         showEditModal();
       });
     });
-  });
-
-  function showEditModal() {
-    var modal = new bootstrap.Modal(document.getElementById('editProfileModal'));
-    modal.show();
   }
 
-  // Gọi hàm handleScroll() để cập nhật trạng thái khi trang tải
-  window.onload = handleScroll;
+  // Xử lý cập nhật nội dung khi nhấn nút "Xong" trong modal
+  function handleFinishEdit() {
+    const modalElement = document.getElementById('editProfileModal');
+    const textArea = document.getElementById('profile_edit_m');
+    if (!modalElement || !textArea) return;
 
+    const newContent = textArea.value;
+    if (newContent !== 'Nhập thông tin bạn muốn thay đổi' && currentElement) {
+      currentElement.innerText = newContent;
+    }
+
+    // Đóng modal
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) modal.hide();
+  }
+
+  // Hiển thị modal chỉnh sửa
+  function showEditModal() {
+    const modalElement = document.getElementById('editProfileModal');
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+    } else {
+      console.error('Modal element not found!');
+    }
+  }
 </script>
 <script src="/js/three_dots.js"></script>
+<script src="/js/createPost.js"></script>
+<script src="/js/Thread/getAllThread.js"></script>
+<script src="/js/postWrap.js"></script>
+<script src="/js/getUserData.js"></script>
 <script src="/js/Profile/getUser.js"></script>
+<script src="/js/Profile/updateUser.js"></script>
+<script src="/js/profileButton.js"></script>
+<script src="/js/Profile/follow.js"></script>
 
 </html>

@@ -1,5 +1,5 @@
 // Hàm gọi API để lấy dữ liệu user
-async function fetchUserData(userId) {
+async function fetchUserData(userId, edit_or_other_status) {
     try {
       // Gọi API tới backend
       const response = await fetch('http://localhost:10000/profile', {
@@ -27,17 +27,20 @@ async function fetchUserData(userId) {
 
       document.querySelector('.create_thread img').src = userData.avt_url || 'default-avatar-url.png';
 
-      //cập nhật giao diện update infor:
-      document.querySelector('#editName').innerText = userData.full_name || "Username";
-      document.querySelector('.avt_m img').src = userData.avt_url || 'default-avatar-url.png';
-      document.querySelector('#editBio').innerText = userData.bio || 'No bio available';
-      document.querySelector('#link_social_m').innerText = userData.link_fb;
+      if (edit_or_other_status === 'edit') {
+        //cập nhật giao diện update infor:
+        document.querySelector('#editName').innerText = userData.full_name || "Username";
+        document.querySelector('.avt_m img').src = userData.avt_url || 'default-avatar-url.png';
+        document.querySelector('#editBio').innerText = userData.bio || 'No bio available';
+        document.querySelector('#link_social_m').innerText = userData.link_fb;
+      }
+      return userData;
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
   }
 
-  window.onload = fetchUserData("1111");
+  // window.onload = fetchUserData("1111");
   // Gọi hàm fetchUserData() khi trang tải
   // document.addEventListener('DOMContentLoaded', () => {
   //   const userId = '1111'; // Thay bằng user_id mà bạn muốn lấy từ backend

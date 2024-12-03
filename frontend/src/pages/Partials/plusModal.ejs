@@ -46,7 +46,6 @@
             <input
               type="file"
               id="image-upload"
-              accept="image/*"
               style="display: none"
               aria-label="Upload an image file"
               name="image"
@@ -75,40 +74,75 @@
 </div>
 
 <script>
-  // Handle file selection and image preview
-  const imageInput = document.getElementById("image-upload");
-  const imagePreviewContainer = document.getElementById("image-preview-container");
-  const imagePreview = document.getElementById("image-preview");
+  // Handle file selection and media preview
+  const mediaInput = document.getElementById("image-upload");
+  const previewContainer = document.getElementById("image-preview-container");
+  const mediaPreview = document.getElementById("image-preview");
+  const deleteButton = document.getElementById("delete-image");
 
-  imageInput.addEventListener("change", function (event) {
+  mediaInput.addEventListener("change", function (event) {
     const file = event.target.files[0];
+  
     if (file) {
+      // Kiểm tra dung lượng file (10 MB = 10 * 1024 * 1024 bytes)
+      if (file.size > 10 * 1024 * 1024) {
+        alert("Dung lượng file phải nhỏ hơn 10 MB.");
+        mediaInput.value = ""; // Xóa file trong input
+        return;
+      }
+  
       const reader = new FileReader();
       reader.onload = function (e) {
-        // Set the image preview source to the selected file
-        imagePreview.src = e.target.result;
-        // Display the preview container
-        imagePreviewContainer.style.display = "block";
+        // Xác định loại file
+        const fileType = file.type.split("/")[0];
+        previewContainer.innerHTML = ""; // Xóa nội dung cũ trong previewContainer
+  
+        if (fileType === "image") {
+          // Tạo thẻ <img> để hiển thị ảnh
+          const image = document.createElement("img");
+          image.src = e.target.result;
+          image.style.width = "100%";
+          image.style.height = "auto";
+          previewContainer.appendChild(image);
+        } else if (fileType === "video") {
+          // Tạo thẻ <video> để hiển thị video
+          const video = document.createElement("video");
+          video.src = e.target.result;
+          video.controls = true; // Hiển thị điều khiển video (play/pause, etc.)
+          video.style.width = "100%";
+          video.style.height = "auto";
+          previewContainer.appendChild(video);
+        } else {
+          alert("Loại file không được hỗ trợ. Vui lòng tải ảnh hoặc video.");
+          mediaInput.value = ""; // Xóa file trong input
+          return;
+        }
+  
+        // Thêm nút xóa
+        previewContainer.appendChild(deleteButton);
+  
+        // Hiển thị preview container
+        previewContainer.style.display = "block";
       };
-      reader.readAsDataURL(file); // Read the image file as a data URL
+  
+      reader.readAsDataURL(file); // Đọc file dưới dạng data URL
     }
   });
-
-  const imageDel = document.getElementById("delete-image");
-  imageDel.addEventListener("click", function () {
-    // Clear the image preview
-    imagePreview.src = "";
-    // Hide the image preview container
-    imagePreviewContainer.style.display = "none";
-    // Clear the file input value to allow re-uploading the same file
-    imageInput.value = "";
+  
+  // Nút xóa để xóa preview và reset input
+  deleteButton.addEventListener("click", function () {
+    previewContainer.innerHTML = ""; // Xóa nội dung trong container
+    previewContainer.style.display = "none"; // Ẩn container
+    mediaInput.value = ""; // Reset input file
   });
+  
 
-  const textarea = document.querySelector('.input-box');
+  const textarea = document.querySelector(".input-box");
 
-  textarea.addEventListener('input', () => {
-    textarea.style.height = 'auto'; // Reset the height to recalculate
+  textarea.addEventListener("input", () => {
+    textarea.style.height = "auto"; // Reset the height to recalculate
     textarea.style.height = `${textarea.scrollHeight}px`; // Set height to match content
   });
 </script>
+
 

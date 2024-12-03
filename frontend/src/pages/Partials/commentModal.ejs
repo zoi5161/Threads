@@ -1,72 +1,272 @@
-<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered"
-        style="margin-top: 2rem; border-radius: 10px; max-width: 768px; width: 638px;">
-        <div class="modal-content" style="background-color: var(--post); color: var(--white); padding: 0;">
-            <div class="modal-header" style="border-bottom: none; padding: 10px 20px;">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                    style="background-color: var(--post); border: none; color: var(--white);">Hủy</button>
-                <span class="mx-auto" style="font-weight: bold; text-align: center; flex-grow: 1;">Thread trả
-                    lời</span>
+<div
+  class="modal fade"
+  id="commentModal"
+  tabindex="-1"
+  aria-labelledby="commentModalLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered"
+    style="
+      margin-top: 2rem;
+      border-radius: 10px;
+      max-width: 768px;
+      width: 638px;
+    "
+  >
+    <div
+      class="modal-content"
+      style="background-color: var(--post); color: var(--white); padding: 0; max-width: 95vw"
+    >
+      <div class="modal-header" style="border-bottom: none; padding: 10px 20px">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          style="
+            background-color: var(--post);
+            border: none;
+            color: var(--white);
+          "
+        >
+          Hủy
+        </button>
+        <span
+          class="mx-auto"
+          style="font-weight: bold; text-align: center; flex-grow: 1"
+          >Thread trả lời</span
+        >
+      </div>
+
+      <hr style="border-color: var(--white); margin: 0" />
+
+      <div class="modal-body" style="padding: 20px">
+        <div class="container_post_comment"></div>
+
+        <div class="current_user_container"></div>
+        
+        <form id="create_thread_form_comment" style="margin: 0 5rem;">
+            <div class="input-section">
+                <textarea
+                class="input-box"
+                placeholder="Trả lời"
+                name="content_comment"
+                style="min-height: 100px;"
+                ></textarea>
+
+                <div
+                id="image-preview-container-comment"
+                style="display: none; position: relative; text-align: center"
+                >
+                <img id="image-preview-comment" />
+                <button
+                    type="button"
+                    id="delete-image-comment"
+                    class="btn btn-danger"
+                    style="position: absolute; top: 10px; right: 10px; padding: 3px"
+                >
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+                </div>
+
+                <div class="icon-group icon-group-comment">
+                <label for="image-upload-comment" class="upload-icon">
+                    <i class="fa-regular fa-image"></i>
+                    <input
+                    type="file"
+                    id="image-upload-comment"
+                    style="display: none"
+                    aria-label="Upload an image file"
+                    name="image_comment"
+                    />
+                </label>
+                <button type="button">GIF</button>
+                <button type="button" aria-label="Hashtag">
+                    <i class="fa-solid fa-hashtag"></i>
+                </button>
+                <button type="button" aria-label="Location">
+                    <i class="fa-solid fa-location-dot"></i>
+                </button>
             </div>
+            </div>
+        </form>
+      </div>
+      <div
+        class="modal-footer"
+        style="
+          background-color: var(--post);
+          border-top: none;
+          display: flex;
+          justify-content: space-between;
+          padding: 10px 20px;
+        "
+      >
+        <button
+          class="reply-settings"
+          style="
+            background: none;
+            border: none;
+            color: var(--iconInPost);
+            font-size: 0.85rem;
+          "
+        >
+          Bất kỳ ai cũng có thể trả lời và trích dẫn
+        </button>
+        <button
+          class="post-btn"
+          id="post-btn-comment"
+          type="button"
+        >
+          Đăng
+        </button>
+      </div>
+    </div>
+  </div>
 
-            <hr style="border-color: var(--white); margin: 0;">
+</div>
+<script>
+  document.addEventListener("focusin", (event) => {
+    const modal = document.getElementById("commentModal");
+    if(modal)
+    {
+        const content_of_comment_modal = modal.querySelector(".post-content")
 
-            <div class="modal-body" style="padding: 20px;">
-                <div class="post-header" style="display: flex; align-items: center; margin-bottom: 10px;">
-                    <div class="avatar"
-                        style="margin-right: 10px; width: 40px; height: 40px; border-radius: 50%; background: var(--gray);">
-                    </div>
-                    <div class="username-time">
-                        <div class="username" style="font-weight: bold;">page.1999_th</div>
-                        <div class="time" style="color: var(--iconInPost);">21 giờ</div>
+        if(content_of_comment_modal){
+            const image_in_comment_modal = content_of_comment_modal.querySelector("img");
+            console.log(image_in_comment_modal);
+            if(image_in_comment_modal) {
+                image_in_comment_modal.style.maxHeight = "10rem";
+            }
+        
+            const video_in_comment_modal = content_of_comment_modal.querySelector("video");
+            if(video_in_comment_modal) {
+                video_in_comment_modal.style.maxHeight = "10rem";
+            }
+        }
+
+
+        if (
+            modal.getAttribute("aria-hidden") === "true" &&
+            modal.contains(event.target)
+          ) {
+            // Prevent focus inside hidden modal
+            event.target.blur();
+          }
+    }
+    
+
+  });
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const mediaInput = document.querySelector("#image-upload-comment");
+    const previewContainer = document.querySelector("#image-preview-container-comment");
+    const textArea = document.querySelector("textarea[name='content_comment']");
+    const modal = document.getElementById("commentModal");
+  
+    mediaInput.addEventListener("change", function (event) {
+      const file = event.target.files[0];
+  
+      if (file) {
+        if (file.size > 10 * 1024 * 1024) {
+          alert("Dung lượng file phải nhỏ hơn 10 MB.");
+          mediaInput.value = "";
+          return;
+        }
+  
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          previewContainer.innerHTML = ""; // Clear previous content
+  
+          const fileType = file.type.split("/")[0];
+  
+          if (fileType === "image") {
+            const image = document.createElement("img");
+            image.src = e.target.result;
+            image.style.width = "100%";
+            image.style.height = "auto";
+            previewContainer.appendChild(image);
+          } else if (fileType === "video") {
+            const video = document.createElement("video");
+            video.src = e.target.result;
+            video.controls = true;
+            video.style.width = "100%";
+            video.style.height = "auto";
+            previewContainer.appendChild(video);
+          } else {
+            alert("Loại file không được hỗ trợ. Vui lòng tải ảnh hoặc video.");
+            mediaInput.value = "";
+            return;
+          }
+  
+          const deleteButton = document.createElement("button");
+          deleteButton.type = "button";
+          deleteButton.classList.add("btn", "btn-danger");
+          deleteButton.style.position = "absolute";
+          deleteButton.style.top = "10px";
+          deleteButton.style.right = "10px";
+          deleteButton.style.padding = "3px";
+          deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+  
+          previewContainer.appendChild(deleteButton);
+          previewContainer.style.display = "block";
+  
+          deleteButton.addEventListener("click", function () {
+            previewContainer.innerHTML = "";
+            previewContainer.style.display = "none";
+            mediaInput.value = "";
+          });
+        };
+  
+        reader.readAsDataURL(file);
+      }
+    });
+  
+    // Clear textarea and image preview when modal is hidden
+    modal.addEventListener("hidden.bs.modal", () => {
+      textArea.value = ""; // Clear textarea
+      previewContainer.innerHTML = ""; // Clear image/video preview
+      previewContainer.style.display = "none"; // Hide the container
+      mediaInput.value = ""; // Reset the file input
+    });
+  });
+  
+  const current_user_container = document.querySelector('.current_user_container');
+
+  const current_user = {
+    avatar: "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
+    username: "_10.nov_",
+    fullName: "Huyền Thủy",
+    tag: "@ngocne2744",
+    bio: "Zui zẻ",
+    follower: "299",
+    follow_status: "Theo dõi",
+  }
+
+  current_user_container.innerHTML = `
+          <div class="post-header">
+            <div class="avatar">
+                <img src="${current_user.avatar}" />
+            </div>
+            <div class="username-time">
+                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">${current_user.username}</div>
+                <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
+                    <div class="modal-content" style="background-color: inherit;">
+                        <div class="modal-header" style="border: none;">
+                            <div>
+                                <div class="user-name" style="font-size: 125%; font-weight: bold;">${current_user.fullName}</div>
+                                <div class="user-username">${current_user.tag}</div>
+                            </div>
+                            <img src="${current_user.avatar}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                        </div>
+                        <div class="modal-body" style="border: none;">
+                            <p>${current_user.bio}</p>
+                            <p style="font-size: 85%; color: #888">${current_user.follower + " người theo dõi"}</p>
+                        </div>
+                        <div class="modal-footer" style="border: none;">
+                            <button class="follow-btn" type="button">${current_user.follow_status}</button>
+                        </div>
                     </div>
                 </div>
-                <p style="margin-left: 60px; color: var(--white); margin-bottom: 20px;">| 11 tháng 11 | - Quốc Tế Độc
-                    Thân.<br />Ai còn đang độc thân thì tim đi 🫶🏻</p>
-
-                <form action="#" method="get">
-                    <div style="display: flex; align-items: flex-start; gap: 10px;">
-                        <div class="avatar" style="width: 40px; height: 40px; border-radius: 50%; background: var(--gray);">
-                        </div>
-                        <div class="username" style="font-weight: bold;">_.vteif</div>
-                    </div>
-                    <div style="display: flex; flex-direction: column; margin-left: 60px;">
-                        <textarea class="form-control" placeholder="Trả lời page.1999_th..." rows="1" name="Trả lời"
-                            style="background-color: var(--post); border: none; border-radius: 20px; color: var(--white); padding: 10px; resize: none;"></textarea>
-                        <div class="icon-group" style="display: flex; gap: 8px; color: var(--iconInPost);">
-                            <label for="image-upload" style="cursor: pointer;">
-                                <i class="fa-regular fa-image"></i>
-                                <input type="file" id="image-id-upload" accept="image/*" style="display: none;">
-                            </label>
-                            <button type="button"
-                                style="background: none; border: none; color: var(--iconInPost);"><strong>GIF</strong></button>
-                            <button type="button" style="background: none; border: none; color: var(--iconInPost);"><i
-                                    class="fa-solid fa-hashtag"></i></button>
-                            <button type="button" style="background: none; border: none; color: var(--iconInPost);"><i
-                                    class="fa-solid fa-location-dot"></i></button>
-                        </div>
-                    </div>
-                </form>
             </div>
-            <div class="modal-footer"
-                style="background-color: var(--post); border-top: none; display: flex; justify-content: space-between; padding: 10px 20px;">
-                <button class="reply-settings"
-                    style="background: none; border: none; color: var(--iconInPost); font-size: 0.85rem;">Bất kỳ
-                    ai cũng có thể trả lời và trích dẫn</button>
-                <input type="submit" value="Đăng" class="post-btn"
-                    style="background-color: var(--post); color: var(--iconInPost); border: none; padding: 5px 15px; border-radius: 10px; font-weight: bold;"></input>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    document.addEventListener("focusin", (event) => {
-        const modal = document.getElementById("commentModal");
-        if (modal.getAttribute("aria-hidden") === "true" && modal.contains(event.target)) {
-          // Prevent focus inside hidden modal
-          event.target.blur();
-        }
-      });
-      
+        </div>`;
 </script>
