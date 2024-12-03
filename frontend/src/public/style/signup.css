@@ -1,0 +1,145 @@
+@import url('colors.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--post);
+    height: 100vh;
+    width: 100%;
+}
+
+.login_banner {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 25vw; 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+    position: relative;
+    height: 100vh;
+}
+
+h2 {
+    color: var(--iconInPost);
+    margin-bottom: 1rem;
+    font-size: large;
+}
+
+.signup_container {
+    height: 25rem;
+    width: 25rem;
+    /* background-color: aquamarine; */
+    position: absolute;
+    padding: 2rem;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#signup_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+#signup_form * {
+    width: 100%;
+    padding: 0.5rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--black);
+    font-size: 0.7rem;
+}
+
+#signup_form input {
+    background-color: var(--border);
+    color: var(--iconInPost);
+    outline: none;
+}
+
+#signup_form button{
+    cursor: pointer;
+}
+
+#error{
+    color: red;
+    font-size: 15px;
+    margin-top: 1.25rem;
+    min-height: 20px;
+}
+
+#error_message{
+    display: none;
+}
+
+.sign_up, .forgot_password {
+    text-decoration: none;
+    margin-top: 1rem;
+    color: var(--iconInPost);
+}
+
+.sign_up {
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    width: auto;
+    font-weight: bold;
+    border: 1px solid var(--iconInPost);
+    margin-top: 0;
+}
+
+.sign_up:hover {
+    background-color: var(--iconInPost);
+    color: var(--black);
+    cursor: pointer;
+}
+
+.or {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 1rem 0;
+    color: var(--iconInPost);
+    font-size: 0.8rem;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background-color: var(--iconInPost);
+}
+
+.or_text {
+    margin: 0 0.5rem;
+    font-weight: bold;
+    color: var(--iconInPost);
+}
+
+@media screen and (max-height: 768px){
+    .signup_container {
+        top: 55%;
+    }
+}
+
+@media screen and (max-height: 920px) and (min-height: 769px){
+    .signup_container {
+        top: 50%;
+    }
+}

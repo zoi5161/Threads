@@ -17,7 +17,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/Login', (req, res) => {
-    res.render(__dirname + "/pages/Login/login.ejs");
+    res.render(__dirname + "/pages/Authenticate/login.ejs");
+});
+
+app.get('/Signup', (req, res) => {
+    res.render(__dirname + "/pages/Authenticate/signup.ejs");
+});
+
+app.get('/Sendcode', (req, res) => {
+    res.render(__dirname + "/pages/Authenticate/sendcode.ejs");
 });
 
 app.get('/Home', (req, res) => {

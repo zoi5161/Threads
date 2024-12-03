@@ -2,19 +2,20 @@ const cors = require("cors"); //Prevent CORS errors
 const express = require("express"); //Use express
 const mongoose = require("mongoose"); //Use mongoose
 const routes = require("./routes/index"); //Connect to index.js in routes folder
+const session = require('express-session');
+
 require("dotenv").config({ path: "src/config/.env" });
 
 const app = express();
 
-app.use(cors(
-  {
-    origin: '*',
-    method: '*',
-    allowedHeaders: '*',
-  }
-)); //Prevent CORS errors
-
 app.use(express.json()); //Use JSON
+
+app.use(session({
+  secret: 'your_secret_key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 5 * 60 * 1000 } // Hết hạn sau 5 phút
+}));
 
 app.use(routes); //Connect to index.js in routes folder
 

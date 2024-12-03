@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authenticate Page</title>
+
+    <link rel="stylesheet" href="/style/signup.css">
+
+    <script src="/js/signup.js"></script>
+    <!-- <link rel="stylesheet" href="/frontend/src/public/style/login.css"> -->
+    <!-- <script src="/frontend/src/public/js/login.js"></script> -->
+
+</head>
+<body>
+    <img src="https://static.cdninstagram.com/rsrc.php/v3/y-/r/1qBAnProrEa.png" alt="banner" class="login_banner">
+    <div class="container">
+        <div class="signup_container">
+            <h2>Đăng nhập bằng tài khoản Instagram</h2>
+            <form id="signup_form" onsubmit="handleSignup(event)">
+                <input type="text" name="username" placeholder="Tên người dùng" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Mật khẩu" required>
+                <input type="password" name="confirm_password" placeholder="Nhập lại mật khẩu" required>
+                <button type="submit">Đăng Ký</button>
+            </form>
+            <div id="error">
+                <p id="error_message">Mật khẩu không đúng</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
