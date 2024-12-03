@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const User = require('./src/models/User'); // Đảm bảo rằng bạn đã import đúng model User
 
 // Kết nối MongoDB
-mongoose.connect('mongodb+srv://pvtai22:pvtai22@cluster0.oqonn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB:', err));
 
