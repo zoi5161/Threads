@@ -286,9 +286,18 @@
     console.log(user_id);
     user_id = user_id ? user_id : account_id;
 
+    // lấy trạng thái theo dõi:
+    const user = await getUserData(account_id);
+    let follow_status = "";
+    if (user.following.includes(user_id)) {
+      follow_status = "Đang theo dõi";
+    } else {
+      follow_status = "Theo dõi";
+    }
+
     // Xử lý nút edit/other
     const edit_or_other_button = document.querySelector('.edit_or_other_button');
-    const edit_or_other_button_respone = createButtonHTML(user_id, account_id);
+    const edit_or_other_button_respone = createButtonHTML(user_id, account_id, follow_status);
     edit_or_other_button.innerHTML = edit_or_other_button_respone.html;
     const edit_or_other_status = edit_or_other_button_respone.status;
 
@@ -302,6 +311,33 @@
     postInteract();
 
     followProcess(user_id)
+
+    // thêm chức năng follow vs unfollow cho profile:
+    document.querySelector('.other_profile_wrapper button').addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (follow_status === "Theo dõi") {
+        await followUser(user_id);
+        window.location.reload();
+      } else if (follow_status === "Đang theo dõi") {
+        await unFollowUser(user_id);
+        window.location.reload();
+      }
+    });
+
+    //thay đổi trạng thái button follow: (sau khi thử cả trăm cách thì có cách này đc :<)
+    button_follow = document.querySelector('.other_profile_wrapper button');
+
+    if (button_follow.innerText.trim() === 'Đang theo dõi') {
+      button_follow.innerHTML = 'Đang theo dõi';
+      button_follow.style.backgroundColor = 'var(--black)';
+      button_follow.style.color = 'var(--white)';
+      button_follow.style.fontWeight = 'bold';
+    } else {
+      button_follow.innerHTML = 'Theo dõi';
+      button_follow.style.backgroundColor = 'var(--white)';
+      button_follow.style.color = 'var(--post)'; 
+      button_follow.style.fontWeight = '500';
+    }
   };
 
   // Xử lý cuộn container
@@ -367,6 +403,7 @@
       console.error('Modal element not found!');
     }
   }
+
 </script>
 <script src="/js/three_dots.js"></script>
 <script src="/js/createPost.js"></script>

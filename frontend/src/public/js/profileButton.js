@@ -1,4 +1,4 @@
-function createButtonHTML(user_id, account_id) {
+function createButtonHTML(user_id, account_id, follow_status) {
   let html = "";
   let status = "";
   if (user_id === account_id) {
@@ -12,20 +12,8 @@ status = 'edit';
   } else {
     html = `
         <div class="other_profile_wrapper" style="display: flex;">
-<button class="follow" onclick="
-if (this.innerHTML.trim() === 'Theo dõi') {
-  this.innerHTML = 'Đang theo dõi';
-  this.style.backgroundColor = 'var(--black)';
-  this.style.color = 'var(--white)';
-  this.style.fontWeight = 'bold';
-} else {
-  this.innerHTML = 'Theo dõi';
-  this.style.backgroundColor = 'var(--white)';
-  this.style.color = 'var(--post)'; 
-  this.style.fontWeight = '500';
-}
-">
-  Theo dõi
+<button class="follow">
+  ${follow_status}
 </button>
 <button class="tag">
   Nhắc đến
@@ -36,3 +24,18 @@ status = 'other';
   }
   return {html, status};
 }
+
+
+// button_follow = document.querySelector('.other_profile_wrapper button');
+
+// if (button_follow.innerText.trim() === 'Đang theo dõi') {
+//   button_follow.innerHTML = 'Đang theo dõi';
+//   button_follow.style.backgroundColor = 'var(--red)';
+//   button_follow.style.color = 'var(--white)';
+//   button_follow.style.fontWeight = 'bold';
+// } else {
+//   button_follow.innerHTML = 'Theo dõi';
+//   button_follow.style.backgroundColor = 'var(--white)';
+//   button_follow.style.color = 'var(--post)'; 
+//   button_follow.style.fontWeight = '500';
+// }
