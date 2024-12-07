@@ -22,7 +22,7 @@ async function fetchUserData(userId, edit_or_other_status) {
       document.querySelector('.user_handle').innerText = `@${userData.tag || 'unknown'}`;
       document.querySelector('.user_avatar').src = userData.avt_url || 'default-avatar-url.png';
       document.querySelector('.bio').innerText = userData.bio || 'No bio available';
-      document.querySelector('.follower_count').innerText = userData.num_follow || '0';
+      document.querySelector('.follower_count').innerText = userData.followers.length || '0';
       document.querySelector('.social_link_wrapper a').setAttribute('href', userData.link_fb);
 
       document.querySelector('.create_thread img').src = userData.avt_url || 'default-avatar-url.png';

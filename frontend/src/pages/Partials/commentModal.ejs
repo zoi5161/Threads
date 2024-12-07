@@ -1,41 +1,20 @@
-<div
-  class="modal fade"
-  id="commentModal"
-  tabindex="-1"
-  aria-labelledby="commentModalLabel"
-  aria-hidden="true"
->
-  <div
-    class="modal-dialog modal-dialog-centered"
-    style="
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="
       margin-top: 2rem;
       border-radius: 10px;
       max-width: 768px;
       width: 638px;
-    "
-  >
-    <div
-      class="modal-content"
-      style="background-color: var(--post); color: var(--white); padding: 0; max-width: 95vw"
-    >
+    ">
+    <div class="modal-content" style="background-color: var(--post); color: var(--white); padding: 0; max-width: 95vw">
       <div class="modal-header" style="border-bottom: none; padding: 10px 20px">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-          style="
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="
             background-color: var(--post);
             border: none;
             color: var(--white);
-          "
-        >
+          ">
           Hủy
         </button>
-        <span
-          class="mx-auto"
-          style="font-weight: bold; text-align: center; flex-grow: 1"
-          >Thread trả lời</span
-        >
+        <span class="mx-auto" style="font-weight: bold; text-align: center; flex-grow: 1">Thread trả lời</span>
       </div>
 
       <hr style="border-color: var(--white); margin: 0" />
@@ -44,79 +23,53 @@
         <div class="container_post_comment"></div>
 
         <div class="current_user_container"></div>
-        
+
         <form id="create_thread_form_comment" style="margin: 0 5rem;">
-            <div class="input-section">
-                <textarea
-                class="input-box"
-                placeholder="Trả lời"
-                name="content_comment"
-                style="min-height: 100px;"
-                ></textarea>
+          <div class="input-section">
+            <textarea class="input-box" placeholder="Trả lời" name="content_comment"
+              style="min-height: 100px;"></textarea>
 
-                <div
-                id="image-preview-container-comment"
-                style="display: none; position: relative; text-align: center"
-                >
-                <img id="image-preview-comment" />
-                <button
-                    type="button"
-                    id="delete-image-comment"
-                    class="btn btn-danger"
-                    style="position: absolute; top: 10px; right: 10px; padding: 3px"
-                >
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-                </div>
+            <div id="image-preview-container-comment" style="display: none; position: relative; text-align: center">
+              <img id="image-preview-comment" />
+              <button type="button" id="delete-image-comment" class="btn btn-danger"
+                style="position: absolute; top: 10px; right: 10px; padding: 3px">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
 
-                <div class="icon-group icon-group-comment">
-                <label for="image-upload-comment" class="upload-icon">
-                    <i class="fa-regular fa-image"></i>
-                    <input
-                    type="file"
-                    id="image-upload-comment"
-                    style="display: none"
-                    aria-label="Upload an image file"
-                    name="image_comment"
-                    />
-                </label>
-                <button type="button">GIF</button>
-                <button type="button" aria-label="Hashtag">
-                    <i class="fa-solid fa-hashtag"></i>
-                </button>
-                <button type="button" aria-label="Location">
-                    <i class="fa-solid fa-location-dot"></i>
-                </button>
+            <div class="icon-group icon-group-comment">
+              <label for="image-upload-comment" class="upload-icon">
+                <i class="fa-regular fa-image"></i>
+                <input type="file" id="image-upload-comment" style="display: none" aria-label="Upload an image file"
+                  name="image_comment" />
+              </label>
+              <button type="button">GIF</button>
+              <button type="button" aria-label="Hashtag">
+                <i class="fa-solid fa-hashtag"></i>
+              </button>
+              <button type="button" aria-label="Location">
+                <i class="fa-solid fa-location-dot"></i>
+              </button>
             </div>
-            </div>
+          </div>
         </form>
       </div>
-      <div
-        class="modal-footer"
-        style="
+      <div class="modal-footer" style="
           background-color: var(--post);
           border-top: none;
           display: flex;
           justify-content: space-between;
           padding: 10px 20px;
-        "
-      >
-        <button
-          class="reply-settings"
-          style="
+        ">
+        <button class="reply-settings" style="
             background: none;
             border: none;
             color: var(--iconInPost);
             font-size: 0.85rem;
-          "
-        >
+          ">
           Bất kỳ ai cũng có thể trả lời và trích dẫn
         </button>
-        <button
-          class="post-btn"
-          id="post-btn-comment"
-          type="button"
-        >
+        <button class="post-btn" id="post-btn-comment" type="button">
           Đăng
         </button>
       </div>
@@ -127,58 +80,57 @@
 <script>
   document.addEventListener("focusin", (event) => {
     const modal = document.getElementById("commentModal");
-    if(modal)
-    {
-        const content_of_comment_modal = modal.querySelector(".post-content")
+    if (modal) {
+      const content_of_comment_modal = modal.querySelector(".post-content")
 
-        if(content_of_comment_modal){
-            const image_in_comment_modal = content_of_comment_modal.querySelector("img");
-            console.log(image_in_comment_modal);
-            if(image_in_comment_modal) {
-                image_in_comment_modal.style.maxHeight = "10rem";
-            }
-        
-            const video_in_comment_modal = content_of_comment_modal.querySelector("video");
-            if(video_in_comment_modal) {
-                video_in_comment_modal.style.maxHeight = "10rem";
-            }
+      if (content_of_comment_modal) {
+        const image_in_comment_modal = content_of_comment_modal.querySelector("img");
+        console.log(image_in_comment_modal);
+        if (image_in_comment_modal) {
+          image_in_comment_modal.style.maxHeight = "10rem";
         }
 
+        const video_in_comment_modal = content_of_comment_modal.querySelector("video");
+        if (video_in_comment_modal) {
+          video_in_comment_modal.style.maxHeight = "10rem";
+        }
+      }
 
-        if (
-            modal.getAttribute("aria-hidden") === "true" &&
-            modal.contains(event.target)
-          ) {
-            // Prevent focus inside hidden modal
-            event.target.blur();
-          }
+
+      if (
+        modal.getAttribute("aria-hidden") === "true" &&
+        modal.contains(event.target)
+      ) {
+        // Prevent focus inside hidden modal
+        event.target.blur();
+      }
     }
-    
+
 
   });
-  
+
   document.addEventListener("DOMContentLoaded", () => {
     const mediaInput = document.querySelector("#image-upload-comment");
     const previewContainer = document.querySelector("#image-preview-container-comment");
     const textArea = document.querySelector("textarea[name='content_comment']");
     const modal = document.getElementById("commentModal");
-  
+
     mediaInput.addEventListener("change", function (event) {
       const file = event.target.files[0];
-  
+
       if (file) {
         if (file.size > 10 * 1024 * 1024) {
           alert("Dung lượng file phải nhỏ hơn 10 MB.");
           mediaInput.value = "";
           return;
         }
-  
+
         const reader = new FileReader();
         reader.onload = function (e) {
           previewContainer.innerHTML = ""; // Clear previous content
-  
+
           const fileType = file.type.split("/")[0];
-  
+
           if (fileType === "image") {
             const image = document.createElement("img");
             image.src = e.target.result;
@@ -197,7 +149,7 @@
             mediaInput.value = "";
             return;
           }
-  
+
           const deleteButton = document.createElement("button");
           deleteButton.type = "button";
           deleteButton.classList.add("btn", "btn-danger");
@@ -206,21 +158,21 @@
           deleteButton.style.right = "10px";
           deleteButton.style.padding = "3px";
           deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
-  
+
           previewContainer.appendChild(deleteButton);
           previewContainer.style.display = "block";
-  
+
           deleteButton.addEventListener("click", function () {
             previewContainer.innerHTML = "";
             previewContainer.style.display = "none";
             mediaInput.value = "";
           });
         };
-  
+
         reader.readAsDataURL(file);
       }
     });
-  
+
     // Clear textarea and image preview when modal is hidden
     modal.addEventListener("hidden.bs.modal", () => {
       textArea.value = ""; // Clear textarea
@@ -229,7 +181,7 @@
       mediaInput.value = ""; // Reset the file input
     });
   });
-  
+
   const current_user_container = document.querySelector('.current_user_container');
 
   const current_user = {

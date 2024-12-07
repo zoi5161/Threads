@@ -131,6 +131,18 @@ const getComment = async (req, res) => {
   }
 };
 
+const getLikePost = async (req, res) => {
+  const {thread_id} = req.params;
+  console.log(">> CHECK BE thread_id: ", thread_id);
+  try {
+    const likePost = await threadService.getLikePost(thread_id);
+    console.log(likePost);
+    res.status(200).json(likePost);
+  } catch(error) {
+    res.status(500).json({ message: error.message});
+  }
+}
+
 module.exports = {
   createThread,
   getThread,
@@ -146,4 +158,6 @@ module.exports = {
   
   createComment,
   getComment,
+
+  getLikePost,
 };

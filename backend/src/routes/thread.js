@@ -28,5 +28,7 @@ router.get('/comment/:thread_id', threadController.getComment);
 
 router.get('/:thread_id', threadController.getThread);
 
+router.get('/likeOfThread/:thread_id', threadController.getLikePost);
+
 
 module.exports = router;

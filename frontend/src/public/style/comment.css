@@ -30,6 +30,9 @@
     overflow: visible;
     border: 1px solid var(--white);
 }
+.avatar_cmt img {
+    border-radius: 50%;
+}
 
 .icon-overlay {
     position: absolute; 
