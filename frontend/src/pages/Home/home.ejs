@@ -71,7 +71,7 @@
 <script>
     window.onload = async () => {
         // phần này sau chỉnh thành sessionStorage:
-        const accountData = await getUserData(localStorage.getItem('account_id'));
+        const accountData = await getUserData('1111');
 
         const posts_fetched = await getAllThreads();
     
@@ -79,10 +79,13 @@
             const userData = await getUserData(post.user_id);
             
             //kiểm tra xem user_id này có được follow bởi nick đang trực tuyến hay được nick trực tuyến follow:
-            if (accountData.followers.includes(post.user_id)) {
-                userData.follow_status = "Theo dõi lại";
-            }else if (accountData.following.includes(post.user_id)) {
-                userData.follow_status = "Hủy theo dõi";
+            if(accountData)
+            {
+                if (accountData.followers.includes(post.user_id)) {
+                    userData.follow_status = "Theo dõi lại";
+                }else if (accountData.following.includes(post.user_id)) {
+                    userData.follow_status = "Hủy theo dõi";
+                }
             }
             
             post.user = userData; 
