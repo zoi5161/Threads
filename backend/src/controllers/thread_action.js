@@ -54,9 +54,22 @@ const followUser = async (req, res) => {
   }
 }
 
+const unFollowUser = async (req, res) => {
+  const account_id = req.body.account_id;
+  const follower_id = req.params.user_id;
+
+  try {
+    const unFollowUserResponce = await threadActionService.unFollowUser(account_id, follower_id);
+    res.status(200).json( { message: unFollowUserResponce});
+  } catch(error) {
+    res.status(500).json( { message: error.message});
+  }
+}
+
 module.exports = {
   likeThread,
   unlikeThread,
   checkLikeStatus,
-  followUser
+  followUser,
+  unFollowUser,
 };

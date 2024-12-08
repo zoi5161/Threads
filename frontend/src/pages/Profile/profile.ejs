@@ -277,18 +277,30 @@
   });
 
   window.onload = async () => {
+    const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+    scrollLeftBtn.classList.add('hidden');
+
     //lấy ý tưởng của nút button active để làm phần profile động, mỗi lần đăng nhập login thì lưu user_id của người đăng nhập vào localStorage.
     //Rồi lấy ra sài như biến global toàn frontend. chỉnh nút bấm thành code luôn nếu user_id trên URL là của người khác còn không có thì là profile
     //của chính bản thân. Mong Thanh chấp nhận cách code này.
     const urlParams = new URLSearchParams(window.location.search);
     let user_id = urlParams.get('user_id');
-    const account_id = localStorage.getItem('account_id'); // Lấy account_id từ localStorage
+    const account_id = '1111'; // Lấy account_id từ localStorage
     console.log(user_id);
     user_id = user_id ? user_id : account_id;
 
+    // lấy trạng thái theo dõi:
+    const user = await getUserData(account_id);
+    let follow_status = "";
+    if (user.following.includes(user_id)) {
+      follow_status = "Đang theo dõi";
+    } else {
+      follow_status = "Theo dõi";
+    }
+
     // Xử lý nút edit/other
     const edit_or_other_button = document.querySelector('.edit_or_other_button');
-    const edit_or_other_button_respone = createButtonHTML(user_id, account_id);
+    const edit_or_other_button_respone = createButtonHTML(user_id, account_id, follow_status);
     edit_or_other_button.innerHTML = edit_or_other_button_respone.html;
     const edit_or_other_status = edit_or_other_button_respone.status;
 
@@ -302,9 +314,50 @@
     postInteract();
 
     followProcess(user_id)
+
+    // thêm chức năng follow vs unfollow cho profile:
+    button_follow = document.querySelector('.other_profile_wrapper button');
+
+    if(button_follow)
+    {
+      document.querySelector('.other_profile_wrapper button').addEventListener('click', async (e) => {
+        e.preventDefault();
+        if (follow_status === "Theo dõi") {
+          await followUser(user_id);
+          window.location.reload();
+        } else if (follow_status === "Đang theo dõi") {
+          await unFollowUser(user_id);
+          window.location.reload();
+        }
+      });
+  
+      //thay đổi trạng thái button follow: (sau khi thử cả trăm cách thì có cách này đc :<)
+  
+      if (button_follow.innerText.trim() === 'Đang theo dõi') {
+        button_follow.innerHTML = 'Đang theo dõi';
+        button_follow.style.backgroundColor = 'var(--black)';
+        button_follow.style.color = 'var(--white)';
+        button_follow.style.fontWeight = 'bold';
+      } else {
+        button_follow.innerHTML = 'Theo dõi';
+        button_follow.style.backgroundColor = 'var(--white)';
+        button_follow.style.color = 'var(--post)'; 
+        button_follow.style.fontWeight = '500';
+      }
+    }
   };
 
   // Xử lý cuộn container
+  function scrollToLeft() {
+    const container = document.querySelector('.mission_container');
+    container.scrollBy({ left: -500, behavior: 'smooth' });
+  }
+
+  function scrollToRight() {
+    const container = document.querySelector('.mission_container');
+    container.scrollBy({ left: 500, behavior: 'smooth' });
+  }
+
   function handleScroll() {
     const container = document.querySelector('.mission_container');
     const scrollLeftBtn = document.getElementById('scrollLeftBtn');
@@ -367,6 +420,7 @@
       console.error('Modal element not found!');
     }
   }
+
 </script>
 <script src="/js/three_dots.js"></script>
 <script src="/js/createPost.js"></script>

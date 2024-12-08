@@ -65,7 +65,7 @@ function createPostHTML(post) {
                             <p style="font-size: 85%; color: #888">${post.user.num_follow + " người theo dõi"}</p>
                         </div>
                         <div class="modal-footer" style="border: none;">
-                            <button class="follow-btn" type="button" onclick="followUser(${post.user.user_id})">${post.user.follow_status}</button>
+                            <button class="follow-btn" type="button" onclick="followProcess(${post.user.user_id}, '${post.user.follow_status}')">${post.user.follow_status}</button>
                         </div>
                     </div>
                 </div>
@@ -211,6 +211,37 @@ function transferUser(user_id) {
     window.location.href = `/Profile?user_id=${user_id}`;
 }
 
+async function unFollowUser(user_id) {
+    const account_id = localStorage.getItem('account_id');
+
+    // Đảm bảo rằng account_id và follower_id có giá trị
+    if (!account_id || !user_id) {
+        console.error("Missing account_id or follower_id");
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:10000/thread_action/unfollow/${user_id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ account_id: account_id })
+        });
+        
+        const data = await response.json();
+
+        if (response.ok) {
+            alert(`Complete to un follow user ${user_id}`);
+        }else {
+            alert(`Can not un follow user ${user_id}`);
+            console.log(result.message);
+        }
+    } catch (error) {
+        alert(`Error during follow action:`, error);
+    }
+}
+
 async function followUser(user_id) {
     const account_id = localStorage.getItem('account_id'); // Lấy account_id từ localStorage
 
@@ -237,11 +268,21 @@ async function followUser(user_id) {
         const result = await response.json();
 
         if (response.ok) {
+            alert(`Complete to follow user`);
             console.log(result.message);  // Đang theo dõi thành công
         } else {
+            alert(`Follow user failed!`)
             console.error(result.message); // Lỗi từ backend
         }
     } catch (error) {
         console.error('Error during follow action:', error);
+    }
+}
+
+async function followProcess(user_id, follow_status) {
+    if (follow_status === "Theo dõi" || follow_status === "Theo dõi lại") {
+        await followUser(user_id);
+    }else if (follow_status === "Hủy theo dõi") {
+        await unFollowUser(user_id);
     }
 }
