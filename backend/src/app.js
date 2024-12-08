@@ -3,10 +3,18 @@ const express = require("express"); //Use express
 const mongoose = require("mongoose"); //Use mongoose
 const routes = require("./routes/index"); //Connect to index.js in routes folder
 const session = require('express-session');
+const { v4: uuidv4 } = require("uuid");
 
 require("dotenv").config({ path: "src/config/.env" });
 
 const app = express();
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: '*',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+}));
 
 app.use(express.json()); //Use JSON
 
@@ -14,8 +22,14 @@ app.use(session({
   secret: 'your_secret_key',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 5 * 60 * 1000 } // Hết hạn sau 5 phút
+  cookie: { 
+    maxAge: 5 * 60 * 1000,  // Session sẽ hết hạn sau 5 phút
+    sameSite: 'none',  // Cần thiết cho CORS
+    secure: false, // Đặt true nếu bạn dùng HTTPS
+  },
+  genid: (req) => uuidv4(),
 }));
+
 
 app.use(routes); //Connect to index.js in routes folder
 

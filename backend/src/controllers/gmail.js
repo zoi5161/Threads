@@ -8,8 +8,11 @@ const sendVerificationEmail = async (req, res) => {
   }
 
   try {
-    const response = await gmailService.sendVerificationEmail(toEmail, req);;
-    
+    const response = await gmailService.sendVerificationEmail(toEmail);
+
+    req.session.verificationCode = response.verificationCode;
+    console.log(getcode(req));
+
     return res.status(200).json({ 
       message: 'Verification code sent successfully', 
       data: response 
@@ -23,16 +26,26 @@ const sendVerificationEmail = async (req, res) => {
   }
 };
 
+const getcode = (req) => {
+  console.log(req.session);
+  return req.session.verificationCode;
+};
+
+
 const verifyCode = async (req, res) => {
   const { code } = req.body;
-  console.log('Mã từ client:', req.body.code);
-  console.log('Mã trong session:', req.session.verificationCode);
+  const verificationCode = await getcode(req);
+
+
+  console.log('Mã từ client:', code);
+  console.log('Mã trong session:', verificationCode);
+  console.log(req.session);
 
   if (req.session.verificationCode && req.session.verificationCode.toString() === code) {
     req.session.destroy();
-    return res.json({ message: 'Xác minh thành công!' });
+    return res.status(200).json({ message: 'Xác minh thành công!' });
   }
-  res.status(400).json({ message: 'Mã xác minh không đúng hoặc hết hạn.' });
+  return res.status(400).json({ message: 'Mã xác minh không đúng hoặc hết hạn.' });
 };
 
-module.exports = { sendVerificationEmail, verifyCode };
+module.exports = { sendVerificationEmail, verifyCode, getcode};

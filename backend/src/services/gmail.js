@@ -14,8 +14,6 @@ const transporter = nodemailer.createTransport({
 const sendVerificationEmail = async (toEmail) => {
   // Generate mã xác minh
   const verificationCode = Math.floor(1000 + Math.random() * 9000);
-  req.session.verificationCode = verificationCode; // Lưu mã vào session
-  console.log('Mã xác minh được lưu:', req.session.verificationCode);
 
   // Cấu hình email
   const mailOptions = {

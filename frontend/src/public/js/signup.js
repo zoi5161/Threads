@@ -25,7 +25,8 @@ async function handleSignup(event) {
             headers: {
                 'Content-Type': 'application/json', // Khai báo type là JSON
             },
-            body: JSON.stringify({ toEmail: email })
+            body: JSON.stringify({ toEmail: email }),
+            credentials: 'include',
         });
 
         const result = await response.json();

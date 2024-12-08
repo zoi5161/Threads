@@ -17,26 +17,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     confirmButton.addEventListener('click', async () => {
-        const code = Array.from(inputs).map(input => input.value).join('');
-        if (code.length !== 4) {
+        const code_input = Array.from(inputs).map(input => input.value).join('');
+        if (code_input.length !== 4) {
             alert('Vui lòng nhập đủ 4 ký tự.');
             return;
         }
 
         try {
-            const email = new URLSearchParams(window.location.search).get('email');
+            // const email = new URLSearchParams(window.location.search).get('email');
+            
             const response = await fetch('http://localhost:10000/gmail/verifycode', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, code }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code: code_input }),
+                credentials: 'include',
             });
-
-            const data = await response.json();
-
+            console.log(response);
+            console.log(response.ok);
             if (response.ok) {
                 alert('Xác minh thành công!');
-                window.location.href = '/Resetpassword';
+                window.location.href = '/Login';
             } else {
+                const data = await response.json();
                 alert(data.message || 'Mã xác minh không đúng. Vui lòng thử lại.');
             }
         } catch (error) {
