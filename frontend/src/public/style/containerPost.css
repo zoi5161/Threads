@@ -23,7 +23,7 @@
 }
 
 /* Định dạng chung cho post */
-.post, .post_activity {
+.post, .post_activity, .noti_wrapper {
     background-color: var(--post);
     padding: 15px 0px;
     color: var(--white);
@@ -31,6 +31,14 @@
     width: 100%;
     box-sizing: border-box;
 
+}
+
+.header_info_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
 }
 
 .content {
@@ -69,13 +77,21 @@
     font-size: 12px;
 }
 
-.username-time {
+.msg{
+    margin-left: 10px;
+    margin-right: auto;
+    color: var(--iconInPost);
+    font-weight: 700;
+}
+
+.username-time{
     position: relative;
     flex: 1;
     display: flex;
     flex-direction: row;
     margin-left: 10px;
     gap: 10px;
+    align-items: center;
 }
 
 .username {
