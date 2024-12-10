@@ -1,4 +1,9 @@
 const accountService = require('../services/account');
+const { v4: uuidv4 } = require("uuid"); // để tạo chuỗi ngẫu nhiên sessionId
+
+
+//session: ở đây khai báo đơn giản là 1 object thoi
+const sessions = {}
 
 const createAccount = async (req, res) => {
     try {
@@ -77,11 +82,41 @@ const authenticateAccount = async (req, res) => {
         }
 
         const account = await accountService.authenticateAccount(email, password);
+
+        // khi đã đăng nhập thành công, tạo cookie và session ở backend:
+        const sessionId = uuidv4();
+        sessions[sessionId] = {
+            account,
+            expired: Date.now() + 60 * 60 * 1000, // hạn session trong database là 1 giờ 
+        }
+
+        // Gửi cookie chứa sessionId đến frontend
+        res.setHeader(
+            'Set-Cookie',
+            `sessionId=${sessionId}; Path=/; HttpOnly; Max-Age=${3600}`
+        );
+
+
         res.status(200).json({ message: "Authentication successful", account });
     } catch (err) {
         res.status(401).json({ message: err.message });
     }
 };
+
+const logOutAccount = (req, res) => {
+
+    console.log(">>>CHECK COOKIE BACKEND: ", req.cookies.sessionId);
+    try {
+        console.log(sessions);
+        delete sessions[req.cookies.sessionId];
+        res.setHeader('Set-Cookie', `sessionId=; Path=/; HttpOnly; Max-Age=0`);
+
+        console.log("CHECK SESSIONS APTER LOGOUT: ", sessions);
+        res.status(200).json({ message: "Log Out successful" });
+    } catch (error) {
+        res.status(401).json({ message: error.message });
+    }
+}
 
 module.exports = {
     createAccount,
@@ -90,4 +125,7 @@ module.exports = {
     deleteAccount,
     updateAccountPassword,
     authenticateAccount,
+
+    logOutAccount,
+    sessions,
 };
