@@ -86,7 +86,7 @@ const authenticateAccount = async (req, res) => {
         // khi đã đăng nhập thành công, tạo cookie và session ở backend:
         const sessionId = uuidv4();
         sessions[sessionId] = {
-            account,
+            account: account,
             expired: Date.now() + 60 * 60 * 1000, // hạn session trong database là 1 giờ 
         }
 
@@ -105,18 +105,41 @@ const authenticateAccount = async (req, res) => {
 
 const logOutAccount = (req, res) => {
 
-    console.log(">>>CHECK COOKIE BACKEND: ", req.cookies.sessionId);
+    // console.log(">>>CHECK COOKIE BACKEND: ", req.cookies.sessionId);
     try {
-        console.log(sessions);
+        // console.log(sessions);
         delete sessions[req.cookies.sessionId];
         res.setHeader('Set-Cookie', `sessionId=; Path=/; HttpOnly; Max-Age=0`);
 
-        console.log("CHECK SESSIONS APTER LOGOUT: ", sessions);
+        // console.log("CHECK SESSIONS APTER LOGOUT: ", sessions);
         res.status(200).json({ message: "Log Out successful" });
     } catch (error) {
         res.status(401).json({ message: error.message });
     }
 }
+
+const getAccountData = (req, res) => {
+    const sessionId = req.cookies.sessionId; // Lấy sessionId từ cookie
+    const session = sessions[sessionId]; // Lấy thông tin session
+
+    // Kiểm tra session có tồn tại hay không
+    if (!session) {
+        return res.status(200).json({});
+    }
+
+    // Kiểm tra thời gian hết hạn
+    if (Date.now() > session.expired) {
+        // Xóa session nếu hết hạn
+        delete sessions[sessionId];
+        return res.status(200).json({});
+    }
+    console.log("CHECK SESSIONS: ", sessions);
+    console.log("CHECK SESSION account: ", session);
+
+
+    // Trả về thông tin account nếu session hợp lệ
+    res.status(200).json(session.account);
+};
 
 module.exports = {
     createAccount,
@@ -127,5 +150,6 @@ module.exports = {
     authenticateAccount,
 
     logOutAccount,
+    getAccountData,
     sessions,
 };

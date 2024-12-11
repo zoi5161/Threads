@@ -285,7 +285,15 @@
     //của chính bản thân. Mong Thanh chấp nhận cách code này.
     const urlParams = new URLSearchParams(window.location.search);
     let user_id = urlParams.get('user_id');
-    const account_id = '1111'; // Lấy account_id từ localStorage
+    // const account_id = '1111'; // Lấy account_id từ localStorage
+
+    //gọi để lấy phiên đăng nhập của account -> lấy user_id trước
+    let accountData = await getAccountData();
+
+    //Lấy dữ liệu user từ user_id lấy được từ phiên trên:
+    accountData = await getUserData(accountData.user_id);
+    const account_id = accountData.user_id;
+
     console.log(user_id);
     user_id = user_id ? user_id : account_id;
 
@@ -318,8 +326,7 @@
     // thêm chức năng follow vs unfollow cho profile:
     button_follow = document.querySelector('.other_profile_wrapper button');
 
-    if(button_follow)
-    {
+    if (button_follow) {
       document.querySelector('.other_profile_wrapper button').addEventListener('click', async (e) => {
         e.preventDefault();
         if (follow_status === "Theo dõi") {
@@ -330,9 +337,9 @@
           window.location.reload();
         }
       });
-  
+
       //thay đổi trạng thái button follow: (sau khi thử cả trăm cách thì có cách này đc :<)
-  
+
       if (button_follow.innerText.trim() === 'Đang theo dõi') {
         button_follow.innerHTML = 'Đang theo dõi';
         button_follow.style.backgroundColor = 'var(--black)';
@@ -341,7 +348,7 @@
       } else {
         button_follow.innerHTML = 'Theo dõi';
         button_follow.style.backgroundColor = 'var(--white)';
-        button_follow.style.color = 'var(--post)'; 
+        button_follow.style.color = 'var(--post)';
         button_follow.style.fontWeight = '500';
       }
     }
@@ -431,5 +438,6 @@
 <script src="/js/Profile/updateUser.js"></script>
 <script src="/js/profileButton.js"></script>
 <script src="/js/Profile/follow.js"></script>
+<script src="/js/getAccount.js"></script>
 
 </html>
