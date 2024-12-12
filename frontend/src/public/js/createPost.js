@@ -92,13 +92,13 @@ const noti_HTML = `
 `;
 
 function dot_click(button) {
-    console.log("dot clicked");
-    var notiWrapper = button.closest('.noti_wrapper');
-    var notiId = notiWrapper.id;  // Lấy giá trị ID của noti_wrapper
-    var notiType = notiWrapper.getAttribute('data-type');  // Lấy giá trị data-type của noti_wrapper
-    console.log(notiId);
-    console.log(notiType);
-};
+  console.log("dot clicked");
+  var notiWrapper = button.closest(".noti_wrapper");
+  var notiId = notiWrapper.id; // Lấy giá trị ID của noti_wrapper
+  var notiType = notiWrapper.getAttribute("data-type"); // Lấy giá trị data-type của noti_wrapper
+  console.log(notiId);
+  console.log(notiType);
+}
 
 function createPostHeaderHTML(user, createdAt, isNoti) {
   return `
@@ -177,12 +177,38 @@ function createPostFooterHTML(post) {
     `;
 }
 
-function createPostHTML(post, type = "post", isNoti = false) {
+const newNotiSign = `
+    <div class="new_noti_sign">
+      <i class="bi bi-dot"></i>
+    </div>
+`;
+
+// function createPostHTML(obj, type = "post", seen = true, isNoti = false) {
+//   return `
+//     <div class="${isNoti ?  seen ? "noti_wrapper" : "noti_wrapper un_seen" : "post"}" id="${obj._id}" data-type="${type}">
+//         ${createPostHeaderHTML(obj.user, obj.createdAt, isNoti)}
+//         ${seen ? "" : newNotiSign}
+//         ${type === "post" ? createPostContentHTML(obj) : ""}
+//         ${isNoti ? "" : createPostFooterHTML(obj)}
+//     </div>`;
+// }
+
+function createPostHTML(post) {
   return `
-    <div class="${isNoti ? "noti_wrapper" : "post"}" id="${post._id}" data-type="${type}">
-        ${createPostHeaderHTML(post.user, post.createdAt, isNoti)}
-        ${type === "post" ? createPostContentHTML(post) : ""}
-        ${isNoti ? "" : createPostFooterHTML(post)}
+    <div class="post" id="${post._id}">
+        ${createPostHeaderHTML(post.user, post.createdAt)}
+        ${createPostContentHTML(post)}
+        ${createPostFooterHTML(post)}
+    </div>
+    `;
+}
+
+function createNotiHTML(noti) {
+  return `
+    <div class="${noti.seen ? "noti_wrapper" : "noti_wrapper un_seen"}" id="${noti._id}" data-type="${noti.type}">
+        ${createPostHeaderHTML(noti.user, noti.createdAt, true)}
+        ${noti.seen ? "" : newNotiSign}
+        ${noti.type === "post" ? createPostContentHTML(noti.post) : ""}
     </div>`;
 }
 
@@ -233,14 +259,14 @@ async function unFollowUser(user_id) {
 }
 
 async function followUser(user_id) {
-//   const account_id = localStorage.getItem("account_id"); 
-    const account_id = '1112';
+  //   const account_id = localStorage.getItem("account_id");
+  const account_id = "1112";
 
   // Đảm bảo rằng account_id và follower_id có giá trị
-//   if (!account_id || !user_id) {
-//     console.error("Missing account_id or follower_id");
-//     return;
-//   }
+  //   if (!account_id || !user_id) {
+  //     console.error("Missing account_id or follower_id");
+  //     return;
+  //   }
 
   const data = {
     account_id: account_id,

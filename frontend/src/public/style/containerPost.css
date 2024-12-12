@@ -30,7 +30,19 @@
     border: 0.1px solid var(--border);
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+}
 
+.new_noti_sign{
+    position: absolute;
+    top: -1rem;
+    right: -0.5rem;
+    font-size: 3rem;
+    color: var(--white);
+}
+
+.un_seen{
+    background-color: var(--hover);
 }
 
 .header_info_wrapper{
@@ -80,8 +92,9 @@
 .msg{
     margin-left: 10px;
     margin-right: auto;
-    color: var(--iconInPost);
+    color: var(--msg);
     font-weight: 700;
+    font-style: italic;
 }
 
 .username-time{

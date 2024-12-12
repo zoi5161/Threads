@@ -1,9 +1,9 @@
 :root {
     --post: #171717;
     --border: #3b3a3a; 
-    --hover: #222222;
+    --hover: #444444;
     --boxShadow: rgba(0, 0, 0, 0.3);
-    --iconInPost: #888;
+    --iconInPost: #a9a9a9;
     --overlay-repost: #c329bf;
     --overlay-like: #f23c64;
     --hr: #ccc;

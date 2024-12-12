@@ -9,13 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
         root.style.setProperty('--black', 'black');
         root.style.setProperty('--post', '#171717');
         root.style.setProperty('--border', '#3b3a3a');
-        root.style.setProperty('--hover', '#222222');
+        root.style.setProperty('--hover', '#333333');
         root.style.setProperty('--iconInPost', '#888');
         root.style.setProperty('--taskbar-bot', '#0e0d0d8a');
         root.style.setProperty('--navibot', '#0e0d0d00');
         root.style.setProperty('--hover-navibot', '#191919');
         root.style.setProperty('--scroll-btn', '#222222');
         root.style.setProperty('--scroll-btn-hover', '#555');
+        root.style.setProperty('--msg', 'gold');
         localStorage.setItem('theme', 'light'); // Lưu trạng thái là light
     }
 
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         root.style.setProperty('--hover-navibot', '#E6E6E6');
         root.style.setProperty('--scroll-btn', '#E1E1E1');
         root.style.setProperty('--scroll-btn-hover', '#ccc');
+        root.style.setProperty('--msg', 'red');
         localStorage.setItem('theme', 'dark'); // Lưu trạng thái là dark
     }
 

@@ -1,7 +1,7 @@
 async function postInteract() {
   const posts = document.querySelectorAll(".post:not(#postTop)");
 
-  console.log(posts);
+  // console.log(posts);
 
   posts.forEach(async (post) => {
     const img = post.querySelector(".post-content img");
