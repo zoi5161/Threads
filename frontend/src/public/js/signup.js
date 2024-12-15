@@ -25,13 +25,15 @@ async function handleSignup(event) {
             headers: {
                 'Content-Type': 'application/json', // Khai báo type là JSON
             },
-            body: JSON.stringify({ toEmail: email }),
+            body: JSON.stringify({ toEmail: email,
+                password: password }),
             credentials: 'include',
         });
 
         const result = await response.json();
 
         if (response.ok) {
+            console.log(sessionStorage);
             window.location.href = '/Sendcode';
         } else {
             const errorElement = document.getElementById('error_message');

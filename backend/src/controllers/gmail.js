@@ -2,27 +2,43 @@ const gmailService = require('../services/gmail');
 const accountService = require('../services/account');
 var verCode = null;
 var verificationTimer = null;
+var localEmail = null;
+var localPassword = null;
 
 const sendVerificationEmail = async (req, res) => {
-  const { toEmail } = req.body;
+  const { toEmail, password } = req.body;
+
+  console.log('Email:', toEmail);
+  console.log('Password:', password);
+
+  localEmail = toEmail;
+  localPassword = password;
 
   if (!toEmail) {
     return res.status(400).json({ message: "Email is required." });
   }
 
   try {
-    const existingAccount = await accountService.getAccountByEmail(toEmail);
+    try {
+      existingAccount = await accountService.getAccountByEmail(toEmail);
+    } catch (error) {
+      if (error.message === "Account not found") {
+        existingAccount = null;
+      } else {
+        throw error;
+      }
+    }
 
-    console.log('Existing account:', existingAccount);
     if (existingAccount) {
       return res.status(400).json({ message: 'Email đã tồn tại trong hệ thống.' });
     }
 
-
     const response = await gmailService.sendVerificationEmail(toEmail);
 
-    req.session.verificationCode = response.verificationCode;
+    // req.session.verificationCode = response.verificationCode;
     verCode = response.verificationCode;
+
+    console.log('Verification code:', verCode);
     
     if (verificationTimer) {
       clearTimeout(verificationTimer);
@@ -54,14 +70,20 @@ const getcode = (req) => {
 
 const verifyCode = async (req, res) => {
   const { code } = req.body;
-  const verificationCode = await getcode(req);
-
+  // const verificationCode = await getcode(req);
 
   console.log('Mã từ client:', code);
   console.log('Mã trong session:', verCode);
 
   if (verCode && verCode.toString() === code) {
-    return res.status(200).json({ message: 'Xác minh thành công!' });
+      const account = await accountService.createAccount(localEmail, localPassword);
+      
+      verCode = null;
+
+      return res.status(201).json({ 
+        message: 'Xác minh thành công! Tài khoản đã được tạo.',
+        account
+      });
   }
   return res.status(400).json({ message: 'Mã xác minh không đúng hoặc hết hạn.' });
 };
