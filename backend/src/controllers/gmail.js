@@ -2,9 +2,17 @@ const gmailService = require('../services/gmail');
 const accountService = require('../services/account');
 var verCode = null;
 var verificationTimer = null;
+var localEmail = null;
+var localPassword = null;
 
 const sendVerificationEmail = async (req, res) => {
-  const { toEmail } = req.body;
+  const { toEmail, password } = req.body;
+
+  console.log('Email:', toEmail);
+  console.log('Password:', password);
+
+  localEmail = toEmail;
+  localPassword = password;
 
   if (!toEmail) {
     return res.status(400).json({ message: "Email is required." });
@@ -62,14 +70,20 @@ const sendVerificationEmail = async (req, res) => {
 
 const verifyCode = async (req, res) => {
   const { code } = req.body;
-  // const verificationCode = getcode(req);
-
+  // const verificationCode = await getcode(req);
 
   console.log('Mã từ client:', code);
   console.log('Mã trong session:', verCode);
 
   if (verCode && verCode.toString() === code) {
-    return res.status(200).json({ message: 'Xác minh thành công!' });
+      const account = await accountService.createAccount(localEmail, localPassword);
+      
+      verCode = null;
+
+      return res.status(201).json({ 
+        message: 'Xác minh thành công! Tài khoản đã được tạo.',
+        account
+      });
   }
   return res.status(400).json({ message: 'Mã xác minh không đúng hoặc hết hạn.' });
 };
@@ -138,6 +152,7 @@ const verifyCode_ResetPass = async (req, res) => {
     if (updateResponse.message === "Password updated successfully") {
       return res.status(200).json({ message: 'Đổi mật khẩu thành công !' });
     }
+    verCode
   }
 
   return res.status(400).json({ message: 'Mã xá minh không đúng hoặc hết hạn.' });
