@@ -149,10 +149,10 @@ const verifyCode_ResetPass = async (req, res) => {
   if (verCode && verCode.toString() === code) {
     console.log("CHECK PASS TRƯỚC KHI HASH: ", pass);
     const updateResponse = await accountService.updateAccount(email, pass);
+    verCode = null;
     if (updateResponse.message === "Password updated successfully") {
       return res.status(200).json({ message: 'Đổi mật khẩu thành công !' });
     }
-    verCode
   }
 
   return res.status(400).json({ message: 'Mã xá minh không đúng hoặc hết hạn.' });

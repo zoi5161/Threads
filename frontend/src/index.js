@@ -24,6 +24,14 @@ app.get('/Signup', (req, res) => {
     res.render(__dirname + "/pages/Authenticate/signup.ejs");
 });
 
+app.get('/RecoverPass', (req, res) => {
+    res.render(__dirname + "/pages/Authenticate/recoverPass.ejs");
+});
+
+app.get('/UpdatePass', (req, res) => {
+    res.render(__dirname + "/pages/Authenticate/updatePass.ejs");
+});
+
 app.get('/Sendcode', (req, res) => {
     res.render(__dirname + "/pages/Authenticate/sendcode.ejs");
 });

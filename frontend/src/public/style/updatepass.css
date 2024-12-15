@@ -1,0 +1,12 @@
+h2 {
+    margin-top: 30px;
+}
+
+.new_password input {
+    width: 100%; /* Chiếm toàn bộ chiều rộng của phần tử cha */
+    height: 40px; /* Chiều cao ô nhập */
+    font-size: 16px; /* Kích thước chữ */
+    padding: 10px; /* Khoảng cách giữa nội dung và viền */
+    border: 1px solid #ccc; /* Đường viền nhẹ cho ô nhập */
+    border-radius: 5px; /* Bo góc cho ô nhập */
+}
