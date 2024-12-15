@@ -2,6 +2,7 @@
 
 <!-- <script src="/frontend/src/public/js/naviLeft.js"></script> -->
 <script src="js/naviLeft.js" ></script>
+<script src="/js/logout.js"></script>
 <%- include("../Partials/plusModal.ejs") %>
 
 <div id="pin-menu">
@@ -49,7 +50,7 @@
     <div class="setting-second">
         <ul id="second" style="list-style-type: none; padding: 0; margin: 1rem 0;">
             <li>Báo cáo sự cố</li>
-            <li onclick="window.location.href='./login'">Đăng xuất</li>
+            <li onclick="handleLogOut(event)">Đăng xuất</li>
         </ul>
     </div>
 </div>

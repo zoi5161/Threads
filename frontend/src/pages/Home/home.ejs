@@ -68,10 +68,14 @@
 <script src="/js/Thread/getAllThread.js"></script>
 <script src="/js/postWrap.js"></script>
 <script src="/js/getUserData.js"></script>
+<script src="/js/getAccount.js"></script>
 <script>
     window.onload = async () => {
-        // phần này sau chỉnh thành sessionStorage:
-        const accountData = await getUserData('1111');
+        //gọi để lấy phiên đăng nhập của account -> lấy user_id trước
+        let accountData = await getAccountData();
+
+        //Lấy dữ liệu user từ user_id lấy được từ phiên trên:
+        accountData = await getUserData(accountData.user_id);
 
         const posts_fetched = await getAllThreads();
     
