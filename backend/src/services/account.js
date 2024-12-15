@@ -42,17 +42,18 @@ const deleteAccount = async (accountId) => {
     return account;
 };
 
-const updateAccount = async (accountId, newPassword) => {
-    const account = await Account.findById(accountId);
+const updateAccount = async (email, newPassword) => {
+    const account = await Account.findOne({ email })
     if (!account) {
         throw new Error("Account not found");
     }
 
     const hashedPassword = await bcrypt.hash(newPassword, 10);
+    console.log("CHECK PASS SAU KHI HASH: ", hashedPassword);
     account.password = hashedPassword;
 
     await account.save();
-
+    
     return { message: "Password updated successfully" };
 };
 

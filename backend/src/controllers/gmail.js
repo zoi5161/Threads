@@ -11,18 +11,26 @@ const sendVerificationEmail = async (req, res) => {
   }
 
   try {
-    const existingAccount = await accountService.getAccountByEmail(toEmail);
+    try {
+      existingAccount = await accountService.getAccountByEmail(toEmail);
+    } catch (error) {
+      if (error.message === "Account not found") {
+        existingAccount = null;
+      } else {
+        throw error;
+      }
+    }
 
-    console.log('Existing account:', existingAccount);
     if (existingAccount) {
       return res.status(400).json({ message: 'Email đã tồn tại trong hệ thống.' });
     }
 
-
     const response = await gmailService.sendVerificationEmail(toEmail);
 
-    req.session.verificationCode = response.verificationCode;
+    // req.session.verificationCode = response.verificationCode;
     verCode = response.verificationCode;
+
+    console.log('Verification code:', verCode);
     
     if (verificationTimer) {
       clearTimeout(verificationTimer);
@@ -46,15 +54,15 @@ const sendVerificationEmail = async (req, res) => {
   }
 };
 
-const getcode = (req) => {
-  console.log(req.session);
-  return req.session.verificationCode;
-};
+// const getcode = (req) => {
+//   console.log(req.session);
+//   return req.session.verificationCode;
+// };
 
 
 const verifyCode = async (req, res) => {
   const { code } = req.body;
-  const verificationCode = getcode(req);
+  // const verificationCode = getcode(req);
 
 
   console.log('Mã từ client:', code);
@@ -66,4 +74,79 @@ const verifyCode = async (req, res) => {
   return res.status(400).json({ message: 'Mã xác minh không đúng hoặc hết hạn.' });
 };
 
-module.exports = { sendVerificationEmail, verifyCode, getcode};
+
+
+
+
+const sendVerificationEmail_ResetPass = async (req, res) => {
+  const { toEmail } = req.body;
+
+  if (!toEmail) {
+    return res.status(400).json({ message: "Email is required." });
+  }
+
+  try {
+    try {
+      existingAccount = await accountService.getAccountByEmail(toEmail);
+    } catch (error) {
+      if (error.message === "Account not found") {
+        existingAccount = null;
+      } else {
+        throw error;
+      }
+    }
+
+    console.log('Existing account:', existingAccount);
+    if (!existingAccount) {
+      return res.status(400).json({ message: 'Email không tồn tại trong hệ thống.' });
+    }
+
+
+    const response = await gmailService.sendVerificationEmail(toEmail);
+
+    verCode = response.verificationCode;
+
+    if (verificationTimer) {
+      clearTimeout(verificationTimer);
+    }
+
+    verificationTimer = setTimeout(() => {
+      verCode = null;
+      console.log('Verification code reset due to timeout.');
+    }, 60000);
+
+    return res.status(200).json({
+      message: 'Verification code sent successfully',
+      data: response
+    });
+  }
+  catch (error) {
+    return res.status(500).json({
+      message: 'Failed to send email',
+      error: error.message
+    });
+  }
+};
+
+
+const verifyCode_ResetPass = async (req, res) => {
+  const { code, email, pass } = req.body;
+
+  if (verCode && verCode.toString() === code) {
+    console.log("CHECK PASS TRƯỚC KHI HASH: ", pass);
+    const updateResponse = await accountService.updateAccount(email, pass);
+    if (updateResponse.message === "Password updated successfully") {
+      return res.status(200).json({ message: 'Đổi mật khẩu thành công !' });
+    }
+  }
+
+  return res.status(400).json({ message: 'Mã xá minh không đúng hoặc hết hạn.' });
+}
+
+module.exports = { 
+  sendVerificationEmail,
+  verifyCode,
+
+  sendVerificationEmail_ResetPass,
+  verifyCode_ResetPass 
+};
