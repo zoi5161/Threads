@@ -34,7 +34,7 @@ const getcode = (req) => {
 
 const verifyCode = async (req, res) => {
   const { code } = req.body;
-  const verificationCode = await getcode(req);
+  const verificationCode = getcode(req);
 
 
   console.log('Mã từ client:', code);
