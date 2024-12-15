@@ -82,22 +82,17 @@ const noti_HTML = `
             Xem
           </button>
           <ul class="dropdown-menu dropdown-menu-end" style="margin-bottom: 10px; border-radius: 15px; background-color: var(--black); color: var(--white); width: 250px;">
-              ${dot("Xem chi tiết", "dot_click(this)", "bi-eye")}
-              ${dot("Đánh dấu đã đọc", "dot_click(this)", "bi-check2")}
-              ${dot("Đánh dấu chưa đọc", "dot_click(this)", "bi-bell")}
+              ${dot("Xem chi tiết", "Detail(this)", "bi-eye")}
+              ${dot("Đánh dấu đã đọc", "Seen(this)", "bi-check2")}
+              ${dot("Đánh dấu chưa đọc", "UnSeen(this)", "bi-bell")}
               <hr style="height: 1px; border: none; background-color: #ccc; margin: 5px 0;">
-              ${dot("Xóa", "dot_click(this)", "bi-trash", "red")}
+              ${dot("Xóa", "DeleteNoti(this)", "bi-trash", "red")}
           </ul>
       </div>
 `;
 
 function dot_click(button) {
   console.log("dot clicked");
-  var notiWrapper = button.closest(".noti_wrapper");
-  var notiId = notiWrapper.id; // Lấy giá trị ID của noti_wrapper
-  var notiType = notiWrapper.getAttribute("data-type"); // Lấy giá trị data-type của noti_wrapper
-  console.log(notiId);
-  console.log(notiType);
 }
 
 function createPostHeaderHTML(user, createdAt, isNoti) {
@@ -205,7 +200,7 @@ function createPostHTML(post) {
 
 function createNotiHTML(noti) {
   return `
-    <div class="${noti.seen ? "noti_wrapper" : "noti_wrapper un_seen"}" id="${noti._id}" data-type="${noti.type}">
+    <div class="${noti.seen ? "noti_wrapper" : "noti_wrapper un_seen"}" id="${noti._id}" data-id="${noti.post._id ? noti.post._id : noti.user.user_id}" data-type="${noti.type}">
         ${createPostHeaderHTML(noti.user, noti.createdAt, true)}
         ${noti.seen ? "" : newNotiSign}
         ${noti.type === "post" ? createPostContentHTML(noti.post) : ""}

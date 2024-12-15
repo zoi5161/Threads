@@ -2,15 +2,15 @@ const Noti = require('../models/Noti');
 const Thread = require('../models/Thread');
 const User = require('../models/User');
 
-const createNoti = async (user_id, obj_id, type, msg) => {
-    const noti_obj = new Noti({
+const createNoti = async (user_id, post_id, user_make_noti, type, msg) => {
+    const noti = new Noti({
         user_id,
-        obj_id,
+        post_id,
+        user_make_noti,
         type,
         msg,
     });
-
-    return await noti_obj.save();
+    return await noti.save();
 };
 
 const getAllNotiOfUser = async (user_id) => {
@@ -24,9 +24,8 @@ const getAllNotiOfUser = async (user_id) => {
 };
 
 const getNotiById = async (noti_id) => {
-    console.log("get notiById service", noti_id);
-
     const noti = await Noti.findById(noti_id);
+    console.log("noti", noti);
     if (!noti) {
         throw new Error("Notification not found");
     }
@@ -41,17 +40,17 @@ const getNotiById = async (noti_id) => {
         createdAt: noti.createdAt,
     };
 
-    let user_id_var = noti.obj_id;
-
     if (noti.type === 'post') {
-        const thread = await Thread.findById(noti.obj_id);
+        const thread = await Thread.findById(noti.post_id);
         if (thread) {
             result.post = thread; 
-            user_id_var = thread.user_id;
         }
     }
 
-    const user = await User.findOne({ user_id: user_id_var });
+    if (noti.type === 'like')
+        result.post._id = noti.post_id;
+
+    const user = await User.findOne({ user_id: noti.user_make_noti });
     if (user) {
         result.user = user;
     } else {
@@ -62,12 +61,16 @@ const getNotiById = async (noti_id) => {
 };
 
 
-const seenNoti = async (noti_id) => {
-    return await Noti.findByIdAndUpdate(noti_id, { seen: true });
+const seenNoti = async (noti_id, seen = true) => {
+    return await Noti.findByIdAndUpdate(noti_id, { seen: seen });
 };
 
 const deleteNoti = async (noti_id) => {
     return await Noti.findByIdAndDelete(noti_id);
+};
+
+const deleteAllNotifications = async (user_id) => {
+    return await Noti.deleteMany({ user_id });
 };
 
 module.exports = {
@@ -76,4 +79,5 @@ module.exports = {
     getNotiById,
     seenNoti,
     deleteNoti,
+    deleteAllNotifications,
 };

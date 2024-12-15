@@ -2,16 +2,11 @@ const notiService = require('../services/noti');
 
 const createNoti = async (req, res) => {
     try {
-        const { user_id, obj_id, type, msg } = req.body;
-
-        if (!user_id || !obj_id || !type || !msg) {
-            return res.status(400).json({ message: "User ID, Object ID, Type, and Message are required" });
-        }
-
-        const noti = await notiService.createNoti(user_id, obj_id, type, msg);
-        res.status(201).json(noti);
+        const { user_id, post_id, user_make_noti, type, msg } = req.body;
+        await notiService.createNoti(user_id, post_id, user_make_noti, type, msg);
+        res.status(201).json({ message: "Notification created" });
     } catch (err) {
-        res.status(400).json({ message: err.message });
+        res.status(404).json({ message: err.message });
     }
 };
 
@@ -37,8 +32,8 @@ const getNotiById = async (req, res) => {
 
 const seenNoti = async (req, res) => {
     try {
-        const { noti_id } = req.params;
-        await notiService.seenNoti(noti_id);
+        const { noti_id, seen } = req.body;
+        await notiService.seenNoti(noti_id, seen);
         res.status(200).json({ message: "Notification seen" });
     } catch (err) {
         res.status(404).json({ message: err.message });
@@ -55,12 +50,23 @@ const deleteNoti = async (req, res) => {
     }
 };
 
+const deleteAllNotifications = (req, res) => {
+    try {
+        const user_id = '1111';
+        notiService.deleteAllNotifications(user_id);
+        res.status(200).json({ message: "All notifications deleted" });
+    } catch (err) {
+        res.status(404).json({ message: err.message });
+    }
+};
+
 module.exports = {
     createNoti,
     getAllNotiOfUser,
     getNotiById,
     seenNoti,
     deleteNoti,
+    deleteAllNotifications,
 };
 
 

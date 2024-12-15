@@ -81,13 +81,14 @@ async function getAllNotiOfUser() {
 }
 
 async function createNoti(){
-    const list_noti = await getAllNotiOfUser();
+  checkNotifications("Loading...");
+  const list_noti = await getAllNotiOfUser();
     const postContainer = document.querySelector(".container_post");
     list_noti.forEach(noti => {
         const notiHTML = createNotiHTML(noti);
         postContainer.insertAdjacentHTML('afterbegin', notiHTML);
 
-        const current_noti = document.getElementById(noti._id);
+        const current_noti = postContainer.querySelector('.noti_wrapper');
         const header_info_wrapper = current_noti.querySelector('.header_info_wrapper');
 
         const msg = document.createElement('div');
@@ -96,4 +97,13 @@ async function createNoti(){
 
         header_info_wrapper.appendChild(msg);
     });
+    if(list_noti)
+    {
+      checkNotifications("");
+    }
+    else
+    {
+      checkNotifications("Không có thông báo nào");
+    }
 }
+
