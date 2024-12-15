@@ -1,4 +1,7 @@
 const gmailService = require('../services/gmail');
+const accountService = require('../services/account');
+var verCode = null;
+var verificationTimer = null;
 
 const sendVerificationEmail = async (req, res) => {
   const { toEmail } = req.body;
@@ -8,10 +11,27 @@ const sendVerificationEmail = async (req, res) => {
   }
 
   try {
+    const existingAccount = await accountService.getAccountByEmail(toEmail);
+
+    console.log('Existing account:', existingAccount);
+    if (existingAccount) {
+      return res.status(400).json({ message: 'Email đã tồn tại trong hệ thống.' });
+    }
+
+
     const response = await gmailService.sendVerificationEmail(toEmail);
 
     req.session.verificationCode = response.verificationCode;
-    console.log(getcode(req));
+    verCode = response.verificationCode;
+    
+    if (verificationTimer) {
+      clearTimeout(verificationTimer);
+    }
+
+    verificationTimer = setTimeout(() => {
+      verCode = null;
+      console.log('Verification code reset due to timeout.');
+    }, 60000);
 
     return res.status(200).json({ 
       message: 'Verification code sent successfully', 
@@ -38,11 +58,9 @@ const verifyCode = async (req, res) => {
 
 
   console.log('Mã từ client:', code);
-  console.log('Mã trong session:', verificationCode);
-  console.log(req.session);
+  console.log('Mã trong session:', verCode);
 
-  if (req.session.verificationCode && req.session.verificationCode.toString() === code) {
-    req.session.destroy();
+  if (verCode && verCode.toString() === code) {
     return res.status(200).json({ message: 'Xác minh thành công!' });
   }
   return res.status(400).json({ message: 'Mã xác minh không đúng hoặc hết hạn.' });

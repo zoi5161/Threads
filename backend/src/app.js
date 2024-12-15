@@ -5,7 +5,7 @@ const routes = require("./routes/index"); //Connect to index.js in routes folder
 const session = require('express-session');
 const { v4: uuidv4 } = require("uuid");
 
-require("dotenv").config({ path: "src/config/.env" });
+require("dotenv").config({ path: "./config/.env" });
 
 const app = express();
 

@@ -34,10 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ code: code_input }),
                 credentials: 'include',
             });
-            console.log(response);
-            console.log(response.ok);
             if (response.ok) {
-                alert('Xác minh thành công!');
+                alert('Đăng ký thành công!');
                 window.location.href = '/Login';
             } else {
                 const data = await response.json();
