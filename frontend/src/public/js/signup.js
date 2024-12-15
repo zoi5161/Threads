@@ -2,7 +2,7 @@ async function handleSignup(event) {
     event.preventDefault();
 
     const form = document.getElementById('signup_form');
-    // const username = form.elements['username'].value;
+    const username = form.elements['username'].value;
     const email = form.elements['email'].value;
     const password = form.elements['password'].value;
     const confirmPassword = form.elements['confirm_password'].value;
