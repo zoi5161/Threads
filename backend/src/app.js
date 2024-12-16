@@ -13,13 +13,14 @@ const app = express();
 
 app.use(cors({
   origin: 'http://localhost:3000',
-  methods: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
 
-app.use(express.json()); //Use JSON
+app.options("*", cors());
 app.use(cookieParser());
+app.use(express.json()); 
 // app.use(session({
 //   secret: 'your_secret_key',
 //   resave: false,

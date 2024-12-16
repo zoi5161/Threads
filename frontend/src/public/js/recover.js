@@ -1,8 +1,25 @@
 async function handleRecover(event) {
     event.preventDefault();
+    const email_from_url = new URLSearchParams(window.location.search).get('email');
+    var email = '';
 
-    const form = document.getElementById('recover_form');
-    const email = form.elements['email'].value;
+    if(email_from_url)
+    {
+        email = email_from_url.toString();
+    }
+    else {
+        const form = document.getElementById('recover_form');
+        if(form) {
+            email = form.elements['email'].value;
+        }
+        else{
+            alert('Please enter your email');
+            return;
+        }
+    }
+
+    const loadingScreen = document.getElementById("loadingScreen");
+    loadingScreen.style.display = "block";
 
     try {
         const response = await fetch('http://localhost:10000/gmail/sendcode-reset', {
@@ -17,7 +34,7 @@ async function handleRecover(event) {
         const result = await response.json();
 
         if (response.ok) {
-            window.location.href = `/UpdatePass?email=${email}`
+            window.location.replace(`/UpdatePass?email=${email}`);
         } else {
             const errorElement = document.getElementById('error_message');
             errorElement.textContent = result.message || 'Đã xảy ra lỗi khi cập nhật mật khẩu';
@@ -29,4 +46,6 @@ async function handleRecover(event) {
         errorElement.textContent = 'Đã xảy ra lỗi. Vui lòng thử lại sau.';
         errorElement.style.display = 'block';
     }
+
+    loadingScreen.style.display = "none";
 }

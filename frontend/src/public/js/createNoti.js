@@ -65,6 +65,7 @@ async function getAllNotiOfUser() {
   try{
     const response = await fetch('http://localhost:10000/noti', {
       method: 'GET',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -97,7 +98,10 @@ async function createNoti(){
 
         header_info_wrapper.appendChild(msg);
     });
-    if(list_noti)
+
+    console.log("List noti:", list_noti);
+
+    if(list_noti == null)
     {
       checkNotifications("");
     }

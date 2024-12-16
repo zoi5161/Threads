@@ -84,6 +84,7 @@ h2 {
     padding: 12px 20px;
     color: var(--black);
     outline: none;
+    cursor: pointer;
 }
 
 .resend_container{

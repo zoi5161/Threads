@@ -11,6 +11,7 @@ async function update_User(userId) {
     // Gửi request tới API backend
     const response = await fetch('http://localhost:10000/profile/update_infor', {
       method: 'PUT',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

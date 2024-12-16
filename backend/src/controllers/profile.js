@@ -27,8 +27,8 @@ const getAccountInfor = async (req, res) => {
 const updateProfile = async (req, res) => {
   try {
     // Lấy dữ liệu từ body request
-    const { user_id, new_name, new_bio, new_social_link, new_show_instagram } = req.body;
-
+    const {new_name, new_bio, new_social_link, new_show_instagram } = req.body;
+    const user_id = req.session.account.user_id;
     const updatedUser = await ProfileService.updateUser(user_id, new_name, new_bio, new_social_link, new_show_instagram);
 
     // Nếu user không tồn tại

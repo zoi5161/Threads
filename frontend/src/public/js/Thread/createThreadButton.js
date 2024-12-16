@@ -42,6 +42,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
       // Send POST request to the image upload API
       const response = await fetch("http://localhost:10000/image", {
         method: "POST",
+        credentials: "include",
         body: formData, // Send file in FormData
       });
   
@@ -69,6 +70,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
   try {
     const response = await fetch(create_thread_route, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },

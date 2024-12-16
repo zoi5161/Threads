@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const threadController = require('../controllers/thread');
+const { authMiddleware } = require("../controllers/account");
 
-router.post('/', threadController.createThread);
+
+router.post('/', authMiddleware, threadController.createThread);
 
 router.get('/', threadController.getAllThreads);
 
@@ -18,11 +20,11 @@ router.get('/comment', threadController.getCommentThreads);
 
 router.get('/user/:user_id', threadController.getThreadByUser);
 
-router.get('/liked', threadController.getLikedThreads);
+router.get('/liked', authMiddleware, threadController.getLikedThreads);
 
-router.get('/commented', threadController.getCommentedThreads);
+router.get('/commented', authMiddleware, threadController.getCommentedThreads);
 
-router.post('/comment', threadController.createComment);
+router.post('/comment', authMiddleware, threadController.createComment);
 
 router.get('/comment/:thread_id', threadController.getComment);
 

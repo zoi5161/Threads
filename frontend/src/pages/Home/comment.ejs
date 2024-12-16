@@ -71,6 +71,9 @@
         const main_post = await getThread(thread_id);
         const main_user = await getUserData(main_post.user_id);
 
+        const root_post = await getThread(main_post.root_thread);
+        const root_user = await getUserData(root_post.user_id);
+
         //phần làm việc vs activityModal:
         const likePostArray = await getLikePost(thread_id);
         document.querySelector('#activityModal .avatar').src = main_user.avt_url;
@@ -82,8 +85,10 @@
 
 
         main_post.user = main_user;
+        root_post.user = root_user;
 
-        container_post.innerHTML = await createPostHTML(main_post) + container_post.innerHTML;
+        container_post.innerHTML = await createPostHTML(root_post) + await createPostHTML(main_post) + container_post.innerHTML;
+        const root_post_html = document.querySelector(".post-top");
 
         const comment_post = await getComment(thread_id);
         for (const post of comment_post) {
@@ -94,8 +99,18 @@
         await createPost(comment_post);
         postInteract();
 
-        const first_post = document.querySelector(".post");
+        const all_post = document.querySelectorAll(".post");
+        const first_post = all_post[0];
+        const second_post = all_post[1];
+
         first_post.classList.add("post-top");
+        first_post.style.borderBottom = "none";
+        first_post.style.paddingBottom = "0";
+
+        second_post.classList.add("post-reply");
+        second_post.style.borderTop = "none";
+
+
     }
 
     function content_activity(user) {

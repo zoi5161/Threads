@@ -1,7 +1,8 @@
 const threadService = require("../services/thread");
 
 const createThread = async (req, res) => {
-  const { user_id, content, image_url, root_thread, media_type } = req.body;
+  const { content, image_url, root_thread, media_type } = req.body;
+  const user_id = req.session.account.user_id;
   try {
     const newThread = await threadService.createThread(
       user_id,
@@ -84,7 +85,7 @@ const getThreadByUser = async (req, res) => {
 
 const getLikedThreads = async (req, res) => {
   // const { user_id } = req.params;
-  const user_id = "1111";
+  const user_id = req.session.account.user_id;
   try {
     const threads = await threadService.getLikedThreads(user_id);
     res.status(200).json(threads);
@@ -95,7 +96,7 @@ const getLikedThreads = async (req, res) => {
 
 const getCommentedThreads = async (req, res) => {
   // const { user_id } = req.params;
-  const user_id = "1111";
+  const user_id = req.session.account.user_id;
   try {
     const threads = await threadService.getCommentedThreads(user_id);
     res.status(200).json(threads);
@@ -106,7 +107,8 @@ const getCommentedThreads = async (req, res) => {
 
 
 const createComment = async (req, res) => {
-  const { user_id, content, image_url, root_thread, media_type } = req.body;
+  const {content, image_url, root_thread, media_type } = req.body;
+  const user_id = req.session.account.user_id;
   try {
     const newComment = await threadService.createComment(
       user_id,

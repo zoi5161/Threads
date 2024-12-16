@@ -9,12 +9,14 @@ const gmailRoutes = require('./gmail');
 const profileRoutes = require('./profile');
 const notiRoutes = require('./noti');
 
+const { authMiddleware } = require("../controllers/account");
+
 router.use('/thread', threadRoutes);
 router.use('/image', imageRoutes);
-router.use('/thread_action', threadActionRoutes);
+router.use('/thread_action', authMiddleware, threadActionRoutes);
 router.use('/account', accountRoutes);
 router.use('/profile', profileRoutes);
 router.use('/gmail', gmailRoutes);
-router.use('/noti', notiRoutes);
+router.use('/noti', authMiddleware, notiRoutes);
 
 module.exports = router;

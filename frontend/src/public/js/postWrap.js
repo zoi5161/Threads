@@ -86,10 +86,11 @@ async function postInteract() {
     try {
       const checkLikeResponse = await fetch("http://localhost:10000/thread_action/check_like", {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user_id: "1111", thread_id: post.id }),
+        body: JSON.stringify({thread_id: post.id }),
       });
     
       if (checkLikeResponse.ok) {
@@ -123,10 +124,11 @@ async function postInteract() {
       try {
         const response = await fetch(like_api, {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ user_id: "1111", thread_id: post.id }),
+          body: JSON.stringify({thread_id: post.id }),
         });
     
         if (response.ok) {

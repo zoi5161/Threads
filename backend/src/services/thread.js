@@ -56,12 +56,8 @@ const getLikedThreads = async (user_id) => {
 
 const getCommentedThreads = async (user_id) => {
     try {
-        const root_threads = await Thread.find({ user_id, root_thread: { $ne: null } }, 'root_thread'); // Select only `root_thread`
-        const rootThreadIds = root_threads.map(thread => thread.root_thread);
-
-        if (rootThreadIds.length === 0) return [];
-
-        return await Thread.find({ _id: { $in: rootThreadIds } }).sort({ comment: -1 });
+        const commented_threads = await Thread.find({ user_id, root_thread: { $ne: null } }).sort({ createdAt: -1 });
+        return commented_threads;
     } catch (error) {
         console.error('Error in getCommentedThreads:', error);
         throw new Error('Failed to fetch commented threads');

@@ -1,7 +1,9 @@
 const threadActionService = require("../services/thread_action");
 
 const likeThread = async (req, res) => {
-  const { thread_id, user_id } = req.body;
+  const { thread_id } = req.body;
+  const user_id = req.session.account.user_id;
+
   try {
     const likeThreadResponse = await threadActionService.likeThread(
       thread_id,
@@ -14,7 +16,9 @@ const likeThread = async (req, res) => {
 };
 
 const unlikeThread = async (req, res) => {
-  const { thread_id, user_id } = req.body;
+  const { thread_id } = req.body;
+  const user_id = req.session.account.user_id;
+
   try {
     const unlikeThreadResponse = await threadActionService.unlikeThread(
       thread_id,
@@ -27,7 +31,9 @@ const unlikeThread = async (req, res) => {
 };
 
 const checkLikeStatus = async (req, res) => {
-  const { thread_id, user_id } = req.body;
+  const { thread_id } = req.body;
+  const user_id = req.session.account.user_id;
+
   try {
     const checkLikeStatusResponse = await threadActionService.checkLikeStatus(
       thread_id,
@@ -40,14 +46,11 @@ const checkLikeStatus = async (req, res) => {
 };
 
 const followUser = async (req, res) => {
-  // const urlParams = new URLSearchParams(window.location.search);
-  // const account_id = urlParams.get('account_id');
-  // const follower_id = urlParams.get('user_id');
-
-  const { account_id, follower_id } = req.body;
+  const { follower_id } = req.body;
+  const user_id = req.session.account.user_id;
 
   try {
-    const followUserResponce = await threadActionService.followUser(account_id, follower_id);
+    const followUserResponce = await threadActionService.followUser(user_id, follower_id);
     res.status(200).json( { message: followUserResponce});
   } catch(error) {
     res.status(500).json({ message: error.message});
@@ -55,11 +58,11 @@ const followUser = async (req, res) => {
 }
 
 const unFollowUser = async (req, res) => {
-  const account_id = req.body.account_id;
+  const user_id = req.session.account.user_id;
   const follower_id = req.params.user_id;
 
   try {
-    const unFollowUserResponce = await threadActionService.unFollowUser(account_id, follower_id);
+    const unFollowUserResponce = await threadActionService.unFollowUser(user_id, follower_id);
     res.status(200).json( { message: unFollowUserResponce});
   } catch(error) {
     res.status(500).json( { message: error.message});

@@ -69,6 +69,7 @@ async function fetchSeen(noti_id, seen)
   try{
     fetch(`http://localhost:10000/noti/seen/`, {
       method: "PUT",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
       },
@@ -86,6 +87,7 @@ async function fetchDeleteNoti(noti_id){
   try{
     fetch(`http://localhost:10000/noti/${noti_id}`, {
       method: "DELETE",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
       },
@@ -109,7 +111,7 @@ function checkNotifications(msg) {
       const noNotiMessage = document.createElement("div");
       noNotiMessage.className = "no-notifications";
       noNotiMessage.textContent = msg;
-      const container = document.querySelector(".notifications-container") || document.body;
+      const container = document.querySelector(".container-fluid");
       container.appendChild(noNotiMessage);
   }
 }
@@ -118,6 +120,7 @@ async function fetchCreateNoti(obj){
   try{
     fetch(`http://localhost:10000/noti/`, {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-Type": "application/json",
       },

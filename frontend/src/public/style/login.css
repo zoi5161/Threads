@@ -112,6 +112,11 @@ h2 {
     cursor: pointer;
 }
 
+.forgot_password:hover {
+    cursor: pointer;
+    color: white;
+}
+
 .or {
     display: flex;
     align-items: center;

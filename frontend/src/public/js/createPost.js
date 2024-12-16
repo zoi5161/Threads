@@ -256,8 +256,6 @@ async function unFollowUser(user_id) {
 
 async function followUser(user_id) {
   //   const account_id = localStorage.getItem("account_id");
-  const account_id = "1112";
-
   // Đảm bảo rằng account_id và follower_id có giá trị
   //   if (!account_id || !user_id) {
   //     console.error("Missing account_id or follower_id");
@@ -265,7 +263,6 @@ async function followUser(user_id) {
   //   }
 
   const data = {
-    account_id: account_id,
     follower_id: user_id,
   };
 
@@ -274,6 +271,7 @@ async function followUser(user_id) {
       "http://localhost:10000/thread_action/follow",
       {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
