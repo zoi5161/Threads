@@ -5,7 +5,7 @@ const userSchema = new Schema(
   {
     user_id: String,
     user_name: {type: String, required: true},
-    full_name: { type: String, required: true },
+    full_name: { type: String, required: true},
     tag: { type: String, required: true },
     bio: String,
     avt_url: String,

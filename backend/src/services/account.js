@@ -1,7 +1,11 @@
 const Account = require("../models/Account");
+const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
-const createAccount = async (email, password) => {
+const createAccount = async (email, password, username) => {
+    const users = await User.find({}).exec(); // lấy tất cả user
+    const new_user_id = 1111 + users.length;
+
     const existingAccount = await Account.findOne({ email });
     if (existingAccount) {
         throw new Error("Email already exists");
@@ -12,14 +16,37 @@ const createAccount = async (email, password) => {
     const account = new Account({
         email,
         password: hashedPassword,
+        user_id: new_user_id.toString()
     });
+
+    try {
+        const user = new User({
+            user_id: new_user_id.toString(),
+            user_name: username,
+            full_name: 'New User',
+            tag: 'New User Tag',
+            bio: '', // Nếu không có bio, có thể để là chuỗi rỗng
+            avt_url: '', // Nếu không có avatar, có thể để là chuỗi rỗng
+            num_follow: 0, // Mặc định số người theo dõi là 0
+            link_fb: '', // Nếu không có link fb, có thể để là chuỗi rỗng
+            follow_status: 'Theo dõi', // Mặc định là 'Not Following'
+            followers: [], // Mảng followers, mặc định là rỗng
+            following: [] // Mảng following, mặc định là rỗng
+        });
+
+        // Lưu user vào database
+        await user.save();
+        console.log('User added successfully!');
+    } catch (err) {
+        console.error('Error adding user:', err);
+    }
 
     return await account.save();
 };
 
 const getAccountById = async (accountId) => {
     const account = await Account.findById(accountId).select("-password");
-    
+
     if (!account) {
         throw new Error("Account not found");
     }
@@ -53,7 +80,7 @@ const updateAccount = async (email, newPassword) => {
     account.password = hashedPassword;
 
     await account.save();
-    
+
     return { message: "Password updated successfully" };
 };
 

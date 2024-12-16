@@ -2,17 +2,21 @@ const gmailService = require('../services/gmail');
 const accountService = require('../services/account');
 var verCode = null;
 var verificationTimer = null;
+
+//lưu tạm thông tin người dùng khi đăng kí
 var localEmail = null;
 var localPassword = null;
+var localUserName = null;
 
 const sendVerificationEmail = async (req, res) => {
-  const { toEmail, password } = req.body;
+  const { toEmail, password, username } = req.body;
 
   console.log('Email:', toEmail);
   console.log('Password:', password);
 
   localEmail = toEmail;
   localPassword = password;
+  localUserName = username;
 
   if (!toEmail) {
     return res.status(400).json({ message: "Email is required." });
@@ -76,7 +80,7 @@ const verifyCode = async (req, res) => {
   console.log('Mã trong session:', verCode);
 
   if (verCode && verCode.toString() === code) {
-      const account = await accountService.createAccount(localEmail, localPassword);
+      const account = await accountService.createAccount(localEmail, localPassword, localUserName);
       
       verCode = null;
 

@@ -5,6 +5,7 @@ const accountSchema = new Schema(
   {
     email: {type: String, required: true},
     password: {type: String, required: true},
+    user_id: String
   },
   { timestamps: true }
 );

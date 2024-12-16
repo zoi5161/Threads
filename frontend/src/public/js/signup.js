@@ -26,7 +26,8 @@ async function handleSignup(event) {
                 'Content-Type': 'application/json', // Khai báo type là JSON
             },
             body: JSON.stringify({ toEmail: email,
-                password: password }),
+                password: password,
+                username: username }),
             credentials: 'include',
         });
 
