@@ -286,6 +286,13 @@ async function followUser(user_id) {
     if (response.ok) {
       alert(`Complete to follow user`);
       console.log(result.message); // Đang theo dõi thành công
+      
+      await fetchCreateNoti({
+        user_id: user_id,
+        type: "follow",
+        msg: "Followed you!",
+      });
+    
     } else {
       alert(`Follow user failed!`);
       console.error(result.message); // Lỗi từ backend
