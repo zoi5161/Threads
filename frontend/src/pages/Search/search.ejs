@@ -35,262 +35,138 @@
 </head>
 
 <body>
-    <%- include("../Partials/naviLeft.ejs")  %>
+    <%- include("../Partials/naviLeft.ejs") %>
 
-    <div class="container-fluid">
-        <div class="container_post">
-            <%- include("../Partials/naviTop.ejs")  %>
-            <div class="suggestions-container">
+        <div class="container-fluid">
+            <div class="container_post">
+                <%- include("../Partials/naviTop.ejs") %>
+                    <div class="suggestions-container">
 
-                <div class="search-box">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" class="bi bi-search"
-                        viewBox="0 0 16 16" style="margin-left: 10px;">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg>
-                    <input type="text" placeholder="Tìm kiếm" style="background-color: var(--black); border: none; width: 90%; color: var(--white)" name="Search">
-                </div>
-                <h2>Gợi ý theo dõi</h2>
-                
-                <!-- List of suggestions -->
-                <div class="suggestion">
-                    <div class="avatar">
-                        <img src="https://th.bing.com/th/id/OIP.4Djz60hUiBhF8Iyty8Sn9AHaLH?rs=1&pid=ImgDetMain" alt="Diệu Nhi">
-                    </div>
-                    <div class="profile-info">
-                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">dieu_nhiii</div>
-                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div>
-                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">🍒 Diệu Nhi  🍒</div>
-                                        <div class="user-username">dieu_nhiii</div>
-                                    </div>
-                                    <img src="https://th.bing.com/th/id/OIP.4Djz60hUiBhF8Iyty8Sn9AHaLH?rs=1&pid=ImgDetMain" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
-                                </div>
-                                <div class="modal-body">
-                                    <p>🎬 Actress in VietNam 🎬<br/>
-                                        💕Fanpage : https://facebook.com/xdieunhix/ 💕<br/></p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">511k người theo dõi</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="follow-btn">Theo dõi</button>
-                                </div>
-                            </div>
+                        <div class="search-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16" style="margin-left: 10px;">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg>
+                            <input type="text" placeholder="Tìm kiếm"
+                                style="background-color: var(--black); border: none; width: 90%; color: var(--white)"
+                                name="Search">
                         </div>
-                        <span class="real-name">
-                            🍒 Diệu Nhi 🍒
-                        </span>
-                        <span class="followers-count" >511K người theo dõi</span>
-                    </div>
-                    <button class="follow-btn">Theo dõi</button>
-                </div>
+                        <h2>Gợi ý theo dõi</h2>
 
-                <div class="suggestion">
-                    <div class="avatar">
-                        <img src="https://th.bing.com/th/id/OIP.l1QCkEKHLl-edMSUOqDSkwAAAA?rs=1&pid=ImgDetMain" alt="Ninh Dương Lan Ngọc">
-                    </div>
-                    <div class="profile-info">
-                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">ninh.duong.lan.ngoc</div>
-                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div>
-                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Ninh Dương Lan Ngọc</div>
-                                        <div class="user-username">ninh.duong.lan.ngoc</div>
-                                    </div>
-                                    <img src="https://th.bing.com/th/id/OIP.l1QCkEKHLl-edMSUOqDSkwAAAA?rs=1&pid=ImgDetMain" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
-                                </div>
-                                <div class="modal-body">
-                                    <p>❤️ Look on the bright side of life ❤️<br/>
-                                        📬 Liên hệ công việc: digital.redwall@gmail.com<br/>
-                                        📺 Welcome to my Youtube channel 👇🏻👇🏻👇🏻</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">479k người theo dõi</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="follow-btn">Theo dõi</button>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="real-name">
-                            Ninh Dương Lan Ngọc
-                        </span>
-                        <span class="followers-count">479K người theo dõi</span>
-                    </div>
-                    <button class="follow-btn">Theo dõi</button>
-                </div>
+                        <!-- List of suggestions -->
 
-                <!-- Add more suggestions as needed -->
-                <div class="suggestion">
-                    <div class="avatar">
-                        <img src="https://th.bing.com/th/id/R.011ecdc01a84a587c39b8473d0460fbf?rik=0mOSDLADH3bnYw&riu=http%3a%2f%2fwww.ikanins.com%2fwp-content%2fuploads%2f2020%2f09%2fwww.ikanins.com-nhagirlxinh-nhagirlxinh-118378716-303480194248569-1735904594582685112-n.jpg&ehk=NKk2tgAON7tdPESgS%2f6Yfx9iznaOiqqGudLu5jpr5N4%3d&risl=&pid=ImgRaw&r=0" alt="nhagirlxinh">
-                    </div>
-                    <div class="profile-info">
-                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">nhagirlxinh</div>
-                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div>
-                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">𝐍𝐡𝐚̀ 𝐆𝐢𝐫𝐥 𝐗𝐢𝐧𝐡 💒</div>
-                                        <div class="user-username">nhagirlxinh</div>
-                                    </div>
-                                    <img src="https://th.bing.com/th/id/R.011ecdc01a84a587c39b8473d0460fbf?rik=0mOSDLADH3bnYw&riu=http%3a%2f%2fwww.ikanins.com%2fwp-content%2fuploads%2f2020%2f09%2fwww.ikanins.com-nhagirlxinh-nhagirlxinh-118378716-303480194248569-1735904594582685112-n.jpg&ehk=NKk2tgAON7tdPESgS%2f6Yfx9iznaOiqqGudLu5jpr5N4%3d&risl=&pid=ImgRaw&r=0" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
-                                </div>
-                                <div class="modal-body">
-                                    <p>🇻🇳 𝑴𝒐̛̀𝒊 𝒄𝒂́𝒄 𝒄𝒂̣̂𝒖 𝒈𝒉𝒆́ 𝒏𝒉𝒂̀ 𝒕𝒐̛́ 𝒄𝒉𝒐̛𝒊 𝒏𝒉𝒆́ 💗<br/>
-                                        🌸 𝑵𝒉𝒊𝒆̂̀𝒖 𝒃𝒂̣𝒏 𝒏𝒖̛̃ 𝒙𝒊𝒏𝒉 𝒙𝒂̆́𝒏 𝒍𝒂̆́𝒎 𝒂̣ 🩵<br/>
-                                        ⬇️ Tủ đồ xinhxinh yêu yêu ạ ⬇️</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">149k người theo dõi</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="follow-btn">Theo dõi</button>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="real-name">
-                            𝐍𝐡𝐚̀ 𝐆𝐢𝐫𝐥 𝐗𝐢𝐧𝐡 💒
-                            <!-- <i class="fa-solid fa-house-fire" style="color: #fc1303;"></i> -->
-                        </span>
-                        <span class="followers-count">149K người theo dõi</span>
-                    </div>
-                    <button class="follow-btn">Theo dõi</button>
-                </div>
-                
-                <div class="suggestion">
-                    <div class="avatar">
-                        <img src="https://play-lh.googleusercontent.com/AmaTITqt0xCE6zEQoDA5k5ItqhG-XljKz8H0X0GQdN5y1dJUj5LQrEpBR_ISP3e-vA" alt="yannews">
-                    </div>
-                    <div class="profile-info">
-                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">yannewsc</div>
-                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div>
-                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">YAN News</div>
-                                        <div class="user-username">yannewsc</div>
-                                    </div>
-                                    <img src="https://play-lh.googleusercontent.com/AmaTITqt0xCE6zEQoDA5k5ItqhG-XljKz8H0X0GQdN5y1dJUj5LQrEpBR_ISP3e-vA" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
-                                </div>
-                                <div class="modal-body">
-                                    <p>Có gì hay hôm nay?<br />
-                                        Truy cập ngay 👉🏼 http://www.yan.vn 👈🏼</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">114k người theo dõi</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="follow-btn">Theo dõi</button>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="real-name">
-                            YAN News
-                        </span>
-                        <span class="followers-count">114K người theo dõi</span>
-                    </div>
-                    <button class="follow-btn">Theo dõi</button>
-                </div>
-
-                <div class="suggestion">
-                    <div class="avatar">
-                        <img src="https://th.bing.com/th/id/OIP.jKNAEWjF2fI3BD0xG3jgTwHaIE?rs=1&pid=ImgDetMain" alt="cungtamche">
-                    </div>
-                    <div class="profile-info">
-                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">cungtamche</div>
-                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div>
-                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">Cung Tâm Chế</div>
-                                        <div class="user-username">cungtamche</div>
-                                    </div>
-                                    <img src="https://th.bing.com/th/id/OIP.jKNAEWjF2fI3BD0xG3jgTwHaIE?rs=1&pid=ImgDetMain" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
-                                </div>
-                                <div class="modal-body">
-                                    <p>Hội đam mê ảnh chế!</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">26,9k người theo dõi</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="follow-btn">Theo dõi</button>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="real-name">
-                            Cung Tâm Chế
-                        </span>
-                        <span class="followers-count">26,9K người theo dõi</span>
-                    </div>
-                    <button class="follow-btn">Theo dõi</button>
-                </div>
-
-                <div class="suggestion">
-                    <div class="avatar">
-                        <img src="https://yt3.ggpht.com/a/AGF-l7-e_GlZuPbGHV4xeKtog-P9ocfJB1HPJu5oXQ=s900-c-k-c0xffffffff-no-rj-mo" alt="yeah1_tv">
-                    </div>
-                    <div class="profile-info">
-                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">yeah1_tv</div>
-                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div>
-                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">YeaH1 TV</div>
-                                        <div class="user-username">yeah1_tv</div>
-                                    </div>
-                                    <img src="https://yt3.ggpht.com/a/AGF-l7-e_GlZuPbGHV4xeKtog-P9ocfJB1HPJu5oXQ=s900-c-k-c0xffffffff-no-rj-mo" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
-                                </div>
-                                <div class="modal-body">
-                                    <p></p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">20k người theo dõi</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="follow-btn">Theo dõi</button>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="real-name">
-                            YeaH1 TV
-                        </span>
-                        <span class="followers-count">20K người theo dõi</span>
-                    </div>
-                    <button class="follow-btn">Theo dõi</button>
-                </div>
-
-                <div class="suggestion">
-                    <div class="avatar">
-                        <img src="https://th.bing.com/th/id/R.abc7e5f327ca401f84c5b94f6bafcf47?rik=t16ZL4ZfmfsBnA&pid=ImgRaw&r=0" alt="aimee.iuu">
-                    </div>
-                    <div class="profile-info">
-                        <div class="profile-name" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">@aimee.iuu</div>
-                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div>
-                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">𝐚𝐢𝐦𝐞́𝐞 𝜗𝜚˚⋆</div>
-                                        <div class="user-username">@aimee.iuu</div>
-                                    </div>
-                                    <img src="https://th.bing.com/th/id/R.abc7e5f327ca401f84c5b94f6bafcf47?rik=t16ZL4ZfmfsBnA&pid=ImgRaw&r=0" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
-                                </div>
-                                <div class="modal-body">
-                                    <p>✿ 𝟷𝚖𝟻𝟺, 𝟺𝟻𝚔𝚐<br />
-                                        🧖🏼‍♀️ 𝚃𝚒𝚔𝚝𝚘𝚔 : 𝚊𝚒𝚖𝚎𝚎.𝚒𝚞𝚞˚｡⋆<br/>
-                                        🧺 𝚂𝚙 𝚖𝚒̀𝚗𝚑 𝚖𝚊̣̆𝚌 𝚘̛̉ 𝚕𝚒𝚗𝚔 𝚋𝚎̂𝚗 𝚍𝚞̛𝚘̛́𝚒 𝚗𝚑𝚊𝚊</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">0 người theo dõi</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="follow-btn">Theo dõi</button>
-                                </div>
-                            </div>
-                        </div>
-                        <span class="real-name">
-                            𝐚𝐢𝐦𝐞́𝐞 𝜗𝜚˚⋆
-                        </span>
-                        <span class="followers-count">0 người theo dõi</span>
-                    </div>
-                    <button class="follow-btn">Theo dõi</button>
-                </div>
-            </div>
-        </div>
-        <%- include("../Partials/plusIcon.ejs")  %>
-    </div>
 </body>
+<script src="/js/getUserData.js"></script>
+<script src="/js/getAccount.js"></script>
+<script src="/js/createPost.js"></script>
+
+<script>
+    function generateUser(user) {
+        return `<div class="suggestion">
+                    <div class="avatar">
+                        <img src= ${user.avt_url}
+                            alt="avt_user">
+                    </div>
+                    <div class="profile-info">
+                        <div class="profile-name" onmouseover="showUserInfo1(this)"
+                            onmouseout="hideUserInfo1(this)">${user.user_name}</div>
+                        <div class="small_box_infor_user" onmouseover="showUserInfo2(this)"
+                            onmouseout="hideUserInfo2(this)">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <div class="user-name" style="font-size: 125%; font-weight: bold;">${user.full_name}</div>
+                                        <div class="user-username">${user.user_name}</div>
+                                    </div>
+                                    <img src= ${user.avt_url}
+                                        alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                                </div>
+                                <div class="modal-body">
+                                    <p>${user.bio}</p>
+                                    <p style="font-size: 85%; color: var(--iconInPost)">${user.num_follow} người theo dõi</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="follow-btn" data-userId="${user.user_id}" data-followStatus="${user.follow_status}" >${user.follow_status}</button>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="real-name">
+                            ${user.full_name}
+                        </span>
+                        <span class="followers-count">${user.num_follow} người theo dõi</span>
+                    </div>
+                    <button class="follow-btn" data-userId="${user.user_id}" data-followStatus="${user.follow_status}" >${user.follow_status}</button>
+                </div>`;
+    }
+    window.onload = async () => {
+        var userList = null;
+        try {
+            // Gọi API tới backend
+            const response = await fetch('http://localhost:10000/profile/getAllUser', {
+                method: 'GET',
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            // Parse dữ liệu JSON từ response
+            userList = await response.json();
+            userList = userList.userList;
+            console.log(userList);
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+        console.log("CHECK USERLIST: ", userList);
+
+        //gọi để lấy phiên đăng nhập của account -> lấy user_id trước
+        let accountData = await getAccountData();
+
+        //Lấy dữ liệu user từ user_id lấy được từ phiên trên:
+        accountData = await getUserData(accountData.user_id);
+
+
+        const search_container = document.querySelector('.suggestions-container');
+
+        for (const user of userList) {  // Dùng for...of thay vì forEach
+            if (accountData && user.user_id === accountData.user_id) {
+                continue;
+            }
+            //kiểm tra xem user_id này có được follow bởi nick đang trực tuyến hay được nick trực tuyến follow:
+            if (accountData) {
+                if (accountData.following.includes(user.user_id)) {
+                    user.follow_status = "Hủy theo dõi";
+                }
+                else if (accountData.followers.includes(user.user_id)) {
+                    user.follow_status = "Theo dõi lại";
+                }
+            }
+            const content_html = generateUser(user);
+            search_container.innerHTML += content_html;
+        }
+
+
+        document.querySelectorAll('.follow-btn').forEach(button => {
+            button.addEventListener('click', async function () {
+                const fl_status = button.dataset.followstatus;
+                const userid = button.dataset.userid;
+                console.log("CHECK fl_status: ", fl_status);
+                console.log("CHECK userid: ", userid);
+
+                // Kiểm tra trạng thái follow
+                if (fl_status === "Theo dõi" || fl_status === "Theo dõi lại") {
+                    await followUser(userid);
+                    window.location.reload();
+                } else if (fl_status === "Hủy theo dõi") {
+                    await unFollowUser(userid);
+                    window.location.reload();
+                }
+            });
+        });
+    }
+
+</script>
 
 </html>
 

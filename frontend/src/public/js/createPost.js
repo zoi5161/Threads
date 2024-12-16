@@ -137,21 +137,19 @@ function createPostContentHTML(post) {
             <p style="word-wrap: break-word; word-break: break-word">
                 ${post.content}
             </p>
-            ${
-              post.image_url
-                ? `
+            ${post.image_url
+      ? `
                     <div style="text-align: center; margin-bottom: 1rem;">
-                        ${
-                          post.media_type?.startsWith("video")
-                            ? `<video src="${post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
-                            : post.media_type?.startsWith("image")
-                              ? `<img src="${post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
-                              : `<p>Unsupported media type</p>`
-                        }
+                        ${post.media_type?.startsWith("video")
+        ? `<video src="${post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
+        : post.media_type?.startsWith("image")
+          ? `<img src="${post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
+          : `<p>Unsupported media type</p>`
+      }
                     </div>
                     `
-                : ""
-            }
+      : ""
+    }
     </div>
     `;
 }
@@ -221,7 +219,24 @@ function transferUser(user_id) {
 }
 
 async function unFollowUser(user_id) {
-  const account_id = localStorage.getItem("account_id");
+  var account_id = null;
+  try {
+    const response = await fetch('http://localhost:10000/account/getAccount', {
+      method: 'GET',
+      credentials: 'include', // Đảm bảo cookie được gửi đi trong request
+    });
+
+    const result = await response.json();
+    console.log("CHECK Result: ", result);
+
+    if (response.ok) {
+      account_id = result.user_id;
+    }
+
+    // const result = await response.json();
+  } catch (error) {
+    console.log(error.message);
+  }
 
   // Đảm bảo rằng account_id và follower_id có giá trị
   if (!account_id || !user_id) {
@@ -256,7 +271,25 @@ async function unFollowUser(user_id) {
 
 async function followUser(user_id) {
   //   const account_id = localStorage.getItem("account_id");
-  const account_id = "1112";
+  // const account_id = "1112";
+  var account_id = null;
+  try {
+    const response = await fetch('http://localhost:10000/account/getAccount', {
+      method: 'GET',
+      credentials: 'include', // Đảm bảo cookie được gửi đi trong request
+    });
+
+    const result = await response.json();
+    console.log("CHECK Result: ", result);
+
+    if (response.ok) {
+      account_id = result.user_id;
+    }
+
+    // const result = await response.json();
+  } catch (error) {
+    console.log(error.message);
+  }
 
   // Đảm bảo rằng account_id và follower_id có giá trị
   //   if (!account_id || !user_id) {
@@ -286,13 +319,13 @@ async function followUser(user_id) {
     if (response.ok) {
       alert(`Complete to follow user`);
       console.log(result.message); // Đang theo dõi thành công
-      
+
       await fetchCreateNoti({
         user_id: user_id,
         type: "follow",
         msg: "Followed you!",
       });
-    
+
     } else {
       alert(`Follow user failed!`);
       console.error(result.message); // Lỗi từ backend
