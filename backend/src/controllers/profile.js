@@ -44,5 +44,19 @@ const updateProfile = async (req, res) => {
   }
 };
 
+const getAllUser = async (req, res) => {
+  try {
+    const userList = await ProfileService.getAllUser();
 
-module.exports = { getAccountInfor, updateProfile }
+    if (!userList) {
+      return res.status(404).json( { message: 'Database not has any user !'});
+    }
+
+    return res.status(200).json( { message: 'Get all user complete', userList: userList});
+  } catch (error) {
+    console.error('Error when get All user: ', error);
+    res.status(400).json({ message: 'Error when get User'});
+  }
+}
+
+module.exports = { getAccountInfor, updateProfile, getAllUser }

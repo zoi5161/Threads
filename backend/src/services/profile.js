@@ -31,4 +31,14 @@ const updateUser = async (user_id, new_name, new_bio, new_social_link, new_show_
   }
 };
 
-module.exports = { getUser, updateUser };
+const getAllUser = async () => {
+  try {
+    const userList = await User.find().limit(20).exec();
+    return userList
+  } catch (error) {
+    console.error('Error when get user', error);
+    return null;
+  }
+}
+
+module.exports = { getUser, updateUser, getAllUser };

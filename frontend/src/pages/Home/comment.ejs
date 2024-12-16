@@ -78,6 +78,7 @@
         const likePostArray = await getLikePost(thread_id);
         document.querySelector('#activityModal .avatar').src = main_user.avt_url;
         document.querySelector('#activityModal .username').innerText = main_user.user_name;
+        document.querySelector('#activityModal #content-activity').innerText = main_post.content;
         document.querySelector('#activityModal .time').innerText = formatPostTime(main_post.createdAt)
         document.querySelector('#like_count_activityModal').innerText = likePostArray.length;
         await createActivityUser(likePostArray);
