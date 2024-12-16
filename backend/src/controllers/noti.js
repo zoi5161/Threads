@@ -2,7 +2,9 @@ const notiService = require('../services/noti');
 
 const createNoti = async (req, res) => {
     try {
-        const { user_id, post_id, user_make_noti, type, msg } = req.body;
+        const { user_id, post_id, type, msg } = req.body;
+        const user_make_noti = '1111';
+        console.log("Creating notification with user_id:", user_id, "post_id:", post_id, "type:", type, "msg:", msg);
         await notiService.createNoti(user_id, post_id, user_make_noti, type, msg);
         res.status(201).json({ message: "Notification created" });
     } catch (err) {

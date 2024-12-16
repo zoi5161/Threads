@@ -153,6 +153,16 @@ async function postInteract() {
       } catch (error) {
         console.error("Error sending like/unlike request:", error);
       }
+
+      if(liked){
+        const user_id = post.querySelector('.post-header').id;
+        await fetchCreateNoti({
+          user_id: user_id,
+          post_id: post.id,
+          type: "like",
+          msg: "Liked your post!",
+        });
+      }
     });
 
     const commentButton = post.querySelector(".comment_btn");
@@ -177,7 +187,16 @@ async function postInteract() {
       post_btn_comment.addEventListener("click", async(event) => {
         event.preventDefault();
         console.log(post.id);
-        await createThreadButton('_comment', post.id)
+        const post_comment_id = await createThreadButton('_comment', post.id)
+
+        const user_id = post.querySelector('.post-header').id;
+
+        await fetchCreateNoti({
+          user_id: user_id,
+          post_id: post_comment_id,
+          type: "comment",
+          msg: "Commented on your post!",
+        });
       });
     });
 

@@ -25,7 +25,6 @@ const getAllNotiOfUser = async (user_id) => {
 
 const getNotiById = async (noti_id) => {
     const noti = await Noti.findById(noti_id);
-    console.log("noti", noti);
     if (!noti) {
         throw new Error("Notification not found");
     }
@@ -47,7 +46,7 @@ const getNotiById = async (noti_id) => {
         }
     }
 
-    if (noti.type === 'like')
+    if (noti.post_id)
         result.post._id = noti.post_id;
 
     const user = await User.findOne({ user_id: noti.user_make_noti });
@@ -56,7 +55,7 @@ const getNotiById = async (noti_id) => {
     } else {
         result.user = null;
     }
-
+    console.log("result", result);
     return result;
 };
 

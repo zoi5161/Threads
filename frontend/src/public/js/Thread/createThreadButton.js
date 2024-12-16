@@ -84,7 +84,8 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
 
     alert("Đăng bài thành công!");
     form.reset(); // Clear the form
-    window.location.reload(); // Reload the page (optional)
+    window.location.reload();
+    return result;
   } catch (error) {
     console.error("Thread Submission Error:", error);
     alert("Đăng bài không thành công: " + error.message);

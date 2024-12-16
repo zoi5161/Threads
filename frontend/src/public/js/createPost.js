@@ -96,8 +96,9 @@ function dot_click(button) {
 }
 
 function createPostHeaderHTML(user, createdAt, isNoti) {
+  //Need fix user_id to ._id
   return `
-    <div class="post-header">
+    <div class="post-header" id="${user.user_id}"> 
         <div class="avatar">
             <img src="${user.avt_url}" />
         </div>

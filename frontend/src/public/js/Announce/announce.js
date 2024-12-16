@@ -113,3 +113,19 @@ function checkNotifications(msg) {
       container.appendChild(noNotiMessage);
   }
 }
+
+async function fetchCreateNoti(obj){
+  try{
+    fetch(`http://localhost:10000/noti/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    });
+  }
+  catch(err)
+  {
+    console.log(err);
+  }
+}
