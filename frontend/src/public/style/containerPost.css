@@ -23,14 +23,42 @@
 }
 
 /* Định dạng chung cho post */
-.post, .post_activity {
+.post, .post_activity, .noti_wrapper {
     background-color: var(--post);
     padding: 15px 0px;
     color: var(--white);
     border: 0.1px solid var(--border);
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+}
 
+.no-notifications {
+    color: #555;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.new_noti_sign{
+    position: absolute;
+    top: -1rem;
+    right: -0.5rem;
+    font-size: 3rem;
+    color: var(--white);
+}
+
+.un_seen{
+    background-color: var(--hover);
+}
+
+.header_info_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-right: auto;
 }
 
 .content {
@@ -69,13 +97,22 @@
     font-size: 12px;
 }
 
-.username-time {
+.msg{
+    margin-left: 10px;
+    margin-right: auto;
+    color: var(--msg);
+    font-weight: 700;
+    font-style: italic;
+}
+
+.username-time{
     position: relative;
     flex: 1;
     display: flex;
     flex-direction: row;
     margin-left: 10px;
     gap: 10px;
+    align-items: center;
 }
 
 .username {
