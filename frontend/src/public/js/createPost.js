@@ -227,7 +227,8 @@ async function unFollowUser(user_id) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ account_id: account_id }),
+        credentials: 'include',
+        // body: JSON.stringify({ account_id: account_id }),
       }
     );
 

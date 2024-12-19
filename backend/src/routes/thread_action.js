@@ -10,6 +10,6 @@ router.post("/check_like", threadActionController.checkLikeStatus);
 
 router.post("/follow", threadActionController.followUser);
 
-router.put("/unfollow/", threadActionController.unFollowUser);
+router.put("/unfollow/:user_id", threadActionController.unFollowUser);
 
 module.exports = router;
