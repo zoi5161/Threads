@@ -73,6 +73,9 @@
 <script src="/js/Announce/announce.js"></script>
 
 <script>
+    const backendDomain = "<%= host_backend %>";
+    console.log("Backend Domain:", backendDomain);
+
     window.onload = async () => {
         //gọi để lấy phiên đăng nhập của account -> lấy user_id trước
         let accountData = await getAccountData();
@@ -88,10 +91,10 @@
             //kiểm tra xem user_id này có được follow bởi nick đang trực tuyến hay được nick trực tuyến follow:
             if(accountData)
             {
-                if (accountData.followers.includes(post.user_id)) {
-                    userData.follow_status = "Theo dõi lại";
-                }else if (accountData.following.includes(post.user_id)) {
+                if (accountData.following.includes(post.user_id)) {
                     userData.follow_status = "Hủy theo dõi";
+                }else if (accountData.followers.includes(post.user_id)) {
+                    userData.follow_status = "Theo dõi lại";
                 }
             }
             

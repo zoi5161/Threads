@@ -1,44 +1,204 @@
-#followersModal .modal-content, #followersList li, #followingList li {
-    background-color: #181818;
-    color: #f3f5f7;
+/* Cấu hình chung cho Modal */
+#followersModal .modal-dialog {
+    max-width: 600px;
+    width: 90%;
+    margin: 1.75rem auto;
 }
 
+#followersModal .modal-content {
+    background-color: #121212; /* Màu nền tối hơn */
+    color: #ffffff;
+    border-radius: 15px;
+    border: none; /* Loại bỏ đường viền mặc định */
+    overflow: hidden; /* Giúp bo tròn góc các phần tử con */
+}
+
+/* Header của Modal */
+.modal-header {
+    border-bottom: 1px solid #333333; /* Thêm đường viền phân cách */
+    padding: 20px;
+    background-color: #1e1e1e; /* Màu nền khác cho header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Các Tab */
+.follow-tabs {
+    display: flex;
+    width: 100%;
+}
+
+.tab-btn {
+    background-color: #2a2a2a;
+    border: none;
+    color: #bbbbbb;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+    width: 50%;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+}
+
+.tab-btn.active {
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #1e1e1e;
+}
+
+.list-group {
+    background-color: #181818 !important;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+/* Đếm số lượng followers và following */
+.follower-count, .following-count {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+/* Body của Modal */
 .modal-body {
+    background-color: #121212;
+    padding: 0;
+    max-height: 70vh;
     overflow-y: auto;
 }
 
-.list-group-item {
+/* Tùy chỉnh thanh cuộn */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #555555;
+    border-radius: 4px;
+}
+
+.tab-content {
+    display: none;
+    background-color: #181818;
+    padding: 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Danh sách người theo dõi và đang theo dõi */
+.list-group-item, .custom-list-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 20px;
+    border-bottom: 1px solid #333333;
+    background-color: #1e1e1e !important; /* Nền đen xám */
+    color: #ffffff;
+    transition: background-color 0.3s;
 }
 
+.custom-list-item:hover {
+    background-color: #2a2a2a; /* Màu nền khi hover */
+}
+
+/* Thông tin người dùng */
 .user-info {
     display: flex;
     align-items: center;
+    gap: 12px;
 }
+
 .user-info-text {
     display: flex;
     flex-direction: column;
-    font-size: 90%;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.full-name {
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+/* Nút theo dõi/hủy theo dõi */
+.post_btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.follow_btn {
+    padding: 5px 15px;
+    background-color: var(--post);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    cursor: pointer;
     font-weight: bold;
 }
 
-.user-info img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
+.post_btn:hover {
+    background-color: #dddddd;
+    color: #000000;
 }
 
-.custom-modal {
-    max-width: 500px; /* Adjust width as needed */
+/* Nút đóng Modal */
+.btn-close {
+    filter: invert(1);
+    background: transparent;
+    border: none;
 }
 
-.follower_wrapper:hover {
-    cursor: pointer;
-    text-decoration: underline;
+/* Responsive */
+@media (max-width: 576px) {
+    .follow-tabs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tab-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .list-group-item.custom-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .post_btn {
+        width: 100%;
+        text-align: center;
+    }
 }

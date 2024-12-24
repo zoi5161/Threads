@@ -1,7 +1,7 @@
 async function getUserData(user_Id) {
     try {
         // Gọi API tới backend
-        const response = await fetch('http://localhost:10000/profile', {
+        const response = await fetch(backendDomain + '/profile', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
 async function getComment(thread_id) {
     try {
-      const response = await fetch("http://localhost:10000/thread/comment/" + thread_id , {
+      const response = await fetch(backendDomain + "/thread/comment/" + thread_id , {
         method: "GET",
       });
   

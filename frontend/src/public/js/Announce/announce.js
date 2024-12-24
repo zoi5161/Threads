@@ -67,7 +67,7 @@ function DeleteNoti(button)
 async function fetchSeen(noti_id, seen)
 {
   try{
-    fetch(`http://localhost:10000/noti/seen/`, {
+    fetch(backendDomain + `/noti/seen/`, {
       method: "PUT",
       credentials: 'include',
       headers: {
@@ -85,7 +85,7 @@ async function fetchSeen(noti_id, seen)
 
 async function fetchDeleteNoti(noti_id){
   try{
-    fetch(`http://localhost:10000/noti/${noti_id}`, {
+    fetch(backendDomain + `/noti/${noti_id}`, {
       method: "DELETE",
       credentials: 'include',
       headers: {
@@ -118,7 +118,7 @@ function checkNotifications(msg) {
 
 async function fetchCreateNoti(obj){
   try{
-    fetch(`http://localhost:10000/noti/`, {
+    fetch(backendDomain + `/noti/`, {
       method: "POST",
       credentials: 'include',
       headers: {

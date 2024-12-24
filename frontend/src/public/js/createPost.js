@@ -1,23 +1,4 @@
-// Dữ liệu mẫu
-// const posts = [
-//   {
-//     user: {
-//       avatar:
-//         "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-//       username: "_10.nov_",
-//       fullName: "Huyền Thủy",
-//       tag: "@ngocne2744",
-//       bio: "Zui zẻ",
-//       follower: "299",
-//       follow_status: "Theo dõi",
-//     },
-//     createdAt: "1 giờ",
-//     content:
-//       "có b nào muốn đi xem venom ở rạp quốc gia kh a, nhóm mình có 3 người đi rồi muốn tìm thêm người nữa cho vui",
-//     img_url:
-//       "https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-//   },
-// ];
+
 function formatPostTime(createdAt) {
   const now = new Date();
   const postTime = new Date(createdAt);
@@ -218,16 +199,18 @@ function transferUser(user_id) {
   window.location.href = `/Profile?user_id=${user_id}`;
 }
 
+
 async function unFollowUser(user_id) {
   try {
     const response = await fetch(
-      `http://localhost:10000/thread_action/unfollow/${user_id}`,
+      backendDomain + `/thread_action/unfollow/${user_id}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ account_id: account_id }),
+        credentials: 'include',
+        // body: JSON.stringify({ account_id: account_id }),
       }
     );
 
@@ -251,7 +234,7 @@ async function followUser(user_id) {
 
   try {
     const response = await fetch(
-      "http://localhost:10000/thread_action/follow",
+      backendDomain + "/thread_action/follow",
       {
         method: "POST",
         credentials: "include",

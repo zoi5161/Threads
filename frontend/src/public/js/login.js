@@ -1,3 +1,5 @@
+
+
 async function handleLogin(event) {
     event.preventDefault();
 
@@ -11,7 +13,7 @@ async function handleLogin(event) {
     };
 
     try {
-        const response = await fetch('http://localhost:10000/account/authenticate', {
+        const response = await fetch(backendDomain + '/account/authenticate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

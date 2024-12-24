@@ -9,7 +9,7 @@ async function update_User(userId) {
 
   try {
     // Gửi request tới API backend
-    const response = await fetch('http://localhost:10000/profile/update_infor', {
+    const response = await fetch(backendDomain + '/profile/update_infor', {
       method: 'PUT',
       credentials: 'include',
       headers: {

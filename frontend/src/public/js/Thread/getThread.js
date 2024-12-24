@@ -1,6 +1,6 @@
 async function getThread(thread_id) {
     try {
-      const response = await fetch("http://localhost:10000/thread/" + thread_id, {
+      const response = await fetch(backendDomain + "/thread/" + thread_id, {
         method: "GET",
       });
   

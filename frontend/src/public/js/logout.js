@@ -2,7 +2,7 @@ async function handleLogOut(e) {
     e.preventDefault();
 
     try {
-        const response = await fetch('http://localhost:10000/account/logout', {
+        const response = await fetch(backendDomain + '/account/logout', {
             method: 'GET',
             credentials: 'include', // Đảm bảo cookie được gửi đi trong request
         });

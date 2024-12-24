@@ -153,6 +153,8 @@ const authMiddleware = (req, res, next) => {
         return res.status(200).json({});
     }
 
+    console.log("check session backend: ", session);
+
     // Kiểm tra thời gian hết hạn
     if (Date.now() > session.expired) {
         // Xóa session nếu hết hạn

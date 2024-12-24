@@ -3,25 +3,29 @@
     <div class="modal-dialog modal-dialog-centered custom-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="followersModalLabel">Người theo dõi</h5>
+                <div class="follow-tabs">
+                    <button class="tab-btn active" data-tab="followers">
+                        Người theo dõi
+                        <span class="follower-count">12</span>
+                    </button>
+                    <button class="tab-btn" data-tab="following">
+                        Đang theo dõi
+                        <span class="following-count">0</span>
+                    </button>
+                </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
-                    <h6>Người theo dõi:</h6>
+                <div id="followers-tab" class="tab-content active">
                     <ul id="followersList" class="list-group">
                         <!-- Follower items will be appended here -->
                     </ul>
                 </div>
-                <div class="mb-3">
-                    <h6>Đang theo dõi:</h6>
+                <div id="following-tab" class="tab-content">
                     <ul id="followingList" class="list-group">
                         <!-- Following items will be appended here -->
                     </ul>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 async function getLikePost(thread_id) {
     try {
-        const response = await fetch(`http://localhost:10000/thread/likeOfThread/${thread_id}`, {
+        const response = await fetch(backendDomain + `/thread/likeOfThread/${thread_id}`, {
             method: "GET",
         });
 

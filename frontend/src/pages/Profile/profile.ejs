@@ -262,6 +262,9 @@
 </body>
 <script>
 
+  const backendDomain = "<%= host_backend %>";
+  console.log("Backend Domain:", backendDomain);
+
   document.addEventListener('DOMContentLoaded', () => {
     // Xử lý cuộn container
     handleScroll();
@@ -335,6 +338,7 @@
     await createPost(posts_fetched);
     postInteract();
 
+    // tải list follow
     followProcess(user_id)
 
     // thêm chức năng follow vs unfollow cho profile:
