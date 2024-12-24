@@ -83,10 +83,11 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
 
     const result = await response.json();
     console.log("Thread Submission Response:", result);
+    const newThreadId = result._id;
 
     alert("Đăng bài thành công!");
     form.reset(); // Clear the form
-    window.location.reload();
+    window.location.href = `/comment?thread_id=${newThreadId}`; // Redirect to the new thread
     return result;
   } catch (error) {
     console.error("Thread Submission Error:", error);

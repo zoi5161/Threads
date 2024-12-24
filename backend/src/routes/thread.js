@@ -12,6 +12,10 @@ router.get('/all', threadController.getAllThreads);
 
 router.get('/newest', threadController.getNewestThreads);
 
+router.get('/following', authMiddleware, threadController.getFollowerThreads);
+
+router.get('/self', authMiddleware, threadController.getThreadBySelfUser);
+
 router.get('/reply', threadController.getReplyThreads);
 
 router.get('/like', threadController.getLikeThreads);

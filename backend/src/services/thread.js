@@ -1,5 +1,6 @@
 const Thread = require("../models/Thread");
 const Like_Thread = require("../models/Like_Thread");
+const User = require("../models/User");
 
 const createThread = async (user_id, content, image_url = null, root_thread = null, media_type = null) => {
     const thread = new Thread({
@@ -18,6 +19,11 @@ const getThread = async (thread_id) => {
 
 const getAllThreads = async () => {
     return await Thread.find().sort({ createdAt: -1 }).limit(20);
+};
+
+const getFollowerThreads = async (user_id) => {
+    const following = await User.findById(user_id).following;
+    return await Thread.find({ user_id: { $in: following } }).sort({ createdAt: -1 }).limit(20);
 };
 
 const getNewestThreads = async () => {
@@ -105,6 +111,7 @@ module.exports = {
     getAllThreads,
 
     getNewestThreads,
+    getFollowerThreads,
     getReplyThreads,
     getLikeThreads,
     getCommentThreads,

@@ -12,7 +12,7 @@ async function getAllThreads(priority_filter) {
       : "http://localhost:10000/thread";
 
     console.log("API URL:", apiUrl);
-    const needCookies = filter === "liked" || filter === "commented";
+    const needCookies = filter === "liked" || filter === "commented" || filter === "following" || filter === "self";
     // Make the API call
     const response = await fetch(apiUrl, { 
       credentials: needCookies ? "include" : "same-origin",

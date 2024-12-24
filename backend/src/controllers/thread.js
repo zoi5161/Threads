@@ -46,6 +46,26 @@ const getNewestThreads = async (req, res) => {
   }
 };
 
+const getThreadBySelfUser = async (req, res) => {
+  const user_id = req.session.account.user_id;
+  try {
+    const threads = await threadService.getThreadByUser(user_id);
+    res.status(200).json(threads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const getFollowerThreads = async (req, res) => {
+  const user_id = req.session.account.user_id;
+  try {
+    const threads = await threadService.getFollowerThreads(user_id);
+    res.status(200).json(threads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 const getReplyThreads = async (req, res) => {
   try {
     const threads = await threadService.getReplyThreads();
@@ -151,6 +171,8 @@ module.exports = {
   getAllThreads,
 
   getNewestThreads,
+  getFollowerThreads,
+  getThreadBySelfUser,
   getReplyThreads,
   getLikeThreads,
   getCommentThreads,
