@@ -1,6 +1,6 @@
 async function getAccountData() {
     try {
-        const response = await fetch('http://localhost:10000/account/getAccount', {
+        const response = await fetch(backendDomain + '/account/getAccount', {
             method: 'GET',
             credentials: 'include', // Đảm bảo cookie được gửi đi trong request
         });

@@ -4,22 +4,22 @@ function createButtonHTML(user_id, account_id, follow_status) {
   if (user_id === account_id) {
     html = `
         <div class="edit">
-<button class="edit_btn" data-bs-toggle="modal" data-bs-target="#profileModal">Chỉnh sửa trang cá
-  nhân</button>
-</div>
+          <button class="edit_btn" data-bs-toggle="modal" data-bs-target="#profileModal">Chỉnh sửa trang cá
+            nhân</button>
+        </div>
 `,
 status = 'edit';
   } else {
     html = `
         <div class="other_profile_wrapper" style="display: flex;">
-<button class="follow">
-  ${follow_status}
-</button>
-<button class="tag">
-  Nhắc đến
-</button>
-</div>
-`,
+          <button class="follow">
+            ${follow_status}
+          </button>
+          <button class="tag">
+            Nhắc đến
+          </button>
+        </div>
+        `,
 status = 'other';
   }
   return {html, status};

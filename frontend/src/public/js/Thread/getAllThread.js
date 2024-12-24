@@ -8,8 +8,8 @@ async function getAllThreads(priority_filter) {
 
     // Construct the API URL
     const apiUrl = filter
-      ? `http://localhost:10000/thread/${filter}`
-      : "http://localhost:10000/thread";
+      ? backendDomain + `/thread/${filter}`
+      : backendDomain + "/thread";
 
     console.log("API URL:", apiUrl);
     const needCookies = filter === "liked" || filter === "commented";

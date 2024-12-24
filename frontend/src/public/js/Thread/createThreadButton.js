@@ -40,7 +40,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
       formData.append("image", imageFile);
   
       // Send POST request to the image upload API
-      const response = await fetch("http://localhost:10000/image", {
+      const response = await fetch(backendDomain + "/image", {
         method: "POST",
         credentials: "include",
         body: formData, // Send file in FormData
@@ -52,7 +52,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
   
       const result = await response.json(); // Parse JSON response
       console.log("Image Upload Result:", result);
-      threadData.image_url = `http://localhost:10000/image/${result.imageId}`;
+      threadData.image_url = backendDomain + `/image/${result.imageId}`;
       threadData.media_type = result.media_type; 
       
     } catch (error) {
@@ -62,7 +62,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
   }
 
   console.log("Thread Data:", threadData);
-  const create_thread_route = thread_type === '' ? "http://localhost:10000/thread" : "http://localhost:10000/thread/comment";
+  const create_thread_route = thread_type === '' ? backendDomain + "/thread" : backendDomain + "/thread/comment";
 
   console.log("Create Thread Route:", create_thread_route);
 

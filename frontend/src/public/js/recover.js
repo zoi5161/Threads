@@ -1,3 +1,6 @@
+// const backendDomain = "<%= host_backend %>";
+// console.log("Backend Domain:", backendDomain);
+
 async function handleRecover(event) {
     event.preventDefault();
     const email_from_url = new URLSearchParams(window.location.search).get('email');
@@ -22,7 +25,7 @@ async function handleRecover(event) {
     loadingScreen.style.display = "block";
 
     try {
-        const response = await fetch('http://localhost:10000/gmail/sendcode-reset', {
+        const response = await fetch(backendDomain + '/gmail/sendcode-reset', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', // Khai báo type là JSON

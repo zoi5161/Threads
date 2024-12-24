@@ -1,8 +1,9 @@
 // Hàm gọi API để lấy dữ liệu user
+
 async function fetchUserData(userId, edit_or_other_status) {
     try {
       // Gọi API tới backend
-      const response = await fetch('http://localhost:10000/profile', {
+      const response = await fetch(backendDomain + '/profile', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

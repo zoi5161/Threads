@@ -62,6 +62,9 @@
 <script src="/js/createPost.js"></script>
 
 <script>
+    const backendDomain = "<%= host_backend %>";
+    console.log("Backend Domain:", backendDomain);
+
     function generateUser(user) {
         return `<div class="suggestion">
                     <div class="avatar">
@@ -103,7 +106,7 @@
         var userList = null;
         try {
             // Gọi API tới backend
-            const response = await fetch('http://localhost:10000/profile/getAllUser', {
+            const response = await fetch(backendDomain + '/profile/getAllUser', {
                 method: 'GET',
             });
 

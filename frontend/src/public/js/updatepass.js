@@ -1,3 +1,6 @@
+// const backendDomain = "<%= host_backend %>";
+// console.log("Backend Domain:", backendDomain);
+
 document.addEventListener("DOMContentLoaded", () => {
     const inputs = document.querySelectorAll('.code-input');
     const confirmButton = document.querySelector('.confirm');
@@ -31,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             // const email = new URLSearchParams(window.location.search).get('email');
             
-            const response = await fetch('http://localhost:10000/gmail/verifycode-reset', {
+            const response = await fetch(backendDomain + '/gmail/verifycode-reset', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
