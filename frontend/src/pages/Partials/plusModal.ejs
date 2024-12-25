@@ -150,11 +150,10 @@
     accountData = await getUserData(accountData.user_id);
   
     const avatar = document.querySelector(".avatar img");
-    //avatar.src = accountData.avatar_url;
-    avatar.src = "https://i.pinimg.com/736x/fa/96/37/fa9637ff4e5486f4f2d40b643dee07fc.jpg";
+    avatar.src = accountData.avt_url;
   
     const username = document.querySelector(".username");
-    username.textContent = accountData.user_name;
+    username.textContent = accountData.full_name;
 
   });
 

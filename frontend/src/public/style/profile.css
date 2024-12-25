@@ -137,6 +137,7 @@ main {
 .social_link_wrapper a, .follower_wrapper {
     text-decoration: none;
     color: color(display-p3 0.43 0.43 0.43);
+    cursor: pointer;
 }
 
 .insta_wrapper a {
@@ -215,6 +216,7 @@ main {
     height: 4rem;
     width: 4rem;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 #link_social_m{

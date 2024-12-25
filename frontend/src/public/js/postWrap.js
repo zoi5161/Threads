@@ -1,3 +1,55 @@
+function mediaInteract(media_element, img, video)
+{
+  media_element.style.cursor = "pointer";
+  media_element.addEventListener("click", function (event) {
+
+    const modalHTML = `
+      <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered modal_img">
+          <div class="modal-content modal_img_content" style="background-color: rgb(0, 0, 0);">
+            <div class="modal-header border-0 modal_img_content_header">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal_img_content_body">
+            ${
+              img ? `<img src="${img.src}" class="img-fluid" alt="Post image">` : `<video src="${video.src}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
+            }
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+    let existingModal = document.getElementById("imageModal");
+    if (existingModal) {
+      existingModal.remove();
+    }
+
+    // Insert the new modal into the DOM
+    document.body.insertAdjacentHTML("beforeend", modalHTML);
+
+    const newModal = new bootstrap.Modal(
+      document.getElementById("imageModal")
+    );
+    const modalElement = document.getElementById("imageModal");
+
+    modalElement.addEventListener("shown.bs.modal", () => {
+      modalElement.removeAttribute("aria-hidden");
+
+      const closeButton = modalElement.querySelector(".btn-close");
+      if (closeButton) {
+        closeButton.focus();
+      }
+    });
+
+    newModal.show();
+
+    // Ensure that when modal is closed, it gets hidden properly with aria-hidden
+    modalElement.addEventListener("hidden.bs.modal", () => {
+      modalElement.setAttribute("aria-hidden", "true");
+    });
+  });
+}
+
 async function postInteract() {
   const posts = document.querySelectorAll(".post:not(#postTop)");
 
@@ -8,54 +60,7 @@ async function postInteract() {
     const video = post.querySelector(".post-content video");
     if(img || video) {
       media_element = img ? img : video;
-      media_element.style.cursor = "pointer";
-      media_element.addEventListener("click", function (event) {
-  
-        const modalHTML = `
-          <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true" >
-            <div class="modal-dialog modal-dialog-centered modal_img">
-              <div class="modal-content modal_img_content" style="background-color: rgb(0, 0, 0);">
-                <div class="modal-header border-0 modal_img_content_header">
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body modal_img_content_body">
-                ${
-                  img ? `<img src="${img.src}" class="img-fluid" alt="Post image">` : `<video src="${video.src}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
-                }
-                </div>
-              </div>
-            </div>
-          </div>`;
-  
-        let existingModal = document.getElementById("imageModal");
-        if (existingModal) {
-          existingModal.remove();
-        }
-  
-        // Insert the new modal into the DOM
-        document.body.insertAdjacentHTML("beforeend", modalHTML);
-  
-        const newModal = new bootstrap.Modal(
-          document.getElementById("imageModal")
-        );
-        const modalElement = document.getElementById("imageModal");
-  
-        modalElement.addEventListener("shown.bs.modal", () => {
-          modalElement.removeAttribute("aria-hidden");
-  
-          const closeButton = modalElement.querySelector(".btn-close");
-          if (closeButton) {
-            closeButton.focus();
-          }
-        });
-  
-        newModal.show();
-  
-        // Ensure that when modal is closed, it gets hidden properly with aria-hidden
-        modalElement.addEventListener("hidden.bs.modal", () => {
-          modalElement.setAttribute("aria-hidden", "true");
-        });
-      });
+      mediaInteract(media_element, img, video);
     }
     
 

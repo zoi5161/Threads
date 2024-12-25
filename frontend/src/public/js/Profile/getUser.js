@@ -24,7 +24,10 @@ async function fetchUserData(userId, edit_or_other_status) {
       document.querySelector('.user_avatar').src = userData.avt_url || 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg';
       document.querySelector('.bio').innerText = userData.bio || 'No bio available';
       document.querySelector('.follower_count').innerText = userData.followers.length || '0';
-      document.querySelector('.social_link_wrapper a').setAttribute('href', userData.link_fb);
+      document.querySelectorAll('.social_link_text_value').forEach((element) => {
+        element.innerText = userData.link_fb || 'No link available';
+      });
+      document.querySelector('.social_link_wrapper a').setAttribute('href', userData.link_fb || '#');
 
       document.querySelector('.create_thread img').src = userData.avt_url || 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg';
 

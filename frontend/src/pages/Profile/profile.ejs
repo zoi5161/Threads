@@ -59,7 +59,7 @@
                   <div class="social_link_container">
                     <div class="social_link_wrapper">
                       <a href="https://www.facebook.com" target="_blank">
-                        <span class="social_link_text">Facebook.com-link-to-fb-long-overflow</span>
+                        <span class="social_link_text social_link_text_value"></span>
                       </a>
                     </div>
                   </div>
@@ -96,7 +96,9 @@
                       <img
                         src=""
                         alt="User Avatar"
-                        class="profile_avt" />
+                        class="profile_avt"
+                        id="avt_m_input_id" />
+                      <input type="file" id="avt_m_input" accept="image/*" style="display: none;" />
                     </div>
                   </div>
 
@@ -110,7 +112,7 @@
 
                   <div class="element_m">
                     <div class="title_m">Liên kết</div>
-                    <span id="link_social_m" class="edit_profile_m">Facebook.com-link-to-fb-long-overflow</span>
+                    <span id="link_social_m" class="edit_profile_m social_link_text_value"></span>
                   </div>
 
                   <hr class="line_m" />
@@ -153,7 +155,7 @@
               aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-profile modal-dialog-centered-profile">
                 <div class="modal-content modal-custom-profile" id="modal-2">
-                  <div class="modal-header">
+                  <div class="modal-header modal-header-follow">
                     <div class="modal-2-header-btn">
                       <button type="button" class="btn" style="color: var(--white)" data-bs-dismiss="modal"
                         aria-label="Close">Hủy</button>
@@ -164,7 +166,7 @@
                         data-bs-dismiss="modal" aria-label="Close">Xong</button>
                     </div>
                   </div>
-                  <div class="modal-body">
+                  <div class="modal-body modal-body-follow">
                     <textarea name="profile_edit" id="profile_edit_m">Nhập thông tin bạn muốn thay đổi</textarea>
                     <span>Thông tin của bạn hiển thị công khai.</span>
                   </div>
@@ -262,6 +264,7 @@
     </div>
 
 </body>
+<script src="/js/postWrap.js"></script>
 <script>
 
   const backendDomain = "<%= host_backend %>";
@@ -419,6 +422,30 @@
         showEditModal();
       });
     });
+
+    const avatar = document.querySelector('.avt_m img');
+    if (avatar) {
+
+      avatar.addEventListener('click', () => {
+        document.getElementById("avt_m_input").click();
+      });
+
+      document.getElementById("avt_m_input").addEventListener("change", (event) => {
+        const imageFile = event.target.files[0];
+        if (imageFile) {
+          const reader = new FileReader();
+          reader.onload = () => {
+              // Update the image preview with the uploaded image
+              document.querySelector('#avt_m_input_id').src = reader.result;
+              document.querySelector('.profile_avt').src = reader.result;
+          };
+          reader.readAsDataURL(imageFile);
+          changeAvatar(imageFile);
+      } else {
+          console.error("No file selected.");
+      }
+      });
+    }
   }
 
   // Xử lý cập nhật nội dung khi nhấn nút "Xong" trong modal
@@ -448,11 +475,15 @@
     }
   }
 
+  const profile_avt = document.querySelector('.profile_avt');
+  if (profile_avt) {
+    mediaInteract(profile_avt, profile_avt, null);
+  }
+
 </script>
 <script src="/js/three_dots.js"></script>
 <script src="/js/createPost.js"></script>
 <script src="/js/Thread/getAllThread.js"></script>
-<script src="/js/postWrap.js"></script>
 <script src="/js/getUserData.js"></script>
 <script src="/js/Profile/getUser.js"></script>
 <script src="/js/Profile/updateUser.js"></script>
@@ -460,5 +491,6 @@
 <script src="/js/Profile/follow.js"></script>
 <script src="/js/getAccount.js"></script>
 <script src="/js/Announce/announce.js"></script>
+<script src="/js/ChangeAvt.js"></script>
 
 </html>

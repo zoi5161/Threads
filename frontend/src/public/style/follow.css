@@ -14,14 +14,14 @@
 }
 
 /* Header của Modal */
-.modal-header {
+.modal-header-follow {
     border-bottom: 1px solid #333333; /* Thêm đường viền phân cách */
     padding: 20px;
     background-color: #1e1e1e; /* Màu nền khác cho header */
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} 
 
 /* Các Tab */
 .follow-tabs {
@@ -73,7 +73,7 @@
 }
 
 /* Body của Modal */
-.modal-body {
+.modal-body-follow {
     background-color: #121212;
     padding: 0;
     max-height: 70vh;
@@ -173,7 +173,7 @@
 }
 
 /* Nút đóng Modal */
-.btn-close {
+.btn-close-follow {
     filter: invert(1);
     background: transparent;
     border: none;

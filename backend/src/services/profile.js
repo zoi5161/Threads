@@ -31,6 +31,22 @@ const updateUser = async (user_id, new_name, new_bio, new_social_link, new_show_
   }
 };
 
+const updateAvt = async (user_id, image) => {
+  try {
+    const updatedUser = await User.findOneAndUpdate(
+        { user_id }, // Điều kiện tìm user theo user_id
+        { avt_url: image }, // Dữ liệu cần cập nhật
+        { new: true } // Trả về user đã cập nhật
+    );
+    return updatedUser;
+  }
+  catch (error) {
+    console.error('Error updating avatar:', error);
+    return null;
+  }
+};
+
+
 const getAllUser = async () => {
   try {
     const userList = await User.find().limit(20).exec();
@@ -41,4 +57,4 @@ const getAllUser = async () => {
   }
 }
 
-module.exports = { getUser, updateUser, getAllUser };
+module.exports = { getUser, updateUser, updateAvt, getAllUser };

@@ -44,6 +44,24 @@ const updateProfile = async (req, res) => {
   }
 };
 
+const updateAvt = async (req, res) => {
+  try {
+    const { image } = req.body;
+    const user_id = req.session.account.user_id;
+
+    const updatedUser = await ProfileService.updateAvt(user_id, image);
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({ message: 'Update avatar successfully', user: updatedUser });
+  } catch (error) {
+    console.error('Error updating avatar:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
 const getAllUser = async (req, res) => {
   try {
     const userList = await ProfileService.getAllUser();
@@ -59,4 +77,4 @@ const getAllUser = async (req, res) => {
   }
 }
 
-module.exports = { getAccountInfor, updateProfile, getAllUser }
+module.exports = { getAccountInfor, updateProfile, updateAvt, getAllUser }

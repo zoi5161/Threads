@@ -85,8 +85,7 @@
 
         const postTop = document.getElementById("postTop");
         const avatar = postTop.querySelector(".avatar img");
-        avatar.src = "https://i.pinimg.com/736x/fa/96/37/fa9637ff4e5486f4f2d40b643dee07fc.jpg";
-        //avatar.src = accountData.avatar_url;
+        avatar.src = accountData.avt_url;
 
 
         const posts_fetched = await getAllThreads();
