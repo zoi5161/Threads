@@ -42,7 +42,7 @@
                     <div class="post" id="postTop">
                         <div class="post-header">
                             <div class="avatar">
-                                <img src="https://i.pinimg.com/736x/a1/d2/d2/a1d2d2db44cb9f45acbc8567fe2f7828.jpg"
+                                <img src=""
                                     style="width: 40px; height: 40px;" />
                             </div>
                             <div class="username-time">
@@ -83,8 +83,14 @@
         //Lấy dữ liệu user từ user_id lấy được từ phiên trên:
         accountData = await getUserData(accountData.user_id);
 
+        const postTop = document.getElementById("postTop");
+        const avatar = postTop.querySelector(".avatar img");
+        avatar.src = "https://i.pinimg.com/736x/fa/96/37/fa9637ff4e5486f4f2d40b643dee07fc.jpg";
+        //avatar.src = accountData.avatar_url;
+
+
         const posts_fetched = await getAllThreads();
-    
+        console.log(posts_fetched);
         for (const post of posts_fetched) {
             const userData = await getUserData(post.user_id);
             
@@ -98,7 +104,8 @@
                 }
             }
             
-            post.user = userData; 
+            if(userData)
+                post.user = userData; 
         }
     
         await createPost(posts_fetched); 

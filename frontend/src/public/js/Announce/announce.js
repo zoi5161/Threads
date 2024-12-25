@@ -1,4 +1,4 @@
-function Detail(button)
+async function Detail(button)
 {
     var notiWrapper = button.closest(".noti_wrapper");
     var notiId = notiWrapper.getAttribute("data-id"); // Lấy giá trị data-id của noti_wrapper
@@ -11,6 +11,7 @@ function Detail(button)
     {
       window.location.href = `/comment?thread_id=${notiId}`;
     }
+    await Seen(button);
 }
 
 async function Seen(button)

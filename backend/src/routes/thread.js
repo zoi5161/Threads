@@ -36,5 +36,7 @@ router.get('/:thread_id', threadController.getThread);
 
 router.get('/likeOfThread/:thread_id', threadController.getLikePost);
 
+router.delete('/:thread_id', threadController.deleteThread);
+
 
 module.exports = router;

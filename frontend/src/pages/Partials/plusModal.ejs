@@ -25,7 +25,7 @@
 
     <form id="create_thread_form">
       <div class="input-section">
-        <div class="username">_vteif</div>
+        <div class="username"></div>
         <textarea
           class="input-box"
           placeholder="Có gì mới?"
@@ -143,6 +143,23 @@
     textarea.style.height = "auto"; // Reset the height to recalculate
     textarea.style.height = `${textarea.scrollHeight}px`; // Set height to match content
   });
+
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    let accountData = await getAccountData();
+    accountData = await getUserData(accountData.user_id);
+  
+    const avatar = document.querySelector(".avatar img");
+    //avatar.src = accountData.avatar_url;
+    avatar.src = "https://i.pinimg.com/736x/fa/96/37/fa9637ff4e5486f4f2d40b643dee07fc.jpg";
+  
+    const username = document.querySelector(".username");
+    username.textContent = accountData.user_name;
+
+  });
+
 </script>
+<script src="/js/getUserData.js"></script>
+<script src="/js/getAccount.js"></script>
 
 

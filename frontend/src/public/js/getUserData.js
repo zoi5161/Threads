@@ -17,6 +17,6 @@ async function getUserData(user_Id) {
         const userData = await response.json();
         return userData;
     } catch (error) {
-        console.error('Error fetching user data:', error);
+        console.error('Error fetching user data:', error, 'Khong tim thay user co id: ', user_Id);
     }
 }

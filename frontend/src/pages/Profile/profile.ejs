@@ -44,9 +44,9 @@
                   <h1 class="user_name">User Name</h1>
                   <span class="user_handle">@user_name</span>
                 </div>
-                <img class="user_avatar"
-                  src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                  alt="User Avatar" />
+                <img class="user_avatar profile_avt"
+                  src=""
+                  alt="User Avatar"/>
               </div>
               <div class="bio">Xin chào Thread</div>
               <div class="info_with_link_wrapper">
@@ -94,8 +94,9 @@
                     </div>
                     <div class="avt_m">
                       <img
-                        src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                        alt="User Avatar" />
+                        src=""
+                        alt="User Avatar"
+                        class="profile_avt" />
                     </div>
                   </div>
 
@@ -185,8 +186,9 @@
             </div>
             <div class="create_thread">
               <img
-                src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                alt="User Avatar" />
+                src=""
+                alt="User Avatar"
+                class="profile_avt" />
               <div id="post_status" class="create_thread_content">
                 <span>Có gì mới?</span>
               </div>
@@ -311,8 +313,8 @@
     accountData = await getUserData(accountData.user_id);
     const account_id = accountData.user_id;
 
-    console.log(user_id);
     user_id = user_id ? user_id : account_id;
+    console.log(user_id);
 
     // lấy trạng thái theo dõi:
     const user = await getUserData(account_id);

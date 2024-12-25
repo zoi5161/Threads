@@ -165,6 +165,16 @@ const getLikePost = async (req, res) => {
   }
 }
 
+const deleteThread = async (req, res) => {
+  const { thread_id } = req.params;
+  try {
+    const result = await threadService.deleteThread(thread_id);
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 module.exports = {
   createThread,
   getThread,
@@ -184,4 +194,5 @@ module.exports = {
   getComment,
 
   getLikePost,
+  deleteThread,
 };

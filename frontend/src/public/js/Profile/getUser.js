@@ -21,17 +21,17 @@ async function fetchUserData(userId, edit_or_other_status) {
       // Cập nhật giao diện với dữ liệu user:
       document.querySelector('.user_name').innerText = userData.full_name || 'Unknown';
       document.querySelector('.user_handle').innerText = `@${userData.tag || 'unknown'}`;
-      document.querySelector('.user_avatar').src = userData.avt_url || 'default-avatar-url.png';
+      document.querySelector('.user_avatar').src = userData.avt_url || 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg';
       document.querySelector('.bio').innerText = userData.bio || 'No bio available';
       document.querySelector('.follower_count').innerText = userData.followers.length || '0';
       document.querySelector('.social_link_wrapper a').setAttribute('href', userData.link_fb);
 
-      document.querySelector('.create_thread img').src = userData.avt_url || 'default-avatar-url.png';
+      document.querySelector('.create_thread img').src = userData.avt_url || 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg';
 
       if (edit_or_other_status === 'edit') {
         //cập nhật giao diện update infor:
         document.querySelector('#editName').innerText = userData.full_name || "Username";
-        document.querySelector('.avt_m img').src = userData.avt_url || 'default-avatar-url.png';
+        document.querySelector('.avt_m img').src = userData.avt_url || 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg';
         document.querySelector('#editBio').innerText = userData.bio || 'No bio available';
         document.querySelector('#link_social_m').innerText = userData.link_fb;
       }

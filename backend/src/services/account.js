@@ -23,12 +23,12 @@ const createAccount = async (email, password, username) => {
         const user = new User({
             user_id: new_user_id.toString(),
             user_name: username,
-            full_name: 'New User' + user_id,
-            tag: 'New User Tag' + user_id,
-            bio: '', // Nếu không có bio, có thể để là chuỗi rỗng
-            avt_url: '', // Nếu không có avatar, có thể để là chuỗi rỗng
+            full_name: 'New User ' + new_user_id,
+            tag: 'New User Tag ' + new_user_id,
+            bio: 'New User Bio ' + new_user_id,
+            avt_url: '', 
             num_follow: 0, // Mặc định số người theo dõi là 0
-            link_fb: '', // Nếu không có link fb, có thể để là chuỗi rỗng
+            link_fb: 'facebook.com', // Mặc định link fb
             follow_status: 'Theo dõi', // Mặc định là 'Not Following'
             followers: [], // Mảng followers, mặc định là rỗng
             following: [] // Mảng following, mặc định là rỗng

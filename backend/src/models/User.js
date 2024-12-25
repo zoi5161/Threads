@@ -8,7 +8,7 @@ const userSchema = new Schema(
     full_name: { type: String, required: true},
     tag: { type: String, required: true },
     bio: String,
-    avt_url: String,
+    avt_url: { type: String, default: 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg'},
     num_follow: Number,
     link_fb: String,
     follow_status: String,

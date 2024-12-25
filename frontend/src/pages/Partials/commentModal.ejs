@@ -182,43 +182,46 @@
     });
   });
 
-  const current_user_container = document.querySelector('.current_user_container');
+  document.addEventListener("DOMContentLoaded", async () => {
+    const current_user_container = document.querySelector('.current_user_container');
 
-  const current_user = {
-    avatar: "https://hapotravel.com/wp-content/uploads/2023/03/chon-loc-25-avatar-gai-xinh-dep-nhu-than-tien-ty-ty_7.jpg",
-    username: "_10.nov_",
-    fullName: "Huyền Thủy",
-    tag: "@ngocne2744",
-    bio: "Zui zẻ",
-    follower: "299",
-    follow_status: "Theo dõi",
-  }
+    let accountData = await getAccountData();
 
-  current_user_container.innerHTML = `
-          <div class="post-header">
-            <div class="avatar">
-                <img src="${current_user.avatar}" />
-            </div>
+    //Lấy dữ liệu user từ user_id lấy được từ phiên trên:
+    accountData = await getUserData(accountData.user_id);
+
+    const user = accountData;
+
+    current_user_container.innerHTML = `
+            <div class="post-header" id="${user.user_id}"> 
+        <div class="avatar">
+            <img src="${user.avt_url}" />
+        </div>
+        <div class="header_info_wrapper">
             <div class="username-time">
-                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)">${current_user.username}</div>
+                <div class="username" onmouseover="showUserInfo1(this)" onmouseout="hideUserInfo1(this)" onclick="transferUser(${user.user_id})">${user.full_name}</div>
                 <div class="small_box_infor_user" onmouseover="showUserInfo2(this)" onmouseout="hideUserInfo2(this)">
                     <div class="modal-content" style="background-color: inherit;">
                         <div class="modal-header" style="border: none;">
                             <div>
-                                <div class="user-name" style="font-size: 125%; font-weight: bold;">${current_user.fullName}</div>
-                                <div class="user-username">${current_user.tag}</div>
+                                <div class="user-name" style="font-size: 125%; font-weight: bold;">${user.full_name}</div>
+                                <div class="user-username">${user.tag}</div>
                             </div>
-                            <img src="${current_user.avatar}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                            <img src="${user.avt_url}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
                         </div>
                         <div class="modal-body" style="border: none;">
-                            <p>${current_user.bio}</p>
-                            <p style="font-size: 85%; color: #888">${current_user.follower + " người theo dõi"}</p>
+                            <p>${user.bio}</p>
+                            <p style="font-size: 85%; color: #888">${user.num_follow + " người theo dõi"}</p>
                         </div>
                         <div class="modal-footer" style="border: none;">
-                            <button class="follow-btn" type="button">${current_user.follow_status}</button>
+                            <button class="follow-btn" type="button" onclick="followProcess(${user.user_id}, '${user.follow_status}')">${user.follow_status}</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>`;
+        </div>
+    </div>
+    `;
+  });
+
 </script>

@@ -104,7 +104,12 @@ const getLikePost = async (thread_id) => {
         console.error("Error:", error);
         throw error; // Để bắt lỗi từ MongoDB hoặc bất kỳ lỗi nào khác
     }
-}
+};
+
+const deleteThread = async (thread_id) => {
+    return await Thread.findByIdAndDelete(thread_id);
+};
+
 module.exports = {
     createThread,
     getThread,
@@ -123,4 +128,5 @@ module.exports = {
     getComment,
 
     getLikePost,
+    deleteThread
 };
