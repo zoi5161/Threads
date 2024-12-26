@@ -17,7 +17,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
 
   // Prepare thread data
   const threadData = {
-    user_id: "1111",
+    user_id: "",
     content: content.trim(),
     image_url: '',
     root_thread: root_thread_id,

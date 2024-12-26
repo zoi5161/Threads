@@ -12,7 +12,7 @@ require("dotenv").config({ path: "./config/.env" });
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: process.env.CLIENT_URI || 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -33,7 +33,6 @@ app.use(express.json());
 //   genid: (req) => uuidv4(),
 // }));
 
-
 app.use(routes); //Connect to index.js in routes folder
 
 const MONGODB_URI = process.env.MONGODB_URI; //Connect to MongoDB
@@ -48,6 +47,6 @@ app.get('/', (_, res) => {
   res.send('Backend side!');
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });

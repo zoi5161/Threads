@@ -18,7 +18,7 @@ async function followProcess(user_id) {
         
         const content = `<li class="list-group-item custom-list-item">
             <div class="user-info">
-                <img src="${follow_data.avt_url}" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+                <img src="${follow_data.avt_url || "https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg"}" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
                 <div class="user-info-text">
                     <span class="user-name">${follow_data.user_name}</span>
                     <span class="full-name">${follow_data.full_name}</span>
@@ -34,7 +34,7 @@ async function followProcess(user_id) {
         const follow_data = await getUserData(following_id);
         const content = `<li class="list-group-item custom-list-item">
             <div class="user-info">
-                <img src="${follow_data.avt_url}" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+                <img src="${follow_data.avt_url || "https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg"}" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
                 <div class="user-info-text">
                     <span class="user-name">${follow_data.user_name}</span>
                     <span class="full-name">${follow_data.full_name}</span>

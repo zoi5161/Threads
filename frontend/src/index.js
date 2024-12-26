@@ -4,7 +4,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import lastTime from "./public/js/service/lastTime.js";
 import dotenv from "dotenv"
-dotenv.config({ path: './config/.env' });
+dotenv.config({ path: '../config/.env' });
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -86,6 +86,6 @@ app.get('/Search', (req, res) => {
 });
 
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Listening on ${port}`);
 });

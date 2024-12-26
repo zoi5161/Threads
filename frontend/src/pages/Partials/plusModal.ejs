@@ -18,7 +18,7 @@
   <div class="plus_body">
     <div class="avatar">
       <img
-        src="https://th.bing.com/th/id/OIP.U0D5JdoPkQMi4jhiriSVsgHaHa?w=181&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+        src="https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg"
         alt="User avatar"
       />
     </div>
@@ -150,7 +150,7 @@
     accountData = await getUserData(accountData.user_id);
   
     const avatar = document.querySelector(".avatar img");
-    avatar.src = accountData.avt_url;
+    avatar.src = accountData.avt_url || "https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg";
   
     const username = document.querySelector(".username");
     username.textContent = accountData.full_name;

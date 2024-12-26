@@ -149,14 +149,15 @@ const getAccountData = (req, res) => {
 
     // Kiểm tra session có tồn tại hay không
     if (!session) {
-        return res.status(200).json({});
+        console.log('Session không tồn tại hoặc đã hết hạn.');
+        return res.status(203).json({ redirect: "/login", message: "Not logged in" });
     }
 
     // Kiểm tra thời gian hết hạn
     if (Date.now() > session.expired) {
-        // Xóa session nếu hết hạn
-        delete sessions[sessionId];
-        return res.status(200).json({});
+        console.log('Session hết hạn.');
+        delete sessions[sessionId]; // Xóa session nếu hết hạn
+        return res.status(203).json({ redirect: "/login", message: "Session expired" });
     }
     // console.log("CHECK SESSIONS: ", sessions);
     // console.log("CHECK SESSION account: ", session);
@@ -167,31 +168,23 @@ const getAccountData = (req, res) => {
 };
 
 const authMiddleware = (req, res, next) => {
-    // console.log('auth middleware 2');
-
     const sessionId = req.cookies.sessionId; // Lấy sessionId từ cookie
     const session = sessions[sessionId]; // Lấy thông tin session
 
     // Kiểm tra session có tồn tại hay không
     if (!session) {
-        console.log('no session');
-        return res.status(200).json({});
+        console.log('Session không tồn tại hoặc đã hết hạn.');
+        return res.status(401).json({ redirect: "/login", message: "Unauthorized" });
     }
-
-    console.log("check session backend: ", session);
 
     // Kiểm tra thời gian hết hạn
     if (Date.now() > session.expired) {
-        // Xóa session nếu hết hạn
-        delete sessions[sessionId];
-        return res.status(200).json({});
+        console.log('Session hết hạn.');
+        delete sessions[sessionId]; // Xóa session nếu hết hạn
+        return res.status(401).json({ redirect: "/login", message: "Session expired" });
     }
-    // console.log("CHECK SESSIONS: ", sessions);
-    // console.log("CHECK SESSION account: ", session);
 
-
-    // Trả về thông tin account nếu session hợp lệ
-    // res.status(200).json(session.account);
+    // Session hợp lệ, gắn session vào request
     req.session = session;
     next();
 };
