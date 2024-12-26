@@ -8,7 +8,7 @@ async function handleLogin(event) {
     const password = form.elements[1].value;
 
     const loginData = {
-        email: emailOrUsername,
+        input: emailOrUsername,
         password: password
     };
 

@@ -7,13 +7,20 @@ const sessions = {}
 
 const createAccount = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, password, username } = req.body;
 
-        if (!email || !password) {
-            return res.status(400).json({ message: "Email and password are required" });
+        if (!email || !password || !username) {
+            return res.status(400).json({ message: "Email, password, and username are required" });
         }
 
-        const account = await accountService.createAccount(email, password);
+        // Validation cho username
+        const usernameRegex = /^[a-zA-Z0-9-_\.]{1,30}$/;  // Chỉ cho phép chữ cái, số, -, _, .
+        
+        if (!usernameRegex.test(username)) {
+            return res.status(400).json({ message: "Username must be alphanumeric with dash, hyphen, or dot, and not exceed 30 characters" });
+        }
+
+        const account = await accountService.createAccount(email, password, username);
         res.status(201).json(account);
     } catch (err) {
         res.status(400).json({ message: err.message });
@@ -41,6 +48,23 @@ const getAccountByEmail = async (req, res) => {
         const account = await accountService.getAccountByEmail(email);
         res.status(200).json(account);
     } catch (err) {
+        res.status(404).json({ message: err.message });
+    }
+};
+
+const getAccountByUsername = async (req, res) => {
+    try {
+        const { username } = req.params;  // Lấy username từ params trong URL
+        console.log("Looking for username:", username);  // Debugging
+
+        // Gọi hàm trong service để lấy tài khoản theo username
+        const account = await accountService.getAccountByUsername(username);
+        console.log("Looking for account:", account);
+
+        // Nếu tìm thấy tài khoản, trả về
+        res.status(200).json(account);
+    } catch (err) {
+        // Nếu có lỗi, trả về lỗi với thông báo
         res.status(404).json({ message: err.message });
     }
 };
@@ -75,27 +99,28 @@ const updateAccountPassword = async (req, res) => {
 
 const authenticateAccount = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { input, password } = req.body;
 
-        if (!email || !password) {
-            return res.status(400).json({ message: "Email and password are required" });
+        // Kiểm tra xem có đủ thông tin hay không
+        if (!input || !password) {
+            return res.status(400).json({ message: "Input (email or username) and password are required" });
         }
 
-        const account = await accountService.authenticateAccount(email, password);
-
-        // khi đã đăng nhập thành công, tạo cookie và session ở backend:
+        // Tìm tài khoản qua email hoặc username
+        const account = await accountService.authenticateAccount(input, password);
+        
+        // Tạo sessionId cho người dùng đã đăng nhập
         const sessionId = uuidv4();
         sessions[sessionId] = {
             account: account,
-            expired: Date.now() + 60 * 60 * 1000, // hạn session trong database là 1 giờ 
-        }
+            expired: Date.now() + 60 * 60 * 1000, // session hết hạn sau 1 giờ
+        };
 
-        // Gửi cookie chứa sessionId đến frontend
+        // Gửi sessionId vào cookie
         res.setHeader(
             'Set-Cookie',
             `sessionId=${sessionId}; Path=/; HttpOnly; Max-Age=${3600}`
         );
-
 
         res.status(200).json({ message: "Authentication successful", account });
     } catch (err) {
@@ -168,6 +193,7 @@ module.exports = {
     createAccount,
     getAccountById,
     getAccountByEmail,
+    getAccountByUsername,
     deleteAccount,
     updateAccountPassword,
     authenticateAccount,

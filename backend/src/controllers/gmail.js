@@ -25,9 +25,11 @@ const sendVerificationEmail = async (req, res) => {
   try {
     try {
       existingAccount = await accountService.getAccountByEmail(toEmail);
+      existingUser = await accountService.getAccountByUser(username);
     } catch (error) {
       if (error.message === "Account not found") {
         existingAccount = null;
+        existingUser = null;
       } else {
         throw error;
       }
@@ -91,9 +93,6 @@ const verifyCode = async (req, res) => {
   }
   return res.status(400).json({ message: 'Mã xác minh không đúng hoặc hết hạn.' });
 };
-
-
-
 
 
 const sendVerificationEmail_ResetPass = async (req, res) => {

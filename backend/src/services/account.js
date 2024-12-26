@@ -16,7 +16,8 @@ const createAccount = async (email, password, username) => {
     const account = new Account({
         email,
         password: hashedPassword,
-        user_id: new_user_id.toString()
+        user_id: new_user_id.toString(),
+        username
     });
 
     try {
@@ -61,6 +62,14 @@ const getAccountByEmail = async (email) => {
     return account;
 };
 
+const getAccountByUsername = async (username) => {
+    const account = await Account.findOne({ username }).select("-password");
+    if (!account) {
+        throw new Error("Account not found");
+    }
+    return account;
+};
+
 const deleteAccount = async (accountId) => {
     const account = await Account.findByIdAndDelete(accountId);
     if (!account) {
@@ -84,16 +93,27 @@ const updateAccount = async (email, newPassword) => {
     return { message: "Password updated successfully" };
 };
 
-const authenticateAccount = async (email, password) => {
-    const account = await Account.findOne({ email });
-    if (!account) {
-        throw new Error("Invalid email or password");
+const authenticateAccount = async (input, password) => {
+    let account;
+    
+    // Kiểm tra nếu input là email hay username và tìm tài khoản tương ứng
+    if (input.includes('@')) {
+        // Nếu input có dấu @ thì chắc chắn là email
+        account = await Account.findOne({ email: input });
+    } else {
+        // Nếu không phải email thì coi như là username
+        account = await Account.findOne({ username: input });
     }
 
-    const isMatch = await bcrypt.compare(password, account.password);
+    // Nếu không tìm thấy tài khoản, báo lỗi
+    if (!account) {
+        throw new Error("Invalid email/username or password");
+    }
 
+    // Kiểm tra mật khẩu
+    const isMatch = await bcrypt.compare(password, account.password);
     if (!isMatch) {
-        throw new Error("Invalid email or password");
+        throw new Error("Invalid email/username or password");
     }
 
     return account;
@@ -103,6 +123,7 @@ module.exports = {
     createAccount,
     getAccountById,
     getAccountByEmail,
+    getAccountByUsername,
     deleteAccount,
     updateAccount,
     authenticateAccount,
