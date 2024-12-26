@@ -97,7 +97,7 @@ function createPostHeaderHTML(user, createdAt, isNoti) {
                         </div>
                         <div class="modal-body" style="border: none;">
                             <p>${user.bio}</p>
-                            <p style="font-size: 85%; color: #888">${user.num_follow + " người theo dõi"}</p>
+                            <p style="font-size: 85%; color: #888">${user.followers.length + " người theo dõi"}</p>
                         </div>
                         <div class="modal-footer" style="border: none;">
                             <button class="follow-btn" type="button" onclick="followProcess(${user.user_id}, '${user.follow_status}')">${user.follow_status}</button>
