@@ -14,6 +14,8 @@ async function followProcess(user_id) {
     // Add followers to the list
     for (const follower_id of userData.followers) {
         const follow_data = await getUserData(follower_id);
+        const follow_status = userData.following.includes(follower_id) ? 'Đang theo dõi' : 'Theo dõi lại';
+        
         const content = `<li class="list-group-item custom-list-item">
             <div class="user-info">
                 <img src="${follow_data.avt_url || "https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg"}" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
@@ -22,7 +24,7 @@ async function followProcess(user_id) {
                     <span class="full-name">${follow_data.full_name}</span>
                 </div>
             </div>
-            <button type="button" class="follow_btn" onclick="followUser(${follow_data.user_id})">Theo dõi lại</button>
+            <button type="button" class="follow_btn" onclick="followUser(${follow_data.user_id})">${follow_status}</button>
         </li>`;
         followersList.innerHTML += content;
     }
