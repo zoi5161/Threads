@@ -14,7 +14,7 @@ const createAccount = async (req, res) => {
         }
 
         // Validation cho username
-        const usernameRegex = /^[a-zA-Z0-9-_\.]{1,30}$/;  // Chỉ cho phép chữ cái, số, -, _, .
+        const usernameRegex = /^[a-zA-Z0-9-_\.]{4,30}$/;  // Chỉ cho phép chữ cái, số, -, _, . và độ dài tối thiểu 4, tối đa 30
         
         if (!usernameRegex.test(username)) {
             return res.status(400).json({ message: "Username must be alphanumeric with dash, hyphen, or dot, and not exceed 30 characters" });

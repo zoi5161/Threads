@@ -10,6 +10,15 @@ async function handleSignup(event) {
     const password = form.elements['password'].value;
     const confirmPassword = form.elements['confirm_password'].value;
 
+    // Kiểm tra các điều kiện của mật khẩu
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/;
+    if (!passwordRegex.test(password)) {
+        const errorElement = document.getElementById('error_message');
+        errorElement.textContent = 'Mật khẩu phải có ít nhất 5 ký tự, bao gồm ít nhất 1 chữ hoa, 1 chữ thường và 1 số';
+        errorElement.style.display = 'block';
+        return;
+    }
+
     if (password !== confirmPassword) {
         const errorElement = document.getElementById('error_message');
         errorElement.textContent = 'Mật khẩu không trùng khớp';

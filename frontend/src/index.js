@@ -4,12 +4,13 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import lastTime from "./public/js/service/lastTime.js";
 import dotenv from "dotenv"
-dotenv.config({ path: '../config/.env' });
+dotenv.config({ path: './config/.env' });
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = process.env.PORT || 3000;
 const host_backend_domain = process.env.HOST_BACKEND || 'http://localhost:10000';
+console.log("check HOST_BACKEDN ENV: ", process.env.HOST_BACKEND);
 console.log("CHECK host: ", host_backend_domain);
 
 app.use(bodyParser.urlencoded({extended: true}));
