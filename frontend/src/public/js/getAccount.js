@@ -9,7 +9,8 @@ async function getAccountData() {
         });
 
         const result = await response.json();
-
+        console.log(response);
+        console.log(result);
         if (response.status === 200 && result) {
             return result;
         }
