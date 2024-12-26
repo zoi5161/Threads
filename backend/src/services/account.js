@@ -24,9 +24,9 @@ const createAccount = async (email, password, username) => {
         const user = new User({
             user_id: new_user_id.toString(),
             user_name: username,
-            full_name: 'New User ' + new_user_id,
-            tag: 'New User Tag ' + new_user_id,
-            bio: 'New User Bio ' + new_user_id,
+            full_name: username,
+            tag: username,
+            bio: 'New User Bio of ' + username,
             avt_url: '', 
             num_follow: 0, // Mặc định số người theo dõi là 0
             link_fb: 'facebook.com', // Mặc định link fb

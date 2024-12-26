@@ -15,8 +15,10 @@ async function getUserData(user_Id) {
 
         // Parse dữ liệu JSON từ response
         const userData = await response.json();
-        userData.avt_url = backendDomain + userData.avt_url
-        // console.log('userData:', userData); 
+        if(userData.avt_url)
+            userData.avt_url = backendDomain + userData.avt_url;
+          else
+            userData.avt_url = 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg';
         return userData;
     } catch (error) {
         console.error('Error fetching user data:', error, 'Khong tim thay user co id: ', user_Id);
