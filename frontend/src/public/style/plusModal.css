@@ -213,7 +213,7 @@
     .input-box {
         min-height: 80px;
         outline: none;
-        max-height: 300px;
+        max-height: 25vh;
     }
 
     .icon-group {
