@@ -11,8 +11,10 @@ require("dotenv").config({ path: "./config/.env" });
 
 const app = express();
 
+const clientUris = process.env.CLIENT_URIS ? process.env.CLIENT_URIS.split(',') : ['http://localhost:3000'];
+
 app.use(cors({
-  origin: process.env.CLIENT_URI || 'http://localhost:3000',
+  origin: clientUris,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,

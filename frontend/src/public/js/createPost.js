@@ -118,13 +118,13 @@ function createPostContentHTML(post) {
             <p style="word-wrap: break-word; word-break: break-word">
                 ${post.content}
             </p>
-            ${post.image_url
+            ${backendDomain + post.image_url
       ? `
                     <div style="text-align: center; margin-bottom: 1rem;">
                         ${post.media_type?.startsWith("video")
-        ? `<video src="${post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
+        ? `<video src="${backendDomain + post.image_url}"  controls style="max-width: 100%; max-height: 500px; border-radius: 10px;"></video>`
         : post.media_type?.startsWith("image")
-          ? `<img src="${post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
+          ? `<img src="${backendDomain + post.image_url}"  alt="post media" style="max-width: 100%; max-height: 500px; border-radius: 10px;">`
           : `<p>Unsupported media type</p>`
       }
                     </div>

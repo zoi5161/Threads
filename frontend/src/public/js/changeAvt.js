@@ -38,7 +38,7 @@ async function changeAvatar(imageFile) {
           },
           credentials: "include",
           body: JSON.stringify({
-            image: backendDomain + `/image/${result.imageId}`,
+            image: `/image/${result.imageId}`,
           }),
         });
 

@@ -52,7 +52,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
   
       const result = await response.json(); // Parse JSON response
       console.log("Image Upload Result:", result);
-      threadData.image_url = backendDomain + `/image/${result.imageId}`;
+      threadData.image_url = `/image/${result.imageId}`;
       threadData.media_type = result.media_type; 
       
     } catch (error) {

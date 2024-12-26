@@ -17,6 +17,7 @@ async function fetchUserData(userId, edit_or_other_status) {
 
       // Parse dữ liệu JSON từ response
       const userData = await response.json();
+      userData.avt_url = backendDomain + userData.avt_url
 
       // Cập nhật giao diện với dữ liệu user:
       document.querySelector('.user_name').innerText = userData.full_name || 'Unknown';

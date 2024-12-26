@@ -15,6 +15,8 @@ async function getUserData(user_Id) {
 
         // Parse dữ liệu JSON từ response
         const userData = await response.json();
+        userData.avt_url = backendDomain + userData.avt_url
+        // console.log('userData:', userData); 
         return userData;
     } catch (error) {
         console.error('Error fetching user data:', error, 'Khong tim thay user co id: ', user_Id);
