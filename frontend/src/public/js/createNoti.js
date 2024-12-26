@@ -23,6 +23,10 @@ async function createNoti(){
   const list_noti = await getAllNotiOfUser();
     const postContainer = document.querySelector(".container_post");
     list_noti.forEach(noti => {
+        if (noti.user.avt_url)
+          noti.user.avt_url = backendDomain + noti.user.avt_url
+        else
+          noti.user.avt_url = null;
         const notiHTML = createNotiHTML(noti);
         postContainer.insertAdjacentHTML('afterbegin', notiHTML);
 

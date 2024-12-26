@@ -4,8 +4,8 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'baomun250@gmail.com',
-    pass: 'tkye iwup ounb mqqb',
+    user: 'threaddev204@gmail.com',
+    pass: 'imov dxvl ffyl utna',
   },
 });
 
@@ -16,7 +16,7 @@ const sendVerificationEmail = async (toEmail) => {
 
   // Cấu hình email
   const mailOptions = {
-    from: 'baomun250@gmail.com',
+    from: 'threaddev204@gmail.com',
     to: toEmail,
     subject: 'Code for email confirmation',
     text: `Your verification code is: ${verificationCode}`,  // Nội dung email

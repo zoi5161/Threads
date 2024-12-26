@@ -22,9 +22,23 @@ const getAllThreads = async () => {
 };
 
 const getFollowerThreads = async (user_id) => {
-    const following = await User.findById(user_id).following;
-    return await Thread.find({ user_id: { $in: following } }).sort({ createdAt: -1 }).limit(20);
+    try {
+        const user = await User.findOne({ user_id: user_id });
+        if (!user) throw new Error("User not found");
+        
+        const following = user.following; 
+        
+        const threads = await Thread.find({ user_id: { $in: following } })
+            .sort({ createdAt: -1 })
+            .limit(20);
+
+        return threads;
+    } catch (error) {
+        console.error("Error fetching follower threads:", error);
+        throw error;
+    }
 };
+
 
 const getNewestThreads = async () => {
     return await Thread.find().sort({ createdAt: -1 }).limit(20);

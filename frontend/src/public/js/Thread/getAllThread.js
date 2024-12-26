@@ -21,6 +21,7 @@ async function getAllThreads(priority_filter) {
 
     if (response.ok) {
       const result = await response.json();
+      console.log(result);
       return result;
     } else {
       console.error("Error response:", response);

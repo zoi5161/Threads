@@ -120,6 +120,7 @@ const authenticateAccount = async (req, res) => {
         res.setHeader(
             'Set-Cookie',
             `sessionId=${sessionId}; Path=/; HttpOnly; Max-Age=3600; SameSite=None; Secure`
+            // `sessionId=${sessionId}; Path=/; HttpOnly; Max-Age=3600;`
         );
 
         res.status(200).json({ message: "Authentication successful", account });
