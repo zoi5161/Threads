@@ -89,7 +89,7 @@ async function postInteract() {
     let liked = false;
     
     try {
-      const checkLikeResponse = await fetch("http://localhost:10000/thread_action/check_like", {
+      const checkLikeResponse = await fetch(backendDomain + "/thread_action/check_like", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -123,8 +123,8 @@ async function postInteract() {
       event.preventDefault(); // Prevent the default form submission behavior
     
       const like_api = liked
-        ? "http://localhost:10000/thread_action/unlike"
-        : "http://localhost:10000/thread_action/like";
+        ? backendDomain + "/thread_action/unlike"
+        : backendDomain + "/thread_action/like";
     
       try {
         const response = await fetch(like_api, {
