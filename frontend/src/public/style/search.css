@@ -105,6 +105,7 @@ h2 {
         background-color: var(--black);
         border-left: none;
         border-right: none;
+        margin-bottom: 4rem;
     }
 
     .avatar {

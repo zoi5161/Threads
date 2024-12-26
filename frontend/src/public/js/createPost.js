@@ -118,7 +118,7 @@ function createPostContentHTML(post) {
             <p style="word-wrap: break-word; word-break: break-word">
                 ${post.content}
             </p>
-            ${backendDomain + post.image_url
+            ${post.image_url
       ? `
                     <div style="text-align: center; margin-bottom: 1rem;">
                         ${post.media_type?.startsWith("video")

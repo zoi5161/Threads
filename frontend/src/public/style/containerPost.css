@@ -20,6 +20,7 @@
 .container_post{
     width: 638px;
     margin-top: 4rem;
+    margin-bottom: 8rem;
 }
 
 /* Định dạng chung cho post */
@@ -252,7 +253,7 @@
     margin-top: -2rem;
 }
 
-.modal_img_content_body img {
+.modal_img_content_body img, .modal_img_content_body video{
     max-width: 100%;
     max-height: calc(100vh - 2rem - 32px);
     height: auto; /* Ensures the aspect ratio is maintained */
@@ -260,9 +261,9 @@
     border-radius: 10px;
 }
 
-#image-preview-container img{
+#image-preview-container img, #image-preview-container video, #image-preview-container-comment img, #image-preview-container-comment video{
     max-width: 100%;
-    max-height: 30vh;
+    max-height: 20vh !important;
     height: auto; 
     width: auto !important;
     border-radius: 10px;
