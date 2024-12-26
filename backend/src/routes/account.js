@@ -3,6 +3,7 @@ const accountController = require("../controllers/account");
 const router = express.Router();
 
 router.get("/", accountController.getAccountByEmail);
+router.get("/username/:username", accountController.getAccountByUsername);
 router.post("/", accountController.createAccount);
 router.get("/logout", accountController.logOutAccount);
 router.get("/getAccount", accountController.getAccountData);
