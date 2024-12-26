@@ -12,7 +12,7 @@ require("dotenv").config({ path: "./config/.env" });
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: process.env.CLIENT_URI || 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -32,7 +32,6 @@ app.use(express.json());
 //   },
 //   genid: (req) => uuidv4(),
 // }));
-
 
 app.use(routes); //Connect to index.js in routes folder
 
