@@ -37,7 +37,7 @@ const createAccount = async (email, password, username) => {
 
         // Lưu user vào database
         await user.save();
-        console.log('User added successfully!');
+        //console.log('User added successfully!');
     } catch (err) {
         console.error('Error adding user:', err);
     }
@@ -85,7 +85,7 @@ const updateAccount = async (email, newPassword) => {
     }
 
     const hashedPassword = await bcrypt.hash(newPassword, 10);
-    console.log("CHECK PASS SAU KHI HASH: ", hashedPassword);
+    //console.log("CHECK PASS SAU KHI HASH: ", hashedPassword);
     account.password = hashedPassword;
 
     await account.save();

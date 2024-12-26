@@ -14,7 +14,7 @@ async function handleLogOut(e) {
 
         // const result = await response.json();
     } catch (error) {
-        console.log(error.message);
+        //console.log(error.message);
     }
     
     // window.location.href='./login'

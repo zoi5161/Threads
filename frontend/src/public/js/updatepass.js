@@ -1,5 +1,5 @@
 // const backendDomain = "<%= host_backend %>";
-// console.log("Backend Domain:", backendDomain);
+//console.log("Backend Domain:", backendDomain);
 
 document.addEventListener("DOMContentLoaded", () => {
     const inputs = document.querySelectorAll('.code-input');
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     confirmButton.addEventListener('click', async () => {
         const resetPass = document.querySelector('.reset-pass-input').value;
-        console.log('check RESET PASS FE: ', resetPass);
+        //console.log('check RESET PASS FE: ', resetPass);
         const code_input = Array.from(inputs).map(input => input.value).join('');
         if (code_input.length !== 4) {
             alert('Vui lòng nhập đủ 4 ký tự.');

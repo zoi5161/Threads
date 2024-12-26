@@ -1,5 +1,5 @@
 async function changeAvatar(imageFile) {
-  console.log("Image File:", imageFile);
+  //console.log("Image File:", imageFile);
 
   if (imageFile && imageFile.size > 0) {
     if (imageFile.size > 10 * 1024 * 1024) {
@@ -27,7 +27,7 @@ async function changeAvatar(imageFile) {
       }
 
       const result = await response.json(); // Parse JSON response
-      console.log("Image Upload Result:", result);
+      //console.log("Image Upload Result:", result);
 
       // Update the user's avatar with the new image URL
       try {
@@ -49,7 +49,7 @@ async function changeAvatar(imageFile) {
         }
 
         const data = await response.json();
-        console.log("Update Avatar Result:", data);
+        //console.log("Update Avatar Result:", data);
 
         if (data.message) {
           alert(data.message);

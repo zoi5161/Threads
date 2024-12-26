@@ -29,7 +29,7 @@ async function update_User(userId) {
 
     if (response.ok) {
       alert('Cập nhật thành công!');
-      console.log('Updated user:', result.user);
+      //console.log('Updated user:', result.user);
       // Cập nhật giao diện nếu cần
       location.reload();
     } else {

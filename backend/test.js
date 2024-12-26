@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 bcrypt.hash('abcxyz', 10, function(err, hash) {
-  console.log(hash);
+  //console.log(hash);
 });
 
 // $2b$10$FGEJ57.tv3FtqKtxt2iMOO6.1VV3Rd07hrJzxW1QPXIJI7tkLeFyK
@@ -11,7 +11,7 @@ bcrypt.hash('abcxyz', 10, function(err, hash) {
 
 // // Kết nối MongoDB
 // mongoose.connect('', { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => console.log('Connected to MongoDB'))
+//   .then(() => //console.log('Connected to MongoDB'))
 //   .catch(err => console.error('Could not connect to MongoDB:', err));
 
 
@@ -33,7 +33,7 @@ bcrypt.hash('abcxyz', 10, function(err, hash) {
 
 //     // Lưu user vào database
 //     await user.save();
-//     console.log('User added successfully!');
+//     //console.log('User added successfully!');
 //   } catch (err) {
 //     console.error('Error adding user:', err);
 //   }

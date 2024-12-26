@@ -10,7 +10,7 @@ const createNoti = async (req, res) => {
             return;
         }
 
-        console.log("Creating notification with user_id:", user_id, "user_make_noti:", user_make_noti, "post_id:", post_id, "type:", type, "msg:", msg);
+        //console.log("Creating notification with user_id:", user_id, "user_make_noti:", user_make_noti, "post_id:", post_id, "type:", type, "msg:", msg);
         await notiService.createNoti(user_id, post_id, user_make_noti, type, msg);
         res.status(201).json({ message: "Notification created" });
     } catch (err) {

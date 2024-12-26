@@ -73,7 +73,7 @@ const noti_HTML = `
 `;
 
 function dot_click(button) {
-  console.log("dot clicked");
+  //console.log("dot clicked");
 }
 
 function createPostHeaderHTML(user, createdAt, isNoti) {
@@ -220,7 +220,7 @@ async function unFollowUser(user_id) {
       alert(`Complete to un follow user ${user_id}`);
     } else {
       alert(`Can not un follow user ${user_id}`);
-      console.log(result.message);
+      //console.log(result.message);
     }
   } catch (error) {
     alert(`Error during follow action:`, error);
@@ -249,7 +249,7 @@ async function followUser(user_id) {
 
     if (response.ok) {
       alert(`Complete to follow user`);
-      console.log(result.message); // Đang theo dõi thành công
+      //console.log(result.message); // Đang theo dõi thành công
 
       await fetchCreateNoti({
         user_id: user_id,

@@ -11,7 +11,7 @@ const createThread = async (req, res) => {
       root_thread,
       media_type
     );
-    console.log('Created thread:', newThread);
+    //console.log('Created thread:', newThread);
     res.status(201).json(newThread);
   } catch (err) {
     res.status(409).json({ message: err.message });
@@ -155,10 +155,10 @@ const getComment = async (req, res) => {
 
 const getLikePost = async (req, res) => {
   const {thread_id} = req.params;
-  console.log(">> CHECK BE thread_id: ", thread_id);
+  //console.log(">> CHECK BE thread_id: ", thread_id);
   try {
     const likePost = await threadService.getLikePost(thread_id);
-    console.log(likePost);
+    //console.log(likePost);
     res.status(200).json(likePost);
   } catch(error) {
     res.status(500).json({ message: error.message});

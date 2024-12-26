@@ -53,7 +53,7 @@ function mediaInteract(media_element, img, video)
 async function postInteract() {
   const posts = document.querySelectorAll(".post:not(#postTop)");
 
-  // console.log(posts);
+  //console.log(posts);
 
   posts.forEach(async (post) => {
     const img = post.querySelector(".post-content img");
@@ -144,12 +144,12 @@ async function postInteract() {
     
           // Update the UI based on the new state
           if (liked) {
-            console.log("Liked post:", post.id);
+            //console.log("Liked post:", post.id);
             likeIcon.classList.add("fas");
             likeIcon.classList.remove("far");
             likeCount.textContent = result.likeCnt;
           } else {
-            console.log("Unliked post:", post.id);
+            //console.log("Unliked post:", post.id);
             likeIcon.classList.add("far");
             likeIcon.classList.remove("fas");
             likeCount.textContent = result.likeCnt;
@@ -177,8 +177,8 @@ async function postInteract() {
     const commentCount = commentButton.querySelector(".commentCnt");
 
     commentButton.addEventListener("click", function (event) {
-      console.log("Comment button clicked");
-      console.log("Post :", post)
+      //console.log("Comment button clicked");
+      //console.log("Post :", post)
       const container_post_comment = document.querySelector(
         ".container_post_comment"
       );
@@ -193,7 +193,7 @@ async function postInteract() {
       const post_btn_comment = document.querySelector("#post-btn-comment");
       post_btn_comment.addEventListener("click", async(event) => {
         event.preventDefault();
-        console.log(post.id);
+        //console.log(post.id);
         const post_comment_id = await createThreadButton('_comment', post.id)
 
         const user_id = post.querySelector('.post-header').id;

@@ -1,6 +1,6 @@
 async function createThreadButton(thread_type = '', root_thread_id = null) {
   const form = document.getElementById("create_thread_form" + thread_type);
-  console.log("Form:", form);
+  //console.log("Form:", form);
   if (!form) {
     alert("Form not found. Please check your HTML.");
     return;
@@ -26,7 +26,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
 
   // Handle image upload
   const imageFile = formData.get("image" + thread_type);
-  console.log("Image File:", imageFile);
+  //console.log("Image File:", imageFile);
 
   if (imageFile && imageFile.size > 0) {
     if (imageFile.size > 10 * 1024 * 1024) { // Limit to 10 MB
@@ -51,7 +51,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
       }
   
       const result = await response.json(); // Parse JSON response
-      console.log("Image Upload Result:", result);
+      //console.log("Image Upload Result:", result);
       threadData.image_url = `/image/${result.imageId}`;
       threadData.media_type = result.media_type; 
       
@@ -61,10 +61,10 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
     }
   }
 
-  console.log("Thread Data:", threadData);
+  //console.log("Thread Data:", threadData);
   const create_thread_route = thread_type === '' ? backendDomain + "/thread" : backendDomain + "/thread/comment";
 
-  console.log("Create Thread Route:", create_thread_route);
+  //console.log("Create Thread Route:", create_thread_route);
 
   // Handle thread submission
   try {
@@ -82,7 +82,7 @@ async function createThreadButton(thread_type = '', root_thread_id = null) {
     }
 
     const result = await response.json();
-    console.log("Thread Submission Response:", result);
+    //console.log("Thread Submission Response:", result);
     const newThreadId = result._id;
 
     alert("Đăng bài thành công!");

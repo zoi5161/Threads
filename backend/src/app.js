@@ -40,7 +40,7 @@ app.use(routes); //Connect to index.js in routes folder
 const MONGODB_URI = process.env.MONGODB_URI; //Connect to MongoDB
 mongoose.connect(MONGODB_URI)
 // mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//     .then(() => console.log("Connected to MongoDB successfully"))
+//     .then(() => //console.log("Connected to MongoDB successfully"))
 //     .catch(err => console.error("MongoDB connection error:", err));
     
 const PORT = process.env.PORT || 10000;
@@ -50,5 +50,5 @@ app.get('/', (_, res) => {
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server is running on port ${PORT}`);
+  //console.log(`Server is running on port ${PORT}`);
 });

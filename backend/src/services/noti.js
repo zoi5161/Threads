@@ -55,7 +55,7 @@ const getNotiById = async (noti_id) => {
     } else {
         result.user = null;
     }
-    console.log("result", result);
+    //console.log("result", result);
     return result;
 };
 

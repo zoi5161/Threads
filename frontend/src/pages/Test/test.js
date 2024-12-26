@@ -2,7 +2,7 @@ const form = document.querySelector('#testForm');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();  // Prevent the default form submission behavior
-    console.log('Form submitted');
+    //console.log('Form submitted');
 
     // Use FormData to gather all input values
     const formData = new FormData(form);
@@ -18,7 +18,7 @@ form.addEventListener('submit', async (e) => {
     });
 
     const responseData = await response.json();
-    console.log(responseData);  // Log the response from the server
+    //console.log(responseData);  // Log the response from the server
 
     // Clear the form fields after submission
     form.reset();

@@ -67,12 +67,12 @@
 <script>
 
     const backendDomain = "<%= host_backend %>";
-    console.log("Backend Domain:", backendDomain);
+    //console.log("Backend Domain:", backendDomain);
 
     window.onload = async () => {
         const container_post = document.querySelector(".container_post");
         const thread_id = new URLSearchParams(window.location.search).get('thread_id');
-        console.log('check id: ', thread_id);
+        //console.log('check id: ', thread_id);
         const main_post = await getThread(thread_id);
         const main_user = await getUserData(main_post.user_id);
 

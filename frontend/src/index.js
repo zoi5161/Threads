@@ -10,8 +10,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = process.env.PORT || 3000;
 const host_backend_domain = process.env.HOST_BACKEND || 'http://localhost:10000';
-console.log("check HOST_BACKEDN ENV: ", process.env.HOST_BACKEND);
-console.log("CHECK host: ", host_backend_domain);
+//console.log("check HOST_BACKEDN ENV: ", process.env.HOST_BACKEND);
+//console.log("CHECK host: ", host_backend_domain);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -88,5 +88,5 @@ app.get('/Search', (req, res) => {
 
 
 app.listen(port, '0.0.0.0', () => {
-    console.log(`Listening on ${port}`);
+    //console.log(`Listening on ${port}`);
 });

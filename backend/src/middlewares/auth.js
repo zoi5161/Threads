@@ -1,13 +1,13 @@
 
 // const authMiddleware = (req, res, next) => {
-//     console.log('auth middleware');
+//     //console.log('auth middleware');
 
 //     const sessionId = req.cookies.sessionId; // Lấy sessionId từ cookie
 //     const session = sessions[sessionId]; // Lấy thông tin session
 
 //     // Kiểm tra session có tồn tại hay không
 //     if (!session) {
-//         console.log('no session');
+//         //console.log('no session');
 //         return res.status(200).json({});
 //     }
 
@@ -17,8 +17,8 @@
 //         delete sessions[sessionId];
 //         return res.status(200).json({});
 //     }
-//     console.log("CHECK SESSIONS: ", sessions);
-//     console.log("CHECK SESSION account: ", session);
+//     //console.log("CHECK SESSIONS: ", sessions);
+//     //console.log("CHECK SESSION account: ", session);
 
 
 //     // Trả về thông tin account nếu session hợp lệ

@@ -1,5 +1,5 @@
 // const backendDomain = "<%= host_backend %>";
-// console.log("Backend Domain:", backendDomain);
+//console.log("Backend Domain:", backendDomain);
 
 async function handleRecover(event) {
     event.preventDefault();

@@ -11,7 +11,7 @@ async function getAllThreads(priority_filter) {
       ? backendDomain + `/thread/${filter}`
       : backendDomain + "/thread";
 
-    console.log("API URL:", apiUrl);
+    //console.log("API URL:", apiUrl);
     const needCookies = filter === "liked" || filter === "commented" || filter === "following" || filter === "self";
     // Make the API call
     const response = await fetch(apiUrl, { 

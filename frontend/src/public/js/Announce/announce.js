@@ -16,9 +16,9 @@ async function Detail(button)
 
 async function Seen(button)
 {
-    console.log("Seen");
+    //console.log("Seen");
     var notiWrapper = button.closest(".noti_wrapper");
-    console.log(notiWrapper);
+    //console.log(notiWrapper);
     const un_seen_class = "un_seen";
     if (notiWrapper.classList.contains(un_seen_class))
     {
@@ -34,7 +34,7 @@ async function Seen(button)
 }
 
 async function UnSeen(button){
-    console.log("UnSeen");
+    //console.log("UnSeen");
     var notiWrapper = button.closest(".noti_wrapper");
     const un_seen_class = "un_seen";
     if (!notiWrapper.classList.contains(un_seen_class))
@@ -55,7 +55,7 @@ async function UnSeen(button){
 
 function DeleteNoti(button)
 {
-    console.log("Delete");
+    //console.log("Delete");
     var notiWrapper = button.closest(".noti_wrapper");
     if (notiWrapper)
     {
@@ -79,7 +79,7 @@ async function fetchSeen(noti_id, seen)
   }
   catch(err)
   {
-    console.log(err);
+    //console.log(err);
   }
 }
 
@@ -96,7 +96,7 @@ async function fetchDeleteNoti(noti_id){
   }
   catch(err)
   {
-    console.log(err);
+    //console.log(err);
   }
 }
 
@@ -130,6 +130,6 @@ async function fetchCreateNoti(obj){
   }
   catch(err)
   {
-    console.log(err);
+    //console.log(err);
   }
 }

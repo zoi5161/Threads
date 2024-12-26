@@ -1,5 +1,5 @@
 // const backendDomain = "<%= host_backend %>";
-// console.log("Backend Domain:", backendDomain);
+//console.log("Backend Domain:", backendDomain);
 
 async function handleSignup(event) {
     event.preventDefault();
@@ -46,7 +46,7 @@ async function handleSignup(event) {
         const result = await response.json();
 
         if (response.ok) {
-            console.log(sessionStorage);
+            //console.log(sessionStorage);
             window.location.href = '/Sendcode';
         } else {
             const errorElement = document.getElementById('error_message');

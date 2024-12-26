@@ -55,11 +55,11 @@ const getAccountByEmail = async (req, res) => {
 const getAccountByUsername = async (req, res) => {
     try {
         const { username } = req.params;  // Lấy username từ params trong URL
-        console.log("Looking for username:", username);  // Debugging
+        //console.log("Looking for username:", username);  // Debugging
 
         // Gọi hàm trong service để lấy tài khoản theo username
         const account = await accountService.getAccountByUsername(username);
-        console.log("Looking for account:", account);
+        //console.log("Looking for account:", account);
 
         // Nếu tìm thấy tài khoản, trả về
         res.status(200).json(account);
@@ -130,13 +130,13 @@ const authenticateAccount = async (req, res) => {
 
 const logOutAccount = (req, res) => {
 
-    // console.log(">>>CHECK COOKIE BACKEND: ", req.cookies.sessionId);
+    //console.log(">>>CHECK COOKIE BACKEND: ", req.cookies.sessionId);
     try {
-        // console.log(sessions);
+        //console.log(sessions);
         delete sessions[req.cookies.sessionId];
         res.setHeader('Set-Cookie', `sessionId=; Path=/; HttpOnly; Max-Age=0`);
 
-        // console.log("CHECK SESSIONS APTER LOGOUT: ", sessions);
+        //console.log("CHECK SESSIONS APTER LOGOUT: ", sessions);
         res.status(200).json({ message: "Log Out successful" });
     } catch (error) {
         res.status(401).json({ message: error.message });
@@ -149,18 +149,18 @@ const getAccountData = (req, res) => {
 
     // Kiểm tra session có tồn tại hay không
     if (!session) {
-        console.log('Session không tồn tại hoặc đã hết hạn.');
+        //console.log('Session không tồn tại hoặc đã hết hạn.');
         return res.status(203).json({ redirect: "/login", message: "Not logged in" });
     }
 
     // Kiểm tra thời gian hết hạn
     if (Date.now() > session.expired) {
-        console.log('Session hết hạn.');
+        //console.log('Session hết hạn.');
         delete sessions[sessionId]; // Xóa session nếu hết hạn
         return res.status(203).json({ redirect: "/login", message: "Session expired" });
     }
-    // console.log("CHECK SESSIONS: ", sessions);
-    // console.log("CHECK SESSION account: ", session);
+    //console.log("CHECK SESSIONS: ", sessions);
+    //console.log("CHECK SESSION account: ", session);
 
 
     // Trả về thông tin account nếu session hợp lệ
@@ -173,13 +173,13 @@ const authMiddleware = (req, res, next) => {
 
     // Kiểm tra session có tồn tại hay không
     if (!session) {
-        console.log('Session không tồn tại hoặc đã hết hạn.');
+        //console.log('Session không tồn tại hoặc đã hết hạn.');
         return res.status(401).json({ redirect: "/login", message: "Unauthorized" });
     }
 
     // Kiểm tra thời gian hết hạn
     if (Date.now() > session.expired) {
-        console.log('Session hết hạn.');
+        //console.log('Session hết hạn.');
         delete sessions[sessionId]; // Xóa session nếu hết hạn
         return res.status(401).json({ redirect: "/login", message: "Session expired" });
     }

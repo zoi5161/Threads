@@ -11,8 +11,8 @@ var localUserName = null;
 const sendVerificationEmail = async (req, res) => {
   const { toEmail, password, username } = req.body;
 
-  console.log('Email:', toEmail);
-  console.log('Password:', password);
+  //console.log('Email:', toEmail);
+  //console.log('Password:', password);
 
   localEmail = toEmail;
   localPassword = password;
@@ -44,7 +44,7 @@ const sendVerificationEmail = async (req, res) => {
     // req.session.verificationCode = response.verificationCode;
     verCode = response.verificationCode;
 
-    console.log('Verification code:', verCode);
+    //console.log('Verification code:', verCode);
     
     if (verificationTimer) {
       clearTimeout(verificationTimer);
@@ -52,7 +52,7 @@ const sendVerificationEmail = async (req, res) => {
 
     verificationTimer = setTimeout(() => {
       verCode = null;
-      console.log('Verification code reset due to timeout.');
+      //console.log('Verification code reset due to timeout.');
     }, 60000);
 
     return res.status(200).json({ 
@@ -69,7 +69,7 @@ const sendVerificationEmail = async (req, res) => {
 };
 
 // const getcode = (req) => {
-//   console.log(req.session);
+//   //console.log(req.session);
 //   return req.session.verificationCode;
 // };
 
@@ -78,8 +78,8 @@ const verifyCode = async (req, res) => {
   const { code } = req.body;
   // const verificationCode = await getcode(req);
 
-  console.log('Mã từ client:', code);
-  console.log('Mã trong session:', verCode);
+  //console.log('Mã từ client:', code);
+  //console.log('Mã trong session:', verCode);
 
   if (verCode && verCode.toString() === code) {
       const account = await accountService.createAccount(localEmail, localPassword, localUserName);
@@ -113,7 +113,7 @@ const sendVerificationEmail_ResetPass = async (req, res) => {
       }
     }
 
-    console.log('Existing account:', existingAccount);
+    //console.log('Existing account:', existingAccount);
     if (!existingAccount) {
       return res.status(400).json({ message: 'Email không tồn tại trong hệ thống.' });
     }
@@ -129,7 +129,7 @@ const sendVerificationEmail_ResetPass = async (req, res) => {
 
     verificationTimer = setTimeout(() => {
       verCode = null;
-      console.log('Verification code reset due to timeout.');
+      //console.log('Verification code reset due to timeout.');
     }, 60000);
 
     return res.status(200).json({
@@ -150,7 +150,7 @@ const verifyCode_ResetPass = async (req, res) => {
   const { code, email, pass } = req.body;
 
   if (verCode && verCode.toString() === code) {
-    console.log("CHECK PASS TRƯỚC KHI HASH: ", pass);
+    //console.log("CHECK PASS TRƯỚC KHI HASH: ", pass);
     const updateResponse = await accountService.updateAccount(email, pass);
     verCode = null;
     if (updateResponse.message === "Password updated successfully") {

@@ -14,7 +14,7 @@ async function getAllNotiOfUser() {
     return result;
   }
   catch(err){
-    console.log('Error when getting all notifications:', err);
+    //console.log('Error when getting all notifications:', err);
   }
 }
 
@@ -36,7 +36,7 @@ async function createNoti(){
         header_info_wrapper.appendChild(msg);
     });
 
-    console.log("List noti:", list_noti);
+    //console.log("List noti:", list_noti);
 
     if(list_noti == null)
     {

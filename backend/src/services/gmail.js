@@ -25,7 +25,7 @@ const sendVerificationEmail = async (toEmail) => {
   // Gửi email
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log(verificationCode);
+    //console.log(verificationCode);
     return { verificationCode, response: info.response };
   } catch (error) {
     throw new Error('Failed to send email: ' + error.message);

@@ -63,7 +63,7 @@
 
 <script>
     const backendDomain = "<%= host_backend %>";
-    console.log("Backend Domain:", backendDomain);
+    //console.log("Backend Domain:", backendDomain);
 
     function generateUser(user) {
         return `<div class="suggestion">
@@ -117,11 +117,11 @@
             // Parse dữ liệu JSON từ response
             userList = await response.json();
             userList = userList.userList;
-            console.log(userList);
+            //console.log(userList);
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
-        console.log("CHECK USERLIST: ", userList);
+        //console.log("CHECK USERLIST: ", userList);
 
         //gọi để lấy phiên đăng nhập của account -> lấy user_id trước
         let accountData = await getAccountData();
@@ -154,8 +154,8 @@
             button.addEventListener('click', async function () {
                 const fl_status = button.dataset.followstatus;
                 const userid = button.dataset.userid;
-                console.log("CHECK fl_status: ", fl_status);
-                console.log("CHECK userid: ", userid);
+                //console.log("CHECK fl_status: ", fl_status);
+                //console.log("CHECK userid: ", userid);
 
                 // Kiểm tra trạng thái follow
                 if (fl_status === "Theo dõi" || fl_status === "Theo dõi lại") {
