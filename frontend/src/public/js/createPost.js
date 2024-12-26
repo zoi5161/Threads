@@ -81,7 +81,7 @@ function createPostHeaderHTML(user, createdAt, isNoti) {
   return `
     <div class="post-header" id="${user.user_id}"> 
         <div class="avatar">
-            <img src="${user.avt_url}" />
+            <img src="${user.avt_url || 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg'}" />
         </div>
         <div class="header_info_wrapper">
             <div class="username-time">
@@ -93,7 +93,7 @@ function createPostHeaderHTML(user, createdAt, isNoti) {
                                 <div class="user-name" style="font-size: 125%; font-weight: bold;">${user.full_name}</div>
                                 <div class="user-username">${user.tag}</div>
                             </div>
-                            <img src="${user.avt_url}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
+                            <img src="${user.avt_url || 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg'}" alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
                         </div>
                         <div class="modal-body" style="border: none;">
                             <p>${user.bio}</p>
