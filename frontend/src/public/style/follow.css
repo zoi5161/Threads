@@ -179,26 +179,75 @@
     border: none;
 }
 
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 576px) {
+    #followersModal .modal-dialog {
+        width: 95%;
+        margin: 1rem auto;
+        max-width: 320px; /* Giới hạn kích thước tối đa */
+    }
+
     .follow-tabs {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row !important;
     }
 
     .tab-btn {
-        padding: 8px 12px;
-        font-size: 14px;
+        padding: 8px 5px;
+        font-size: 13px;
     }
 
-    .list-group-item.custom-list-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    .follower-count, .following-count {
+        font-size: 12px;
+        margin-left: 3px;
     }
 
-    .post_btn {
-        width: 100%;
-        text-align: center;
+    .user-info {
+        gap: 8px;
+    }
+
+    .user-info img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .user-info-text {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .user-name {
+        font-size: 13px;
+    }
+
+    .full-name {
+        font-size: 12px;
+    }
+
+    .list-group-item, .custom-list-item {
+        padding: 8px 10px;
+    }
+
+    .follow_btn {
+        padding: 4px 10px;
+        font-size: 12px;
+        min-width: 70px;
+    }
+}
+
+/* Màn hình cực nhỏ */
+@media (max-width: 320px) {
+    #followersModal .modal-dialog {
+        width: 98%;
+        margin: 0.5rem auto;
+    }
+
+    .user-info-text {
+        max-width: 120px;
+    }
+
+    .user-name, .full-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }

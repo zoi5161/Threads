@@ -72,8 +72,8 @@
                             alt="avt_user">
                     </div>
                     <div class="profile-info">
-                        <div class="profile-name" onmouseover="showUserInfo1(this)"
-                            onmouseout="hideUserInfo1(this)">${user.user_name}</div>
+                        <div class="profile-name"  onmouseover="showUserInfo1(this)"
+                            onmouseout="hideUserInfo1(this)" onclick="transferUser(${user.user_id})" >${user.user_name}</div>
                         <div class="small_box_infor_user" onmouseover="showUserInfo2(this)"
                             onmouseout="hideUserInfo2(this)">
                             <div class="modal-content">
@@ -82,12 +82,12 @@
                                         <div class="user-name" style="font-size: 125%; font-weight: bold;">${user.full_name}</div>
                                         <div class="user-username">${user.user_name}</div>
                                     </div>
-                                    <img src= ${user.avt_url}
+                                    <img src= ${user.avt_url ? backendDomain + user.avt_url : 'https://i.pinimg.com/736x/cd/4b/d9/cd4bd9b0ea2807611ba3a67c331bff0b.jpg'}
                                         alt="User Avatar" class="avatar" style="width: 60px; height: 60px;">
                                 </div>
                                 <div class="modal-body">
                                     <p>${user.bio}</p>
-                                    <p style="font-size: 85%; color: var(--iconInPost)">${user.num_follow} người theo dõi</p>
+                                    <p style="font-size: 85%; color: var(--iconInPost)">${user.followers.length} người theo dõi</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button class="follow-btn" data-userId="${user.user_id}" data-followStatus="${user.follow_status}" >${user.follow_status}</button>
