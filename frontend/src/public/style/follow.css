@@ -17,7 +17,7 @@
 .modal-header-follow {
     border-bottom: 1px solid #333333; /* Thêm đường viền phân cách */
     padding: 20px;
-    background-color: #1e1e1e; /* Màu nền khác cho header */
+    background-color: var(--black); /* Màu nền khác cho header */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,7 +74,7 @@
 
 /* Body của Modal */
 .modal-body-follow {
-    background-color: #121212;
+    background-color: var(--black);
     padding: 0;
     max-height: 70vh;
     overflow-y: auto;

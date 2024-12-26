@@ -28,7 +28,7 @@ async function update_User(userId) {
     const result = await response.json();
 
     if (response.ok) {
-      alert('Cập nhật thành công!');
+      // alert('Cập nhật thành công!');
       //console.log('Updated user:', result.user);
       // Cập nhật giao diện nếu cần
       location.reload();

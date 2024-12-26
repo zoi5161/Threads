@@ -29,7 +29,7 @@ const createAccount = async (email, password, username) => {
             bio: 'New User Bio of ' + username,
             avt_url: '', 
             num_follow: 0, // Mặc định số người theo dõi là 0
-            link_fb: 'facebook.com', // Mặc định link fb
+            link_fb: 'https://www.facebook.com/', // Mặc định link fb
             follow_status: 'Theo dõi', // Mặc định là 'Not Following'
             followers: [], // Mảng followers, mặc định là rỗng
             following: [] // Mảng following, mặc định là rỗng
