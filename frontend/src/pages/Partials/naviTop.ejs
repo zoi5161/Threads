@@ -76,17 +76,15 @@
                 <ul class="dropdown-menu top" id="setting-menu-top">
                     <li id="light">Nền sáng</li>
                     <li id="dark">Nền tối</li>
-                    <li>Thông tin chi tiết</li>
-                    <li>Cài đặt</li>
-                    <li>Đã lưu</li>
-                    <li>Đã thích</li>
-                    <li class="setting-top-second">
-                        <hr style="margin: 0 1rem; padding: 0;">
-                        <ul id="second" style="list-style-type: none; padding: 0; margin-top: 8px;">
-                            <li>Báo cáo sự cố</li>
-                            <li onclick="window.location.href='./login'">Đăng xuất</li>
-                        </ul>
-                    </li>
+                    <hr style="margin: 0 1rem; padding: 0;">
+                    <li><a href="?filter=all">Dành cho bạn</a></li>
+                    <li><a href="?filter=newest">Mới nhất</a></li>
+                    <li><a href="?filter=following">Người theo dõi</a></li>
+                    <li><a href="?filter=like">Lượt thích</a></li>
+                    <li><a href="?filter=liked">Đã thích</a></li>
+                    <li><a href="?filter=commented">Đã bình luận</a></li>
+                    <hr style="margin: 0 1rem; padding: 0;">
+                    <li onclick="window.location.href='./login'">Đăng xuất</li>
                 </ul> 
             </div>
             

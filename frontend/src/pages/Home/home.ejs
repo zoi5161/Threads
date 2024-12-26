@@ -90,6 +90,14 @@
 
         const posts_fetched = await getAllThreads();
         console.log(posts_fetched);
+
+        if(posts_fetched.length == 0)
+        {
+            const container_post = document.querySelector('.container_post');
+            console.log(container_post);
+            container_post.innerHTML = "<h1 style='text-align: center; margin-top: 33vh'>Không có bài viết nào</h1>";
+        }
+
         for (const post of posts_fetched) {
             const userData = await getUserData(post.user_id);
             
