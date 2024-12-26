@@ -156,7 +156,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listeners
     plusIcon.addEventListener('click', showModal);
-    plusSmall.addEventListener('click', showModal);
+    if(plusSmall){
+        plusSmall.addEventListener('click', showModal);
+    }
     cancelBtn.addEventListener('click', hideModal);
     overlay.addEventListener('click', hideModal);
 

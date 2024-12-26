@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer');
-const Code = require('../models/Code');
 
 // Cấu hình nodemailer
 const transporter = nodemailer.createTransport({

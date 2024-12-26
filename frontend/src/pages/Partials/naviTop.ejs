@@ -1,4 +1,4 @@
-<!-- <script src="js/naviTop.js"></script> -->
+<!-- <script src="js/naviLeft.js"></script> -->
 
 <!-- Dropdown Menu -->
 <div class="dropdown-center_naviTop">
@@ -74,12 +74,8 @@
                 class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu">
                 </button>
                 <ul class="dropdown-menu top" id="setting-menu-top">
-                    <li class="setting-UI-top" style="display: flex; justify-content: space-between">
-                        <span>Giao diện</span>
-                        <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                            </svg></div>
-                        </li>
+                    <li id="light">Nền sáng</li>
+                    <li id="dark">Nền tối</li>
                     <li>Thông tin chi tiết</li>
                     <li>Cài đặt</li>
                     <li>Đã lưu</li>
@@ -98,19 +94,58 @@
     </div>
 </div>       
 
-<!-- <script>
-    document.querySelector('.setting-UI-top').addEventListener('click', function () {
-        document.getElementById('setting-trans-top').style.display = 'block';
-        document.getElementById('setting-trans-top').classList.add('setting-trans-top-active');
-        document.getElementById('setting-menu-top').style.display = 'none';
-    });   
-
-    document.getElementById('return-setting-menu-top').addEventListener('click', function () {
-        const settingTransTop = document.getElementById('setting-trans-top');
-        const settingMenuTop = document.getElementById('setting-menu-top');
-        
-        settingTransTop.style.display = 'none';
-        settingTransTop.classList.remove('setting-trans-top-active');
-        settingMenuTop.style.display = 'block';
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const root = document.documentElement;
+        const lightButton = document.getElementById('light'); // Sử dụng ID thay vì class
+        const darkButton = document.getElementById('dark'); // Sử dụng ID thay vì class
+    
+        // Hàm đặt chế độ dark
+        function setDarkMode() {
+            root.style.setProperty('--white', '#FAFAFA');
+            root.style.setProperty('--black', 'black');
+            root.style.setProperty('--post', '#171717');
+            root.style.setProperty('--border', '#3b3a3a');
+            root.style.setProperty('--hover', '#333333');
+            root.style.setProperty('--iconInPost', '#888');
+            root.style.setProperty('--taskbar-bot', '#0e0d0d8a');
+            root.style.setProperty('--navibot', '#0e0d0d00');
+            root.style.setProperty('--hover-navibot', '#191919');
+            root.style.setProperty('--scroll-btn', '#222222');
+            root.style.setProperty('--scroll-btn-hover', '#555');
+            root.style.setProperty('--msg', 'gold');
+            localStorage.setItem('theme', 'dark'); // Lưu trạng thái là dark
+        }
+    
+        // Hàm đặt chế độ light
+        function setLightMode() {
+            root.style.setProperty('--white', 'black');
+            root.style.setProperty('--black', '#FAFAFA');
+            root.style.setProperty('--post', 'white');
+            root.style.setProperty('--border', '#DDDDDD');
+            root.style.setProperty('--hover', '#D7D7D7');
+            root.style.setProperty('--iconInPost', '#555');
+            root.style.setProperty('--taskbar-bot', '#F0F0F0');
+            root.style.setProperty('--navibot', '#F0F0F0');
+            root.style.setProperty('--hover-navibot', '#E6E6E6');
+            root.style.setProperty('--scroll-btn', '#E1E1E1');
+            root.style.setProperty('--scroll-btn-hover', '#ccc');
+            root.style.setProperty('--msg', 'red');
+            localStorage.setItem('theme', 'light'); // Lưu trạng thái là light
+        }
+    
+        // Gắn sự kiện click vào lightButton (để chọn chế độ light)
+        lightButton.addEventListener('click', setLightMode);
+    
+        // Gắn sự kiện click vào darkButton (để chọn chế độ dark)
+        darkButton.addEventListener('click', setDarkMode);
+    
+        // Kiểm tra trạng thái lưu trong localStorage và áp dụng khi trang được load
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'dark') {
+            setDarkMode();
+        } else {
+            setLightMode();
+        }
     });
-</script> -->
+    </script>
